@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2nanoid_2_r_e_a_d_m_e" xml:lang="fr">
+<title>Nano ID</title>
+<indexterm><primary>Nano ID</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2nanoid_2_r_e_a_d_m_e_1autotoc_md605"/> </para>
+
+<para><emphasis role="bold">English</emphasis> | Русский | 简体中文 | Bahasa Indonesia</para>
+
+<para>A tiny, secure, URL-friendly, unique string ID generator for JavaScript.</para>
+
+<para><blockquote>
+<para>&#8205;“An amazing level of senseless perfectionism, which is simply impossible not to respect.” </para>
+</blockquote><itemizedlist>
+<listitem>
+<para><emphasis role="bold">Small.</emphasis> 130 bytes (minified and gzipped). No dependencies. <link xlink:href="https://github.com/ai/size-limit">Size Limit</link> controls the size.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Fast.</emphasis> It is 2 times faster than UUID.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Safe.</emphasis> It uses hardware random generator. Can be used in clusters.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Short IDs.</emphasis> It uses a larger alphabet than UUID (<computeroutput>A-Za-z0-9_-</computeroutput>). So ID size was reduced from 36 to 21 symbols.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Portable.</emphasis> Nano ID was ported to 20 programming languages.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>import&#32;{&#32;nanoid&#32;}&#32;from&#32;&apos;nanoid&apos;
+model.id&#32;=&#32;nanoid()&#32;//=&gt;&#32;&quot;V1StGXR8_Z5jdHi6B-myT&quot;
+</computeroutput></literallayout></para>
+
+<para>Supports modern browsers, IE <link xlink:href="https://developer.epages.com/blog/coding/how-to-transpile-node-modules-with-babel-and-webpack-in-a-monorepo/">with Babel</link>, Node.js and React Native.</para>
+
+<para><link xlink:href="https://evilmartians.com/?utm_source=nanoid"> </link></para>
+<section xml:id="_md_node__modules_2nanoid_2_r_e_a_d_m_e_1autotoc_md606">
+<title><title>Docs</title></title>
+
+<para>Read full docs <emphasis role="bold"><link xlink:href="https://github.com/ai/nanoid#readme">here</link></emphasis>. </para>
+</section>
+</section>

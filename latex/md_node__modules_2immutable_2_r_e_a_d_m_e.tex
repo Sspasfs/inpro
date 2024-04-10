@@ -1,0 +1,587 @@
+\chapter{Immutable collections for Java\+Script}
+\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e}{}\label{md_node__modules_2immutable_2_r_e_a_d_m_e}\index{Immutable collections for JavaScript@{Immutable collections for JavaScript}}
+\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md400}%
+\Hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md400}%
+ \href{https://github.com/immutable-js/immutable-js/actions/workflows/ci.yml?query=branch\%3Amain}{\texttt{ }} \href{https://immutable-js.slack.com}{\texttt{ Chat on slack}}
+
+\href{https://immutable-js.com}{\texttt{ Read the docs}} and eat your vegetables.
+
+Docs are automatically generated from \href{https://github.com/immutable-js/immutable-js/blob/main/README.md}{\texttt{ README.\+md}} and \href{https://github.com/immutable-js/immutable-js/blob/main/type-definitions/immutable.d.ts}{\texttt{ immutable.\+d.\+ts}}. Please contribute! Also, don\textquotesingle{}t miss the \href{https://github.com/immutable-js/immutable-js/wiki}{\texttt{ wiki}} which contains articles on additional specific topics. Can\textquotesingle{}t find something? Open an \href{https://github.com/immutable-js/immutable-js/issues}{\texttt{ issue}}.
+
+{\bfseries{Table of contents\+:}}
+
+
+\begin{DoxyItemize}
+\item Introduction
+\item Getting started
+\item The case for Immutability
+\item Java\+Script-\/first API
+\item Nested Structures
+\item Equality treats Collections as Values
+\item Batching Mutations
+\item Lazy Seq
+\item Additional Tools and Resources
+\item Contributing
+\end{DoxyItemize}\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md401}{}\doxysection{\texorpdfstring{Introduction}{Introduction}}\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md401}
+\href{https://en.wikipedia.org/wiki/Immutable_object}{\texttt{ Immutable}} data cannot be changed once created, leading to much simpler application development, no defensive copying, and enabling advanced memoization and change detection techniques with simple logic. \href{https://en.wikipedia.org/wiki/Persistent_data_structure}{\texttt{ Persistent}} data presents a mutative API which does not update the data in-\/place, but instead always yields new updated data.
+
+Immutable.\+js provides many Persistent Immutable data structures including\+: {\ttfamily List}, {\ttfamily Stack}, {\ttfamily Map}, {\ttfamily Ordered\+Map}, {\ttfamily Set}, {\ttfamily Ordered\+Set} and {\ttfamily Record}.
+
+These data structures are highly efficient on modern Java\+Script VMs by using structural sharing via \href{https://en.wikipedia.org/wiki/Hash_array_mapped_trie}{\texttt{ hash maps tries}} and \href{https://hypirion.com/musings/understanding-persistent-vector-pt-1}{\texttt{ vector tries}} as popularized by Clojure and Scala, minimizing the need to copy or cache data.
+
+Immutable.\+js also provides a lazy {\ttfamily Seq}, allowing efficient chaining of collection methods like {\ttfamily map} and {\ttfamily filter} without creating intermediate representations. Create some {\ttfamily Seq} with {\ttfamily Range} and {\ttfamily Repeat}.
+
+Want to hear more? Watch the presentation about Immutable.\+js\+:
+
+\href{https://youtu.be/I7IdS-PbEgI}{\texttt{ }}\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md402}{}\doxysection{\texorpdfstring{Getting started}{Getting started}}\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md402}
+Install {\ttfamily immutable} using npm.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ using\ npm}
+\DoxyCodeLine{npm\ install\ immutable}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ using\ Yarn}
+\DoxyCodeLine{yarn\ add\ immutable}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ using\ pnpm}
+\DoxyCodeLine{pnpm\ add\ immutable}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ using\ Bun}
+\DoxyCodeLine{bun\ add\ immutable}
+
+\end{DoxyCode}
+
+
+Then require it into any module.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ Map\ \}\ =\ require('immutable');}
+\DoxyCodeLine{const\ map1\ =\ Map(\{\ a:\ 1,\ b:\ 2,\ c:\ 3\ \});}
+\DoxyCodeLine{const\ map2\ =\ map1.set('b',\ 50);}
+\DoxyCodeLine{map1.get('b')\ +\ '\ vs.\ '\ +\ map2.get('b');\ //\ 2\ vs.\ 50}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md403}{}\doxysubsection{\texorpdfstring{Browser}{Browser}}\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md403}
+Immutable.\+js has no dependencies, which makes it predictable to include in a Browser.
+
+It\textquotesingle{}s highly recommended to use a module bundler like \href{https://webpack.github.io/}{\texttt{ webpack}}, \href{https://rollupjs.org/}{\texttt{ rollup}}, or \href{https://browserify.org/}{\texttt{ browserify}}. The {\ttfamily immutable} npm module works without any additional consideration. All examples throughout the documentation will assume use of this kind of tool.
+
+Alternatively, Immutable.\+js may be directly included as a script tag. Download or link to a CDN such as \href{https://cdnjs.com/libraries/immutable}{\texttt{ CDNJS}} or \href{https://www.jsdelivr.com/package/npm/immutable}{\texttt{ js\+Delivr}}.
+
+Use a script tag to directly add {\ttfamily Immutable} to the global scope\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<script\ src="{}immutable.min.js"{}></script>}
+\DoxyCodeLine{<script>}
+\DoxyCodeLine{\ \ var\ map1\ =\ Immutable.Map(\{\ a:\ 1,\ b:\ 2,\ c:\ 3\ \});}
+\DoxyCodeLine{\ \ var\ map2\ =\ map1.set('b',\ 50);}
+\DoxyCodeLine{\ \ map1.get('b');\ //\ 2}
+\DoxyCodeLine{\ \ map2.get('b');\ //\ 50}
+\DoxyCodeLine{</script>}
+
+\end{DoxyCode}
+
+
+Or use an AMD-\/style loader (such as \href{https://requirejs.org/}{\texttt{ Require\+JS}})\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{require(['./immutable.min.js'],\ function\ (Immutable)\ \{}
+\DoxyCodeLine{\ \ var\ map1\ =\ Immutable.Map(\{\ a:\ 1,\ b:\ 2,\ c:\ 3\ \});}
+\DoxyCodeLine{\ \ var\ map2\ =\ map1.set('b',\ 50);}
+\DoxyCodeLine{\ \ map1.get('b');\ //\ 2}
+\DoxyCodeLine{\ \ map2.get('b');\ //\ 50}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md404}{}\doxysubsection{\texorpdfstring{Flow \& Type\+Script}{Flow \& Type\+Script}}\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md404}
+Use these Immutable collections and sequences as you would use native collections in your \href{https://flowtype.org/}{\texttt{ Flowtype}} or \href{https://typescriptlang.org}{\texttt{ Type\+Script}} programs while still taking advantage of type generics, error detection, and auto-\/complete in your IDE.
+
+Installing {\ttfamily immutable} via npm brings with it type definitions for Flow (v0.\+55.\+0 or higher) and Type\+Script (v2.\+1.\+0 or higher), so you shouldn\textquotesingle{}t need to do anything at all!\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md405}{}\doxysubsubsection{\texorpdfstring{Using Type\+Script with Immutable.\+js v4}{Using Type\+Script with Immutable.\+js v4}}\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md405}
+Immutable.\+js type definitions embrace ES2015. While Immutable.\+js itself supports legacy browsers and environments, its type definitions require Type\+Script\textquotesingle{}s 2015 lib. Include either {\ttfamily "{}target"{}\+: "{}es2015"{}} or {\ttfamily "{}lib"{}\+: "{}es2015"{}} in your {\ttfamily tsconfig.\+json}, or provide {\ttfamily -\/-\/target es2015} or {\ttfamily -\/-\/lib es2015} to the {\ttfamily tsc} command.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ Map\ \}\ =\ require('immutable');}
+\DoxyCodeLine{const\ map1\ =\ Map(\{\ a:\ 1,\ b:\ 2,\ c:\ 3\ \});}
+\DoxyCodeLine{const\ map2\ =\ map1.set('b',\ 50);}
+\DoxyCodeLine{map1.get('b')\ +\ '\ vs.\ '\ +\ map2.get('b');\ //\ 2\ vs.\ 50}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md406}{}\doxysubsubsection{\texorpdfstring{Using Type\+Script with Immutable.\+js v3 and earlier\+:}{Using Type\+Script with Immutable.\+js v3 and earlier\+:}}\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md406}
+Previous versions of Immutable.\+js include a reference file which you can include via relative path to the type definitions at the top of your file.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{///<reference\ path='./node\_modules/immutable/dist/immutable.d.ts'/>}
+\DoxyCodeLine{import\ Immutable\ from\ 'immutable';}
+\DoxyCodeLine{var\ map1:\ Immutable.Map<string,\ number>;}
+\DoxyCodeLine{map1\ =\ Immutable.Map(\{\ a:\ 1,\ b:\ 2,\ c:\ 3\ \});}
+\DoxyCodeLine{var\ map2\ =\ map1.set('b',\ 50);}
+\DoxyCodeLine{map1.get('b');\ //\ 2}
+\DoxyCodeLine{map2.get('b');\ //\ 50}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md407}{}\doxysection{\texorpdfstring{The case for Immutability}{The case for Immutability}}\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md407}
+Much of what makes application development difficult is tracking mutation and maintaining state. Developing with immutable data encourages you to think differently about how data flows through your application.
+
+Subscribing to data events throughout your application creates a huge overhead of book-\/keeping which can hurt performance, sometimes dramatically, and creates opportunities for areas of your application to get out of sync with each other due to easy to make programmer error. Since immutable data never changes, subscribing to changes throughout the model is a dead-\/end and new data can only ever be passed from above.
+
+This model of data flow aligns well with the architecture of \href{https://reactjs.org/}{\texttt{ React}} and especially well with an application designed using the ideas of \href{https://facebook.github.io/flux/docs/in-depth-overview/}{\texttt{ Flux}}.
+
+When data is passed from above rather than being subscribed to, and you\textquotesingle{}re only interested in doing work when something has changed, you can use equality.
+
+Immutable collections should be treated as {\itshape values} rather than {\itshape objects}. While objects represent some thing which could change over time, a value represents the state of that thing at a particular instance of time. This principle is most important to understanding the appropriate use of immutable data. In order to treat Immutable.\+js collections as values, it\textquotesingle{}s important to use the {\ttfamily Immutable.\+is()} function or {\ttfamily .equals()} method to determine {\itshape value equality} instead of the {\ttfamily ===} operator which determines object {\itshape reference identity}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ Map\ \}\ =\ require('immutable');}
+\DoxyCodeLine{const\ map1\ =\ Map(\{\ a:\ 1,\ b:\ 2,\ c:\ 3\ \});}
+\DoxyCodeLine{const\ map2\ =\ Map(\{\ a:\ 1,\ b:\ 2,\ c:\ 3\ \});}
+\DoxyCodeLine{map1.equals(map2);\ //\ true}
+\DoxyCodeLine{map1\ ===\ map2;\ //\ false}
+
+\end{DoxyCode}
+
+
+Note\+: As a performance optimization Immutable.\+js attempts to return the existing collection when an operation would result in an identical collection, allowing for using {\ttfamily ===} reference equality to determine if something definitely has not changed. This can be extremely useful when used within a memoization function which would prefer to re-\/run the function if a deeper equality check could potentially be more costly. The {\ttfamily ===} equality check is also used internally by {\ttfamily Immutable.\+is} and {\ttfamily .equals()} as a performance optimization.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ Map\ \}\ =\ require('immutable');}
+\DoxyCodeLine{const\ map1\ =\ Map(\{\ a:\ 1,\ b:\ 2,\ c:\ 3\ \});}
+\DoxyCodeLine{const\ map2\ =\ map1.set('b',\ 2);\ //\ Set\ to\ same\ value}
+\DoxyCodeLine{map1\ ===\ map2;\ //\ true}
+
+\end{DoxyCode}
+
+
+If an object is immutable, it can be "{}copied"{} simply by making another reference to it instead of copying the entire object. Because a reference is much smaller than the object itself, this results in memory savings and a potential boost in execution speed for programs which rely on copies (such as an undo-\/stack).
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ Map\ \}\ =\ require('immutable');}
+\DoxyCodeLine{const\ map\ =\ Map(\{\ a:\ 1,\ b:\ 2,\ c:\ 3\ \});}
+\DoxyCodeLine{const\ mapCopy\ =\ map;\ //\ Look,\ "{}copies"{}\ are\ free!}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md408}{}\doxysection{\texorpdfstring{Java\+Script-\/first API}{Java\+Script-\/first API}}\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md408}
+While Immutable.\+js is inspired by Clojure, Scala, Haskell and other functional programming environments, it\textquotesingle{}s designed to bring these powerful concepts to Java\+Script, and therefore has an Object-\/\+Oriented API that closely mirrors that of \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla}{\texttt{ ES2015}} \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array}{\texttt{ Array}}, \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map}{\texttt{ Map}}, and \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set}{\texttt{ Set}}.
+
+The difference for the immutable collections is that methods which would mutate the collection, like {\ttfamily push}, {\ttfamily set}, {\ttfamily unshift} or {\ttfamily splice}, instead return a new immutable collection. Methods which return new arrays, like {\ttfamily slice} or {\ttfamily concat}, instead return new immutable collections.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ List\ \}\ =\ require('immutable');}
+\DoxyCodeLine{const\ list1\ =\ List([1,\ 2]);}
+\DoxyCodeLine{const\ list2\ =\ list1.push(3,\ 4,\ 5);}
+\DoxyCodeLine{const\ list3\ =\ list2.unshift(0);}
+\DoxyCodeLine{const\ list4\ =\ list1.concat(list2,\ list3);}
+\DoxyCodeLine{assert.equal(list1.size,\ 2);}
+\DoxyCodeLine{assert.equal(list2.size,\ 5);}
+\DoxyCodeLine{assert.equal(list3.size,\ 6);}
+\DoxyCodeLine{assert.equal(list4.size,\ 13);}
+\DoxyCodeLine{assert.equal(list4.get(0),\ 1);}
+
+\end{DoxyCode}
+
+
+Almost all of the methods on \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array}{\texttt{ Array}} will be found in similar form on {\ttfamily Immutable.\+List}, those of \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map}{\texttt{ Map}} found on {\ttfamily Immutable.\+Map}, and those of \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set}{\texttt{ Set}} found on {\ttfamily Immutable.\+Set}, including collection operations like {\ttfamily for\+Each()} and {\ttfamily map()}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ Map\ \}\ =\ require('immutable');}
+\DoxyCodeLine{const\ alpha\ =\ Map(\{\ a:\ 1,\ b:\ 2,\ c:\ 3,\ d:\ 4\ \});}
+\DoxyCodeLine{alpha.map((v,\ k)\ =>\ k.toUpperCase()).join();}
+\DoxyCodeLine{//\ 'A,B,C,D'}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md409}{}\doxysubsection{\texorpdfstring{Convert from raw Java\+Script objects and arrays.}{Convert from raw Java\+Script objects and arrays.}}\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md409}
+Designed to inter-\/operate with your existing Java\+Script, Immutable.\+js accepts plain Java\+Script Arrays and Objects anywhere a method expects a {\ttfamily Collection}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ Map,\ List\ \}\ =\ require('immutable');}
+\DoxyCodeLine{const\ map1\ =\ Map(\{\ a:\ 1,\ b:\ 2,\ c:\ 3,\ d:\ 4\ \});}
+\DoxyCodeLine{const\ map2\ =\ Map(\{\ c:\ 10,\ a:\ 20,\ t:\ 30\ \});}
+\DoxyCodeLine{const\ obj\ =\ \{\ d:\ 100,\ o:\ 200,\ g:\ 300\ \};}
+\DoxyCodeLine{const\ map3\ =\ map1.merge(map2,\ obj);}
+\DoxyCodeLine{//\ Map\ \{\ a:\ 20,\ b:\ 2,\ c:\ 10,\ d:\ 100,\ t:\ 30,\ o:\ 200,\ g:\ 300\ \}}
+\DoxyCodeLine{const\ list1\ =\ List([1,\ 2,\ 3]);}
+\DoxyCodeLine{const\ list2\ =\ List([4,\ 5,\ 6]);}
+\DoxyCodeLine{const\ array\ =\ [7,\ 8,\ 9];}
+\DoxyCodeLine{const\ list3\ =\ list1.concat(list2,\ array);}
+\DoxyCodeLine{//\ List\ [\ 1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9\ ]}
+
+\end{DoxyCode}
+
+
+This is possible because Immutable.\+js can treat any Java\+Script Array or Object as a Collection. You can take advantage of this in order to get sophisticated collection methods on Java\+Script Objects, which otherwise have a very sparse native API. Because Seq evaluates lazily and does not cache intermediate results, these operations can be extremely efficient.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ Seq\ \}\ =\ require('immutable');}
+\DoxyCodeLine{const\ myObject\ =\ \{\ a:\ 1,\ b:\ 2,\ c:\ 3\ \};}
+\DoxyCodeLine{Seq(myObject)}
+\DoxyCodeLine{\ \ .map(x\ =>\ x\ *\ x)}
+\DoxyCodeLine{\ \ .toObject();}
+\DoxyCodeLine{//\ \{\ a:\ 1,\ b:\ 4,\ c:\ 9\ \}}
+
+\end{DoxyCode}
+
+
+Keep in mind, when using JS objects to construct Immutable Maps, that Java\+Script Object properties are always strings, even if written in a quote-\/less shorthand, while Immutable Maps accept keys of any type.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ fromJS\ \}\ =\ require('immutable');}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ obj\ =\ \{\ 1:\ 'one'\ \};}
+\DoxyCodeLine{console.log(Object.keys(obj));\ //\ [\ "{}1"{}\ ]}
+\DoxyCodeLine{console.log(obj['1'],\ obj[1]);\ //\ "{}one"{},\ "{}one"{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ map\ =\ fromJS(obj);}
+\DoxyCodeLine{console.log(map.get('1'),\ map.get(1));\ //\ "{}one"{},\ undefined}
+
+\end{DoxyCode}
+
+
+Property access for Java\+Script Objects first converts the key to a string, but since Immutable Map keys can be of any type the argument to {\ttfamily get()} is not altered.\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md410}{}\doxysubsection{\texorpdfstring{Converts back to raw Java\+Script objects.}{Converts back to raw Java\+Script objects.}}\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md410}
+All Immutable.\+js Collections can be converted to plain Java\+Script Arrays and Objects shallowly with {\ttfamily to\+Array()} and {\ttfamily to\+Object()} or deeply with {\ttfamily to\+JS()}. All Immutable Collections also implement {\ttfamily to\+JSON()} allowing them to be passed to {\ttfamily JSON.\+stringify} directly. They also respect the custom {\ttfamily to\+JSON()} methods of nested objects.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ Map,\ List\ \}\ =\ require('immutable');}
+\DoxyCodeLine{const\ deep\ =\ Map(\{\ a:\ 1,\ b:\ 2,\ c:\ List([3,\ 4,\ 5])\ \});}
+\DoxyCodeLine{console.log(deep.toObject());\ //\ \{\ a:\ 1,\ b:\ 2,\ c:\ List\ [\ 3,\ 4,\ 5\ ]\ \}}
+\DoxyCodeLine{console.log(deep.toArray());\ //\ [\ 1,\ 2,\ List\ [\ 3,\ 4,\ 5\ ]\ ]}
+\DoxyCodeLine{console.log(deep.toJS());\ //\ \{\ a:\ 1,\ b:\ 2,\ c:\ [\ 3,\ 4,\ 5\ ]\ \}}
+\DoxyCodeLine{JSON.stringify(deep);\ //\ '\{"{}a"{}:1,"{}b"{}:2,"{}c"{}:[3,4,5]\}'}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md411}{}\doxysubsection{\texorpdfstring{Embraces ES2015}{Embraces ES2015}}\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md411}
+Immutable.\+js supports all Java\+Script environments, including legacy browsers (even IE11). However it also takes advantage of features added to Java\+Script in \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla}{\texttt{ ES2015}}, the latest standard version of Java\+Script, including \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/The_Iterator_protocol}{\texttt{ Iterators}}, \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions}{\texttt{ Arrow Functions}}, \href{https://wiki.ecmascript.org/doku.php?id=strawman:maximally_minimal_classes}{\texttt{ Classes}}, and \href{https://www.2ality.com/2014/09/es6-modules-final.html}{\texttt{ Modules}}. It\textquotesingle{}s inspired by the native \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map}{\texttt{ Map}} and \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set}{\texttt{ Set}} collections added to ES2015.
+
+All examples in the Documentation are presented in ES2015. To run in all browsers, they need to be translated to ES5.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ ES2015}
+\DoxyCodeLine{const\ mapped\ =\ foo.map(x\ =>\ x\ *\ x);}
+\DoxyCodeLine{//\ ES5}
+\DoxyCodeLine{var\ mapped\ =\ foo.map(function\ (x)\ \{}
+\DoxyCodeLine{\ \ return\ x\ *\ x;}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+All Immutable.\+js collections are \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/The_Iterator_protocol}{\texttt{ Iterable}}, which allows them to be used anywhere an Iterable is expected, such as when spreading into an Array.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ List\ \}\ =\ require('immutable');}
+\DoxyCodeLine{const\ aList\ =\ List([1,\ 2,\ 3]);}
+\DoxyCodeLine{const\ anArray\ =\ [0,\ ...aList,\ 4,\ 5];\ //\ [\ 0,\ 1,\ 2,\ 3,\ 4,\ 5\ ]}
+
+\end{DoxyCode}
+
+
+Note\+: A Collection is always iterated in the same order, however that order may not always be well defined, as is the case for the {\ttfamily Map} and {\ttfamily Set}.\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md412}{}\doxysection{\texorpdfstring{Nested Structures}{Nested Structures}}\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md412}
+The collections in Immutable.\+js are intended to be nested, allowing for deep trees of data, similar to JSON.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ fromJS\ \}\ =\ require('immutable');}
+\DoxyCodeLine{const\ nested\ =\ fromJS(\{\ a:\ \{\ b:\ \{\ c:\ [3,\ 4,\ 5]\ \}\ \}\ \});}
+\DoxyCodeLine{//\ Map\ \{\ a:\ Map\ \{\ b:\ Map\ \{\ c:\ List\ [\ 3,\ 4,\ 5\ ]\ \}\ \}\ \}}
+
+\end{DoxyCode}
+
+
+A few power-\/tools allow for reading and operating on nested data. The most useful are {\ttfamily merge\+Deep}, {\ttfamily get\+In}, {\ttfamily set\+In}, and {\ttfamily update\+In}, found on {\ttfamily List}, {\ttfamily Map} and {\ttfamily Ordered\+Map}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ fromJS\ \}\ =\ require('immutable');}
+\DoxyCodeLine{const\ nested\ =\ fromJS(\{\ a:\ \{\ b:\ \{\ c:\ [3,\ 4,\ 5]\ \}\ \}\ \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ nested2\ =\ nested.mergeDeep(\{\ a:\ \{\ b:\ \{\ d:\ 6\ \}\ \}\ \});}
+\DoxyCodeLine{//\ Map\ \{\ a:\ Map\ \{\ b:\ Map\ \{\ c:\ List\ [\ 3,\ 4,\ 5\ ],\ d:\ 6\ \}\ \}\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(nested2.getIn(['a',\ 'b',\ 'd']));\ //\ 6}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ nested3\ =\ nested2.updateIn(['a',\ 'b',\ 'd'],\ value\ =>\ value\ +\ 1);}
+\DoxyCodeLine{console.log(nested3);}
+\DoxyCodeLine{//\ Map\ \{\ a:\ Map\ \{\ b:\ Map\ \{\ c:\ List\ [\ 3,\ 4,\ 5\ ],\ d:\ 7\ \}\ \}\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ nested4\ =\ nested3.updateIn(['a',\ 'b',\ 'c'],\ list\ =>\ list.push(6));}
+\DoxyCodeLine{//\ Map\ \{\ a:\ Map\ \{\ b:\ Map\ \{\ c:\ List\ [\ 3,\ 4,\ 5,\ 6\ ],\ d:\ 7\ \}\ \}\ \}}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md413}{}\doxysection{\texorpdfstring{Equality treats Collections as Values}{Equality treats Collections as Values}}\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md413}
+Immutable.\+js collections are treated as pure data {\itshape values}. Two immutable collections are considered {\itshape value equal} (via {\ttfamily .equals()} or {\ttfamily is()}) if they represent the same collection of values. This differs from Java\+Script\textquotesingle{}s typical {\itshape reference equal} (via {\ttfamily ===} or {\ttfamily ==}) for Objects and Arrays which only determines if two variables represent references to the same object instance.
+
+Consider the example below where two identical {\ttfamily Map} instances are not {\itshape reference equal} but are {\itshape value equal}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ First\ consider:}
+\DoxyCodeLine{const\ obj1\ =\ \{\ a:\ 1,\ b:\ 2,\ c:\ 3\ \};}
+\DoxyCodeLine{const\ obj2\ =\ \{\ a:\ 1,\ b:\ 2,\ c:\ 3\ \};}
+\DoxyCodeLine{obj1\ !==\ obj2;\ //\ two\ different\ instances\ are\ always\ not\ equal\ with\ ===}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ \{\ Map,\ is\ \}\ =\ require('immutable');}
+\DoxyCodeLine{const\ map1\ =\ Map(\{\ a:\ 1,\ b:\ 2,\ c:\ 3\ \});}
+\DoxyCodeLine{const\ map2\ =\ Map(\{\ a:\ 1,\ b:\ 2,\ c:\ 3\ \});}
+\DoxyCodeLine{map1\ !==\ map2;\ //\ two\ different\ instances\ are\ not\ reference-\/equal}
+\DoxyCodeLine{map1.equals(map2);\ //\ but\ are\ value-\/equal\ if\ they\ have\ the\ same\ values}
+\DoxyCodeLine{is(map1,\ map2);\ //\ alternatively\ can\ use\ the\ is()\ function}
+
+\end{DoxyCode}
+
+
+Value equality allows Immutable.\+js collections to be used as keys in Maps or values in Sets, and retrieved with different but equivalent collections\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ Map,\ Set\ \}\ =\ require('immutable');}
+\DoxyCodeLine{const\ map1\ =\ Map(\{\ a:\ 1,\ b:\ 2,\ c:\ 3\ \});}
+\DoxyCodeLine{const\ map2\ =\ Map(\{\ a:\ 1,\ b:\ 2,\ c:\ 3\ \});}
+\DoxyCodeLine{const\ set\ =\ Set().add(map1);}
+\DoxyCodeLine{set.has(map2);\ //\ true\ because\ these\ are\ value-\/equal}
+
+\end{DoxyCode}
+
+
+Note\+: {\ttfamily is()} uses the same measure of equality as \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is}{\texttt{ Object.\+is}} for scalar strings and numbers, but uses value equality for Immutable collections, determining if both are immutable and all keys and values are equal using the same measure of equality.\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md414}{}\doxysubsubsection{\texorpdfstring{Performance tradeoffs}{Performance tradeoffs}}\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md414}
+While value equality is useful in many circumstances, it has different performance characteristics than reference equality. Understanding these tradeoffs may help you decide which to use in each case, especially when used to memoize some operation.
+
+When comparing two collections, value equality may require considering every item in each collection, on an {\ttfamily O(\+N)} time complexity. For large collections of values, this could become a costly operation. Though if the two are not equal and hardly similar, the inequality is determined very quickly. In contrast, when comparing two collections with reference equality, only the initial references to memory need to be compared which is not based on the size of the collections, which has an {\ttfamily O(1)} time complexity. Checking reference equality is always very fast, however just because two collections are not reference-\/equal does not rule out the possibility that they may be value-\/equal.\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md415}{}\doxysubsubsection{\texorpdfstring{Return self on no-\/op optimization}{Return self on no-\/op optimization}}\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md415}
+When possible, Immutable.\+js avoids creating new objects for updates where no change in {\itshape value} occurred, to allow for efficient {\itshape reference equality} checking to quickly determine if no change occurred.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ Map\ \}\ =\ require('immutable');}
+\DoxyCodeLine{const\ originalMap\ =\ Map(\{\ a:\ 1,\ b:\ 2,\ c:\ 3\ \});}
+\DoxyCodeLine{const\ updatedMap\ =\ originalMap.set('b',\ 2);}
+\DoxyCodeLine{updatedMap\ ===\ originalMap;\ //\ No-\/op\ .set()\ returned\ the\ original\ reference.}
+
+\end{DoxyCode}
+
+
+However updates which do result in a change will return a new reference. Each of these operations occur independently, so two similar updates will not return the same reference\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ Map\ \}\ =\ require('immutable');}
+\DoxyCodeLine{const\ originalMap\ =\ Map(\{\ a:\ 1,\ b:\ 2,\ c:\ 3\ \});}
+\DoxyCodeLine{const\ updatedMap\ =\ originalMap.set('b',\ 1000);}
+\DoxyCodeLine{//\ New\ instance,\ leaving\ the\ original\ immutable.}
+\DoxyCodeLine{updatedMap\ !==\ originalMap;}
+\DoxyCodeLine{const\ anotherUpdatedMap\ =\ originalMap.set('b',\ 1000);}
+\DoxyCodeLine{//\ Despite\ both\ the\ results\ of\ the\ same\ operation,\ each\ created\ a\ new\ reference.}
+\DoxyCodeLine{anotherUpdatedMap\ !==\ updatedMap;}
+\DoxyCodeLine{//\ However\ the\ two\ are\ value\ equal.}
+\DoxyCodeLine{anotherUpdatedMap.equals(updatedMap);}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md416}{}\doxysection{\texorpdfstring{Batching Mutations}{Batching Mutations}}\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md416}
+\begin{quote}
+If a tree falls in the woods, does it make a sound?
+
+If a pure function mutates some local data in order to produce an immutable return value, is that ok?
+
+— Rich Hickey, Clojure \end{quote}
+Applying a mutation to create a new immutable object results in some overhead, which can add up to a minor performance penalty. If you need to apply a series of mutations locally before returning, Immutable.\+js gives you the ability to create a temporary mutable (transient) copy of a collection and apply a batch of mutations in a performant manner by using {\ttfamily with\+Mutations}. In fact, this is exactly how Immutable.\+js applies complex mutations itself.
+
+As an example, building {\ttfamily list2} results in the creation of 1, not 3, new immutable Lists.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ List\ \}\ =\ require('immutable');}
+\DoxyCodeLine{const\ list1\ =\ List([1,\ 2,\ 3]);}
+\DoxyCodeLine{const\ list2\ =\ list1.withMutations(function\ (list)\ \{}
+\DoxyCodeLine{\ \ list.push(4).push(5).push(6);}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{assert.equal(list1.size,\ 3);}
+\DoxyCodeLine{assert.equal(list2.size,\ 6);}
+
+\end{DoxyCode}
+
+
+Note\+: Immutable.\+js also provides {\ttfamily as\+Mutable} and {\ttfamily as\+Immutable}, but only encourages their use when {\ttfamily with\+Mutations} will not suffice. Use caution to not return a mutable copy, which could result in undesired behavior.
+
+{\itshape Important!}\+: Only a select few methods can be used in {\ttfamily with\+Mutations} including {\ttfamily set}, {\ttfamily push} and {\ttfamily pop}. These methods can be applied directly against a persistent data-\/structure where other methods like {\ttfamily map}, {\ttfamily filter}, {\ttfamily sort}, and {\ttfamily splice} will always return new immutable data-\/structures and never mutate a mutable collection.\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md417}{}\doxysection{\texorpdfstring{Lazy Seq}{Lazy Seq}}\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md417}
+{\ttfamily Seq} describes a lazy operation, allowing them to efficiently chain use of all the higher-\/order collection methods (such as {\ttfamily map} and {\ttfamily filter}) by not creating intermediate collections.
+
+{\bfseries{Seq is immutable}} — Once a Seq is created, it cannot be changed, appended to, rearranged or otherwise modified. Instead, any mutative method called on a {\ttfamily Seq} will return a new {\ttfamily Seq}.
+
+{\bfseries{Seq is lazy}} — {\ttfamily Seq} does as little work as necessary to respond to any method call. Values are often created during iteration, including implicit iteration when reducing or converting to a concrete data structure such as a {\ttfamily List} or Java\+Script {\ttfamily Array}.
+
+For example, the following performs no work, because the resulting {\ttfamily Seq}\textquotesingle{}s values are never iterated\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ Seq\ \}\ =\ require('immutable');}
+\DoxyCodeLine{const\ oddSquares\ =\ Seq([1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8])}
+\DoxyCodeLine{\ \ .filter(x\ =>\ x\ \%\ 2\ !==\ 0)}
+\DoxyCodeLine{\ \ .map(x\ =>\ x\ *\ x);}
+
+\end{DoxyCode}
+
+
+Once the {\ttfamily Seq} is used, it performs only the work necessary. In this example, no intermediate arrays are ever created, filter is called three times, and map is only called once\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{oddSquares.get(1);\ //\ 9}
+
+\end{DoxyCode}
+
+
+Any collection can be converted to a lazy Seq with {\ttfamily Seq()}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ Map,\ Seq\ \}\ =\ require('immutable');}
+\DoxyCodeLine{const\ map\ =\ Map(\{\ a:\ 1,\ b:\ 2,\ c:\ 3\ \});}
+\DoxyCodeLine{const\ lazySeq\ =\ Seq(map);}
+
+\end{DoxyCode}
+
+
+{\ttfamily Seq} allows for the efficient chaining of operations, allowing for the expression of logic that can otherwise be very tedious\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{lazySeq}
+\DoxyCodeLine{\ \ .flip()}
+\DoxyCodeLine{\ \ .map(key\ =>\ key.toUpperCase())}
+\DoxyCodeLine{\ \ .flip();}
+\DoxyCodeLine{//\ Seq\ \{\ A:\ 1,\ B:\ 2,\ C:\ 3\ \}}
+
+\end{DoxyCode}
+
+
+As well as expressing logic that would otherwise seem memory or time limited, for example {\ttfamily Range} is a special kind of Lazy sequence.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ Range\ \}\ =\ require('immutable');}
+\DoxyCodeLine{Range(1,\ Infinity)}
+\DoxyCodeLine{\ \ .skip(1000)}
+\DoxyCodeLine{\ \ .map(n\ =>\ -\/n)}
+\DoxyCodeLine{\ \ .filter(n\ =>\ n\ \%\ 2\ ===\ 0)}
+\DoxyCodeLine{\ \ .take(2)}
+\DoxyCodeLine{\ \ .reduce((r,\ n)\ =>\ r\ *\ n,\ 1);}
+\DoxyCodeLine{//\ 1006008}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md418}{}\doxysection{\texorpdfstring{Comparison of filter(), group\+By(), and partition()}{Comparison of filter(), group\+By(), and partition()}}\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md418}
+The {\ttfamily filter()}, {\ttfamily group\+By()}, and {\ttfamily partition()} methods are similar in that they all divide a collection into parts based on applying a function to each element. All three call the predicate or grouping function once for each item in the input collection. All three return zero or more collections of the same type as their input. The returned collections are always distinct from the input (according to {\ttfamily ===}), even if the contents are identical.
+
+Of these methods, {\ttfamily filter()} is the only one that is lazy and the only one which discards items from the input collection. It is the simplest to use, and the fact that it returns exactly one collection makes it easy to combine with other methods to form a pipeline of operations.
+
+The {\ttfamily partition()} method is similar to an eager version of {\ttfamily filter()}, but it returns two collections; the first contains the items that would have been discarded by {\ttfamily filter()}, and the second contains the items that would have been kept. It always returns an array of exactly two collections, which can make it easier to use than {\ttfamily group\+By()}. Compared to making two separate calls to {\ttfamily filter()}, {\ttfamily partition()} makes half as many calls it the predicate passed to it.
+
+The {\ttfamily group\+By()} method is a more generalized version of {\ttfamily partition()} that can group by an arbitrary function rather than just a predicate. It returns a map with zero or more entries, where the keys are the values returned by the grouping function, and the values are nonempty collections of the corresponding arguments. Although {\ttfamily group\+By()} is more powerful than {\ttfamily partition()}, it can be harder to use because it is not always possible predict in advance how many entries the returned map will have and what their keys will be.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Summary   }&\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily filter}   }&\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily partition}   }&\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily group\+By}    }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Summary   }&\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily filter}   }&\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily partition}   }&\cellcolor{\tableheadbgcolor}\textbf{ {\ttfamily group\+By}    }\\\cline{1-4}
+\endhead
+ease of use   &easiest   &moderate   &hardest    \\\cline{1-4}
+generality   &least   &moderate   &most    \\\cline{1-4}
+laziness   &lazy   &eager   &eager    \\\cline{1-4}
+\# of returned sub-\/collections   &1   &2   &0 or more    \\\cline{1-4}
+sub-\/collections may be empty   &yes   &yes   &no    \\\cline{1-4}
+can discard items   &yes   &no   &no    \\\cline{1-4}
+wrapping container   &none   &array   &Map/\+Ordered\+Map   \\\cline{1-4}
+\end{longtabu}
+\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md419}{}\doxysection{\texorpdfstring{Additional Tools and Resources}{Additional Tools and Resources}}\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md419}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/jameshopkins/atom-store/}{\texttt{ Atom-\/store}}
+\begin{DoxyItemize}
+\item A Clojure-\/inspired atom implementation in Javascript with configurability for external persistance.
+\end{DoxyItemize}
+\item \href{https://github.com/astorije/chai-immutable}{\texttt{ Chai Immutable}}
+\begin{DoxyItemize}
+\item If you are using the \href{https://chaijs.com/}{\texttt{ Chai Assertion Library}}, this provides a set of assertions to use against Immutable.\+js collections.
+\end{DoxyItemize}
+\item \href{https://github.com/fantasyland/fantasy-land}{\texttt{ Fantasy-\/land}}
+\begin{DoxyItemize}
+\item Specification for interoperability of common algebraic structures in Java\+Script.
+\end{DoxyItemize}
+\item \href{https://github.com/pelotom/immutagen}{\texttt{ Immutagen}}
+\begin{DoxyItemize}
+\item A library for simulating immutable generators in Java\+Script.
+\end{DoxyItemize}
+\item \href{https://github.com/redbadger/immutable-cursor}{\texttt{ Immutable-\/cursor}}
+\begin{DoxyItemize}
+\item Immutable cursors incorporating the Immutable.\+js interface over Clojure-\/inspired atom.
+\end{DoxyItemize}
+\item \href{https://github.com/DrBoolean/immutable-ext}{\texttt{ Immutable-\/ext}}
+\begin{DoxyItemize}
+\item Fantasyland extensions for immutablejs
+\end{DoxyItemize}
+\item \href{https://github.com/madeinfree/immutable-js-tools}{\texttt{ Immutable-\/js-\/tools}}
+\begin{DoxyItemize}
+\item Util tools for immutable.\+js
+\end{DoxyItemize}
+\item \href{https://github.com/gajus/redux-immutable}{\texttt{ Immutable-\/\+Redux}}
+\begin{DoxyItemize}
+\item redux-\/immutable is used to create an equivalent function of Redux combine\+Reducers that works with Immutable.\+js state.
+\end{DoxyItemize}
+\item \href{https://github.com/lukasbuenger/immutable-treeutils}{\texttt{ Immutable-\/\+Treeutils}}
+\begin{DoxyItemize}
+\item Functional tree traversal helpers for Immutable\+JS data structures.
+\end{DoxyItemize}
+\item \href{https://github.com/ericelliott/irecord}{\texttt{ Irecord}}
+\begin{DoxyItemize}
+\item An immutable store that exposes an Rx\+JS observable. Great for React.
+\end{DoxyItemize}
+\item \href{https://github.com/brianneisler/mudash}{\texttt{ Mudash}}
+\begin{DoxyItemize}
+\item Lodash wrapper providing Immutable.\+JS support.
+\end{DoxyItemize}
+\item \href{https://github.com/HurricaneJames/react-immutable-proptypes}{\texttt{ React-\/\+Immutable-\/\+Prop\+Types}}
+\begin{DoxyItemize}
+\item Prop\+Type validators that work with Immutable.\+js.
+\end{DoxyItemize}
+\item \href{https://github.com/indexiatech/redux-immutablejs}{\texttt{ Redux-\/\+Immutablejs}}
+\begin{DoxyItemize}
+\item Redux Immutable facilities.
+\end{DoxyItemize}
+\item \href{https://github.com/yamalight/rxstate}{\texttt{ Rxstate}}
+\begin{DoxyItemize}
+\item Simple opinionated state management library based on Rx\+JS and Immutable.\+js.
+\end{DoxyItemize}
+\item \href{https://github.com/glenjamin/transit-immutable-js}{\texttt{ Transit-\/\+Immutable-\/js}}
+\begin{DoxyItemize}
+\item Transit serialisation for Immutable.\+js.
+\item See also\+: \href{https://github.com/cognitect/transit-js}{\texttt{ Transit-\/js}}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Have an additional tool designed to work with Immutable.\+js? Submit a PR to add it to this list in alphabetical order.\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md420}{}\doxysection{\texorpdfstring{Contributing}{Contributing}}\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md420}
+Use \href{https://github.com/immutable-js/immutable-js/issues}{\texttt{ Github issues}} for requests.
+
+We actively welcome pull requests, learn how to \href{https://github.com/immutable-js/immutable-js/blob/main/.github/CONTRIBUTING.md}{\texttt{ contribute}}.
+
+Immutable.\+js is maintained within the \href{https://www.contributor-covenant.org/version/2/0/code_of_conduct/}{\texttt{ Contributor Covenant\textquotesingle{}s Code of Conduct}}.\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md421}{}\doxysubsection{\texorpdfstring{Changelog}{Changelog}}\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md421}
+Changes are tracked as \href{https://github.com/immutable-js/immutable-js/releases}{\texttt{ Github releases}}.\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md422}{}\doxysubsection{\texorpdfstring{License}{License}}\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md422}
+Immutable.\+js is \href{./LICENSE}{\texttt{ MIT-\/licensed}}.\hypertarget{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md423}{}\doxysubsection{\texorpdfstring{Thanks}{Thanks}}\label{md_node__modules_2immutable_2_r_e_a_d_m_e_autotoc_md423}
+\href{https://www.youtube.com/watch?v=K2NYwP90bNs}{\texttt{ Phil Bagwell}}, for his inspiration and research in persistent data structures.
+
+\href{https://github.com/hughfdjackson/}{\texttt{ Hugh Jackson}}, for providing the npm package name. If you\textquotesingle{}re looking for his unsupported package, see \href{https://github.com/hughfdjackson/immutable}{\texttt{ this repository}}. 

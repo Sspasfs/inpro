@@ -1,0 +1,99 @@
+\chapter{README}
+\hypertarget{md_node__modules_2vite-plugin-full-reload_2_r_e_a_d_m_e}{}\label{md_node__modules_2vite-plugin-full-reload_2_r_e_a_d_m_e}\index{README@{README}}
+\doxysubsection*{vite-\/plugin-\/full-\/reload}
+
+
+
+Automatically reload the page when files are modified
+
+
+
+\href{https://www.npmjs.com/package/vite-plugin-full-reload}{\texttt{  }} \href{https://github.com/ElMassimo/vite-plugin-full-reload/blob/main/LICENSE.txt}{\texttt{  }} 
+
+~\newline
+\hypertarget{md_node__modules_2vite-plugin-full-reload_2_r_e_a_d_m_e_autotoc_md889}{}\doxysubsection{\texorpdfstring{Why? 🤔}{Why? 🤔}}\label{md_node__modules_2vite-plugin-full-reload_2_r_e_a_d_m_e_autotoc_md889}
+When using {\itshape \mbox{[}Vite Ruby\mbox{]}}, I wanted to see changes to server-\/rendered layouts and templates without having to manually reload the page.
+
+Also, in {\itshape \mbox{[}JS From Routes\mbox{]}} path helpers are generated when Rails reload is triggered.
+
+Triggering a page reload when {\ttfamily config/routes.\+rb} is modified makes the DX very smooth.\hypertarget{md_node__modules_2vite-plugin-full-reload_2_r_e_a_d_m_e_autotoc_md890}{}\doxysubsection{\texorpdfstring{Installation 💿}{Installation 💿}}\label{md_node__modules_2vite-plugin-full-reload_2_r_e_a_d_m_e_autotoc_md890}
+Install the package as a development dependency\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ i\ -\/D\ vite-\/plugin-\/full-\/reload\ \#\ yarn\ add\ -\/D\ vite-\/plugin-\/full-\/reload}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2vite-plugin-full-reload_2_r_e_a_d_m_e_autotoc_md891}{}\doxysubsection{\texorpdfstring{Usage 🚀}{Usage 🚀}}\label{md_node__modules_2vite-plugin-full-reload_2_r_e_a_d_m_e_autotoc_md891}
+Add it to your plugins in {\ttfamily vite.\+config.\+ts}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ \{\ defineConfig\ \}\ from\ 'vite'}
+\DoxyCodeLine{import\ FullReload\ from\ 'vite-\/plugin-\/full-\/reload'}
+\DoxyCodeLine{}
+\DoxyCodeLine{export\ default\ defineConfig(\{}
+\DoxyCodeLine{\ \ plugins:\ [}
+\DoxyCodeLine{\ \ \ \ FullReload(['config/routes.rb',\ 'app/views/**/*'])}
+\DoxyCodeLine{\ \ ],}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+
+
+This is useful to trigger a page refresh for files that are not being imported, such as server-\/rendered templates.
+
+To see which file globbing options are available, check \href{https://github.com/micromatch/picomatch\#globbing-features}{\texttt{ picomatch}}.\hypertarget{md_node__modules_2vite-plugin-full-reload_2_r_e_a_d_m_e_autotoc_md892}{}\doxysubsection{\texorpdfstring{Configuration ⚙️}{Configuration ⚙️}}\label{md_node__modules_2vite-plugin-full-reload_2_r_e_a_d_m_e_autotoc_md892}
+The following options can be provided\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily root}
+
+Files will be resolved against this directory.
+
+{\bfseries{Default\+:}} {\ttfamily process.\+cwd()}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{js}
+\DoxyCodeLine{\ FullReload('config/routes.rb',\ \{\ root:\ \_\_dirname\ \}),}
+
+\end{DoxyCode}
+
+\item {\ttfamily delay}
+
+How many milliseconds to wait before reloading the page after a file change. It can be used to offset slow template compilation in Rails.
+
+{\bfseries{Default\+:}} {\ttfamily 0}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{FullReload('app/views/**/*',\ \{\ delay:\ 100\ \})}
+
+\end{DoxyCode}
+
+\item {\ttfamily always}
+
+Whether to refresh the page even if the modified HTML file is not currently being displayed.
+
+{\bfseries{Default\+:}} {\ttfamily true}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{FullReload('app/views/**/*',\ \{\ always:\ false\ \})}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}\hypertarget{md_node__modules_2vite-plugin-full-reload_2_r_e_a_d_m_e_autotoc_md893}{}\doxysubsection{\texorpdfstring{Acknowledgements}{Acknowledgements}}\label{md_node__modules_2vite-plugin-full-reload_2_r_e_a_d_m_e_autotoc_md893}
+
+\begin{DoxyItemize}
+\item {\ttfamily \href{https://github.com/arnoson/vite-plugin-live-reload}{\texttt{ vite-\/plugin-\/live-\/reload}}}
+
+This is a nice plugin, I found it right before publishing this one.
+
+I\textquotesingle{}ve made \href{https://github.com/arnoson/vite-plugin-live-reload/pull/3}{\texttt{ two}} \href{https://github.com/arnoson/vite-plugin-live-reload/pull/5}{\texttt{ PRs}} that were needed to support these use cases.
+
+At this point in time they are very similar, except this library doesn\textquotesingle{}t create another {\ttfamily chokidar} watcher.
+\end{DoxyItemize}\hypertarget{md_node__modules_2vite-plugin-full-reload_2_r_e_a_d_m_e_autotoc_md894}{}\doxysubsection{\texorpdfstring{License}{License}}\label{md_node__modules_2vite-plugin-full-reload_2_r_e_a_d_m_e_autotoc_md894}
+This library is available as open source under the terms of the \href{https://opensource.org/licenses/MIT}{\texttt{ MIT License}}. 

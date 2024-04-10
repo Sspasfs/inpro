@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_app_1_1_models_1_1_produits" xml:lang="fr">
+<title>Référence de la classe Produits</title>
+<indexterm><primary>Produits</primary></indexterm>
+Graphe d&apos;héritage de Produits:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_models_1_1_produits__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de Produits:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_models_1_1_produits__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_models_1_1_produits_1aeed092534153f2977f4840b0d2e65801">salle</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs publics statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_app_1_1_models_1_1_produits_1a26e733a49083be09fdb16d004becef88">$createRules</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_models_1_1_produits_1a6a90e74ccdf5efd70d51d10c906f8e32">$fillable</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_app_1_1_models_1_1_produits_1aeed092534153f2977f4840b0d2e65801"/><section>
+    <title>salle()</title>
+<indexterm><primary>salle</primary><secondary>Produits</secondary></indexterm>
+<indexterm><primary>Produits</primary><secondary>salle</secondary></indexterm>
+<para><computeroutput>salle ( )</computeroutput></para>
+<para>Définit la relation entre les produits et les salles.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>\Illuminate\Database\Eloquent\Relations\BelongsTo </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_app_1_1_models_1_1_produits_1a26e733a49083be09fdb16d004becef88"/><section>
+    <title>$createRules</title>
+<indexterm><primary>$createRules</primary><secondary>Produits</secondary></indexterm>
+<indexterm><primary>Produits</primary><secondary>$createRules</secondary></indexterm>
+<para><computeroutput>$createRules<computeroutput>[static]</computeroutput></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;name&apos;</emphasis>&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;required|string|max:255&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;category&apos;</emphasis>&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;required|string|max:255&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;serialnumber&apos;</emphasis>&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;required|unique:produits|max:255&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;imei&apos;</emphasis>&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;nullable|required_if:category,Téléphone&#32;Portable|string|max:255&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;lieu&apos;</emphasis>&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;required|string|max:255&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;fournisseur&apos;</emphasis>&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;required|string|max:255&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;etat&apos;</emphasis>&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;required|string|max:255&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;achat&apos;</emphasis>&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;required|date&apos;</emphasis>,
+&#32;&#32;&#32;&#32;]
+</programlisting></section>
+<anchor xml:id="_class_app_1_1_models_1_1_produits_1a6a90e74ccdf5efd70d51d10c906f8e32"/><section>
+    <title>$fillable</title>
+<indexterm><primary>$fillable</primary><secondary>Produits</secondary></indexterm>
+<indexterm><primary>Produits</primary><secondary>$fillable</secondary></indexterm>
+<para><computeroutput>$fillable<computeroutput>[protected]</computeroutput></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;name&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;category&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;serialnumber&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;lieu&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;achat&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;fournisseur&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;imei&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;etat&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;salle&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;salle_id&apos;</emphasis>,
+&#32;&#32;&#32;&#32;]
+</programlisting></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+app/Models/<link linkend="__produits_8php">Produits.php</link></section>
+</section>

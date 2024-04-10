@@ -1,0 +1,879 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>InPro: Changelog</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">InPro
+   </div>
+   <div id="projectbrief">Un site qui inventorie tout le matériel informatique du Campus Eduservices de Vannes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Changelog</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md36"></a> </p>
+<h1><a class="anchor" id="autotoc_md37"></a>
+<a href="https://github.com/axios/axios/compare/v1.6.0...v1.6.1">1.6.1</a> (2023-11-08)</h1>
+<h2><a class="anchor" id="autotoc_md38"></a>
+Bug Fixes</h2>
+<ul>
+<li><b>formdata:</b> fixed content-type header normalization for non-standard browser environments; (<a href="https://github.com/axios/axios/issues/6056">#6056</a>) (<a href="https://github.com/axios/axios/commit/dd465ab22bbfa262c6567be6574bf46a057d5288">dd465ab</a>)</li>
+<li><b>platform:</b> fixed emulated browser detection in node.js environment; (<a href="https://github.com/axios/axios/issues/6055">#6055</a>) (<a href="https://github.com/axios/axios/commit/3dc8369e505e32a4e12c22f154c55fd63ac67fbb">3dc8369</a>)</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md39"></a>
+Contributors to this release</h2>
+<ul>
+<li><img src="https://avatars.githubusercontent.com/u/12586868?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/DigitalBrainJS" title="+432/-65 (#6059 #6056 #6055 )">Dmitriy Mozgovoy</a></li>
+<li><img src="https://avatars.githubusercontent.com/u/3982806?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/meyfa" title="+5/-2 (#5835 )">Fabian Meyer</a></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md40"></a>
+<a href="https://github.com/axios/axios/compare/v1.5.1...v1.6.0">1.6.0</a> (2023-10-26)</h1>
+<h3><a class="anchor" id="autotoc_md41"></a>
+Bug Fixes</h3>
+<ul>
+<li><b>CSRF:</b> fixed CSRF vulnerability CVE-2023-45857 (<a href="https://github.com/axios/axios/issues/6028">#6028</a>) (<a href="https://github.com/axios/axios/commit/96ee232bd3ee4de2e657333d4d2191cd389e14d0">96ee232</a>)</li>
+<li><b>dns:</b> fixed lookup function decorator to work properly in node v20; (<a href="https://github.com/axios/axios/issues/6011">#6011</a>) (<a href="https://github.com/axios/axios/commit/5aaff532a6b820bb9ab6a8cd0f77131b47e2adb8">5aaff53</a>)</li>
+<li><b>types:</b> fix AxiosHeaders types; (<a href="https://github.com/axios/axios/issues/5931">#5931</a>) (<a href="https://github.com/axios/axios/commit/a1c8ad008b3c13d53e135bbd0862587fb9d3fc09">a1c8ad0</a>)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md42"></a>
+PRs</h3>
+<ul>
+<li>CVE 2023 45857 ( <a href="https://api.github.com/repos/axios/axios/pulls/6028">#6028</a> ) <div class="fragment"><div class="line">⚠️ Critical vulnerability fix. See https://security.snyk.io/vuln/SNYK-JS-AXIOS-6032459</div>
+</div><!-- fragment --></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md43"></a>
+Contributors to this release</h3>
+<ul>
+<li><img src="https://avatars.githubusercontent.com/u/12586868?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/DigitalBrainJS" title="+449/-114 (#6032 #6021 #6011 #5932 #5931 )">Dmitriy Mozgovoy</a></li>
+<li><img src="https://avatars.githubusercontent.com/u/63700910?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/valentin-panov" title="+4/-4 (#6028 )">Valentin Panov</a></li>
+<li><img src="https://avatars.githubusercontent.com/u/76877078?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/therealrinku" title="+1/-1 (#5889 )">Rinku Chaudhari</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md44"></a>
+<a href="https://github.com/axios/axios/compare/v1.5.0...v1.5.1">1.5.1</a> (2023-09-26)</h2>
+<h3><a class="anchor" id="autotoc_md45"></a>
+Bug Fixes</h3>
+<ul>
+<li><b>adapters:</b> improved adapters loading logic to have clear error messages; (<a href="https://github.com/axios/axios/issues/5919">#5919</a>) (<a href="https://github.com/axios/axios/commit/e4107797a7a1376f6209fbecfbbce73d3faa7859">e410779</a>)</li>
+<li><b>formdata:</b> fixed automatic addition of the <code>Content-Type</code> header for FormData in non-browser environments; (<a href="https://github.com/axios/axios/issues/5917">#5917</a>) (<a href="https://github.com/axios/axios/commit/bc9af51b1886d1b3529617702f2a21a6c0ed5d92">bc9af51</a>)</li>
+<li><b>headers:</b> allow <code>content-encoding</code> header to handle case-insensitive values (<a href="https://github.com/axios/axios/issues/5890">#5890</a>) (<a href="https://github.com/axios/axios/issues/5892">#5892</a>) (<a href="https://github.com/axios/axios/commit/4c89f25196525e90a6e75eda9cb31ae0a2e18acd">4c89f25</a>)</li>
+<li><b>types:</b> removed duplicated code (<a href="https://github.com/axios/axios/commit/9e6205630e1c9cf863adf141c0edb9e6d8d4b149">9e62056</a>)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md46"></a>
+Contributors to this release</h3>
+<ul>
+<li><img src="https://avatars.githubusercontent.com/u/12586868?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/DigitalBrainJS" title="+89/-18 (#5919 #5917 )">Dmitriy Mozgovoy</a></li>
+<li><img src="https://avatars.githubusercontent.com/u/110460234?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/DavidJDallas" title="+11/-5 ()">David Dallas</a></li>
+<li><img src="https://avatars.githubusercontent.com/u/71556073?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/fb-sean" title="+2/-8 ()">Sean Sattler</a></li>
+<li><img src="https://avatars.githubusercontent.com/u/4294069?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/0o001" title="+4/-4 ()">Mustafa Ateş Uzun</a></li>
+<li><img src="https://avatars.githubusercontent.com/u/132928043?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/sfc-gh-pmotacki" title="+2/-1 (#5892 )">Przemyslaw Motacki</a></li>
+<li><img src="https://avatars.githubusercontent.com/u/5492927?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/Cadienvan" title="+1/-1 ()">Michael Di Prisco</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md47"></a>
+PRs</h3>
+<ul>
+<li>CVE 2023 45857 ( <a href="https://api.github.com/repos/axios/axios/pulls/6028">#6028</a> ) <div class="fragment"><div class="line">⚠️ Critical vulnerability fix. See https://security.snyk.io/vuln/SNYK-JS-AXIOS-6032459</div>
+</div><!-- fragment --></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md48"></a>
+<a href="https://github.com/axios/axios/compare/v1.4.0...v1.5.0">1.5.0</a> (2023-08-26)</h1>
+<h3><a class="anchor" id="autotoc_md49"></a>
+Bug Fixes</h3>
+<ul>
+<li><b>adapter:</b> make adapter loading error more clear by using platform-specific adapters explicitly (<a href="https://github.com/axios/axios/issues/5837">#5837</a>) (<a href="https://github.com/axios/axios/commit/9a414bb6c81796a95c6c7fe668637825458e8b6d">9a414bb</a>)</li>
+<li><b>dns:</b> fixed <code>cacheable-lookup</code> integration; (<a href="https://github.com/axios/axios/issues/5836">#5836</a>) (<a href="https://github.com/axios/axios/commit/b3e327dcc9277bdce34c7ef57beedf644b00d628">b3e327d</a>)</li>
+<li><b>headers:</b> added support for setting header names that overlap with class methods; (<a href="https://github.com/axios/axios/issues/5831">#5831</a>) (<a href="https://github.com/axios/axios/commit/d8b4ca0ea5f2f05efa4edfe1e7684593f9f68273">d8b4ca0</a>)</li>
+<li><b>headers:</b> fixed common Content-Type header merging; (<a href="https://github.com/axios/axios/issues/5832">#5832</a>) (<a href="https://github.com/axios/axios/commit/8fda2766b1e6bcb72c3fabc146223083ef13ce17">8fda276</a>)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md50"></a>
+Features</h3>
+<ul>
+<li>export getAdapter function (<a href="https://github.com/axios/axios/issues/5324">#5324</a>) (<a href="https://github.com/axios/axios/commit/ca73eb878df0ae2dace81fe3a7f1fb5986231bf1">ca73eb8</a>)</li>
+<li><b>export:</b> export adapters without <code>unsafe</code> prefix (<a href="https://github.com/axios/axios/issues/5839">#5839</a>) (<a href="https://github.com/axios/axios/commit/1601f4a27a81ab47fea228f1e244b2c4e3ce28bf">1601f4a</a>)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md51"></a>
+Contributors to this release</h3>
+<ul>
+<li><img src="https://avatars.githubusercontent.com/u/12586868?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/DigitalBrainJS" title="+66/-29 (#5839 #5837 #5836 #5832 #5831 )">Dmitriy Mozgovoy</a></li>
+<li><img src="https://avatars.githubusercontent.com/u/102841186?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/geekact" title="+42/-0 (#5324 )">夜葬</a></li>
+<li><img src="https://avatars.githubusercontent.com/u/65978976?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/JBudiman00" title="+30/-0 (#5788 )">Jonathan Budiman</a></li>
+<li><img src="https://avatars.githubusercontent.com/u/5492927?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/Cadienvan" title="+3/-5 (#5791 )">Michael Di Prisco</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md52"></a>
+PRs</h3>
+<ul>
+<li>CVE 2023 45857 ( <a href="https://api.github.com/repos/axios/axios/pulls/6028">#6028</a> ) <div class="fragment"><div class="line">⚠️ Critical vulnerability fix. See https://security.snyk.io/vuln/SNYK-JS-AXIOS-6032459</div>
+</div><!-- fragment --></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md53"></a>
+<a href="https://github.com/axios/axios/compare/v1.3.6...v1.4.0">1.4.0</a> (2023-04-27)</h1>
+<h3><a class="anchor" id="autotoc_md54"></a>
+Bug Fixes</h3>
+<ul>
+<li><b>formdata:</b> add <code>multipart/form-data</code> content type for FormData payload on custom client environments; (<a href="https://github.com/axios/axios/issues/5678">#5678</a>) (<a href="https://github.com/axios/axios/commit/bbb61e70cb1185adfb1cbbb86eaf6652c48d89d1">bbb61e7</a>)</li>
+<li><b>package:</b> export package internals with unsafe path prefix; (<a href="https://github.com/axios/axios/issues/5677">#5677</a>) (<a href="https://github.com/axios/axios/commit/df38c949f26414d88ba29ec1e353c4d4f97eaf09">df38c94</a>)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md55"></a>
+Features</h3>
+<ul>
+<li><b>dns:</b> added support for a custom lookup function; (<a href="https://github.com/axios/axios/issues/5339">#5339</a>) (<a href="https://github.com/axios/axios/commit/2701911260a1faa5cc5e1afe437121b330a3b7bb">2701911</a>)</li>
+<li><b>types:</b> export <code>AxiosHeaderValue</code> type. (<a href="https://github.com/axios/axios/issues/5525">#5525</a>) (<a href="https://github.com/axios/axios/commit/726f1c8e00cffa0461a8813a9bdcb8f8b9d762cf">726f1c8</a>)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md56"></a>
+Performance Improvements</h3>
+<ul>
+<li><b>merge-config:</b> optimize mergeConfig performance by avoiding duplicate key visits; (<a href="https://github.com/axios/axios/issues/5679">#5679</a>) (<a href="https://github.com/axios/axios/commit/e6f7053bf1a3e87cf1f9da8677e12e3fe829d68e">e6f7053</a>)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md57"></a>
+Contributors to this release</h3>
+<ul>
+<li><img src="https://avatars.githubusercontent.com/u/12586868?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/DigitalBrainJS" title="+151/-16 (#5684 #5339 #5679 #5678 #5677 )">Dmitriy Mozgovoy</a></li>
+<li><img src="https://avatars.githubusercontent.com/u/47537704?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/arthurfiorette" title="+19/-19 (#5525 )">Arthur Fiorette</a></li>
+<li><img src="https://avatars.githubusercontent.com/u/43876655?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/npiyush97" title="+2/-18 (#5670 )">PIYUSH NEGI</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md58"></a>
+PRs</h3>
+<ul>
+<li>CVE 2023 45857 ( <a href="https://api.github.com/repos/axios/axios/pulls/6028">#6028</a> ) <div class="fragment"><div class="line">⚠️ Critical vulnerability fix. See https://security.snyk.io/vuln/SNYK-JS-AXIOS-6032459</div>
+</div><!-- fragment --></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md59"></a>
+<a href="https://github.com/axios/axios/compare/v1.3.5...v1.3.6">1.3.6</a> (2023-04-19)</h2>
+<h3><a class="anchor" id="autotoc_md60"></a>
+Bug Fixes</h3>
+<ul>
+<li><b>types:</b> added transport to RawAxiosRequestConfig (<a href="https://github.com/axios/axios/issues/5445">#5445</a>) (<a href="https://github.com/axios/axios/commit/6f360a2531d8d70363fd9becef6a45a323f170e2">6f360a2</a>)</li>
+<li><b>utils:</b> make isFormData detection logic stricter to avoid unnecessary calling of the <code>toString</code> method on the target; (<a href="https://github.com/axios/axios/issues/5661">#5661</a>) (<a href="https://github.com/axios/axios/commit/aa372f7306295dfd1100c1c2c77ce95c95808e76">aa372f7</a>)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md61"></a>
+Contributors to this release</h3>
+<ul>
+<li><img src="https://avatars.githubusercontent.com/u/12586868?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/DigitalBrainJS" title="+48/-10 (#5665 #5661 #5663 )">Dmitriy Mozgovoy</a></li>
+<li><img src="https://avatars.githubusercontent.com/u/5492927?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/Cadienvan" title="+2/-0 (#5445 )">Michael Di Prisco</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md62"></a>
+PRs</h3>
+<ul>
+<li>CVE 2023 45857 ( <a href="https://api.github.com/repos/axios/axios/pulls/6028">#6028</a> ) <div class="fragment"><div class="line">⚠️ Critical vulnerability fix. See https://security.snyk.io/vuln/SNYK-JS-AXIOS-6032459</div>
+</div><!-- fragment --></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md63"></a>
+<a href="https://github.com/axios/axios/compare/v1.3.4...v1.3.5">1.3.5</a> (2023-04-05)</h2>
+<h3><a class="anchor" id="autotoc_md64"></a>
+Bug Fixes</h3>
+<ul>
+<li><b>headers:</b> fixed isValidHeaderName to support full list of allowed characters; (<a href="https://github.com/axios/axios/issues/5584">#5584</a>) (<a href="https://github.com/axios/axios/commit/e7decef6a99f4627e27ed9ea5b00ce8e201c3841">e7decef</a>)</li>
+<li><b>params:</b> re-added the ability to set the function as <code>paramsSerializer</code> config; (<a href="https://github.com/axios/axios/issues/5633">#5633</a>) (<a href="https://github.com/axios/axios/commit/a56c8661209d5ce5a645a05f294a0e08a6c1f6b3">a56c866</a>)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md65"></a>
+Contributors to this release</h3>
+<ul>
+<li><img src="https://avatars.githubusercontent.com/u/12586868?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/DigitalBrainJS" title="+28/-10 (#5633 #5584 )">Dmitriy Mozgovoy</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md66"></a>
+PRs</h3>
+<ul>
+<li>CVE 2023 45857 ( <a href="https://api.github.com/repos/axios/axios/pulls/6028">#6028</a> ) <div class="fragment"><div class="line">⚠️ Critical vulnerability fix. See https://security.snyk.io/vuln/SNYK-JS-AXIOS-6032459</div>
+</div><!-- fragment --></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md67"></a>
+<a href="https://github.com/axios/axios/compare/v1.3.3...v1.3.4">1.3.4</a> (2023-02-22)</h2>
+<h3><a class="anchor" id="autotoc_md68"></a>
+Bug Fixes</h3>
+<ul>
+<li><b>blob:</b> added a check to make sure the Blob class is available in the browser's global scope; (<a href="https://github.com/axios/axios/issues/5548">#5548</a>) (<a href="https://github.com/axios/axios/commit/3772c8fe74112a56e3e9551f894d899bc3a9443a">3772c8f</a>)</li>
+<li><b>http:</b> fixed regression bug when handling synchronous errors inside the adapter; (<a href="https://github.com/axios/axios/issues/5564">#5564</a>) (<a href="https://github.com/axios/axios/commit/a3b246c9de5c3bc4b5a742e15add55b375479451">a3b246c</a>)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md69"></a>
+Contributors to this release</h3>
+<ul>
+<li><img src="https://avatars.githubusercontent.com/u/12586868?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/DigitalBrainJS" title="+38/-26 (#5564 )">Dmitriy Mozgovoy</a></li>
+<li><img src="https://avatars.githubusercontent.com/u/19550000?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/lcysgsg" title="+4/-0 (#5548 )">lcysgsg</a></li>
+<li><img src="https://avatars.githubusercontent.com/u/5492927?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/Cadienvan" title="+3/-0 (#5444 )">Michael Di Prisco</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md70"></a>
+PRs</h3>
+<ul>
+<li>CVE 2023 45857 ( <a href="https://api.github.com/repos/axios/axios/pulls/6028">#6028</a> ) <div class="fragment"><div class="line">⚠️ Critical vulnerability fix. See https://security.snyk.io/vuln/SNYK-JS-AXIOS-6032459</div>
+</div><!-- fragment --></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md71"></a>
+<a href="https://github.com/axios/axios/compare/v1.3.2...v1.3.3">1.3.3</a> (2023-02-13)</h2>
+<h3><a class="anchor" id="autotoc_md72"></a>
+Bug Fixes</h3>
+<ul>
+<li><b>formdata:</b> added a check to make sure the FormData class is available in the browser's global scope; (<a href="https://github.com/axios/axios/issues/5545">#5545</a>) (<a href="https://github.com/axios/axios/commit/a6dfa72010db5ad52db8bd13c0f98e537e8fd05d">a6dfa72</a>)</li>
+<li><b>formdata:</b> fixed setting NaN as Content-Length for form payload in some cases; (<a href="https://github.com/axios/axios/issues/5535">#5535</a>) (<a href="https://github.com/axios/axios/commit/c19f7bf770f90ae8307f4ea3104f227056912da1">c19f7bf</a>)</li>
+<li><b>headers:</b> fixed the filtering logic of the clear method; (<a href="https://github.com/axios/axios/issues/5542">#5542</a>) (<a href="https://github.com/axios/axios/commit/ea87ebfe6d1699af072b9e7cd40faf8f14b0ab93">ea87ebf</a>)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md73"></a>
+Contributors to this release</h3>
+<ul>
+<li><img src="https://avatars.githubusercontent.com/u/12586868?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/DigitalBrainJS" title="+11/-7 (#5545 #5535 #5542 )">Dmitriy Mozgovoy</a></li>
+<li><img src="https://avatars.githubusercontent.com/u/19842213?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/ruofee" title="+2/-2 (#5467 )">陈若枫</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md74"></a>
+PRs</h3>
+<ul>
+<li>CVE 2023 45857 ( <a href="https://api.github.com/repos/axios/axios/pulls/6028">#6028</a> ) <div class="fragment"><div class="line">⚠️ Critical vulnerability fix. See https://security.snyk.io/vuln/SNYK-JS-AXIOS-6032459</div>
+</div><!-- fragment --></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md75"></a>
+<a href="https://github.com/axios/axios/compare/v1.3.1...v1.3.2">1.3.2</a> (2023-02-03)</h2>
+<h3><a class="anchor" id="autotoc_md76"></a>
+Bug Fixes</h3>
+<ul>
+<li><b>http:</b> treat <a href="http://localhost">http://localhost</a> as base URL for relative paths to avoid <code>ERR_INVALID_URL</code> error; (<a href="https://github.com/axios/axios/issues/5528">#5528</a>) (<a href="https://github.com/axios/axios/commit/128d56f4a0fb8f5f2ed6e0dd80bc9225fee9538c">128d56f</a>)</li>
+<li><b>http:</b> use explicit import instead of TextEncoder global; (<a href="https://github.com/axios/axios/issues/5530">#5530</a>) (<a href="https://github.com/axios/axios/commit/6b3c305fc40c56428e0afabedc6f4d29c2830f6f">6b3c305</a>)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md77"></a>
+Contributors to this release</h3>
+<ul>
+<li><img src="https://avatars.githubusercontent.com/u/12586868?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/DigitalBrainJS" title="+2/-1 (#5530 #5528 )">Dmitriy Mozgovoy</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md78"></a>
+PRs</h3>
+<ul>
+<li>CVE 2023 45857 ( <a href="https://api.github.com/repos/axios/axios/pulls/6028">#6028</a> ) <div class="fragment"><div class="line">⚠️ Critical vulnerability fix. See https://security.snyk.io/vuln/SNYK-JS-AXIOS-6032459</div>
+</div><!-- fragment --></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md79"></a>
+<a href="https://github.com/axios/axios/compare/v1.3.0...v1.3.1">1.3.1</a> (2023-02-01)</h2>
+<h3><a class="anchor" id="autotoc_md80"></a>
+Bug Fixes</h3>
+<ul>
+<li><b>formdata:</b> add hotfix to use the asynchronous API to compute the content-length header value; (<a href="https://github.com/axios/axios/issues/5521">#5521</a>) (<a href="https://github.com/axios/axios/commit/96d336f527619f21da012fe1f117eeb53e5a2120">96d336f</a>)</li>
+<li><b>serializer:</b> fixed serialization of array-like objects; (<a href="https://github.com/axios/axios/issues/5518">#5518</a>) (<a href="https://github.com/axios/axios/commit/08104c028c0f9353897b1b6691d74c440fd0c32d">08104c0</a>)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md81"></a>
+Contributors to this release</h3>
+<ul>
+<li><img src="https://avatars.githubusercontent.com/u/12586868?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/DigitalBrainJS" title="+27/-8 (#5521 #5518 )">Dmitriy Mozgovoy</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md82"></a>
+PRs</h3>
+<ul>
+<li>CVE 2023 45857 ( <a href="https://api.github.com/repos/axios/axios/pulls/6028">#6028</a> ) <div class="fragment"><div class="line">⚠️ Critical vulnerability fix. See https://security.snyk.io/vuln/SNYK-JS-AXIOS-6032459</div>
+</div><!-- fragment --></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md83"></a>
+<a href="https://github.com/axios/axios/compare/v1.2.6...v1.3.0">1.3.0</a> (2023-01-31)</h1>
+<h3><a class="anchor" id="autotoc_md84"></a>
+Bug Fixes</h3>
+<ul>
+<li><b>headers:</b> fixed &amp; optimized clear method; (<a href="https://github.com/axios/axios/issues/5507">#5507</a>) (<a href="https://github.com/axios/axios/commit/9915635c69d0ab70daca5738488421f67ca60959">9915635</a>)</li>
+<li><b>http:</b> add zlib headers if missing (<a href="https://github.com/axios/axios/issues/5497">#5497</a>) (<a href="https://github.com/axios/axios/commit/65e8d1e28ce829f47a837e45129730e541950d3c">65e8d1e</a>)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md85"></a>
+Features</h3>
+<ul>
+<li><b>fomdata:</b> added support for spec-compliant FormData &amp; Blob types; (<a href="https://github.com/axios/axios/issues/5316">#5316</a>) (<a href="https://github.com/axios/axios/commit/6ac574e00a06731288347acea1e8246091196953">6ac574e</a>)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md86"></a>
+Contributors to this release</h3>
+<ul>
+<li><img src="https://avatars.githubusercontent.com/u/12586868?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/DigitalBrainJS" title="+352/-67 (#5514 #5512 #5510 #5509 #5508 #5316 #5507 )">Dmitriy Mozgovoy</a></li>
+<li><img src="https://avatars.githubusercontent.com/u/35015993?v&#x3D;4&amp;s&#x3D;18" alt="avatar" width="18" class="inline"/> <a href="https://github.com/ItsNotGoodName" title="+43/-2 (#5497 )">ItsNotGoodName</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md87"></a>
+PRs</h3>
+<ul>
+<li>CVE 2023 45857 ( <a href="https://api.github.com/repos/axios/axios/pulls/6028">#6028</a> ) <div class="fragment"><div class="line">⚠️ Critical vulnerability fix. See https://security.snyk.io/vuln/SNYK-JS-AXIOS-6032459</div>
+</div><!-- fragment --></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md88"></a>
+<a href="https://github.com/axios/axios/compare/v1.2.5...v1.2.6">1.2.6</a> (2023-01-28)</h2>
+<h3><a class="anchor" id="autotoc_md89"></a>
+Bug Fixes</h3>
+<ul>
+<li><b>headers:</b> added missed Authorization accessor; (<a href="https://github.com/axios/axios/issues/5502">#5502</a>) (<a href="https://github.com/axios/axios/commit/342c0ba9a16ea50f5ed7d2366c5c1a2c877e3f26">342c0ba</a>)</li>
+<li><b>types:</b> fixed <code>CommonRequestHeadersList</code> &amp; <code>CommonResponseHeadersList</code> types to be private in commonJS; (<a href="https://github.com/axios/axios/issues/5503">#5503</a>) (<a href="https://github.com/axios/axios/commit/5a3d0a3234d77361a1bc7cedee2da1e11df08e2c">5a3d0a3</a>)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md90"></a>
+Contributors to this release</h3>
+<ul>
+<li><img src="https://avatars.githubusercontent.com/u/12586868?v&#x3D;4&amp;s&#x3D;16" alt="avatar" class="inline"/> <a href="https://github.com/DigitalBrainJS" title="+24/-9 (#5503 #5502 )">Dmitriy Mozgovoy</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md91"></a>
+PRs</h3>
+<ul>
+<li>CVE 2023 45857 ( <a href="https://api.github.com/repos/axios/axios/pulls/6028">#6028</a> ) <div class="fragment"><div class="line">⚠️ Critical vulnerability fix. See https://security.snyk.io/vuln/SNYK-JS-AXIOS-6032459</div>
+</div><!-- fragment --></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md92"></a>
+<a href="https://github.com/axios/axios/compare/v1.2.4...v1.2.5">1.2.5</a> (2023-01-26)</h2>
+<h3><a class="anchor" id="autotoc_md93"></a>
+Bug Fixes</h3>
+<ul>
+<li><b>types:</b> fixed AxiosHeaders to handle spread syntax by making all methods non-enumerable; (<a href="https://github.com/axios/axios/issues/5499">#5499</a>) (<a href="https://github.com/axios/axios/commit/580f1e8033a61baa38149d59fd16019de3932c22">580f1e8</a>)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md94"></a>
+Contributors to this release</h3>
+<ul>
+<li><img src="https://avatars.githubusercontent.com/u/12586868?v&#x3D;4&amp;s&#x3D;16" alt="avatar" class="inline"/> <a href="https://github.com/DigitalBrainJS" title="+82/-54 (#5499 )">Dmitriy Mozgovoy</a></li>
+<li><img src="https://avatars.githubusercontent.com/u/20516159?v&#x3D;4&amp;s&#x3D;16" alt="avatar" class="inline"/> <a href="https://github.com/EFord36" title="+1/-1 (#5462 )">Elliot Ford</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md95"></a>
+PRs</h3>
+<ul>
+<li>CVE 2023 45857 ( <a href="https://api.github.com/repos/axios/axios/pulls/6028">#6028</a> ) <div class="fragment"><div class="line">⚠️ Critical vulnerability fix. See https://security.snyk.io/vuln/SNYK-JS-AXIOS-6032459</div>
+</div><!-- fragment --></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md96"></a>
+<a href="https://github.com/axios/axios/compare/v1.2.3...v1.2.4">1.2.4</a> (2023-01-22)</h2>
+<h3><a class="anchor" id="autotoc_md97"></a>
+Bug Fixes</h3>
+<ul>
+<li><b>types:</b> renamed <code>RawAxiosRequestConfig</code> back to <code>AxiosRequestConfig</code>; (<a href="https://github.com/axios/axios/issues/5486">#5486</a>) (<a href="https://github.com/axios/axios/commit/2a71f49bc6c68495fa419003a3107ed8bd703ad0">2a71f49</a>)</li>
+<li><b>types:</b> fix <code>AxiosRequestConfig</code> generic; (<a href="https://github.com/axios/axios/issues/5478">#5478</a>) (<a href="https://github.com/axios/axios/commit/186ea062da8b7d578ae78b1a5c220986b9bce81b">9bce81b</a>)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md98"></a>
+Contributors to this release</h3>
+<ul>
+<li><img src="https://avatars.githubusercontent.com/u/12586868?v&#x3D;4&amp;s&#x3D;16" alt="avatar" class="inline"/> <a href="https://github.com/DigitalBrainJS" title="+242/-108 (#5486 #5482 )">Dmitriy Mozgovoy</a></li>
+<li><img src="https://avatars.githubusercontent.com/u/9430821?v&#x3D;4&amp;s&#x3D;16" alt="avatar" class="inline"/> <a href="https://github.com/hilleer" title="+1/-1 (#5478 )">Daniel Hillmann</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md99"></a>
+PRs</h3>
+<ul>
+<li>CVE 2023 45857 ( <a href="https://api.github.com/repos/axios/axios/pulls/6028">#6028</a> ) <div class="fragment"><div class="line">⚠️ Critical vulnerability fix. See https://security.snyk.io/vuln/SNYK-JS-AXIOS-6032459</div>
+</div><!-- fragment --></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md100"></a>
+<a href="https://github.com/axios/axios/compare/1.2.2...1.2.3">1.2.3</a> (2023-01-10)</h2>
+<h3><a class="anchor" id="autotoc_md101"></a>
+Bug Fixes</h3>
+<ul>
+<li><b>types:</b> fixed AxiosRequestConfig header interface by refactoring it to RawAxiosRequestConfig; (<a href="https://github.com/axios/axios/issues/5420">#5420</a>) (<a href="https://github.com/axios/axios/commit/08119634a22f1d5b19f5c9ea0adccb6d3eebc3bc">0811963</a>)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md102"></a>
+Contributors to this release</h3>
+<ul>
+<li><img src="https://avatars.githubusercontent.com/u/12586868?v&#x3D;4&amp;s&#x3D;16" alt="avatar" class="inline"/> <a href="https://github.com/DigitalBrainJS" title="+938/-442 (#5456 #5455 #5453 #5451 #5449 #5447 #5446 #5443 #5442 #5439 #5420 )">Dmitriy Mozgovoy</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md103"></a>
+PRs</h3>
+<ul>
+<li>CVE 2023 45857 ( <a href="https://api.github.com/repos/axios/axios/pulls/6028">#6028</a> ) <div class="fragment"><div class="line">⚠️ Critical vulnerability fix. See https://security.snyk.io/vuln/SNYK-JS-AXIOS-6032459</div>
+</div><!-- fragment --></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md104"></a>
+[1.2.2] - 2022-12-29</h2>
+<h3><a class="anchor" id="autotoc_md105"></a>
+Fixed</h3>
+<ul>
+<li>fix(ci): fix release script inputs <a href="https://github.com/axios/axios/pull/5392">#5392</a></li>
+<li>fix(ci): prerelease scipts <a href="https://github.com/axios/axios/pull/5377">#5377</a></li>
+<li>fix(ci): release scripts <a href="https://github.com/axios/axios/pull/5376">#5376</a></li>
+<li>fix(ci): typescript tests <a href="https://github.com/axios/axios/pull/5375">#5375</a></li>
+<li>fix: Brotli decompression <a href="https://github.com/axios/axios/pull/5353">#5353</a></li>
+<li>fix: add missing HttpStatusCode <a href="https://github.com/axios/axios/pull/5345">#5345</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md106"></a>
+Chores</h3>
+<ul>
+<li>chore(ci): set conventional-changelog header config <a href="https://github.com/axios/axios/pull/5406">#5406</a></li>
+<li>chore(ci): fix automatic contributors resolving <a href="https://github.com/axios/axios/pull/5403">#5403</a></li>
+<li>chore(ci): improved logging for the contributors list generator <a href="https://github.com/axios/axios/pull/5398">#5398</a></li>
+<li>chore(ci): fix release action <a href="https://github.com/axios/axios/pull/5397">#5397</a></li>
+<li>chore(ci): fix version bump script by adding bump argument for target version <a href="https://github.com/axios/axios/pull/5393">#5393</a></li>
+<li>chore(deps): bump decode-uri-component from 0.2.0 to 0.2.2 <a href="https://github.com/axios/axios/pull/5342">#5342</a></li>
+<li>chore(ci): GitHub Actions Release script <a href="https://github.com/axios/axios/pull/5384">#5384</a></li>
+<li>chore(ci): release scripts <a href="https://github.com/axios/axios/pull/5364">#5364</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md107"></a>
+Contributors to this release</h3>
+<ul>
+<li><img src="https://avatars.githubusercontent.com/u/12586868?v&#x3D;4&amp;s&#x3D;16" alt="avatar" class="inline"/> <a href="https://github.com/DigitalBrainJS">Dmitriy Mozgovoy</a></li>
+<li><img src="https://avatars.githubusercontent.com/u/1652293?v&#x3D;4&amp;s&#x3D;16" alt="avatar" class="inline"/> <a href="https://github.com/winniehell">Winnie</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md108"></a>
+[1.2.1] - 2022-12-05</h2>
+<h3><a class="anchor" id="autotoc_md109"></a>
+Changed</h3>
+<ul>
+<li>feat(exports): export mergeConfig <a href="https://github.com/axios/axios/pull/5151">#5151</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md110"></a>
+Fixed</h3>
+<ul>
+<li>fix(CancelledError): include config <a href="https://github.com/axios/axios/pull/4922">#4922</a></li>
+<li>fix(general): removing multiple/trailing/leading whitespace <a href="https://github.com/axios/axios/pull/5022">#5022</a></li>
+<li>fix(headers): decompression for responses without Content-Length header <a href="https://github.com/axios/axios/pull/5306">#5306</a></li>
+<li>fix(webWorker): exception to sending form data in web worker <a href="https://github.com/axios/axios/pull/5139">#5139</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md111"></a>
+Refactors</h3>
+<ul>
+<li>refactor(types): AxiosProgressEvent.event type to any <a href="https://github.com/axios/axios/pull/5308">#5308</a></li>
+<li>refactor(types): add missing types for static AxiosError.from method <a href="https://github.com/axios/axios/pull/4956">#4956</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md112"></a>
+Chores</h3>
+<ul>
+<li>chore(docs): remove README link to non-existent upgrade guide <a href="https://github.com/axios/axios/pull/5307">#5307</a></li>
+<li>chore(docs): typo in issue template name <a href="https://github.com/axios/axios/pull/5159">#5159</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md113"></a>
+Contributors to this release</h3>
+<ul>
+<li><a href="https://github.com/DigitalBrainJS">Dmitriy Mozgovoy</a></li>
+<li><a href="https://github.com/zachlysobey">Zachary Lysobey</a></li>
+<li><a href="https://github.com/kevincennis">Kevin Ennis</a></li>
+<li><a href="https://github.com/phloose">Philipp Loose</a></li>
+<li><a href="https://github.com/secondl1ght">secondl1ght</a></li>
+<li><a href="https://github.com/0x30">wenzheng</a></li>
+<li><a href="https://github.com/ovarn">Ivan Barsukov</a></li>
+<li><a href="https://github.com/arthurfiorette">Arthur Fiorette</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md114"></a>
+PRs</h3>
+<ul>
+<li>CVE 2023 45857 ( <a href="https://api.github.com/repos/axios/axios/pulls/6028">#6028</a> ) <div class="fragment"><div class="line">⚠️ Critical vulnerability fix. See https://security.snyk.io/vuln/SNYK-JS-AXIOS-6032459</div>
+</div><!-- fragment --></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md115"></a>
+[1.2.0] - 2022-11-10</h2>
+<h3><a class="anchor" id="autotoc_md116"></a>
+Changed</h3>
+<ul>
+<li>changed: refactored module exports <a href="https://github.com/axios/axios/pull/5162">#5162</a></li>
+<li>change: re-added support for loading Axios with require('axios').default <a href="https://github.com/axios/axios/pull/5225">#5225</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md117"></a>
+Fixed</h3>
+<ul>
+<li>fix: improve AxiosHeaders class <a href="https://github.com/axios/axios/pull/5224">#5224</a></li>
+<li>fix: TypeScript type definitions for commonjs <a href="https://github.com/axios/axios/pull/5196">#5196</a></li>
+<li>fix: type definition of use method on AxiosInterceptorManager to match the the README <a href="https://github.com/axios/axios/pull/5071">#5071</a></li>
+<li>fix: __dirname is not defined in the sandbox <a href="https://github.com/axios/axios/pull/5269">#5269</a></li>
+<li>fix: AxiosError.toJSON method to avoid circular references <a href="https://github.com/axios/axios/pull/5247">#5247</a></li>
+<li>fix: Z_BUF_ERROR when content-encoding is set but the response body is empty <a href="https://github.com/axios/axios/pull/5250">#5250</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md118"></a>
+Refactors</h3>
+<ul>
+<li>refactor: allowing adapters to be loaded by name <a href="https://github.com/axios/axios/pull/5277">#5277</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md119"></a>
+Chores</h3>
+<ul>
+<li>chore: force CI restart <a href="https://github.com/axios/axios/pull/5243">#5243</a></li>
+<li>chore: update ECOSYSTEM.md <a href="https://github.com/axios/axios/pull/5077">#5077</a></li>
+<li>chore: update get/index.html <a href="https://github.com/axios/axios/pull/5116">#5116</a></li>
+<li>chore: update Sandbox UI/UX <a href="https://github.com/axios/axios/pull/5205">#5205</a></li>
+<li>chore:(actions): remove git credentials after checkout <a href="https://github.com/axios/axios/pull/5235">#5235</a></li>
+<li>chore(actions): bump actions/dependency-review-action from 2 to 3 <a href="https://github.com/axios/axios/pull/5266">#5266</a></li>
+<li>chore(packages): bump loader-utils from 1.4.1 to 1.4.2 <a href="https://github.com/axios/axios/pull/5295">#5295</a></li>
+<li>chore(packages): bump engine.io from 6.2.0 to 6.2.1 <a href="https://github.com/axios/axios/pull/5294">#5294</a></li>
+<li>chore(packages): bump socket.io-parser from 4.0.4 to 4.0.5 <a href="https://github.com/axios/axios/pull/5241">#5241</a></li>
+<li>chore(packages): bump loader-utils from 1.4.0 to 1.4.1 <a href="https://github.com/axios/axios/pull/5245">#5245</a></li>
+<li>chore(docs): update Resources links in README <a href="https://github.com/axios/axios/pull/5119">#5119</a></li>
+<li>chore(docs): update the link for JSON url <a href="https://github.com/axios/axios/pull/5265">#5265</a></li>
+<li>chore(docs): fix broken links <a href="https://github.com/axios/axios/pull/5218">#5218</a></li>
+<li>chore(docs): update and rename UPGRADE_GUIDE.md to <a class="el" href="_m_i_g_r_a_t_i_o_n___g_u_i_d_e_8md.html">MIGRATION_GUIDE.md</a> <a href="https://github.com/axios/axios/pull/5170">#5170</a></li>
+<li>chore(docs): typo fix line #856 and #920 <a href="https://github.com/axios/axios/pull/5194">#5194</a></li>
+<li>chore(docs): typo fix #800 <a href="https://github.com/axios/axios/pull/5193">#5193</a></li>
+<li>chore(docs): fix typos <a href="https://github.com/axios/axios/pull/5184">#5184</a></li>
+<li>chore(docs): fix punctuation in README.md <a href="https://github.com/axios/axios/pull/5197">#5197</a></li>
+<li>chore(docs): update readme in the Handling Errors section - issue reference #5260 <a href="https://github.com/axios/axios/pull/5261">#5261</a></li>
+<li>chore: remove <b>from</b> filename <a href="https://github.com/axios/axios/pull/5207">#5207</a></li>
+<li>chore(docs): update CHANGELOG.md <a href="https://github.com/axios/axios/pull/5137">#5137</a></li>
+<li>chore: add sideEffects false to package.json <a href="https://github.com/axios/axios/pull/5025">#5025</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md120"></a>
+Contributors to this release</h3>
+<ul>
+<li><a href="https://github.com/me4502">Maddy Miller</a></li>
+<li><a href="https://github.com/amitsainii">Amit Saini</a></li>
+<li><a href="https://github.com/ecyrbe">ecyrbe</a></li>
+<li><a href="https://github.com/eltociear">Ikko Ashimine</a></li>
+<li><a href="https://github.com/thetechie7">Geeth Gunnampalli</a></li>
+<li><a href="https://github.com/shreem-123">Shreem Asati</a></li>
+<li><a href="https://github.com/friederbluemle">Frieder Bluemle</a></li>
+<li><a href="https://github.com/yunseyeong">윤세영</a></li>
+<li><a href="https://github.com/cjcbusatto">Claudio Busatto</a></li>
+<li><a href="https://github.com/remcohaszing">Remco Haszing</a></li>
+<li><a href="https://github.com/DigitalBrainJS">Dmitriy Mozgovoy</a></li>
+<li><a href="https://github.com/om4csaba">Csaba Maulis</a></li>
+<li><a href="https://github.com/MoPaMo">MoPaMo</a></li>
+<li><a href="https://github.com/w3bdesign">Daniel Fjeldstad</a></li>
+<li><a href="https://github.com/adrien-may">Adrien Brunet</a></li>
+<li><a href="https://github.com/Fdawgs">Frazer Smith</a></li>
+<li><a href="https://github.com/836334258">HaiTao</a></li>
+<li><a href="https://github.com/aziyatali">AZM</a></li>
+<li><a href="https://github.com/relbns">relbns</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md121"></a>
+PRs</h3>
+<ul>
+<li>CVE 2023 45857 ( <a href="https://api.github.com/repos/axios/axios/pulls/6028">#6028</a> ) <div class="fragment"><div class="line">⚠️ Critical vulnerability fix. See https://security.snyk.io/vuln/SNYK-JS-AXIOS-6032459</div>
+</div><!-- fragment --></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md122"></a>
+[1.1.3] - 2022-10-15</h2>
+<h3><a class="anchor" id="autotoc_md123"></a>
+Added</h3>
+<ul>
+<li>Added custom params serializer support <a href="https://github.com/axios/axios/pull/5113">#5113</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md124"></a>
+Fixed</h3>
+<ul>
+<li>Fixed top-level export to keep them in-line with static properties <a href="https://github.com/axios/axios/pull/5109">#5109</a></li>
+<li>Stopped including null values to query string. <a href="https://github.com/axios/axios/pull/5108">#5108</a></li>
+<li>Restored proxy config backwards compatibility with 0.x <a href="https://github.com/axios/axios/pull/5097">#5097</a></li>
+<li>Added back AxiosHeaders in AxiosHeaderValue <a href="https://github.com/axios/axios/pull/5103">#5103</a></li>
+<li>Pin CDN install instructions to a specific version <a href="https://github.com/axios/axios/pull/5060">#5060</a></li>
+<li>Handling of array values fixed for AxiosHeaders <a href="https://github.com/axios/axios/pull/5085">#5085</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md125"></a>
+Chores</h3>
+<ul>
+<li>docs: match badge style, add link to them <a href="https://github.com/axios/axios/pull/5046">#5046</a></li>
+<li>chore: fixing comments typo <a href="https://github.com/axios/axios/pull/5054">#5054</a></li>
+<li>chore: update issue template <a href="https://github.com/axios/axios/pull/5061">#5061</a></li>
+<li>chore: added progress capturing section to the docs; <a href="https://github.com/axios/axios/pull/5084">#5084</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md126"></a>
+Contributors to this release</h3>
+<ul>
+<li><a href="https://github.com/jasonsaayman">Jason Saayman</a></li>
+<li><a href="https://github.com/scarf005">scarf</a></li>
+<li><a href="https://github.com/phryneas">Lenz Weber-Tronic</a></li>
+<li><a href="https://github.com/itsarvindh">Arvindh</a></li>
+<li><a href="https://github.com/FelixLgr">Félix Legrelle</a></li>
+<li><a href="https://github.com/ppati000">Patrick Petrovic</a></li>
+<li><a href="https://github.com/DigitalBrainJS">Dmitriy Mozgovoy</a></li>
+<li><a href="https://github.com/littledian">littledian</a></li>
+<li><a href="https://github.com/ChronosMasterOfAllTime">ChronosMasterOfAllTime</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md127"></a>
+PRs</h3>
+<ul>
+<li>CVE 2023 45857 ( <a href="https://api.github.com/repos/axios/axios/pulls/6028">#6028</a> ) <div class="fragment"><div class="line">⚠️ Critical vulnerability fix. See https://security.snyk.io/vuln/SNYK-JS-AXIOS-6032459</div>
+</div><!-- fragment --></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md128"></a>
+[1.1.2] - 2022-10-07</h2>
+<h3><a class="anchor" id="autotoc_md129"></a>
+Fixed</h3>
+<ul>
+<li>Fixed broken exports for UMD builds.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md130"></a>
+Contributors to this release</h3>
+<ul>
+<li><a href="https://github.com/jasonsaayman">Jason Saayman</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md131"></a>
+PRs</h3>
+<ul>
+<li>CVE 2023 45857 ( <a href="https://api.github.com/repos/axios/axios/pulls/6028">#6028</a> ) <div class="fragment"><div class="line">⚠️ Critical vulnerability fix. See https://security.snyk.io/vuln/SNYK-JS-AXIOS-6032459</div>
+</div><!-- fragment --></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md132"></a>
+[1.1.1] - 2022-10-07</h2>
+<h3><a class="anchor" id="autotoc_md133"></a>
+Fixed</h3>
+<ul>
+<li>Fixed broken exports for common js. This fix breaks a prior fix, I will fix both issues ASAP but the commonJS use is more impactful.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md134"></a>
+Contributors to this release</h3>
+<ul>
+<li><a href="https://github.com/jasonsaayman">Jason Saayman</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md135"></a>
+PRs</h3>
+<ul>
+<li>CVE 2023 45857 ( <a href="https://api.github.com/repos/axios/axios/pulls/6028">#6028</a> ) <div class="fragment"><div class="line">⚠️ Critical vulnerability fix. See https://security.snyk.io/vuln/SNYK-JS-AXIOS-6032459</div>
+</div><!-- fragment --></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md136"></a>
+[1.1.0] - 2022-10-06</h2>
+<h3><a class="anchor" id="autotoc_md137"></a>
+Fixed</h3>
+<ul>
+<li>Fixed missing exports in type definition index.d.ts <a href="https://github.com/axios/axios/pull/5003">#5003</a></li>
+<li>Fixed query params composing <a href="https://github.com/axios/axios/pull/5018">#5018</a></li>
+<li>Fixed GenericAbortSignal interface by making it more generic <a href="https://github.com/axios/axios/pull/5021">#5021</a></li>
+<li>Fixed adding "clear" to AxiosInterceptorManager <a href="https://github.com/axios/axios/pull/5010">#5010</a></li>
+<li>Fixed commonjs &amp; umd exports <a href="https://github.com/axios/axios/pull/5030">#5030</a></li>
+<li>Fixed inability to access response headers when using axios 1.x with Jest <a href="https://github.com/axios/axios/pull/5036">#5036</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md138"></a>
+Contributors to this release</h3>
+<ul>
+<li><a href="https://github.com/trim21">Trim21</a></li>
+<li><a href="https://github.com/DigitalBrainJS">Dmitriy Mozgovoy</a></li>
+<li><a href="https://github.com/s-sasaki-0529">shingo.sasaki</a></li>
+<li><a href="https://github.com/ivanpepelko">Ivan Pepelko</a></li>
+<li><a href="https://github.com/risa">Richard Kořínek</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md139"></a>
+PRs</h3>
+<ul>
+<li>CVE 2023 45857 ( <a href="https://api.github.com/repos/axios/axios/pulls/6028">#6028</a> ) <div class="fragment"><div class="line">⚠️ Critical vulnerability fix. See https://security.snyk.io/vuln/SNYK-JS-AXIOS-6032459</div>
+</div><!-- fragment --></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md140"></a>
+[1.0.0] - 2022-10-04</h2>
+<h3><a class="anchor" id="autotoc_md141"></a>
+Added</h3>
+<ul>
+<li>Added stack trace to AxiosError <a href="https://github.com/axios/axios/pull/4624">#4624</a></li>
+<li>Add AxiosError to AxiosStatic <a href="https://github.com/axios/axios/pull/4654">#4654</a></li>
+<li>Replaced Rollup as our build runner <a href="https://github.com/axios/axios/pull/4596">#4596</a></li>
+<li>Added generic TS types for the exposed toFormData helper <a href="https://github.com/axios/axios/pull/4668">#4668</a></li>
+<li>Added listen callback function <a href="https://github.com/axios/axios/pull/4096">#4096</a></li>
+<li>Added instructions for installing using PNPM <a href="https://github.com/axios/axios/pull/4207">#4207</a></li>
+<li>Added generic AxiosAbortSignal TS interface to avoid importing AbortController polyfill <a href="https://github.com/axios/axios/pull/4229">#4229</a></li>
+<li>Added axios-url-template in ECOSYSTEM.md <a href="https://github.com/axios/axios/pull/4238">#4238</a></li>
+<li>Added a clear() function to the request and response interceptors object so a user can ensure that all interceptors have been removed from an axios instance <a href="https://github.com/axios/axios/pull/4248">#4248</a></li>
+<li>Added react hook plugin <a href="https://github.com/axios/axios/pull/4319">#4319</a></li>
+<li>Adding HTTP status code for transformResponse <a href="https://github.com/axios/axios/pull/4580">#4580</a></li>
+<li>Added blob to the list of protocols supported by the browser <a href="https://github.com/axios/axios/pull/4678">#4678</a></li>
+<li>Resolving proxy from env on redirect <a href="https://github.com/axios/axios/pull/4436">#4436</a></li>
+<li>Added enhanced toFormData implementation with additional options <a href="https://github.com/axios/axios/pull/4704">4704</a></li>
+<li>Adding Canceler parameters config and request <a href="https://github.com/axios/axios/pull/4711">#4711</a></li>
+<li>Added automatic payload serialization to application/x-www-form-urlencoded <a href="https://github.com/axios/axios/pull/4714">#4714</a></li>
+<li>Added the ability for webpack users to overwrite built-ins <a href="https://github.com/axios/axios/pull/4715">#4715</a></li>
+<li>Added string[] to AxiosRequestHeaders type <a href="https://github.com/axios/axios/pull/4322">#4322</a></li>
+<li>Added the ability for the url-encoded-form serializer to respect the formSerializer config <a href="https://github.com/axios/axios/pull/4721">#4721</a></li>
+<li>Added isCancel type assert <a href="https://github.com/axios/axios/pull/4293">#4293</a></li>
+<li>Added data URL support for node.js <a href="https://github.com/axios/axios/pull/4725">#4725</a></li>
+<li>Adding types for progress event callbacks <a href="https://github.com/axios/axios/pull/4675">#4675</a></li>
+<li>URL params serializer <a href="https://github.com/axios/axios/pull/4734">#4734</a></li>
+<li>Added axios.formToJSON method <a href="https://github.com/axios/axios/pull/4735">#4735</a></li>
+<li>Bower platform add data protocol <a href="https://github.com/axios/axios/pull/4804">#4804</a></li>
+<li>Use WHATWG URL API instead of url.parse() <a href="https://github.com/axios/axios/pull/4852">#4852</a></li>
+<li>Add ENUM containing Http Status Codes to typings <a href="https://github.com/axios/axios/pull/4903">#4903</a></li>
+<li>Improve typing of timeout in index.d.ts <a href="https://github.com/axios/axios/pull/4934">#4934</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md142"></a>
+Changed</h3>
+<ul>
+<li>Updated AxiosError.config to be optional in the type definition <a href="https://github.com/axios/axios/pull/4665">#4665</a></li>
+<li>Updated README emphasizing the URLSearchParam built-in interface over other solutions <a href="https://github.com/axios/axios/pull/4590">#4590</a></li>
+<li>Include request and config when creating a CanceledError instance <a href="https://github.com/axios/axios/pull/4659">#4659</a></li>
+<li>Changed func-names eslint rule to as-needed <a href="https://github.com/axios/axios/pull/4492">#4492</a></li>
+<li>Replacing deprecated substr() with slice() as substr() is deprecated <a href="https://github.com/axios/axios/pull/4468">#4468</a></li>
+<li>Updating HTTP links in README.md to use HTTPS <a href="https://github.com/axios/axios/pull/4387">#4387</a></li>
+<li>Updated to a better trim() polyfill <a href="https://github.com/axios/axios/pull/4072">#4072</a></li>
+<li>Updated types to allow specifying partial default headers on instance create <a href="https://github.com/axios/axios/pull/4185">#4185</a></li>
+<li>Expanded isAxiosError types <a href="https://github.com/axios/axios/pull/4344">#4344</a></li>
+<li>Updated type definition for axios instance methods <a href="https://github.com/axios/axios/pull/4224">#4224</a></li>
+<li>Updated eslint config <a href="https://github.com/axios/axios/pull/4722">#4722</a></li>
+<li>Updated Docs <a href="https://github.com/axios/axios/pull/4742">#4742</a></li>
+<li>Refactored Axios to use ES2017 <a href="https://github.com/axios/axios/pull/4787">#4787</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md143"></a>
+Deprecated</h3>
+<ul>
+<li>There are multiple deprecations, refactors and fixes provided in this release. Please read through the full release notes to see how this may impact your project and use case.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md144"></a>
+Removed</h3>
+<ul>
+<li>Removed incorrect argument for NetworkError constructor <a href="https://github.com/axios/axios/pull/4656">#4656</a></li>
+<li>Removed Webpack <a href="https://github.com/axios/axios/pull/4596">#4596</a></li>
+<li>Removed function that transform arguments to array <a href="https://github.com/axios/axios/pull/4544">#4544</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md145"></a>
+Fixed</h3>
+<ul>
+<li>Fixed grammar in README <a href="https://github.com/axios/axios/pull/4649">#4649</a></li>
+<li>Fixed code error in README <a href="https://github.com/axios/axios/pull/4599">#4599</a></li>
+<li>Optimized the code that checks cancellation <a href="https://github.com/axios/axios/pull/4587">#4587</a></li>
+<li>Fix url pointing to defaults.js in README <a href="https://github.com/axios/axios/pull/4532">#4532</a></li>
+<li>Use type alias instead of interface for AxiosPromise <a href="https://github.com/axios/axios/pull/4505">#4505</a></li>
+<li>Fix some word spelling and lint style in code comments <a href="https://github.com/axios/axios/pull/4500">#4500</a></li>
+<li>Edited readme with 3 updated browser icons of Chrome, FireFox and Safari <a href="https://github.com/axios/axios/pull/4414">#4414</a></li>
+<li>Bump follow-redirects from 1.14.9 to 1.15.0 <a href="https://github.com/axios/axios/pull/4673">#4673</a></li>
+<li>Fixing http tests to avoid hanging when assertions fail <a href="https://github.com/axios/axios/pull/4435">#4435</a></li>
+<li>Fix TS definition for AxiosRequestTransformer <a href="https://github.com/axios/axios/pull/4201">#4201</a></li>
+<li>Fix grammatical issues in README <a href="https://github.com/axios/axios/pull/4232">#4232</a></li>
+<li>Fixing instance.defaults.headers type <a href="https://github.com/axios/axios/pull/4557">#4557</a></li>
+<li>Fixed race condition on immediate requests cancellation <a href="https://github.com/axios/axios/pull/4261">#4261</a></li>
+<li>Fixing Z_BUF_ERROR when no content <a href="https://github.com/axios/axios/pull/4701">#4701</a></li>
+<li>Fixing proxy beforeRedirect regression <a href="https://github.com/axios/axios/pull/4708">#4708</a></li>
+<li>Fixed AxiosError status code type <a href="https://github.com/axios/axios/pull/4717">#4717</a></li>
+<li>Fixed AxiosError stack capturing <a href="https://github.com/axios/axios/pull/4718">#4718</a></li>
+<li>Fixing AxiosRequestHeaders typings <a href="https://github.com/axios/axios/pull/4334">#4334</a></li>
+<li>Fixed max body length defaults <a href="https://github.com/axios/axios/pull/4731">#4731</a></li>
+<li>Fixed toFormData Blob issue on node&gt;v17 <a href="https://github.com/axios/axios/pull/4728">#4728</a></li>
+<li>Bump grunt from 1.5.2 to 1.5.3 <a href="https://github.com/axios/axios/pull/4743">#4743</a></li>
+<li>Fixing content-type header repeated <a href="https://github.com/axios/axios/pull/4745">#4745</a></li>
+<li>Fixed timeout error message for http <a href="https://github.com/axios/axios/pull/4738">4738</a></li>
+<li>Request ignores false, 0 and empty string as body values <a href="https://github.com/axios/axios/pull/4785">#4785</a></li>
+<li>Added back missing minified builds <a href="https://github.com/axios/axios/pull/4805">#4805</a></li>
+<li>Fixed a type error <a href="https://github.com/axios/axios/pull/4815">#4815</a></li>
+<li>Fixed a regression bug with unsubscribing from cancel token; <a href="https://github.com/axios/axios/pull/4819">#4819</a></li>
+<li>Remove repeated compression algorithm <a href="https://github.com/axios/axios/pull/4820">#4820</a></li>
+<li>The error of calling extend to pass parameters <a href="https://github.com/axios/axios/pull/4857">#4857</a></li>
+<li>SerializerOptions.indexes allows boolean | null | undefined <a href="https://github.com/axios/axios/pull/4862">#4862</a></li>
+<li>Require interceptors to return values <a href="https://github.com/axios/axios/pull/4874">#4874</a></li>
+<li>Removed unused imports <a href="https://github.com/axios/axios/pull/4949">#4949</a></li>
+<li>Allow null indexes on formSerializer and paramsSerializer <a href="https://github.com/axios/axios/pull/4960">#4960</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md146"></a>
+Chores</h3>
+<ul>
+<li>Set permissions for GitHub actions <a href="https://github.com/axios/axios/pull/4765">#4765</a></li>
+<li>Included githubactions in the dependabot config <a href="https://github.com/axios/axios/pull/4770">#4770</a></li>
+<li>Included dependency review <a href="https://github.com/axios/axios/pull/4771">#4771</a></li>
+<li>Update <a class="el" href="_s_e_c_u_r_i_t_y_8md.html">security.md</a> <a href="https://github.com/axios/axios/pull/4784">#4784</a></li>
+<li>Remove unnecessary spaces <a href="https://github.com/axios/axios/pull/4854">#4854</a></li>
+<li>Simplify the import path of AxiosError <a href="https://github.com/axios/axios/pull/4875">#4875</a></li>
+<li>Fix Gitpod dead link <a href="https://github.com/axios/axios/pull/4941">#4941</a></li>
+<li>Enable syntax highlighting for a code block <a href="https://github.com/axios/axios/pull/4970">#4970</a></li>
+<li>Using Logo Axios in Readme.md <a href="https://github.com/axios/axios/pull/4993">#4993</a></li>
+<li>Fix markup for note in README <a href="https://github.com/axios/axios/pull/4825">#4825</a></li>
+<li>Fix typo and formatting, add colons <a href="https://github.com/axios/axios/pull/4853">#4853</a></li>
+<li>Fix typo in readme <a href="https://github.com/axios/axios/pull/4942">#4942</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md147"></a>
+Security</h3>
+<ul>
+<li>Update <a class="el" href="_s_e_c_u_r_i_t_y_8md.html">SECURITY.md</a> <a href="https://github.com/axios/axios/pull/4687">#4687</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md148"></a>
+Contributors to this release</h3>
+<ul>
+<li><a href="https://github.com/tusbar">Bertrand Marron</a></li>
+<li><a href="https://github.com/DigitalBrainJS">Dmitriy Mozgovoy</a></li>
+<li><a href="https://github.com/danmooney">Dan Mooney</a></li>
+<li><a href="https://github.com/xiaoyu-tamu">Michael Li</a></li>
+<li><a href="https://github.com/yxwzaxns">aong</a></li>
+<li><a href="https://github.com/despreston">Des Preston</a></li>
+<li><a href="https://github.com/tredondo">Ted Robertson</a></li>
+<li><a href="https://github.com/zh-lx">zhoulixiang</a></li>
+<li><a href="https://github.com/arthurfiorette">Arthur Fiorette</a></li>
+<li><a href="https://github.com/Kr-Shanu">Kumar Shanu</a></li>
+<li><a href="https://github.com/JLL32">JALAL</a></li>
+<li><a href="https://github.com/MageeLin">Jingyi Lin</a></li>
+<li><a href="https://github.com/phloose">Philipp Loose</a></li>
+<li><a href="https://github.com/sashsvamir">Alexander Shchukin</a></li>
+<li><a href="https://github.com/davecardwell">Dave Cardwell</a></li>
+<li><a href="https://github.com/catscarlet">Cat Scarlet</a></li>
+<li><a href="https://github.com/lpizzinidev">Luca Pizzini</a></li>
+<li><a href="https://github.com/Schweinepriester">Kai</a></li>
+<li><a href="https://github.com/mbargiel">Maxime Bargiel</a></li>
+<li><a href="https://github.com/brianhelba">Brian Helba</a></li>
+<li><a href="https://github.com/reslear">reslear</a></li>
+<li><a href="https://github.com/JamieSlome">Jamie Slome</a></li>
+<li><a href="https://github.com/Landro3">Landro3</a></li>
+<li><a href="https://github.com/rafw87">rafw87</a></li>
+<li><a href="https://github.com/afzalsayed96">Afzal Sayed</a></li>
+<li><a href="https://github.com/kaishuu0123">Koki Oyatsu</a></li>
+<li><a href="https://github.com/wangcch">Dave</a></li>
+<li><a href="https://github.com/baozouai">暴走老七</a></li>
+<li><a href="https://github.com/spalger">Spencer</a></li>
+<li><a href="https://github.com/Argeento">Adrian Wieprzkowicz</a></li>
+<li><a href="https://github.com/lejahmie">Jamie Telin</a></li>
+<li><a href="https://github.com/aweikalee">毛呆</a></li>
+<li><a href="https://github.com/turisap">Kirill Shakirov</a></li>
+<li><a href="https://github.com/estarossa0">Rraji Abdelbari</a></li>
+<li><a href="https://github.com/jelleschutter">Jelle Schutter</a></li>
+<li><a href="https://github.com/KyorCode">Tom Ceuppens</a></li>
+<li><a href="https://github.com/JohannCooper">Johann Cooper</a></li>
+<li><a href="https://github.com/mitsos1os">Dimitris Halatsis</a></li>
+<li><a href="https://github.com/chenjigeng">chenjigeng</a></li>
+<li><a href="https://github.com/joaoGabriel55">João Gabriel Quaresma</a></li>
+<li><a href="https://github.com/VictorAugDB">Victor Augusto</a></li>
+<li><a href="https://github.com/neilnaveen">neilnaveen</a></li>
+<li><a href="https://github.com/psmoros">Pavlos</a></li>
+<li><a href="https://github.com/visortelle">Kiryl Valkovich</a></li>
+<li><a href="https://github.com/naveensrinivasan">Naveen</a></li>
+<li><a href="https://github.com/0x30">wenzheng</a></li>
+<li><a href="https://github.com/hcwhan">hcwhan</a></li>
+<li><a href="https://github.com/basselworkforce">Bassel Rachid</a></li>
+<li><a href="https://github.com/lyrixx">Grégoire Pineau</a></li>
+<li><a href="https://github.com/felipedamin">felipedamin</a></li>
+<li><a href="https://github.com/karlhorky">Karl Horky</a></li>
+<li><a href="https://github.com/kingyue737">Yue JIN</a></li>
+<li><a href="https://github.com/usman250994">Usman Ali Siddiqui</a></li>
+<li><a href="https://github.com/techbirds">WD</a></li>
+<li><a href="https://github.com/gfoidl">Günther Foidl</a></li>
+<li><a href="https://github.com/jennings">Stephen Jennings</a></li>
+<li><a href="https://github.com/chentsulin">C.T.Lin</a></li>
+<li><a href="https://github.com/mia-z">mia-z</a></li>
+<li><a href="https://github.com/Parth0105">Parth Banathia</a></li>
+<li><a href="https://github.com/parth0105pluang">parth0105pluang</a></li>
+<li><a href="https://github.com/mrcwbr">Marco Weber</a></li>
+<li><a href="https://github.com/lpizzinidev">Luca Pizzini</a></li>
+<li><a href="https://github.com/WillianAgostini">Willian Agostini</a></li>
+<li><a href="https://github.com/huyenltnguyen">Huyen Nguyen</a> </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2bootstrap_2_r_e_a_d_m_e" xml:lang="fr">
+<title>README</title>
+<indexterm><primary>README</primary></indexterm>
+
+<para></para>
+
+<para><link xlink:href="https://getbootstrap.com/"> </link> </para>
+
+<para><formalpara><title>Bootstrap</title></formalpara>
+</para>
+
+<para></para>
+
+<para>Sleek, intuitive, and powerful front-end framework for faster and easier web development. <?linebreak?> <link xlink:href="https://getbootstrap.com/docs/5.3/"><emphasis role="bold">Explore Bootstrap docs »</emphasis></link> <?linebreak?> <?linebreak?> <link xlink:href="https://github.com/twbs/bootstrap/issues/new?assignees=-&amp;labels=bug&amp;template=bug_report.yml">Report bug</link> · <link xlink:href="https://github.com/twbs/bootstrap/issues/new?assignees=&amp;labels=feature&amp;template=feature_request.yml">Request feature</link> · <link xlink:href="https://themes.getbootstrap.com/">Themes</link> · <link xlink:href="https://blog.getbootstrap.com/">Blog</link> </para>
+<section xml:id="_md_node__modules_2bootstrap_2_r_e_a_d_m_e_1autotoc_md184">
+<title><title>Bootstrap 5</title></title>
+
+<para>Our default branch is for development of our Bootstrap 5 release. Head to the <link xlink:href="https://github.com/twbs/bootstrap/tree/v4-dev"><computeroutput>v4-dev</computeroutput> branch</link> to view the readme, documentation, and source code for Bootstrap 4.</para>
+</section>
+<section xml:id="_md_node__modules_2bootstrap_2_r_e_a_d_m_e_1autotoc_md185">
+<title><title>Table of contents</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Quick start</para>
+</listitem><listitem>
+<para>Status</para>
+</listitem><listitem>
+<para>What&apos;s included</para>
+</listitem><listitem>
+<para>Bugs and feature requests</para>
+</listitem><listitem>
+<para>Documentation</para>
+</listitem><listitem>
+<para>Contributing</para>
+</listitem><listitem>
+<para>Community</para>
+</listitem><listitem>
+<para>Versioning</para>
+</listitem><listitem>
+<para>Creators</para>
+</listitem><listitem>
+<para>Thanks</para>
+</listitem><listitem>
+<para>Copyright and license</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2bootstrap_2_r_e_a_d_m_e_1autotoc_md186">
+<title><title>Quick start</title></title>
+
+<para>Several quick start options are available:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://github.com/twbs/bootstrap/archive/v5.3.2.zip">Download the latest release</link></para>
+</listitem><listitem>
+<para>Clone the repo: <computeroutput>git clone <link xlink:href="https://github.com/twbs/bootstrap.git">https://github.com/twbs/bootstrap.git</link></computeroutput></para>
+</listitem><listitem>
+<para>Install with <link xlink:href="https://www.npmjs.com/">npm</link>: <computeroutput>npm install bootstrap@v5.3.2</computeroutput></para>
+</listitem><listitem>
+<para>Install with <link xlink:href="https://yarnpkg.com/">yarn</link>: <computeroutput>yarn add bootstrap@v5.3.2</computeroutput></para>
+</listitem><listitem>
+<para>Install with <link xlink:href="https://getcomposer.org/">Composer</link>: <computeroutput>composer require twbs/bootstrap:5.3.2</computeroutput></para>
+</listitem><listitem>
+<para>Install with <link xlink:href="https://www.nuget.org/">NuGet</link>: CSS: <computeroutput>Install-Package bootstrap</computeroutput> Sass: <computeroutput>Install-Package bootstrap.sass</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+
+<para>Read the <link xlink:href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">Getting started page</link> for information on the framework contents, templates, examples, and more.</para>
+</section>
+<section xml:id="_md_node__modules_2bootstrap_2_r_e_a_d_m_e_1autotoc_md187">
+<title><title>Status</title></title>
+
+<para><link xlink:href="https://github.com/twbs/bootstrap/actions/workflows/js.yml?query=workflow%3AJS+branch%3Amain"></link> <link xlink:href="https://www.npmjs.com/package/bootstrap"></link> <link xlink:href="https://rubygems.org/gems/bootstrap"></link> <link xlink:href="https://atmospherejs.com/twbs/bootstrap"></link> <link xlink:href="https://packagist.org/packages/twbs/bootstrap"></link> <link xlink:href="https://www.nuget.org/packages/bootstrap/absoluteLatest"></link> <link xlink:href="https://coveralls.io/github/twbs/bootstrap?branch=main"></link> <link xlink:href="https://github.com/twbs/bootstrap/blob/main/dist/css/bootstrap.min.css"></link> <link xlink:href="https://github.com/twbs/bootstrap/blob/main/dist/css/bootstrap.min.css"></link> <link xlink:href="https://github.com/twbs/bootstrap/blob/main/dist/js/bootstrap.min.js"></link> <link xlink:href="https://github.com/twbs/bootstrap/blob/main/dist/js/bootstrap.min.js"></link> ![Backers on Open Collective](https://img.shields.io/opencollective/backers/bootstrap?logo=opencollective&amp;logoColor=fff) ![Sponsors on Open Collective](https://img.shields.io/opencollective/sponsors/bootstrap?logo=opencollective&amp;logoColor=fff)</para>
+</section>
+<section xml:id="_md_node__modules_2bootstrap_2_r_e_a_d_m_e_1autotoc_md188">
+<title><title>What&apos;s included</title></title>
+
+<para>Within the download you&apos;ll find the following directories and files, logically grouping common assets and providing both compiled and minified variations.</para>
+
+<para>
+<para><emphasis role="bold">Download contents</emphasis></para><para>
+<para></para>
+
+<para><literallayout><computeroutput>bootstrap/
+├──&#32;css/
+│&#32;&#32;&#32;├──&#32;bootstrap-grid.css
+│&#32;&#32;&#32;├──&#32;bootstrap-grid.css.map
+│&#32;&#32;&#32;├──&#32;bootstrap-grid.min.css
+│&#32;&#32;&#32;├──&#32;bootstrap-grid.min.css.map
+│&#32;&#32;&#32;├──&#32;bootstrap-grid.rtl.css
+│&#32;&#32;&#32;├──&#32;bootstrap-grid.rtl.css.map
+│&#32;&#32;&#32;├──&#32;bootstrap-grid.rtl.min.css
+│&#32;&#32;&#32;├──&#32;bootstrap-grid.rtl.min.css.map
+│&#32;&#32;&#32;├──&#32;bootstrap-reboot.css
+│&#32;&#32;&#32;├──&#32;bootstrap-reboot.css.map
+│&#32;&#32;&#32;├──&#32;bootstrap-reboot.min.css
+│&#32;&#32;&#32;├──&#32;bootstrap-reboot.min.css.map
+│&#32;&#32;&#32;├──&#32;bootstrap-reboot.rtl.css
+│&#32;&#32;&#32;├──&#32;bootstrap-reboot.rtl.css.map
+│&#32;&#32;&#32;├──&#32;bootstrap-reboot.rtl.min.css
+│&#32;&#32;&#32;├──&#32;bootstrap-reboot.rtl.min.css.map
+│&#32;&#32;&#32;├──&#32;bootstrap-utilities.css
+│&#32;&#32;&#32;├──&#32;bootstrap-utilities.css.map
+│&#32;&#32;&#32;├──&#32;bootstrap-utilities.min.css
+│&#32;&#32;&#32;├──&#32;bootstrap-utilities.min.css.map
+│&#32;&#32;&#32;├──&#32;bootstrap-utilities.rtl.css
+│&#32;&#32;&#32;├──&#32;bootstrap-utilities.rtl.css.map
+│&#32;&#32;&#32;├──&#32;bootstrap-utilities.rtl.min.css
+│&#32;&#32;&#32;├──&#32;bootstrap-utilities.rtl.min.css.map
+│&#32;&#32;&#32;├──&#32;bootstrap.css
+│&#32;&#32;&#32;├──&#32;bootstrap.css.map
+│&#32;&#32;&#32;├──&#32;bootstrap.min.css
+│&#32;&#32;&#32;├──&#32;bootstrap.min.css.map
+│&#32;&#32;&#32;├──&#32;bootstrap.rtl.css
+│&#32;&#32;&#32;├──&#32;bootstrap.rtl.css.map
+│&#32;&#32;&#32;├──&#32;bootstrap.rtl.min.css
+│&#32;&#32;&#32;└──&#32;bootstrap.rtl.min.css.map
+└──&#32;js/
+&#32;&#32;&#32;&#32;├──&#32;bootstrap.bundle.js
+&#32;&#32;&#32;&#32;├──&#32;bootstrap.bundle.js.map
+&#32;&#32;&#32;&#32;├──&#32;bootstrap.bundle.min.js
+&#32;&#32;&#32;&#32;├──&#32;bootstrap.bundle.min.js.map
+&#32;&#32;&#32;&#32;├──&#32;bootstrap.esm.js
+&#32;&#32;&#32;&#32;├──&#32;bootstrap.esm.js.map
+&#32;&#32;&#32;&#32;├──&#32;bootstrap.esm.min.js
+&#32;&#32;&#32;&#32;├──&#32;bootstrap.esm.min.js.map
+&#32;&#32;&#32;&#32;├──&#32;bootstrap.js
+&#32;&#32;&#32;&#32;├──&#32;bootstrap.js.map
+&#32;&#32;&#32;&#32;├──&#32;bootstrap.min.js
+&#32;&#32;&#32;&#32;└──&#32;bootstrap.min.js.map
+</computeroutput></literallayout> </para>
+</para>
+</para>
+
+<para>We provide compiled CSS and JS (<computeroutput>bootstrap.*</computeroutput>), as well as compiled and minified CSS and JS (<computeroutput>bootstrap.min.*</computeroutput>). <link xlink:href="https://developers.google.com/web/tools/chrome-devtools/javascript/source-maps">Source maps</link> (<computeroutput>bootstrap.*.map</computeroutput>) are available for use with certain browsers&apos; developer tools. Bundled JS files (<computeroutput>bootstrap.bundle.js</computeroutput> and minified <computeroutput>bootstrap.bundle.min.js</computeroutput>) include <link xlink:href="https://popper.js.org/">Popper</link>.</para>
+</section>
+<section xml:id="_md_node__modules_2bootstrap_2_r_e_a_d_m_e_1autotoc_md189">
+<title><title>Bugs and feature requests</title></title>
+
+<para>Have a bug or a feature request? Please first read the <link xlink:href="https://github.com/twbs/bootstrap/blob/main/.github/CONTRIBUTING.md#using-the-issue-tracker">issue guidelines</link> and search for existing and closed issues. If your problem or idea is not addressed yet, <link xlink:href="https://github.com/twbs/bootstrap/issues/new/choose">please open a new issue</link>.</para>
+</section>
+<section xml:id="_md_node__modules_2bootstrap_2_r_e_a_d_m_e_1autotoc_md190">
+<title><title>Documentation</title></title>
+
+<para>Bootstrap&apos;s documentation, included in this repo in the root directory, is built with <link xlink:href="https://gohugo.io/">Hugo</link> and publicly hosted on GitHub Pages at <link xlink:href="https://getbootstrap.com/">https://getbootstrap.com/</link>. The docs may also be run locally.</para>
+
+<para>Documentation search is powered by <link xlink:href="https://docsearch.algolia.com/">Algolia&apos;s DocSearch</link>.</para>
+<section xml:id="_md_node__modules_2bootstrap_2_r_e_a_d_m_e_1autotoc_md191">
+<title><title>Running documentation locally</title></title>
+
+<para><orderedlist>
+<listitem>
+<para>Run <computeroutput>npm install</computeroutput> to install the Node.js dependencies, including Hugo (the site builder).</para>
+</listitem><listitem>
+<para>Run <computeroutput>npm run test</computeroutput> (or a specific npm script) to rebuild distributed CSS and JavaScript files, as well as our docs assets.</para>
+</listitem><listitem>
+<para>From the root <computeroutput>/bootstrap</computeroutput> directory, run <computeroutput>npm run docs-serve</computeroutput> in the command line.</para>
+</listitem><listitem>
+<para>Open <computeroutput><link xlink:href="http://localhost:9001/">http://localhost:9001/</link></computeroutput> in your browser, and voilà.</para>
+</listitem></orderedlist>
+</para>
+
+<para>Learn more about using Hugo by reading its <link xlink:href="https://gohugo.io/documentation/">documentation</link>.</para>
+</section>
+<section xml:id="_md_node__modules_2bootstrap_2_r_e_a_d_m_e_1autotoc_md192">
+<title><title>Documentation for previous releases</title></title>
+
+<para>You can find all our previous releases docs on <link xlink:href="https://getbootstrap.com/docs/versions/">https://getbootstrap.com/docs/versions/</link>.</para>
+
+<para><link xlink:href="https://github.com/twbs/bootstrap/releases">Previous releases</link> and their documentation are also available for download.</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2bootstrap_2_r_e_a_d_m_e_1autotoc_md193">
+<title><title>Contributing</title></title>
+
+<para>Please read through our <link xlink:href="https://github.com/twbs/bootstrap/blob/main/.github/CONTRIBUTING.md">contributing guidelines</link>. Included are directions for opening issues, coding standards, and notes on development.</para>
+
+<para>Moreover, if your pull request contains JavaScript patches or features, you must include <link xlink:href="https://github.com/twbs/bootstrap/tree/main/js/tests">relevant unit tests</link>. All HTML and CSS should conform to the <link xlink:href="https://github.com/mdo/code-guide">Code Guide</link>, maintained by <link xlink:href="https://github.com/mdo">Mark Otto</link>.</para>
+
+<para>Editor preferences are available in the <link xlink:href="https://github.com/twbs/bootstrap/blob/main/.editorconfig">editor config</link> for easy use in common text editors. Read more and download plugins at <link xlink:href="https://editorconfig.org/">https://editorconfig.org/</link>.</para>
+</section>
+<section xml:id="_md_node__modules_2bootstrap_2_r_e_a_d_m_e_1autotoc_md194">
+<title><title>Community</title></title>
+
+<para>Get updates on Bootstrap&apos;s development and chat with the project maintainers and community members.</para>
+
+<para><itemizedlist>
+<listitem>
+<para>Follow <link xlink:href="https://twitter.com/getbootstrap">@getbootstrap on Twitter</link>.</para>
+</listitem><listitem>
+<para>Read and subscribe to <link xlink:href="https://blog.getbootstrap.com/">The Official Bootstrap Blog</link>.</para>
+</listitem><listitem>
+<para>Ask questions and explore <link xlink:href="https://github.com/twbs/bootstrap/discussions">our GitHub Discussions</link>.</para>
+</listitem><listitem>
+<para>Discuss, ask questions, and more on <link xlink:href="https://discord.gg/bZUvakRU3M">the community Discord</link> or <link xlink:href="https://reddit.com/r/bootstrap">Bootstrap subreddit</link>.</para>
+</listitem><listitem>
+<para>Chat with fellow Bootstrappers in IRC. On the <computeroutput>irc.libera.chat</computeroutput> server, in the <computeroutput>#bootstrap</computeroutput> channel.</para>
+</listitem><listitem>
+<para>Implementation help may be found at Stack Overflow (tagged <link xlink:href="https://stackoverflow.com/questions/tagged/bootstrap-5"><computeroutput>bootstrap-5</computeroutput></link>).</para>
+</listitem><listitem>
+<para>Developers should use the keyword <computeroutput>bootstrap</computeroutput> on packages which modify or add to the functionality of Bootstrap when distributing through <link xlink:href="https://www.npmjs.com/browse/keyword/bootstrap">npm</link> or similar delivery mechanisms for maximum discoverability.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2bootstrap_2_r_e_a_d_m_e_1autotoc_md195">
+<title><title>Versioning</title></title>
+
+<para>For transparency into our release cycle and in striving to maintain backward compatibility, Bootstrap is maintained under <link xlink:href="https://semver.org/">the Semantic Versioning guidelines</link>. Sometimes we screw up, but we adhere to those rules whenever possible.</para>
+
+<para>See <link xlink:href="https://github.com/twbs/bootstrap/releases">the Releases section of our GitHub project</link> for changelogs for each release version of Bootstrap. Release announcement posts on <link xlink:href="https://blog.getbootstrap.com/">the official Bootstrap blog</link> contain summaries of the most noteworthy changes made in each release.</para>
+</section>
+<section xml:id="_md_node__modules_2bootstrap_2_r_e_a_d_m_e_1autotoc_md196">
+<title><title>Creators</title></title>
+
+<para><emphasis role="bold">Mark Otto</emphasis></para>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://twitter.com/mdo">https://twitter.com/mdo</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/mdo">https://github.com/mdo</link></para>
+</listitem></itemizedlist>
+</para>
+
+<para><emphasis role="bold">Jacob Thornton</emphasis></para>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://twitter.com/fat">https://twitter.com/fat</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/fat">https://github.com/fat</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2bootstrap_2_r_e_a_d_m_e_1autotoc_md197">
+<title><title>Thanks</title></title>
+
+<para><link xlink:href="https://www.browserstack.com/"> </link></para>
+
+<para>Thanks to <link xlink:href="https://www.browserstack.com/">BrowserStack</link> for providing the infrastructure that allows us to test in real browsers!</para>
+
+<para><link xlink:href="https://www.netlify.com/"> </link></para>
+
+<para>Thanks to <link xlink:href="https://www.netlify.com/">Netlify</link> for providing us with Deploy Previews!</para>
+</section>
+<section xml:id="_md_node__modules_2bootstrap_2_r_e_a_d_m_e_1autotoc_md198">
+<title><title>Sponsors</title></title>
+
+<para>Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [<link xlink:href="https://opencollective.com/bootstrap#sponsor">Become a sponsor</link>]</para>
+
+<para><link xlink:href="https://opencollective.com/bootstrap/sponsor/0/website"></link> <link xlink:href="https://opencollective.com/bootstrap/sponsor/1/website"></link> <link xlink:href="https://opencollective.com/bootstrap/sponsor/2/website"></link> <link xlink:href="https://opencollective.com/bootstrap/sponsor/3/website"></link> <link xlink:href="https://opencollective.com/bootstrap/sponsor/4/website"></link> <link xlink:href="https://opencollective.com/bootstrap/sponsor/5/website"></link> <link xlink:href="https://opencollective.com/bootstrap/sponsor/6/website"></link> <link xlink:href="https://opencollective.com/bootstrap/sponsor/7/website"></link> <link xlink:href="https://opencollective.com/bootstrap/sponsor/8/website"></link> <link xlink:href="https://opencollective.com/bootstrap/sponsor/9/website"></link></para>
+</section>
+<section xml:id="_md_node__modules_2bootstrap_2_r_e_a_d_m_e_1autotoc_md199">
+<title><title>Backers</title></title>
+
+<para>Thank you to all our backers! 🙏 [<link xlink:href="https://opencollective.com/bootstrap#backer">Become a backer</link>]</para>
+
+<para><link xlink:href="https://opencollective.com/bootstrap#backers"></link></para>
+</section>
+<section xml:id="_md_node__modules_2bootstrap_2_r_e_a_d_m_e_1autotoc_md200">
+<title><title>Copyright and license</title></title>
+
+<para>Code and documentation copyright 2011–2023 the <link xlink:href="https://github.com/twbs/bootstrap/graphs/contributors">Bootstrap Authors</link>. Code released under the <link xlink:href="https://github.com/twbs/bootstrap/blob/main/LICENSE">MIT License</link>. Docs released under <link xlink:href="https://creativecommons.org/licenses/by/3.0/">Creative Commons</link>. </para>
+</section>
+</section>

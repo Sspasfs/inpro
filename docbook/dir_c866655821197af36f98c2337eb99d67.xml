@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_c866655821197af36f98c2337eb99d67" xml:lang="fr">
+<title>Répertoire de référence de node_modules/to-regex-range</title>
+<indexterm><primary>Répertoire de référence de node_modules/to-regex-range</primary></indexterm>
+Graphe des dépendances de répertoires pour to-regex-range:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_c866655821197af36f98c2337eb99d67_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>

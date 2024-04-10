@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2laravel-vite-plugin_2_r_e_a_d_m_e" xml:lang="fr">
+<title>Laravel Vite Plugin</title>
+<indexterm><primary>Laravel Vite Plugin</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2laravel-vite-plugin_2_r_e_a_d_m_e_1autotoc_md466"/> <link xlink:href="https://github.com/laravel/vite-plugin/actions"></link> <link xlink:href="https://www.npmjs.com/package/laravel-vite-plugin"></link> <link xlink:href="https://www.npmjs.com/package/laravel-vite-plugin"></link> <link xlink:href="https://www.npmjs.com/package/laravel-vite-plugin"></link></para>
+<section xml:id="_md_node__modules_2laravel-vite-plugin_2_r_e_a_d_m_e_1autotoc_md467">
+<title><title>Introduction</title></title>
+
+<para><link xlink:href="https://vitejs.dev">Vite</link> is a modern frontend build tool that provides an extremely fast development environment and bundles your code for production.</para>
+
+<para>This plugin configures Vite for use with a Laravel backend server.</para>
+</section>
+<section xml:id="_md_node__modules_2laravel-vite-plugin_2_r_e_a_d_m_e_1autotoc_md468">
+<title><title>Official Documentation</title></title>
+
+<para>Documentation for the Laravel Vite plugin can be found on the <link xlink:href="https://laravel.com/docs/vite">Laravel website</link>.</para>
+</section>
+<section xml:id="_md_node__modules_2laravel-vite-plugin_2_r_e_a_d_m_e_1autotoc_md469">
+<title><title>Contributing</title></title>
+
+<para>Thank you for considering contributing to the Laravel Vite plugin! The contribution guide can be found in the <link xlink:href="https://laravel.com/docs/contributions">Laravel documentation</link>.</para>
+</section>
+<section xml:id="_md_node__modules_2laravel-vite-plugin_2_r_e_a_d_m_e_1autotoc_md470">
+<title><title>Code of Conduct</title></title>
+
+<para>In order to ensure that the Laravel community is welcoming to all, please review and abide by the <link xlink:href="https://laravel.com/docs/contributions#code-of-conduct">Code of Conduct</link>.</para>
+</section>
+<section xml:id="_md_node__modules_2laravel-vite-plugin_2_r_e_a_d_m_e_1autotoc_md471">
+<title><title>Security Vulnerabilities</title></title>
+
+<para>Please review <link xlink:href="https://github.com/laravel/vite-plugin/security/policy">our security policy</link> on how to report security vulnerabilities.</para>
+</section>
+<section xml:id="_md_node__modules_2laravel-vite-plugin_2_r_e_a_d_m_e_1autotoc_md472">
+<title><title>License</title></title>
+
+<para>The Laravel Vite plugin is open-sourced software licensed under the <link linkend="_md_node__modules_2laravel-vite-plugin_2_l_i_c_e_n_s_e">MIT license</link>. </para>
+</section>
+</section>

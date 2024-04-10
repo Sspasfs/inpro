@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2axios_2lib_2adapters_2_r_e_a_d_m_e" xml:lang="fr">
+<title>axios // adapters</title>
+<indexterm><primary>axios // adapters</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2axios_2lib_2adapters_2_r_e_a_d_m_e_1autotoc_md149"/> The modules under <computeroutput>adapters/</computeroutput> are modules that handle dispatching a request and settling a returned <computeroutput>Promise</computeroutput> once a response is received.</para>
+<section xml:id="_md_node__modules_2axios_2lib_2adapters_2_r_e_a_d_m_e_1autotoc_md150">
+<title><title>Example</title></title>
+
+<para><literallayout><computeroutput>var&#32;settle&#32;=&#32;require(&apos;./../core/settle&apos;);
+
+module.exports&#32;=&#32;function&#32;myAdapter(config)&#32;{
+&#32;&#32;//&#32;At&#32;this&#32;point:
+&#32;&#32;//&#32;&#32;-&#32;config&#32;has&#32;been&#32;merged&#32;with&#32;defaults
+&#32;&#32;//&#32;&#32;-&#32;request&#32;transformers&#32;have&#32;already&#32;run
+&#32;&#32;//&#32;&#32;-&#32;request&#32;interceptors&#32;have&#32;already&#32;run
+&#32;&#32;
+&#32;&#32;//&#32;Make&#32;the&#32;request&#32;using&#32;config&#32;provided
+&#32;&#32;//&#32;Upon&#32;response&#32;settle&#32;the&#32;Promise
+
+&#32;&#32;return&#32;new&#32;Promise(function(resolve,&#32;reject)&#32;{
+&#32;&#32;
+&#32;&#32;&#32;&#32;var&#32;response&#32;=&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;data:&#32;responseData,
+&#32;&#32;&#32;&#32;&#32;&#32;status:&#32;request.status,
+&#32;&#32;&#32;&#32;&#32;&#32;statusText:&#32;request.statusText,
+&#32;&#32;&#32;&#32;&#32;&#32;headers:&#32;responseHeaders,
+&#32;&#32;&#32;&#32;&#32;&#32;config:&#32;config,
+&#32;&#32;&#32;&#32;&#32;&#32;request:&#32;request
+&#32;&#32;&#32;&#32;};
+
+&#32;&#32;&#32;&#32;settle(resolve,&#32;reject,&#32;response);
+
+&#32;&#32;&#32;&#32;//&#32;From&#32;here:
+&#32;&#32;&#32;&#32;//&#32;&#32;-&#32;response&#32;transformers&#32;will&#32;run
+&#32;&#32;&#32;&#32;//&#32;&#32;-&#32;response&#32;interceptors&#32;will&#32;run
+&#32;&#32;});
+}
+</computeroutput></literallayout> </para>
+</section>
+</section>

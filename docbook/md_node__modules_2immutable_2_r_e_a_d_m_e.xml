@@ -1,0 +1,679 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e" xml:lang="fr">
+<title>Immutable collections for JavaScript</title>
+<indexterm><primary>Immutable collections for JavaScript</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md400"/> <link xlink:href="https://github.com/immutable-js/immutable-js/actions/workflows/ci.yml?query=branch%3Amain"></link> <link xlink:href="https://immutable-js.slack.com">Chat on slack</link></para>
+
+<para><link xlink:href="https://immutable-js.com">Read the docs</link> and eat your vegetables.</para>
+
+<para>Docs are automatically generated from <link xlink:href="https://github.com/immutable-js/immutable-js/blob/main/README.md">README.md</link> and <link xlink:href="https://github.com/immutable-js/immutable-js/blob/main/type-definitions/immutable.d.ts">immutable.d.ts</link>. Please contribute! Also, don&apos;t miss the <link xlink:href="https://github.com/immutable-js/immutable-js/wiki">wiki</link> which contains articles on additional specific topics. Can&apos;t find something? Open an <link xlink:href="https://github.com/immutable-js/immutable-js/issues">issue</link>.</para>
+
+<para><emphasis role="bold">Table of contents:</emphasis></para>
+
+<para><itemizedlist>
+<listitem>
+<para>Introduction</para>
+</listitem><listitem>
+<para>Getting started</para>
+</listitem><listitem>
+<para>The case for Immutability</para>
+</listitem><listitem>
+<para>JavaScript-first API</para>
+</listitem><listitem>
+<para>Nested Structures</para>
+</listitem><listitem>
+<para>Equality treats Collections as Values</para>
+</listitem><listitem>
+<para>Batching Mutations</para>
+</listitem><listitem>
+<para>Lazy Seq</para>
+</listitem><listitem>
+<para>Additional Tools and Resources</para>
+</listitem><listitem>
+<para>Contributing</para>
+</listitem></itemizedlist>
+</para>
+<section xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md401">
+<title><title>Introduction</title></title>
+
+<para><link xlink:href="https://en.wikipedia.org/wiki/Immutable_object">Immutable</link> data cannot be changed once created, leading to much simpler application development, no defensive copying, and enabling advanced memoization and change detection techniques with simple logic. <link xlink:href="https://en.wikipedia.org/wiki/Persistent_data_structure">Persistent</link> data presents a mutative API which does not update the data in-place, but instead always yields new updated data.</para>
+
+<para>Immutable.js provides many Persistent Immutable data structures including: <computeroutput>List</computeroutput>, <computeroutput>Stack</computeroutput>, <computeroutput>Map</computeroutput>, <computeroutput>OrderedMap</computeroutput>, <computeroutput>Set</computeroutput>, <computeroutput>OrderedSet</computeroutput> and <computeroutput>Record</computeroutput>.</para>
+
+<para>These data structures are highly efficient on modern JavaScript VMs by using structural sharing via <link xlink:href="https://en.wikipedia.org/wiki/Hash_array_mapped_trie">hash maps tries</link> and <link xlink:href="https://hypirion.com/musings/understanding-persistent-vector-pt-1">vector tries</link> as popularized by Clojure and Scala, minimizing the need to copy or cache data.</para>
+
+<para>Immutable.js also provides a lazy <computeroutput>Seq</computeroutput>, allowing efficient chaining of collection methods like <computeroutput>map</computeroutput> and <computeroutput>filter</computeroutput> without creating intermediate representations. Create some <computeroutput>Seq</computeroutput> with <computeroutput>Range</computeroutput> and <computeroutput>Repeat</computeroutput>.</para>
+
+<para>Want to hear more? Watch the presentation about Immutable.js:</para>
+
+<para><link xlink:href="https://youtu.be/I7IdS-PbEgI"></link></para>
+</section>
+<section xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md402">
+<title><title>Getting started</title></title>
+
+<para>Install <computeroutput>immutable</computeroutput> using npm.</para>
+
+<para><literallayout><computeroutput>#&#32;using&#32;npm
+npm&#32;install&#32;immutable
+
+#&#32;using&#32;Yarn
+yarn&#32;add&#32;immutable
+
+#&#32;using&#32;pnpm
+pnpm&#32;add&#32;immutable
+
+#&#32;using&#32;Bun
+bun&#32;add&#32;immutable
+</computeroutput></literallayout></para>
+
+<para>Then require it into any module.</para>
+
+<para><literallayout><computeroutput>const&#32;{&#32;Map&#32;}&#32;=&#32;require(&apos;immutable&apos;);
+const&#32;map1&#32;=&#32;Map({&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;3&#32;});
+const&#32;map2&#32;=&#32;map1.set(&apos;b&apos;,&#32;50);
+map1.get(&apos;b&apos;)&#32;+&#32;&apos;&#32;vs.&#32;&apos;&#32;+&#32;map2.get(&apos;b&apos;);&#32;//&#32;2&#32;vs.&#32;50
+</computeroutput></literallayout></para>
+<section xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md403">
+<title><title>Browser</title></title>
+
+<para>Immutable.js has no dependencies, which makes it predictable to include in a Browser.</para>
+
+<para>It&apos;s highly recommended to use a module bundler like <link xlink:href="https://webpack.github.io/">webpack</link>, <link xlink:href="https://rollupjs.org/">rollup</link>, or <link xlink:href="https://browserify.org/">browserify</link>. The <computeroutput>immutable</computeroutput> npm module works without any additional consideration. All examples throughout the documentation will assume use of this kind of tool.</para>
+
+<para>Alternatively, Immutable.js may be directly included as a script tag. Download or link to a CDN such as <link xlink:href="https://cdnjs.com/libraries/immutable">CDNJS</link> or <link xlink:href="https://www.jsdelivr.com/package/npm/immutable">jsDelivr</link>.</para>
+
+<para>Use a script tag to directly add <computeroutput>Immutable</computeroutput> to the global scope:</para>
+
+<para><literallayout><computeroutput>&lt;script&#32;src=&quot;immutable.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+&#32;&#32;var&#32;map1&#32;=&#32;Immutable.Map({&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;3&#32;});
+&#32;&#32;var&#32;map2&#32;=&#32;map1.set(&apos;b&apos;,&#32;50);
+&#32;&#32;map1.get(&apos;b&apos;);&#32;//&#32;2
+&#32;&#32;map2.get(&apos;b&apos;);&#32;//&#32;50
+&lt;/script&gt;
+</computeroutput></literallayout></para>
+
+<para>Or use an AMD-style loader (such as <link xlink:href="https://requirejs.org/">RequireJS</link>):</para>
+
+<para><literallayout><computeroutput>require([&apos;./immutable.min.js&apos;],&#32;function&#32;(Immutable)&#32;{
+&#32;&#32;var&#32;map1&#32;=&#32;Immutable.Map({&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;3&#32;});
+&#32;&#32;var&#32;map2&#32;=&#32;map1.set(&apos;b&apos;,&#32;50);
+&#32;&#32;map1.get(&apos;b&apos;);&#32;//&#32;2
+&#32;&#32;map2.get(&apos;b&apos;);&#32;//&#32;50
+});
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md404">
+<title><title>Flow &amp; TypeScript</title></title>
+
+<para>Use these Immutable collections and sequences as you would use native collections in your <link xlink:href="https://flowtype.org/">Flowtype</link> or <link xlink:href="https://typescriptlang.org">TypeScript</link> programs while still taking advantage of type generics, error detection, and auto-complete in your IDE.</para>
+
+<para>Installing <computeroutput>immutable</computeroutput> via npm brings with it type definitions for Flow (v0.55.0 or higher) and TypeScript (v2.1.0 or higher), so you shouldn&apos;t need to do anything at all!</para>
+<section xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md405">
+<title><title>Using TypeScript with Immutable.js v4</title></title>
+
+<para>Immutable.js type definitions embrace ES2015. While Immutable.js itself supports legacy browsers and environments, its type definitions require TypeScript&apos;s 2015 lib. Include either <computeroutput>&quot;target&quot;: &quot;es2015&quot;</computeroutput> or <computeroutput>&quot;lib&quot;: &quot;es2015&quot;</computeroutput> in your <computeroutput>tsconfig.json</computeroutput>, or provide <computeroutput>--target es2015</computeroutput> or <computeroutput>--lib es2015</computeroutput> to the <computeroutput>tsc</computeroutput> command.</para>
+
+<para><literallayout><computeroutput>const&#32;{&#32;Map&#32;}&#32;=&#32;require(&apos;immutable&apos;);
+const&#32;map1&#32;=&#32;Map({&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;3&#32;});
+const&#32;map2&#32;=&#32;map1.set(&apos;b&apos;,&#32;50);
+map1.get(&apos;b&apos;)&#32;+&#32;&apos;&#32;vs.&#32;&apos;&#32;+&#32;map2.get(&apos;b&apos;);&#32;//&#32;2&#32;vs.&#32;50
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md406">
+<title><title>Using TypeScript with Immutable.js v3 and earlier:</title></title>
+
+<para>Previous versions of Immutable.js include a reference file which you can include via relative path to the type definitions at the top of your file.</para>
+
+<para><literallayout><computeroutput>///&lt;reference&#32;path=&apos;./node_modules/immutable/dist/immutable.d.ts&apos;/&gt;
+import&#32;Immutable&#32;from&#32;&apos;immutable&apos;;
+var&#32;map1:&#32;Immutable.Map&lt;string,&#32;number&gt;;
+map1&#32;=&#32;Immutable.Map({&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;3&#32;});
+var&#32;map2&#32;=&#32;map1.set(&apos;b&apos;,&#32;50);
+map1.get(&apos;b&apos;);&#32;//&#32;2
+map2.get(&apos;b&apos;);&#32;//&#32;50
+</computeroutput></literallayout></para>
+</section>
+</section>
+</section>
+<section xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md407">
+<title><title>The case for Immutability</title></title>
+
+<para>Much of what makes application development difficult is tracking mutation and maintaining state. Developing with immutable data encourages you to think differently about how data flows through your application.</para>
+
+<para>Subscribing to data events throughout your application creates a huge overhead of book-keeping which can hurt performance, sometimes dramatically, and creates opportunities for areas of your application to get out of sync with each other due to easy to make programmer error. Since immutable data never changes, subscribing to changes throughout the model is a dead-end and new data can only ever be passed from above.</para>
+
+<para>This model of data flow aligns well with the architecture of <link xlink:href="https://reactjs.org/">React</link> and especially well with an application designed using the ideas of <link xlink:href="https://facebook.github.io/flux/docs/in-depth-overview/">Flux</link>.</para>
+
+<para>When data is passed from above rather than being subscribed to, and you&apos;re only interested in doing work when something has changed, you can use equality.</para>
+
+<para>Immutable collections should be treated as <emphasis>values</emphasis> rather than <emphasis>objects</emphasis>. While objects represent some thing which could change over time, a value represents the state of that thing at a particular instance of time. This principle is most important to understanding the appropriate use of immutable data. In order to treat Immutable.js collections as values, it&apos;s important to use the <computeroutput>Immutable.is()</computeroutput> function or <computeroutput>.equals()</computeroutput> method to determine <emphasis>value equality</emphasis> instead of the <computeroutput>===</computeroutput> operator which determines object <emphasis>reference identity</emphasis>.</para>
+
+<para><literallayout><computeroutput>const&#32;{&#32;Map&#32;}&#32;=&#32;require(&apos;immutable&apos;);
+const&#32;map1&#32;=&#32;Map({&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;3&#32;});
+const&#32;map2&#32;=&#32;Map({&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;3&#32;});
+map1.equals(map2);&#32;//&#32;true
+map1&#32;===&#32;map2;&#32;//&#32;false
+</computeroutput></literallayout></para>
+
+<para>Note: As a performance optimization Immutable.js attempts to return the existing collection when an operation would result in an identical collection, allowing for using <computeroutput>===</computeroutput> reference equality to determine if something definitely has not changed. This can be extremely useful when used within a memoization function which would prefer to re-run the function if a deeper equality check could potentially be more costly. The <computeroutput>===</computeroutput> equality check is also used internally by <computeroutput>Immutable.is</computeroutput> and <computeroutput>.equals()</computeroutput> as a performance optimization.</para>
+
+<para><literallayout><computeroutput>const&#32;{&#32;Map&#32;}&#32;=&#32;require(&apos;immutable&apos;);
+const&#32;map1&#32;=&#32;Map({&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;3&#32;});
+const&#32;map2&#32;=&#32;map1.set(&apos;b&apos;,&#32;2);&#32;//&#32;Set&#32;to&#32;same&#32;value
+map1&#32;===&#32;map2;&#32;//&#32;true
+</computeroutput></literallayout></para>
+
+<para>If an object is immutable, it can be &quot;copied&quot; simply by making another reference to it instead of copying the entire object. Because a reference is much smaller than the object itself, this results in memory savings and a potential boost in execution speed for programs which rely on copies (such as an undo-stack).</para>
+
+<para><literallayout><computeroutput>const&#32;{&#32;Map&#32;}&#32;=&#32;require(&apos;immutable&apos;);
+const&#32;map&#32;=&#32;Map({&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;3&#32;});
+const&#32;mapCopy&#32;=&#32;map;&#32;//&#32;Look,&#32;&quot;copies&quot;&#32;are&#32;free!
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md408">
+<title><title>JavaScript-first API</title></title>
+
+<para>While Immutable.js is inspired by Clojure, Scala, Haskell and other functional programming environments, it&apos;s designed to bring these powerful concepts to JavaScript, and therefore has an Object-Oriented API that closely mirrors that of <link xlink:href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla">ES2015</link> <link xlink:href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</link>, <link xlink:href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">Map</link>, and <link xlink:href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set">Set</link>.</para>
+
+<para>The difference for the immutable collections is that methods which would mutate the collection, like <computeroutput>push</computeroutput>, <computeroutput>set</computeroutput>, <computeroutput>unshift</computeroutput> or <computeroutput>splice</computeroutput>, instead return a new immutable collection. Methods which return new arrays, like <computeroutput>slice</computeroutput> or <computeroutput>concat</computeroutput>, instead return new immutable collections.</para>
+
+<para><literallayout><computeroutput>const&#32;{&#32;List&#32;}&#32;=&#32;require(&apos;immutable&apos;);
+const&#32;list1&#32;=&#32;List([1,&#32;2]);
+const&#32;list2&#32;=&#32;list1.push(3,&#32;4,&#32;5);
+const&#32;list3&#32;=&#32;list2.unshift(0);
+const&#32;list4&#32;=&#32;list1.concat(list2,&#32;list3);
+assert.equal(list1.size,&#32;2);
+assert.equal(list2.size,&#32;5);
+assert.equal(list3.size,&#32;6);
+assert.equal(list4.size,&#32;13);
+assert.equal(list4.get(0),&#32;1);
+</computeroutput></literallayout></para>
+
+<para>Almost all of the methods on <link xlink:href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</link> will be found in similar form on <computeroutput>Immutable.List</computeroutput>, those of <link xlink:href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">Map</link> found on <computeroutput>Immutable.Map</computeroutput>, and those of <link xlink:href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set">Set</link> found on <computeroutput>Immutable.Set</computeroutput>, including collection operations like <computeroutput>forEach()</computeroutput> and <computeroutput>map()</computeroutput>.</para>
+
+<para><literallayout><computeroutput>const&#32;{&#32;Map&#32;}&#32;=&#32;require(&apos;immutable&apos;);
+const&#32;alpha&#32;=&#32;Map({&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;3,&#32;d:&#32;4&#32;});
+alpha.map((v,&#32;k)&#32;=&gt;&#32;k.toUpperCase()).join();
+//&#32;&apos;A,B,C,D&apos;
+</computeroutput></literallayout></para>
+<section xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md409">
+<title><title>Convert from raw JavaScript objects and arrays.</title></title>
+
+<para>Designed to inter-operate with your existing JavaScript, Immutable.js accepts plain JavaScript Arrays and Objects anywhere a method expects a <computeroutput>Collection</computeroutput>.</para>
+
+<para><literallayout><computeroutput>const&#32;{&#32;Map,&#32;List&#32;}&#32;=&#32;require(&apos;immutable&apos;);
+const&#32;map1&#32;=&#32;Map({&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;3,&#32;d:&#32;4&#32;});
+const&#32;map2&#32;=&#32;Map({&#32;c:&#32;10,&#32;a:&#32;20,&#32;t:&#32;30&#32;});
+const&#32;obj&#32;=&#32;{&#32;d:&#32;100,&#32;o:&#32;200,&#32;g:&#32;300&#32;};
+const&#32;map3&#32;=&#32;map1.merge(map2,&#32;obj);
+//&#32;Map&#32;{&#32;a:&#32;20,&#32;b:&#32;2,&#32;c:&#32;10,&#32;d:&#32;100,&#32;t:&#32;30,&#32;o:&#32;200,&#32;g:&#32;300&#32;}
+const&#32;list1&#32;=&#32;List([1,&#32;2,&#32;3]);
+const&#32;list2&#32;=&#32;List([4,&#32;5,&#32;6]);
+const&#32;array&#32;=&#32;[7,&#32;8,&#32;9];
+const&#32;list3&#32;=&#32;list1.concat(list2,&#32;array);
+//&#32;List&#32;[&#32;1,&#32;2,&#32;3,&#32;4,&#32;5,&#32;6,&#32;7,&#32;8,&#32;9&#32;]
+</computeroutput></literallayout></para>
+
+<para>This is possible because Immutable.js can treat any JavaScript Array or Object as a Collection. You can take advantage of this in order to get sophisticated collection methods on JavaScript Objects, which otherwise have a very sparse native API. Because Seq evaluates lazily and does not cache intermediate results, these operations can be extremely efficient.</para>
+
+<para><literallayout><computeroutput>const&#32;{&#32;Seq&#32;}&#32;=&#32;require(&apos;immutable&apos;);
+const&#32;myObject&#32;=&#32;{&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;3&#32;};
+Seq(myObject)
+&#32;&#32;.map(x&#32;=&gt;&#32;x&#32;*&#32;x)
+&#32;&#32;.toObject();
+//&#32;{&#32;a:&#32;1,&#32;b:&#32;4,&#32;c:&#32;9&#32;}
+</computeroutput></literallayout></para>
+
+<para>Keep in mind, when using JS objects to construct Immutable Maps, that JavaScript Object properties are always strings, even if written in a quote-less shorthand, while Immutable Maps accept keys of any type.</para>
+
+<para><literallayout><computeroutput>const&#32;{&#32;fromJS&#32;}&#32;=&#32;require(&apos;immutable&apos;);
+
+const&#32;obj&#32;=&#32;{&#32;1:&#32;&apos;one&apos;&#32;};
+console.log(Object.keys(obj));&#32;//&#32;[&#32;&quot;1&quot;&#32;]
+console.log(obj[&apos;1&apos;],&#32;obj[1]);&#32;//&#32;&quot;one&quot;,&#32;&quot;one&quot;
+
+const&#32;map&#32;=&#32;fromJS(obj);
+console.log(map.get(&apos;1&apos;),&#32;map.get(1));&#32;//&#32;&quot;one&quot;,&#32;undefined
+</computeroutput></literallayout></para>
+
+<para>Property access for JavaScript Objects first converts the key to a string, but since Immutable Map keys can be of any type the argument to <computeroutput>get()</computeroutput> is not altered.</para>
+</section>
+<section xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md410">
+<title><title>Converts back to raw JavaScript objects.</title></title>
+
+<para>All Immutable.js Collections can be converted to plain JavaScript Arrays and Objects shallowly with <computeroutput>toArray()</computeroutput> and <computeroutput>toObject()</computeroutput> or deeply with <computeroutput>toJS()</computeroutput>. All Immutable Collections also implement <computeroutput>toJSON()</computeroutput> allowing them to be passed to <computeroutput>JSON.stringify</computeroutput> directly. They also respect the custom <computeroutput>toJSON()</computeroutput> methods of nested objects.</para>
+
+<para><literallayout><computeroutput>const&#32;{&#32;Map,&#32;List&#32;}&#32;=&#32;require(&apos;immutable&apos;);
+const&#32;deep&#32;=&#32;Map({&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;List([3,&#32;4,&#32;5])&#32;});
+console.log(deep.toObject());&#32;//&#32;{&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;List&#32;[&#32;3,&#32;4,&#32;5&#32;]&#32;}
+console.log(deep.toArray());&#32;//&#32;[&#32;1,&#32;2,&#32;List&#32;[&#32;3,&#32;4,&#32;5&#32;]&#32;]
+console.log(deep.toJS());&#32;//&#32;{&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;[&#32;3,&#32;4,&#32;5&#32;]&#32;}
+JSON.stringify(deep);&#32;//&#32;&apos;{&quot;a&quot;:1,&quot;b&quot;:2,&quot;c&quot;:[3,4,5]}&apos;
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md411">
+<title><title>Embraces ES2015</title></title>
+
+<para>Immutable.js supports all JavaScript environments, including legacy browsers (even IE11). However it also takes advantage of features added to JavaScript in <link xlink:href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla">ES2015</link>, the latest standard version of JavaScript, including <link xlink:href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/The_Iterator_protocol">Iterators</link>, <link xlink:href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">Arrow Functions</link>, <link xlink:href="https://wiki.ecmascript.org/doku.php?id=strawman:maximally_minimal_classes">Classes</link>, and <link xlink:href="https://www.2ality.com/2014/09/es6-modules-final.html">Modules</link>. It&apos;s inspired by the native <link xlink:href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">Map</link> and <link xlink:href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set">Set</link> collections added to ES2015.</para>
+
+<para>All examples in the Documentation are presented in ES2015. To run in all browsers, they need to be translated to ES5.</para>
+
+<para><literallayout><computeroutput>//&#32;ES2015
+const&#32;mapped&#32;=&#32;foo.map(x&#32;=&gt;&#32;x&#32;*&#32;x);
+//&#32;ES5
+var&#32;mapped&#32;=&#32;foo.map(function&#32;(x)&#32;{
+&#32;&#32;return&#32;x&#32;*&#32;x;
+});
+</computeroutput></literallayout></para>
+
+<para>All Immutable.js collections are <link xlink:href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/The_Iterator_protocol">Iterable</link>, which allows them to be used anywhere an Iterable is expected, such as when spreading into an Array.</para>
+
+<para><literallayout><computeroutput>const&#32;{&#32;List&#32;}&#32;=&#32;require(&apos;immutable&apos;);
+const&#32;aList&#32;=&#32;List([1,&#32;2,&#32;3]);
+const&#32;anArray&#32;=&#32;[0,&#32;...aList,&#32;4,&#32;5];&#32;//&#32;[&#32;0,&#32;1,&#32;2,&#32;3,&#32;4,&#32;5&#32;]
+</computeroutput></literallayout></para>
+
+<para>Note: A Collection is always iterated in the same order, however that order may not always be well defined, as is the case for the <computeroutput>Map</computeroutput> and <computeroutput>Set</computeroutput>.</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md412">
+<title><title>Nested Structures</title></title>
+
+<para>The collections in Immutable.js are intended to be nested, allowing for deep trees of data, similar to JSON.</para>
+
+<para><literallayout><computeroutput>const&#32;{&#32;fromJS&#32;}&#32;=&#32;require(&apos;immutable&apos;);
+const&#32;nested&#32;=&#32;fromJS({&#32;a:&#32;{&#32;b:&#32;{&#32;c:&#32;[3,&#32;4,&#32;5]&#32;}&#32;}&#32;});
+//&#32;Map&#32;{&#32;a:&#32;Map&#32;{&#32;b:&#32;Map&#32;{&#32;c:&#32;List&#32;[&#32;3,&#32;4,&#32;5&#32;]&#32;}&#32;}&#32;}
+</computeroutput></literallayout></para>
+
+<para>A few power-tools allow for reading and operating on nested data. The most useful are <computeroutput>mergeDeep</computeroutput>, <computeroutput>getIn</computeroutput>, <computeroutput>setIn</computeroutput>, and <computeroutput>updateIn</computeroutput>, found on <computeroutput>List</computeroutput>, <computeroutput>Map</computeroutput> and <computeroutput>OrderedMap</computeroutput>.</para>
+
+<para><literallayout><computeroutput>const&#32;{&#32;fromJS&#32;}&#32;=&#32;require(&apos;immutable&apos;);
+const&#32;nested&#32;=&#32;fromJS({&#32;a:&#32;{&#32;b:&#32;{&#32;c:&#32;[3,&#32;4,&#32;5]&#32;}&#32;}&#32;});
+
+const&#32;nested2&#32;=&#32;nested.mergeDeep({&#32;a:&#32;{&#32;b:&#32;{&#32;d:&#32;6&#32;}&#32;}&#32;});
+//&#32;Map&#32;{&#32;a:&#32;Map&#32;{&#32;b:&#32;Map&#32;{&#32;c:&#32;List&#32;[&#32;3,&#32;4,&#32;5&#32;],&#32;d:&#32;6&#32;}&#32;}&#32;}
+
+console.log(nested2.getIn([&apos;a&apos;,&#32;&apos;b&apos;,&#32;&apos;d&apos;]));&#32;//&#32;6
+
+const&#32;nested3&#32;=&#32;nested2.updateIn([&apos;a&apos;,&#32;&apos;b&apos;,&#32;&apos;d&apos;],&#32;value&#32;=&gt;&#32;value&#32;+&#32;1);
+console.log(nested3);
+//&#32;Map&#32;{&#32;a:&#32;Map&#32;{&#32;b:&#32;Map&#32;{&#32;c:&#32;List&#32;[&#32;3,&#32;4,&#32;5&#32;],&#32;d:&#32;7&#32;}&#32;}&#32;}
+
+const&#32;nested4&#32;=&#32;nested3.updateIn([&apos;a&apos;,&#32;&apos;b&apos;,&#32;&apos;c&apos;],&#32;list&#32;=&gt;&#32;list.push(6));
+//&#32;Map&#32;{&#32;a:&#32;Map&#32;{&#32;b:&#32;Map&#32;{&#32;c:&#32;List&#32;[&#32;3,&#32;4,&#32;5,&#32;6&#32;],&#32;d:&#32;7&#32;}&#32;}&#32;}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md413">
+<title><title>Equality treats Collections as Values</title></title>
+
+<para>Immutable.js collections are treated as pure data <emphasis>values</emphasis>. Two immutable collections are considered <emphasis>value equal</emphasis> (via <computeroutput>.equals()</computeroutput> or <computeroutput>is()</computeroutput>) if they represent the same collection of values. This differs from JavaScript&apos;s typical <emphasis>reference equal</emphasis> (via <computeroutput>===</computeroutput> or <computeroutput>==</computeroutput>) for Objects and Arrays which only determines if two variables represent references to the same object instance.</para>
+
+<para>Consider the example below where two identical <computeroutput>Map</computeroutput> instances are not <emphasis>reference equal</emphasis> but are <emphasis>value equal</emphasis>.</para>
+
+<para><literallayout><computeroutput>//&#32;First&#32;consider:
+const&#32;obj1&#32;=&#32;{&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;3&#32;};
+const&#32;obj2&#32;=&#32;{&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;3&#32;};
+obj1&#32;!==&#32;obj2;&#32;//&#32;two&#32;different&#32;instances&#32;are&#32;always&#32;not&#32;equal&#32;with&#32;===
+
+const&#32;{&#32;Map,&#32;is&#32;}&#32;=&#32;require(&apos;immutable&apos;);
+const&#32;map1&#32;=&#32;Map({&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;3&#32;});
+const&#32;map2&#32;=&#32;Map({&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;3&#32;});
+map1&#32;!==&#32;map2;&#32;//&#32;two&#32;different&#32;instances&#32;are&#32;not&#32;reference-equal
+map1.equals(map2);&#32;//&#32;but&#32;are&#32;value-equal&#32;if&#32;they&#32;have&#32;the&#32;same&#32;values
+is(map1,&#32;map2);&#32;//&#32;alternatively&#32;can&#32;use&#32;the&#32;is()&#32;function
+</computeroutput></literallayout></para>
+
+<para>Value equality allows Immutable.js collections to be used as keys in Maps or values in Sets, and retrieved with different but equivalent collections:</para>
+
+<para><literallayout><computeroutput>const&#32;{&#32;Map,&#32;Set&#32;}&#32;=&#32;require(&apos;immutable&apos;);
+const&#32;map1&#32;=&#32;Map({&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;3&#32;});
+const&#32;map2&#32;=&#32;Map({&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;3&#32;});
+const&#32;set&#32;=&#32;Set().add(map1);
+set.has(map2);&#32;//&#32;true&#32;because&#32;these&#32;are&#32;value-equal
+</computeroutput></literallayout></para>
+
+<para>Note: <computeroutput>is()</computeroutput> uses the same measure of equality as <link xlink:href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is">Object.is</link> for scalar strings and numbers, but uses value equality for Immutable collections, determining if both are immutable and all keys and values are equal using the same measure of equality.</para>
+<section xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md414">
+<title><title>Performance tradeoffs</title></title>
+
+<para>While value equality is useful in many circumstances, it has different performance characteristics than reference equality. Understanding these tradeoffs may help you decide which to use in each case, especially when used to memoize some operation.</para>
+
+<para>When comparing two collections, value equality may require considering every item in each collection, on an <computeroutput>O(N)</computeroutput> time complexity. For large collections of values, this could become a costly operation. Though if the two are not equal and hardly similar, the inequality is determined very quickly. In contrast, when comparing two collections with reference equality, only the initial references to memory need to be compared which is not based on the size of the collections, which has an <computeroutput>O(1)</computeroutput> time complexity. Checking reference equality is always very fast, however just because two collections are not reference-equal does not rule out the possibility that they may be value-equal.</para>
+</section>
+<section xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md415">
+<title><title>Return self on no-op optimization</title></title>
+
+<para>When possible, Immutable.js avoids creating new objects for updates where no change in <emphasis>value</emphasis> occurred, to allow for efficient <emphasis>reference equality</emphasis> checking to quickly determine if no change occurred.</para>
+
+<para><literallayout><computeroutput>const&#32;{&#32;Map&#32;}&#32;=&#32;require(&apos;immutable&apos;);
+const&#32;originalMap&#32;=&#32;Map({&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;3&#32;});
+const&#32;updatedMap&#32;=&#32;originalMap.set(&apos;b&apos;,&#32;2);
+updatedMap&#32;===&#32;originalMap;&#32;//&#32;No-op&#32;.set()&#32;returned&#32;the&#32;original&#32;reference.
+</computeroutput></literallayout></para>
+
+<para>However updates which do result in a change will return a new reference. Each of these operations occur independently, so two similar updates will not return the same reference:</para>
+
+<para><literallayout><computeroutput>const&#32;{&#32;Map&#32;}&#32;=&#32;require(&apos;immutable&apos;);
+const&#32;originalMap&#32;=&#32;Map({&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;3&#32;});
+const&#32;updatedMap&#32;=&#32;originalMap.set(&apos;b&apos;,&#32;1000);
+//&#32;New&#32;instance,&#32;leaving&#32;the&#32;original&#32;immutable.
+updatedMap&#32;!==&#32;originalMap;
+const&#32;anotherUpdatedMap&#32;=&#32;originalMap.set(&apos;b&apos;,&#32;1000);
+//&#32;Despite&#32;both&#32;the&#32;results&#32;of&#32;the&#32;same&#32;operation,&#32;each&#32;created&#32;a&#32;new&#32;reference.
+anotherUpdatedMap&#32;!==&#32;updatedMap;
+//&#32;However&#32;the&#32;two&#32;are&#32;value&#32;equal.
+anotherUpdatedMap.equals(updatedMap);
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md416">
+<title><title>Batching Mutations</title></title>
+
+<para><blockquote>
+<para>&#8205;If a tree falls in the woods, does it make a sound?</para>
+
+<para>If a pure function mutates some local data in order to produce an immutable return value, is that ok?</para>
+
+<para>— Rich Hickey, Clojure </para>
+</blockquote>Applying a mutation to create a new immutable object results in some overhead, which can add up to a minor performance penalty. If you need to apply a series of mutations locally before returning, Immutable.js gives you the ability to create a temporary mutable (transient) copy of a collection and apply a batch of mutations in a performant manner by using <computeroutput>withMutations</computeroutput>. In fact, this is exactly how Immutable.js applies complex mutations itself.</para>
+
+<para>As an example, building <computeroutput>list2</computeroutput> results in the creation of 1, not 3, new immutable Lists.</para>
+
+<para><literallayout><computeroutput>const&#32;{&#32;List&#32;}&#32;=&#32;require(&apos;immutable&apos;);
+const&#32;list1&#32;=&#32;List([1,&#32;2,&#32;3]);
+const&#32;list2&#32;=&#32;list1.withMutations(function&#32;(list)&#32;{
+&#32;&#32;list.push(4).push(5).push(6);
+});
+assert.equal(list1.size,&#32;3);
+assert.equal(list2.size,&#32;6);
+</computeroutput></literallayout></para>
+
+<para>Note: Immutable.js also provides <computeroutput>asMutable</computeroutput> and <computeroutput>asImmutable</computeroutput>, but only encourages their use when <computeroutput>withMutations</computeroutput> will not suffice. Use caution to not return a mutable copy, which could result in undesired behavior.</para>
+
+<para><emphasis>Important!</emphasis>: Only a select few methods can be used in <computeroutput>withMutations</computeroutput> including <computeroutput>set</computeroutput>, <computeroutput>push</computeroutput> and <computeroutput>pop</computeroutput>. These methods can be applied directly against a persistent data-structure where other methods like <computeroutput>map</computeroutput>, <computeroutput>filter</computeroutput>, <computeroutput>sort</computeroutput>, and <computeroutput>splice</computeroutput> will always return new immutable data-structures and never mutate a mutable collection.</para>
+</section>
+<section xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md417">
+<title><title>Lazy Seq</title></title>
+
+<para><computeroutput>Seq</computeroutput> describes a lazy operation, allowing them to efficiently chain use of all the higher-order collection methods (such as <computeroutput>map</computeroutput> and <computeroutput>filter</computeroutput>) by not creating intermediate collections.</para>
+
+<para><emphasis role="bold">Seq is immutable</emphasis> — Once a Seq is created, it cannot be changed, appended to, rearranged or otherwise modified. Instead, any mutative method called on a <computeroutput>Seq</computeroutput> will return a new <computeroutput>Seq</computeroutput>.</para>
+
+<para><emphasis role="bold">Seq is lazy</emphasis> — <computeroutput>Seq</computeroutput> does as little work as necessary to respond to any method call. Values are often created during iteration, including implicit iteration when reducing or converting to a concrete data structure such as a <computeroutput>List</computeroutput> or JavaScript <computeroutput>Array</computeroutput>.</para>
+
+<para>For example, the following performs no work, because the resulting <computeroutput>Seq</computeroutput>&apos;s values are never iterated:</para>
+
+<para><literallayout><computeroutput>const&#32;{&#32;Seq&#32;}&#32;=&#32;require(&apos;immutable&apos;);
+const&#32;oddSquares&#32;=&#32;Seq([1,&#32;2,&#32;3,&#32;4,&#32;5,&#32;6,&#32;7,&#32;8])
+&#32;&#32;.filter(x&#32;=&gt;&#32;x&#32;%&#32;2&#32;!==&#32;0)
+&#32;&#32;.map(x&#32;=&gt;&#32;x&#32;*&#32;x);
+</computeroutput></literallayout></para>
+
+<para>Once the <computeroutput>Seq</computeroutput> is used, it performs only the work necessary. In this example, no intermediate arrays are ever created, filter is called three times, and map is only called once:</para>
+
+<para><literallayout><computeroutput>oddSquares.get(1);&#32;//&#32;9
+</computeroutput></literallayout></para>
+
+<para>Any collection can be converted to a lazy Seq with <computeroutput>Seq()</computeroutput>.</para>
+
+<para><literallayout><computeroutput>const&#32;{&#32;Map,&#32;Seq&#32;}&#32;=&#32;require(&apos;immutable&apos;);
+const&#32;map&#32;=&#32;Map({&#32;a:&#32;1,&#32;b:&#32;2,&#32;c:&#32;3&#32;});
+const&#32;lazySeq&#32;=&#32;Seq(map);
+</computeroutput></literallayout></para>
+
+<para><computeroutput>Seq</computeroutput> allows for the efficient chaining of operations, allowing for the expression of logic that can otherwise be very tedious:</para>
+
+<para><literallayout><computeroutput>lazySeq
+&#32;&#32;.flip()
+&#32;&#32;.map(key&#32;=&gt;&#32;key.toUpperCase())
+&#32;&#32;.flip();
+//&#32;Seq&#32;{&#32;A:&#32;1,&#32;B:&#32;2,&#32;C:&#32;3&#32;}
+</computeroutput></literallayout></para>
+
+<para>As well as expressing logic that would otherwise seem memory or time limited, for example <computeroutput>Range</computeroutput> is a special kind of Lazy sequence.</para>
+
+<para><literallayout><computeroutput>const&#32;{&#32;Range&#32;}&#32;=&#32;require(&apos;immutable&apos;);
+Range(1,&#32;Infinity)
+&#32;&#32;.skip(1000)
+&#32;&#32;.map(n&#32;=&gt;&#32;-n)
+&#32;&#32;.filter(n&#32;=&gt;&#32;n&#32;%&#32;2&#32;===&#32;0)
+&#32;&#32;.take(2)
+&#32;&#32;.reduce((r,&#32;n)&#32;=&gt;&#32;r&#32;*&#32;n,&#32;1);
+//&#32;1006008
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md418">
+<title><title>Comparison of filter(), groupBy(), and partition()</title></title>
+
+<para>The <computeroutput>filter()</computeroutput>, <computeroutput>groupBy()</computeroutput>, and <computeroutput>partition()</computeroutput> methods are similar in that they all divide a collection into parts based on applying a function to each element. All three call the predicate or grouping function once for each item in the input collection. All three return zero or more collections of the same type as their input. The returned collections are always distinct from the input (according to <computeroutput>===</computeroutput>), even if the contents are identical.</para>
+
+<para>Of these methods, <computeroutput>filter()</computeroutput> is the only one that is lazy and the only one which discards items from the input collection. It is the simplest to use, and the fact that it returns exactly one collection makes it easy to combine with other methods to form a pipeline of operations.</para>
+
+<para>The <computeroutput>partition()</computeroutput> method is similar to an eager version of <computeroutput>filter()</computeroutput>, but it returns two collections; the first contains the items that would have been discarded by <computeroutput>filter()</computeroutput>, and the second contains the items that would have been kept. It always returns an array of exactly two collections, which can make it easier to use than <computeroutput>groupBy()</computeroutput>. Compared to making two separate calls to <computeroutput>filter()</computeroutput>, <computeroutput>partition()</computeroutput> makes half as many calls it the predicate passed to it.</para>
+
+<para>The <computeroutput>groupBy()</computeroutput> method is a more generalized version of <computeroutput>partition()</computeroutput> that can group by an arbitrary function rather than just a predicate. It returns a map with zero or more entries, where the keys are the values returned by the grouping function, and the values are nonempty collections of the corresponding arguments. Although <computeroutput>groupBy()</computeroutput> is more powerful than <computeroutput>partition()</computeroutput>, it can be harder to use because it is not always possible predict in advance how many entries the returned map will have and what their keys will be.</para>
+
+<para><informaltable frame="all">
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry align='left'>
+<para>Summary   </para>
+</entry><entry align='left'>
+<para><computeroutput>filter</computeroutput>   </para>
+</entry><entry align='left'>
+<para><computeroutput>partition</computeroutput>   </para>
+</entry><entry align='left'>
+<para><computeroutput>groupBy</computeroutput>    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry align='left'>
+<para>ease of use   </para>
+</entry><entry align='left'>
+<para>easiest   </para>
+</entry><entry align='left'>
+<para>moderate   </para>
+</entry><entry align='left'>
+<para>hardest    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='left'>
+<para>generality   </para>
+</entry><entry align='left'>
+<para>least   </para>
+</entry><entry align='left'>
+<para>moderate   </para>
+</entry><entry align='left'>
+<para>most    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='left'>
+<para>laziness   </para>
+</entry><entry align='left'>
+<para>lazy   </para>
+</entry><entry align='left'>
+<para>eager   </para>
+</entry><entry align='left'>
+<para>eager    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='left'>
+<para># of returned sub-collections   </para>
+</entry><entry align='left'>
+<para>1   </para>
+</entry><entry align='left'>
+<para>2   </para>
+</entry><entry align='left'>
+<para>0 or more    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='left'>
+<para>sub-collections may be empty   </para>
+</entry><entry align='left'>
+<para>yes   </para>
+</entry><entry align='left'>
+<para>yes   </para>
+</entry><entry align='left'>
+<para>no    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='left'>
+<para>can discard items   </para>
+</entry><entry align='left'>
+<para>yes   </para>
+</entry><entry align='left'>
+<para>no   </para>
+</entry><entry align='left'>
+<para>no    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='left'>
+<para>wrapping container   </para>
+</entry><entry align='left'>
+<para>none   </para>
+</entry><entry align='left'>
+<para>array   </para>
+</entry><entry align='left'>
+<para>Map/OrderedMap   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md419">
+<title><title>Additional Tools and Resources</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://github.com/jameshopkins/atom-store/">Atom-store</link><itemizedlist>
+<listitem>
+<para>A Clojure-inspired atom implementation in Javascript with configurability for external persistance.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/astorije/chai-immutable">Chai Immutable</link><itemizedlist>
+<listitem>
+<para>If you are using the <link xlink:href="https://chaijs.com/">Chai Assertion Library</link>, this provides a set of assertions to use against Immutable.js collections.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/fantasyland/fantasy-land">Fantasy-land</link><itemizedlist>
+<listitem>
+<para>Specification for interoperability of common algebraic structures in JavaScript.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/pelotom/immutagen">Immutagen</link><itemizedlist>
+<listitem>
+<para>A library for simulating immutable generators in JavaScript.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/redbadger/immutable-cursor">Immutable-cursor</link><itemizedlist>
+<listitem>
+<para>Immutable cursors incorporating the Immutable.js interface over Clojure-inspired atom.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/DrBoolean/immutable-ext">Immutable-ext</link><itemizedlist>
+<listitem>
+<para>Fantasyland extensions for immutablejs</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/madeinfree/immutable-js-tools">Immutable-js-tools</link><itemizedlist>
+<listitem>
+<para>Util tools for immutable.js</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/gajus/redux-immutable">Immutable-Redux</link><itemizedlist>
+<listitem>
+<para>redux-immutable is used to create an equivalent function of Redux combineReducers that works with Immutable.js state.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/lukasbuenger/immutable-treeutils">Immutable-Treeutils</link><itemizedlist>
+<listitem>
+<para>Functional tree traversal helpers for ImmutableJS data structures.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/ericelliott/irecord">Irecord</link><itemizedlist>
+<listitem>
+<para>An immutable store that exposes an RxJS observable. Great for React.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/brianneisler/mudash">Mudash</link><itemizedlist>
+<listitem>
+<para>Lodash wrapper providing Immutable.JS support.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/HurricaneJames/react-immutable-proptypes">React-Immutable-PropTypes</link><itemizedlist>
+<listitem>
+<para>PropType validators that work with Immutable.js.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/indexiatech/redux-immutablejs">Redux-Immutablejs</link><itemizedlist>
+<listitem>
+<para>Redux Immutable facilities.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/yamalight/rxstate">Rxstate</link><itemizedlist>
+<listitem>
+<para>Simple opinionated state management library based on RxJS and Immutable.js.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/glenjamin/transit-immutable-js">Transit-Immutable-js</link><itemizedlist>
+<listitem>
+<para>Transit serialisation for Immutable.js.</para>
+</listitem><listitem>
+<para>See also: <link xlink:href="https://github.com/cognitect/transit-js">Transit-js</link></para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Have an additional tool designed to work with Immutable.js? Submit a PR to add it to this list in alphabetical order.</para>
+</section>
+<section xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md420">
+<title><title>Contributing</title></title>
+
+<para>Use <link xlink:href="https://github.com/immutable-js/immutable-js/issues">Github issues</link> for requests.</para>
+
+<para>We actively welcome pull requests, learn how to <link xlink:href="https://github.com/immutable-js/immutable-js/blob/main/.github/CONTRIBUTING.md">contribute</link>.</para>
+
+<para>Immutable.js is maintained within the <link xlink:href="https://www.contributor-covenant.org/version/2/0/code_of_conduct/">Contributor Covenant&apos;s Code of Conduct</link>.</para>
+<section xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md421">
+<title><title>Changelog</title></title>
+
+<para>Changes are tracked as <link xlink:href="https://github.com/immutable-js/immutable-js/releases">Github releases</link>.</para>
+</section>
+<section xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md422">
+<title><title>License</title></title>
+
+<para>Immutable.js is <link xlink:href="./LICENSE">MIT-licensed</link>.</para>
+</section>
+<section xml:id="_md_node__modules_2immutable_2_r_e_a_d_m_e_1autotoc_md423">
+<title><title>Thanks</title></title>
+
+<para><link xlink:href="https://www.youtube.com/watch?v=K2NYwP90bNs">Phil Bagwell</link>, for his inspiration and research in persistent data structures.</para>
+
+<para><link xlink:href="https://github.com/hughfdjackson/">Hugh Jackson</link>, for providing the npm package name. If you&apos;re looking for his unsupported package, see <link xlink:href="https://github.com/hughfdjackson/immutable">this repository</link>. </para>
+</section>
+</section>
+</section>

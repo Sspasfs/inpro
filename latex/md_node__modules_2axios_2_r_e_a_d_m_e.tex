@@ -1,0 +1,1165 @@
+\chapter{README}
+\hypertarget{md_node__modules_2axios_2_r_e_a_d_m_e}{}\label{md_node__modules_2axios_2_r_e_a_d_m_e}\index{README@{README}}
+\doxysection*{{\bfseries{ \href{https://axios-http.com}{\texttt{ }}~\newline
+ }} }
+
+
+
+Promise based HTTP client for the browser and node.\+js
+
+
+
+\href{https://axios-http.com/}{\texttt{ {\bfseries{Website}}}} • \href{https://axios-http.com/docs/intro}{\texttt{ {\bfseries{Documentation}}}} 
+
+
+
+\href{https://www.npmjs.org/package/axios}{\texttt{ }} \href{https://cdnjs.com/libraries/axios}{\texttt{ }} \href{https://github.com/axios/axios/actions/workflows/ci.yml}{\texttt{ }} \href{https://gitpod.io/\#https://github.com/axios/axios}{\texttt{ }} \href{https://coveralls.io/r/mzabriskie/axios}{\texttt{ }} \href{https://packagephobia.now.sh/result?p=axios}{\texttt{ }} \href{https://bundlephobia.com/package/axios@latest}{\texttt{ }} \href{https://npm-stat.com/charts.html?package=axios}{\texttt{ }} \href{https://gitter.im/mzabriskie/axios}{\texttt{ }} \href{https://www.codetriage.com/axios/axios}{\texttt{ }} \href{https://snyk.io/test/npm/axios}{\texttt{ }}
+
+\hypertarget{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md156}{}\doxysubsection{\texorpdfstring{Table of Contents}{Table of Contents}}\label{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md156}
+
+\begin{DoxyItemize}
+\item Features
+\item Browser Support
+\item Installing
+\begin{DoxyItemize}
+\item Package manager
+\item CDN
+\end{DoxyItemize}
+\item Example
+\item Axios API
+\item Request method aliases
+\item Concurrency 👎
+\item Creating an instance
+\item Instance methods
+\item Request Config
+\item Response Schema
+\item Config Defaults
+\begin{DoxyItemize}
+\item Global axios defaults
+\item Custom instance defaults
+\item Config order of precedence
+\end{DoxyItemize}
+\item Interceptors
+\begin{DoxyItemize}
+\item Multiple Interceptors
+\end{DoxyItemize}
+\item Handling Errors
+\item Cancellation
+\begin{DoxyItemize}
+\item Abort\+Controller
+\item Cancel\+Token 👎
+\end{DoxyItemize}
+\item Using application/x-\/www-\/form-\/urlencoded format
+\begin{DoxyItemize}
+\item URLSearch\+Params
+\item Query string
+\item 🆕 Automatic serialization
+\end{DoxyItemize}
+\item Using multipart/form-\/data format
+\begin{DoxyItemize}
+\item Form\+Data
+\item 🆕 Automatic serialization
+\end{DoxyItemize}
+\item Files Posting
+\item HTML Form Posting
+\item 🆕 Progress capturing
+\item 🆕 Rate limiting
+\item 🆕 Axios\+Headers
+\item Semver
+\item Promises
+\item Type\+Script
+\item \doxylink{dir_0fc3f8f3ef96ce2d45d66d6e29832317}{Resources}
+\item Credits
+\item License
+\end{DoxyItemize}\hypertarget{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md157}{}\doxysubsection{\texorpdfstring{Features}{Features}}\label{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md157}
+
+\begin{DoxyItemize}
+\item Make \href{https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest}{\texttt{ XMLHttp\+Requests}} from the browser
+\item Make \href{https://nodejs.org/api/http.html}{\texttt{ http}} requests from node.\+js
+\item Supports the \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise}{\texttt{ Promise}} API
+\item Intercept request and response
+\item Transform request and response data
+\item Cancel requests
+\item Automatic transforms for \href{https://www.json.org/json-en.html}{\texttt{ JSON}} data
+\item 🆕 Automatic data object serialization to {\ttfamily multipart/form-\/data} and {\ttfamily x-\/www-\/form-\/urlencoded} body encodings
+\item Client side support for protecting against \href{https://en.wikipedia.org/wiki/Cross-site_request_forgery}{\texttt{ XSRF}}
+\end{DoxyItemize}\hypertarget{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md158}{}\doxysubsection{\texorpdfstring{Browser Support}{Browser Support}}\label{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md158}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{6}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{    }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{    }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{    }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{    }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{    }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{     }\\\cline{1-6}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{    }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{    }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{    }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{    }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{    }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{     }\\\cline{1-6}
+\endhead
+Latest ✔   &Latest ✔   &Latest ✔   &Latest ✔   &Latest ✔   &11 ✔   \\\cline{1-6}
+\end{longtabu}
+
+
+\href{https://saucelabs.com/u/axios}{\texttt{ }}\hypertarget{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md159}{}\doxysubsection{\texorpdfstring{Installing}{Installing}}\label{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md159}
+\hypertarget{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md160}{}\doxysubsubsection{\texorpdfstring{Package manager}{Package manager}}\label{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md160}
+Using npm\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ npm\ install\ axios}
+
+\end{DoxyCode}
+
+
+Using bower\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ bower\ install\ axios}
+
+\end{DoxyCode}
+
+
+Using yarn\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ yarn\ add\ axios}
+
+\end{DoxyCode}
+
+
+Using pnpm\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ pnpm\ add\ axios}
+
+\end{DoxyCode}
+
+
+Once the package is installed, you can import the library using {\ttfamily import} or {\ttfamily require} approach\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ axios,\ \{isCancel,\ AxiosError\}\ from\ 'axios';}
+
+\end{DoxyCode}
+
+
+You can also use the default export, since the named export is just a re-\/export from the Axios factory\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import\ axios\ from\ 'axios';}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(axios.isCancel('something'));}
+\DoxyCodeLine{\`{}\`{}\`{}\`{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{If\ you\ use\ \`{}require`\ for\ importing,\ **only\ default\ export\ is\ available**:}
+
+\end{DoxyCode}
+ js const axios = require(\textquotesingle{}axios\textquotesingle{});
+
+console.\+log(axios.\+is\+Cancel(\textquotesingle{}something\textquotesingle{})); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{For\ cases\ where\ something\ went\ wrong\ when\ trying\ to\ import\ a\ module\ into\ a\ custom\ or\ legacy\ environment,}
+\DoxyCodeLine{you\ can\ try\ importing\ the\ module\ package\ directly:}
+
+\end{DoxyCode}
+ js const axios = require(\textquotesingle{}axios/dist/browser/axios.\+cjs\textquotesingle{}); // browser common\+JS bundle (ES2017) // const axios = require(\textquotesingle{}axios/dist/node/axios.\+cjs\textquotesingle{}); // node common\+JS bundle (ES2017) 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\#\#\ CDN}
+\DoxyCodeLine{}
+\DoxyCodeLine{Using\ jsDelivr\ CDN\ (ES5\ UMD\ browser\ module):}
+
+\end{DoxyCode}
+ html $<$script src="{}https\+://cdn.\+jsdelivr.\+net/npm/axios@1.\+1.\+2/dist/axios.\+min.\+js"{}$>$$<$/script$>$ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Using\ unpkg\ CDN:}
+
+\end{DoxyCode}
+ html $<$script src="{}https\+://unpkg.\+com/axios@1.\+1.\+2/dist/axios.\+min.\+js"{}$>$$<$/script$>$ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\#\ Example}
+\DoxyCodeLine{}
+\DoxyCodeLine{>\ **Note**:\ CommonJS\ usage\ \ }
+\DoxyCodeLine{>\ In\ order\ to\ gain\ the\ TypeScript\ typings\ (for\ intellisense\ /\ autocomplete)\ while\ using\ CommonJS\ imports\ with\ \`{}require()`,\ use\ the\ following\ approach:}
+
+\end{DoxyCode}
+ js import axios from \textquotesingle{}axios\textquotesingle{}; //const axios = require(\textquotesingle{}axios\textquotesingle{}); // legacy way
+
+// Make a request for a user with a given ID axios.\+get(\textquotesingle{}/user?ID=12345\textquotesingle{}) .then(function (response) \{ // handle success console.\+log(response); \}) .catch(function (error) \{ // handle error console.\+log(error); \}) .finally(function () \{ // always executed \});
+
+// Optionally the request above could also be done as axios.\+get(\textquotesingle{}/user\textquotesingle{}, \{ params\+: \{ ID\+: 12345 \} \}) .then(function (response) \{ console.\+log(response); \}) .catch(function (error) \{ console.\+log(error); \}) .finally(function () \{ // always executed \});
+
+// Want to use async/await? Add the {\ttfamily async} keyword to your outer function/method. async function get\+User() \{ try \{ const response = await axios.\+get(\textquotesingle{}/user?ID=12345\textquotesingle{}); console.\+log(response); \} catch (error) \{ console.\+error(error); \} \} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{>\ **Note**:\ \`{}async/await`\ is\ part\ of\ ECMAScript\ 2017\ and\ is\ not\ supported\ in\ Internet}
+\DoxyCodeLine{>\ Explorer\ and\ older\ browsers,\ so\ use\ with\ caution.}
+\DoxyCodeLine{}
+\DoxyCodeLine{Performing\ a\ \`{}POST`\ request}
+
+\end{DoxyCode}
+ js axios.\+post(\textquotesingle{}/user\textquotesingle{}, \{ first\+Name\+: \textquotesingle{}Fred\textquotesingle{}, last\+Name\+: \textquotesingle{}Flintstone\textquotesingle{} \}) .then(function (response) \{ console.\+log(response); \}) .catch(function (error) \{ console.\+log(error); \}); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Performing\ multiple\ concurrent\ requests}
+
+\end{DoxyCode}
+ js function get\+User\+Account() \{ return axios.\+get(\textquotesingle{}/user/12345\textquotesingle{}); \}
+
+function get\+User\+Permissions() \{ return axios.\+get(\textquotesingle{}/user/12345/permissions\textquotesingle{}); \}
+
+Promise.\+all(\mbox{[}get\+User\+Account(), get\+User\+Permissions()\mbox{]}) .then(function (results) \{ const acct = results\mbox{[}0\mbox{]}; const perm = results\mbox{[}1\mbox{]}; \}); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\#\ axios\ API}
+\DoxyCodeLine{}
+\DoxyCodeLine{Requests\ can\ be\ made\ by\ passing\ the\ relevant\ config\ to\ \`{}axios`.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\#\#\ axios(config)}
+
+\end{DoxyCode}
+ js // Send a POST request axios(\{ method\+: \textquotesingle{}post\textquotesingle{}, url\+: \textquotesingle{}/user/12345\textquotesingle{}, data\+: \{ first\+Name\+: \textquotesingle{}Fred\textquotesingle{}, last\+Name\+: \textquotesingle{}Flintstone\textquotesingle{} \} \}); 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ js // GET request for remote image in node.\+js axios(\{ method\+: \textquotesingle{}get\textquotesingle{}, url\+: \textquotesingle{}\href{https://bit.ly/2mTM3nY'}{\texttt{ https\+://bit.\+ly/2m\+TM3n\+Y\textquotesingle{}}}, response\+Type\+: \textquotesingle{}stream\textquotesingle{} \}) .then(function (response) \{ response.\+data.\+pipe(fs.\+create\+Write\+Stream(\textquotesingle{}ada\+\_\+lovelace.\+jpg\textquotesingle{})) \}); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\#\#\#\#\ axios(url[,\ config])}
+
+\end{DoxyCode}
+ js // Send a GET request (default method) axios(\textquotesingle{}/user/12345\textquotesingle{}); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\#\#\ Request\ method\ aliases}
+\DoxyCodeLine{}
+\DoxyCodeLine{For\ convenience,\ aliases\ have\ been\ provided\ for\ all\ common\ request\ methods.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\#\#\ axios.request(config)}
+\DoxyCodeLine{\#\#\#\#\#\ axios.get(url[,\ config])}
+\DoxyCodeLine{\#\#\#\#\#\ axios.delete(url[,\ config])}
+\DoxyCodeLine{\#\#\#\#\#\ axios.head(url[,\ config])}
+\DoxyCodeLine{\#\#\#\#\#\ axios.options(url[,\ config])}
+\DoxyCodeLine{\#\#\#\#\#\ axios.post(url[,\ data[,\ config]])}
+\DoxyCodeLine{\#\#\#\#\#\ axios.put(url[,\ data[,\ config]])}
+\DoxyCodeLine{\#\#\#\#\#\ axios.patch(url[,\ data[,\ config]])}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\#\#\#\ NOTE}
+\DoxyCodeLine{When\ using\ the\ alias\ methods\ \`{}url`,\ \`{}method`,\ and\ \`{}data`\ properties\ don't\ need\ to\ be\ specified\ in\ config.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ Concurrency\ (Deprecated)}
+\DoxyCodeLine{Please\ use\ \`{}Promise.all`\ to\ replace\ the\ below\ functions.}
+\DoxyCodeLine{}
+\DoxyCodeLine{Helper\ functions\ for\ dealing\ with\ concurrent\ requests.}
+\DoxyCodeLine{}
+\DoxyCodeLine{axios.all(iterable)}
+\DoxyCodeLine{axios.spread(callback)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ Creating\ an\ instance}
+\DoxyCodeLine{}
+\DoxyCodeLine{You\ can\ create\ a\ new\ instance\ of\ axios\ with\ a\ custom\ config.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\#\#\ axios.create([config])}
+
+\end{DoxyCode}
+ js const instance = axios.\+create(\{ base\+URL\+: \textquotesingle{}\href{https://some-domain.com/api/'}{\texttt{ https\+://some-\/domain.\+com/api/\textquotesingle{}}}, timeout\+: 1000, headers\+: \{\textquotesingle{}X-\/\+Custom-\/\+Header\textquotesingle{}\+: \textquotesingle{}foobar\textquotesingle{}\} \}); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\#\#\ Instance\ methods}
+\DoxyCodeLine{}
+\DoxyCodeLine{The\ available\ instance\ methods\ are\ listed\ below.\ The\ specified\ config\ will\ be\ merged\ with\ the\ instance\ config.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\#\#\ axios\#request(config)}
+\DoxyCodeLine{\#\#\#\#\#\ axios\#get(url[,\ config])}
+\DoxyCodeLine{\#\#\#\#\#\ axios\#delete(url[,\ config])}
+\DoxyCodeLine{\#\#\#\#\#\ axios\#head(url[,\ config])}
+\DoxyCodeLine{\#\#\#\#\#\ axios\#options(url[,\ config])}
+\DoxyCodeLine{\#\#\#\#\#\ axios\#post(url[,\ data[,\ config]])}
+\DoxyCodeLine{\#\#\#\#\#\ axios\#put(url[,\ data[,\ config]])}
+\DoxyCodeLine{\#\#\#\#\#\ axios\#patch(url[,\ data[,\ config]])}
+\DoxyCodeLine{\#\#\#\#\#\ axios\#getUri([config])}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ Request\ Config}
+\DoxyCodeLine{}
+\DoxyCodeLine{These\ are\ the\ available\ config\ options\ for\ making\ requests.\ Only\ the\ \`{}url`\ is\ required.\ Requests\ will\ default\ to\ \`{}GET`\ if\ \`{}method`\ is\ not\ specified.}
+
+\end{DoxyCode}
+ js \{ // {\ttfamily url} is the server URL that will be used for the request url\+: \textquotesingle{}/user\textquotesingle{},
+
+// {\ttfamily method} is the request method to be used when making the request method\+: \textquotesingle{}get\textquotesingle{}, // default
+
+// {\ttfamily base\+URL} will be prepended to {\ttfamily url} unless {\ttfamily url} is absolute. // It can be convenient to set {\ttfamily base\+URL} for an instance of axios to pass relative URLs // to methods of that instance. base\+URL\+: \textquotesingle{}\href{https://some-domain.com/api/'}{\texttt{ https\+://some-\/domain.\+com/api/\textquotesingle{}}},
+
+// {\ttfamily transform\+Request} allows changes to the request data before it is sent to the server // This is only applicable for request methods \textquotesingle{}PUT\textquotesingle{}, \textquotesingle{}POST\textquotesingle{}, \textquotesingle{}PATCH\textquotesingle{} and \textquotesingle{}DELETE\textquotesingle{} // The last function in the array must return a string or an instance of Buffer, Array\+Buffer, // Form\+Data or Stream // You may modify the headers object. transform\+Request\+: \mbox{[}function (data, headers) \{ // Do whatever you want to transform the data
+
+return data; \}\mbox{]},
+
+// {\ttfamily transform\+Response} allows changes to the response data to be made before // it is passed to then/catch transform\+Response\+: \mbox{[}function (data) \{ // Do whatever you want to transform the data
+
+return data; \}\mbox{]},
+
+// {\ttfamily headers} are custom headers to be sent headers\+: \{\textquotesingle{}X-\/\+Requested-\/\+With\textquotesingle{}\+: \textquotesingle{}XMLHttp\+Request\textquotesingle{}\},
+
+// {\ttfamily params} are the URL parameters to be sent with the request // Must be a plain object or a URLSearch\+Params object params\+: \{ ID\+: 12345 \},
+
+// {\ttfamily params\+Serializer} is an optional config that allows you to customize serializing {\ttfamily params}. params\+Serializer\+: \{
+
+//\+Custom encoder function which sends key/value pairs in an iterative fashion. encode?\+: (param\+: string)\+: string =\texorpdfstring{$>$}{>} \{ /\texorpdfstring{$\ast$}{*} Do custom operations here and return transformed string \texorpdfstring{$\ast$}{*}/ \},
+
+// Custom serializer function for the entire parameter. Allows user to mimic pre 1.\+x behaviour. serialize?\+: (params\+: Record$<$string, any$>$, options?\+: Params\+Serializer\+Options ),
+
+//\+Configuration for formatting array indexes in the params. indexes\+: false // Three available options\+: (1) indexes\+: null (leads to no brackets), (2) (default) indexes\+: false (leads to empty brackets), (3) indexes\+: true (leads to brackets with indexes). ~\newline
+ \},
+
+// {\ttfamily data} is the data to be sent as the request body // Only applicable for request methods \textquotesingle{}PUT\textquotesingle{}, \textquotesingle{}POST\textquotesingle{}, \textquotesingle{}DELETE , and \textquotesingle{}PATCH\textquotesingle{} // When no {\ttfamily transform\+Request} is set, must be of one of the following types\+: // -\/ string, plain object, Array\+Buffer, Array\+Buffer\+View, URLSearch\+Params // -\/ Browser only\+: Form\+Data, File, Blob // -\/ Node only\+: Stream, Buffer, Form\+Data (form-\/data package) data\+: \{ first\+Name\+: \textquotesingle{}Fred\textquotesingle{} \},
+
+// syntax alternative to send data into the body // method post // only the value is sent, not the key data\+: \textquotesingle{}Country=Brasil\&City=Belo Horizonte\textquotesingle{},
+
+// {\ttfamily timeout} specifies the number of milliseconds before the request times out. // If the request takes longer than {\ttfamily timeout}, the request will be aborted. timeout\+: 1000, // default is {\ttfamily 0} (no timeout)
+
+// {\ttfamily with\+Credentials} indicates whether or not cross-\/site Access-\/\+Control requests // should be made using credentials with\+Credentials\+: false, // default
+
+// {\ttfamily adapter} allows custom handling of requests which makes testing easier. // Return a promise and supply a valid response (see \doxylink{node__modules_2axios_2lib_2adapters_2_r_e_a_d_m_e_8md}{lib/adapters/\+README.\+md}). adapter\+: function (config) \{ /\texorpdfstring{$\ast$}{*} ... \texorpdfstring{$\ast$}{*}/ \},
+
+// {\ttfamily auth} indicates that HTTP Basic auth should be used, and supplies credentials. // This will set an {\ttfamily Authorization} header, overwriting any existing // {\ttfamily Authorization} custom headers you have set using {\ttfamily headers}. // Please note that only HTTP Basic auth is configurable through this parameter. // For Bearer tokens and such, use {\ttfamily Authorization} custom headers instead. auth\+: \{ username\+: \textquotesingle{}janedoe\textquotesingle{}, password\+: \textquotesingle{}s00pers3cret\textquotesingle{} \},
+
+// {\ttfamily response\+Type} indicates the type of data that the server will respond with // options are\+: \textquotesingle{}arraybuffer\textquotesingle{}, \textquotesingle{}document\textquotesingle{}, \textquotesingle{}json\textquotesingle{}, \textquotesingle{}text\textquotesingle{}, \textquotesingle{}stream\textquotesingle{} // browser only\+: \textquotesingle{}blob\textquotesingle{} response\+Type\+: \textquotesingle{}json\textquotesingle{}, // default
+
+// {\ttfamily response\+Encoding} indicates encoding to use for decoding responses (Node.\+js only) // Note\+: Ignored for {\ttfamily response\+Type} of \textquotesingle{}stream\textquotesingle{} or client-\/side requests response\+Encoding\+: \textquotesingle{}utf8\textquotesingle{}, // default
+
+// {\ttfamily xsrf\+Cookie\+Name} is the name of the cookie to use as a value for xsrf token xsrf\+Cookie\+Name\+: \textquotesingle{}XSRF-\/\+TOKEN\textquotesingle{}, // default
+
+// {\ttfamily xsrf\+Header\+Name} is the name of the http header that carries the xsrf token value xsrf\+Header\+Name\+: \textquotesingle{}X-\/\+XSRF-\/\+TOKEN\textquotesingle{}, // default
+
+// {\ttfamily on\+Upload\+Progress} allows handling of progress events for uploads // browser \& node.\+js on\+Upload\+Progress\+: function (\{loaded, total, progress, bytes, estimated, rate, upload = true\}) \{ // Do whatever you want with the Axios progress event \},
+
+// {\ttfamily on\+Download\+Progress} allows handling of progress events for downloads // browser \& node.\+js on\+Download\+Progress\+: function (\{loaded, total, progress, bytes, estimated, rate, download = true\}) \{ // Do whatever you want with the Axios progress event \},
+
+// {\ttfamily max\+Content\+Length} defines the max size of the http response content in bytes allowed in node.\+js max\+Content\+Length\+: 2000,
+
+// {\ttfamily max\+Body\+Length} (Node only option) defines the max size of the http request content in bytes allowed max\+Body\+Length\+: 2000,
+
+// {\ttfamily validate\+Status} defines whether to resolve or reject the promise for a given // HTTP response status code. If {\ttfamily validate\+Status} returns {\ttfamily true} (or is set to {\ttfamily null} // or {\ttfamily undefined}), the promise will be resolved; otherwise, the promise will be // rejected. validate\+Status\+: function (status) \{ return status \texorpdfstring{$>$}{>}= 200 \&\& status \texorpdfstring{$<$}{<} 300; // default \},
+
+// {\ttfamily max\+Redirects} defines the maximum number of redirects to follow in node.\+js. // If set to 0, no redirects will be followed. max\+Redirects\+: 21, // default
+
+// {\ttfamily before\+Redirect} defines a function that will be called before redirect. // Use this to adjust the request options upon redirecting, // to inspect the latest response headers, // or to cancel the request by throwing an error // If max\+Redirects is set to 0, {\ttfamily before\+Redirect} is not used. before\+Redirect\+: (options, \{ headers \}) =\texorpdfstring{$>$}{>} \{ if (options.\+hostname === "{}example.\+com"{}) \{ options.\+auth = "{}user\+:password"{}; \} \},
+
+// {\ttfamily socket\+Path} defines a UNIX Socket to be used in node.\+js. // e.\+g. \textquotesingle{}/var/run/docker.sock\textquotesingle{} to send requests to the docker daemon. // Only either {\ttfamily socket\+Path} or {\ttfamily proxy} can be specified. // If both are specified, {\ttfamily socket\+Path} is used. socket\+Path\+: null, // default
+
+// {\ttfamily transport} determines the transport method that will be used to make the request. If defined, it will be used. Otherwise, if {\ttfamily max\+Redirects} is 0, the default {\ttfamily http} or {\ttfamily https} library will be used, depending on the protocol specified in {\ttfamily protocol}. Otherwise, the {\ttfamily http\+Follow} or {\ttfamily https\+Follow} library will be used, again depending on the protocol, which can handle redirects. transport\+: undefined, // default
+
+// {\ttfamily http\+Agent} and {\ttfamily https\+Agent} define a custom agent to be used when performing http // and https requests, respectively, in node.\+js. This allows options to be added like // {\ttfamily keep\+Alive} that are not enabled by default. http\+Agent\+: new http.\+Agent(\{ keep\+Alive\+: true \}), https\+Agent\+: new https.\+Agent(\{ keep\+Alive\+: true \}),
+
+// {\ttfamily proxy} defines the hostname, port, and protocol of the proxy server. // You can also define your proxy using the conventional {\ttfamily http\+\_\+proxy} and // {\ttfamily https\+\_\+proxy} environment variables. If you are using environment variables // for your proxy configuration, you can also define a {\ttfamily no\+\_\+proxy} environment // variable as a comma-\/separated list of domains that should not be proxied. // Use {\ttfamily false} to disable proxies, ignoring environment variables. // {\ttfamily auth} indicates that HTTP Basic auth should be used to connect to the proxy, and // supplies credentials. // This will set an {\ttfamily Proxy-\/\+Authorization} header, overwriting any existing // {\ttfamily Proxy-\/\+Authorization} custom headers you have set using {\ttfamily headers}. // If the proxy server uses HTTPS, then you must set the protocol to {\ttfamily https}. proxy\+: \{ protocol\+: \textquotesingle{}https\textquotesingle{}, host\+: \textquotesingle{}127.\+0.\+0.\+1\textquotesingle{}, // hostname\+: \textquotesingle{}127.\+0.\+0.\+1\textquotesingle{} // Takes precedence over \textquotesingle{}host\textquotesingle{} if both are defined port\+: 9000, auth\+: \{ username\+: \textquotesingle{}mikeymike\textquotesingle{}, password\+: \textquotesingle{}rapunz3l\textquotesingle{} \} \},
+
+// {\ttfamily cancel\+Token} specifies a cancel token that can be used to cancel the request // (see Cancellation section below for details) cancel\+Token\+: new Cancel\+Token(function (cancel) \{ \}),
+
+// an alternative way to cancel Axios requests using Abort\+Controller signal\+: new Abort\+Controller().signal,
+
+// {\ttfamily decompress} indicates whether or not the response body should be decompressed // automatically. If set to {\ttfamily true} will also remove the \textquotesingle{}content-\/encoding\textquotesingle{} header // from the responses objects of all decompressed responses // -\/ Node only (XHR cannot turn off decompression) decompress\+: true // default
+
+// {\ttfamily insecure\+HTTPParser} boolean. // Indicates where to use an insecure HTTP parser that accepts invalid HTTP headers. // This may allow interoperability with non-\/conformant HTTP implementations. // Using the insecure parser should be avoided. // see options \href{https://nodejs.org/dist/latest-v12.x/docs/api/http.html\#http_http_request_url_options_callback}{\texttt{ https\+://nodejs.\+org/dist/latest-\/v12.\+x/docs/api/http.\+html\#http\+\_\+http\+\_\+request\+\_\+url\+\_\+options\+\_\+callback}} // see also \href{https://nodejs.org/en/blog/vulnerability/february-2020-security-releases/\#strict-http-header-parsing-none}{\texttt{ https\+://nodejs.\+org/en/blog/vulnerability/february-\/2020-\/security-\/releases/\#strict-\/http-\/header-\/parsing-\/none}} insecure\+HTTPParser\+: undefined // default
+
+// transitional options for backward compatibility that may be removed in the newer versions transitional\+: \{ // silent JSON parsing mode // {\ttfamily true} -\/ ignore JSON parsing errors and set response.\+data to null if parsing failed (old behaviour) // {\ttfamily false} -\/ throw Syntax\+Error if JSON parsing failed (Note\+: response\+Type must be set to \textquotesingle{}json\textquotesingle{}) silent\+JSONParsing\+: true, // default value for the current Axios version
+
+// try to parse the response string as JSON even if {\ttfamily response\+Type} is not \textquotesingle{}json\textquotesingle{} forced\+JSONParsing\+: true,
+
+// throw ETIMEDOUT error instead of generic ECONNABORTED on request timeouts clarify\+Timeout\+Error\+: false, \},
+
+env\+: \{ // The Form\+Data class to be used to automatically serialize the payload into a Form\+Data object Form\+Data\+: window?.Form\+Data \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} global?.Form\+Data \},
+
+form\+Serializer\+: \{ visitor\+: (value, key, path, helpers) =\texorpdfstring{$>$}{>} \{\}; // custom visitor function to serialize form values dots\+: boolean; // use dots instead of brackets format meta\+Tokens\+: boolean; // keep special endings like \{\} in parameter key indexes\+: boolean; // array indexes format null -\/ no brackets, false -\/ empty brackets, true -\/ brackets with indexes \},
+
+// http adapter only (node.\+js) max\+Rate\+: \mbox{[} 100 \texorpdfstring{$\ast$}{*} 1024, // 100KB/s upload limit, 100 \texorpdfstring{$\ast$}{*} 1024 // 100KB/s download limit \mbox{]} \} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\#\ Response\ Schema}
+\DoxyCodeLine{}
+\DoxyCodeLine{The\ response\ for\ a\ request\ contains\ the\ following\ information.}
+
+\end{DoxyCode}
+ js \{ // {\ttfamily data} is the response that was provided by the server data\+: \{\},
+
+// {\ttfamily status} is the HTTP status code from the server response status\+: 200,
+
+// {\ttfamily status\+Text} is the HTTP status message from the server response status\+Text\+: \textquotesingle{}OK\textquotesingle{},
+
+// {\ttfamily headers} the HTTP headers that the server responded with // All header names are lowercase and can be accessed using the bracket notation. // Example\+: `response.\+headers\mbox{[}\textquotesingle{}content-\/type'\mbox{]}\`{} headers\+: \{\},
+
+// {\ttfamily config} is the config that was provided to {\ttfamily axios} for the request config\+: \{\},
+
+// {\ttfamily request} is the request that generated this response // It is the last Client\+Request instance in node.\+js (in redirects) // and an XMLHttp\+Request instance in the browser request\+: \{\} \} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{When\ using\ \`{}then`,\ you\ will\ receive\ the\ response\ as\ follows:}
+
+\end{DoxyCode}
+ js axios.\+get(\textquotesingle{}/user/12345\textquotesingle{}) .then(function (response) \{ console.\+log(response.\+data); console.\+log(response.\+status); console.\+log(response.\+status\+Text); console.\+log(response.\+headers); console.\+log(response.\+config); \}); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{When\ using\ \`{}catch`,\ or\ passing\ a\ [rejection\ callback](https://developer.mozilla.org/en-\/US/docs/Web/JavaScript/Reference/Global\_Objects/Promise/then)\ as\ second\ parameter\ of\ \`{}then`,\ the\ response\ will\ be\ available\ through\ the\ \`{}error`\ object\ as\ explained\ in\ the\ [Handling\ Errors](\#handling-\/errors)\ section.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ Config\ Defaults}
+\DoxyCodeLine{}
+\DoxyCodeLine{You\ can\ specify\ config\ defaults\ that\ will\ be\ applied\ to\ every\ request.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ Global\ axios\ defaults}
+
+\end{DoxyCode}
+ js axios.\+defaults.\+base\+URL = \textquotesingle{}\href{https://api.example.com';}{\texttt{ https\+://api.\+example.\+com\textquotesingle{};}}
+
+// Important\+: If axios is used with multiple domains, the AUTH\+\_\+\+TOKEN will be sent to all of them. // See below for an example using Custom instance defaults instead. axios.\+defaults.\+headers.\+common\mbox{[}\textquotesingle{}Authorization\textquotesingle{}\mbox{]} = AUTH\+\_\+\+TOKEN;
+
+axios.\+defaults.\+headers.\+post\mbox{[}\textquotesingle{}Content-\/\+Type\textquotesingle{}\mbox{]} = \textquotesingle{}application/x-\/www-\/form-\/urlencoded\textquotesingle{}; 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\#\#\ Custom\ instance\ defaults}
+
+\end{DoxyCode}
+ js // Set config defaults when creating the instance const instance = axios.\+create(\{ base\+URL\+: \textquotesingle{}\href{https://api.example.com'}{\texttt{ https\+://api.\+example.\+com\textquotesingle{}}} \});
+
+// Alter defaults after instance has been created instance.\+defaults.\+headers.\+common\mbox{[}\textquotesingle{}Authorization\textquotesingle{}\mbox{]} = AUTH\+\_\+\+TOKEN; 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\#\#\ Config\ order\ of\ precedence}
+\DoxyCodeLine{}
+\DoxyCodeLine{Config\ will\ be\ merged\ with\ an\ order\ of\ precedence.\ The\ order\ is\ library\ defaults\ found\ in\ [lib/defaults.js](https://github.com/axios/axios/blob/master/lib/defaults/index.js\#L28),\ then\ \`{}defaults`\ property\ of\ the\ instance,\ and\ finally\ \`{}config`\ argument\ for\ the\ request.\ The\ latter\ will\ take\ precedence\ over\ the\ former.\ Here's\ an\ example.}
+
+\end{DoxyCode}
+ js // Create an instance using the config defaults provided by the library // At this point the timeout config value is {\ttfamily 0} as is the default for the library const instance = axios.\+create();
+
+// Override timeout default for the library // Now all requests using this instance will wait 2.\+5 seconds before timing out instance.\+defaults.\+timeout = 2500;
+
+// Override timeout for this request as it\textquotesingle{}s known to take a long time instance.\+get(\textquotesingle{}/long\+Request\textquotesingle{}, \{ timeout\+: 5000 \}); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\#\ Interceptors}
+\DoxyCodeLine{}
+\DoxyCodeLine{You\ can\ intercept\ requests\ or\ responses\ before\ they\ are\ handled\ by\ \`{}then`\ or\ \`{}catch`.}
+
+\end{DoxyCode}
+ js // Add a request interceptor axios.\+interceptors.\+request.\+use(function (config) \{ // Do something before request is sent return config; \}, function (error) \{ // Do something with request error return Promise.\+reject(error); \});
+
+// Add a response interceptor axios.\+interceptors.\+response.\+use(function (response) \{ // Any status code that lie within the range of 2xx cause this function to trigger // Do something with response data return response; \}, function (error) \{ // Any status codes that falls outside the range of 2xx cause this function to trigger // Do something with response error return Promise.\+reject(error); \}); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{If\ you\ need\ to\ remove\ an\ interceptor\ later\ you\ can.}
+
+\end{DoxyCode}
+ js const my\+Interceptor = axios.\+interceptors.\+request.\+use(function () \{/\texorpdfstring{$\ast$}{*}...\texorpdfstring{$\ast$}{*}/\}); axios.\+interceptors.\+request.\+eject(my\+Interceptor); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{You\ can\ also\ clear\ all\ interceptors\ for\ requests\ or\ responses.}
+
+\end{DoxyCode}
+ js const instance = axios.\+create(); instance.\+interceptors.\+request.\+use(function () \{/\texorpdfstring{$\ast$}{*}...\texorpdfstring{$\ast$}{*}/\}); instance.\+interceptors.\+request.\+clear(); // Removes interceptors from requests instance.\+interceptors.\+response.\+use(function () \{/\texorpdfstring{$\ast$}{*}...\texorpdfstring{$\ast$}{*}/\}); instance.\+interceptors.\+response.\+clear(); // Removes interceptors from responses 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{You\ can\ add\ interceptors\ to\ a\ custom\ instance\ of\ axios.}
+
+\end{DoxyCode}
+ js const instance = axios.\+create(); instance.\+interceptors.\+request.\+use(function () \{/\texorpdfstring{$\ast$}{*}...\texorpdfstring{$\ast$}{*}/\}); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{When\ you\ add\ request\ interceptors,\ they\ are\ presumed\ to\ be\ asynchronous\ by\ default.\ This\ can\ cause\ a\ delay}
+\DoxyCodeLine{in\ the\ execution\ of\ your\ axios\ request\ when\ the\ main\ thread\ is\ blocked\ (a\ promise\ is\ created\ under\ the\ hood\ for}
+\DoxyCodeLine{the\ interceptor\ and\ your\ request\ gets\ put\ on\ the\ bottom\ of\ the\ call\ stack).\ If\ your\ request\ interceptors\ are\ synchronous\ you\ can\ add\ a\ flag}
+\DoxyCodeLine{to\ the\ options\ object\ that\ will\ tell\ axios\ to\ run\ the\ code\ synchronously\ and\ avoid\ any\ delays\ in\ request\ execution.}
+
+\end{DoxyCode}
+ js axios.\+interceptors.\+request.\+use(function (config) \{ config.\+headers.\+test = \textquotesingle{}I am only a header!\textquotesingle{}; return config; \}, null, \{ synchronous\+: true \}); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{If\ you\ want\ to\ execute\ a\ particular\ interceptor\ based\ on\ a\ runtime\ check,}
+\DoxyCodeLine{you\ can\ add\ a\ \`{}runWhen`\ function\ to\ the\ options\ object.\ The\ interceptor\ will\ not\ be\ executed\ **if\ and\ only\ if**\ the\ return}
+\DoxyCodeLine{of\ \`{}runWhen`\ is\ \`{}false`.\ The\ function\ will\ be\ called\ with\ the\ config}
+\DoxyCodeLine{object\ (don't\ forget\ that\ you\ can\ bind\ your\ own\ arguments\ to\ it\ as\ well.)\ This\ can\ be\ handy\ when\ you\ have\ an}
+\DoxyCodeLine{asynchronous\ request\ interceptor\ that\ only\ needs\ to\ run\ at\ certain\ times.}
+
+\end{DoxyCode}
+ js function on\+Get\+Call(config) \{ return config.\+method === \textquotesingle{}get\textquotesingle{}; \} axios.\+interceptors.\+request.\+use(function (config) \{ config.\+headers.\+test = \textquotesingle{}special get headers\textquotesingle{}; return config; \}, null, \{ run\+When\+: on\+Get\+Call \}); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\#\#\ Multiple\ Interceptors}
+\DoxyCodeLine{}
+\DoxyCodeLine{Given\ you\ add\ multiple\ response\ interceptors}
+\DoxyCodeLine{and\ when\ the\ response\ was\ fulfilled}
+\DoxyCodeLine{-\/\ then\ each\ interceptor\ is\ executed}
+\DoxyCodeLine{-\/\ then\ they\ are\ executed\ in\ the\ order\ they\ were\ added}
+\DoxyCodeLine{-\/\ then\ only\ the\ last\ interceptor's\ result\ is\ returned}
+\DoxyCodeLine{-\/\ then\ every\ interceptor\ receives\ the\ result\ of\ its\ predecessor}
+\DoxyCodeLine{-\/\ and\ when\ the\ fulfillment-\/interceptor\ throws}
+\DoxyCodeLine{\ \ \ \ -\/\ then\ the\ following\ fulfillment-\/interceptor\ is\ not\ called}
+\DoxyCodeLine{\ \ \ \ -\/\ then\ the\ following\ rejection-\/interceptor\ is\ called}
+\DoxyCodeLine{\ \ \ \ -\/\ once\ caught,\ another\ following\ fulfill-\/interceptor\ is\ called\ again\ (just\ like\ in\ a\ promise\ chain).}
+\DoxyCodeLine{}
+\DoxyCodeLine{Read\ [the\ interceptor\ tests](./test/specs/interceptors.spec.js)\ for\ seeing\ all\ this\ in\ code.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ Error\ Types}
+\DoxyCodeLine{}
+\DoxyCodeLine{There\ are\ many\ different\ axios\ error\ messages\ that\ can\ appear\ that\ can\ provide\ basic\ information\ about\ the\ specifics\ of\ the\ error\ and\ where\ opportunities\ may\ lie\ in\ debugging.}
+\DoxyCodeLine{}
+\DoxyCodeLine{The\ general\ structure\ of\ axios\ errors\ is\ as\ follows:}
+\DoxyCodeLine{|\ Property\ \ |\ Definition\ \ |}
+\DoxyCodeLine{|\ -\/-\/-\/-\/-\/-\/-\/-\/\ |\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ \ |}
+\DoxyCodeLine{|\ message\ \ |\ A\ quick\ summary\ of\ the\ error\ message\ and\ the\ status\ it\ failed\ with.\ |}
+\DoxyCodeLine{|\ name\ \ \ \ \ |\ This\ defines\ where\ the\ error\ originated\ from.\ For\ axios,\ it\ will\ always\ be\ an\ 'AxiosError'.\ |}
+\DoxyCodeLine{|\ stack\ \ \ \ |\ Provides\ the\ stack\ trace\ of\ the\ error.\ |\ }
+\DoxyCodeLine{|\ config\ \ \ |\ An\ axios\ config\ object\ with\ specific\ instance\ configurations\ defined\ by\ the\ user\ from\ when\ the\ request\ was\ made\ |}
+\DoxyCodeLine{|\ code\ \ \ \ \ |\ Represents\ an\ axios\ identified\ error.\ The\ table\ below\ lists\ out\ specific\ definitions\ for\ internal\ axios\ error.\ \ |}
+\DoxyCodeLine{|\ status\ \ \ |\ HTTP\ response\ status\ code.\ See\ [here](https://en.wikipedia.org/wiki/List\_of\_HTTP\_status\_codes)\ for\ common\ HTTP\ response\ status\ code\ meanings.\ }
+\DoxyCodeLine{}
+\DoxyCodeLine{Below\ is\ a\ list\ of\ potential\ axios\ identified\ error}
+\DoxyCodeLine{|\ Code\ \ |\ \ Definition\ \ \ |}
+\DoxyCodeLine{|\ -\/-\/-\/-\/-\/-\/-\/-\/\ |\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ \ |}
+\DoxyCodeLine{|\ ERR\_BAD\_OPTION\_VALUE\ |\ Invalid\ or\ unsupported\ value\ provided\ in\ axios\ configuration.\ |}
+\DoxyCodeLine{|\ ERR\_BAD\_OPTION\ |\ Invalid\ option\ provided\ in\ axios\ configuration.\ |}
+\DoxyCodeLine{|\ ECONNABORTED\ |\ Request\ timed\ out\ due\ to\ exceeding\ timeout\ specified\ in\ axios\ configuration.\ |}
+\DoxyCodeLine{|\ ETIMEDOUT\ |\ Request\ timed\ out\ due\ to\ exceeding\ default\ axios\ timelimit.\ |}
+\DoxyCodeLine{|\ ERR\_NETWORK\ |\ Network-\/related\ issue.}
+\DoxyCodeLine{|\ ERR\_FR\_TOO\_MANY\_REDIRECTS\ |\ Request\ is\ redirected\ too\ many\ times;\ exceeds\ max\ redirects\ specified\ in\ axios\ configuration.}
+\DoxyCodeLine{|\ ERR\_DEPRECATED\ |\ Deprecated\ feature\ or\ method\ used\ in\ axios.\ }
+\DoxyCodeLine{|\ ERR\_BAD\_RESPONSE\ |\ Response\ cannot\ be\ parsed\ properly\ or\ is\ in\ an\ unexpected\ format.\ }
+\DoxyCodeLine{|\ ERR\_BAD\_REQUEST\ |\ Requested\ has\ unexpected\ format\ or\ missing\ required\ parameters.\ |}
+\DoxyCodeLine{|\ ERR\_CANCELED\ |\ Feature\ or\ method\ is\ canceled\ explicitly\ by\ the\ user.\ \ \ }
+\DoxyCodeLine{|\ ERR\_NOT\_SUPPORT\ |\ Feature\ or\ method\ not\ supported\ in\ the\ current\ axios\ environment.\ }
+\DoxyCodeLine{|\ ERR\_INVALID\_URL\ |\ Invalid\ URL\ provided\ for\ axios\ request.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ Handling\ Errors}
+\DoxyCodeLine{}
+\DoxyCodeLine{the\ default\ behavior\ is\ to\ reject\ every\ response\ that\ returns\ with\ a\ status\ code\ that\ falls\ out\ of\ the\ range\ of\ 2xx\ and\ treat\ it\ as\ an\ error.}
+
+\end{DoxyCode}
+ js axios.\+get(\textquotesingle{}/user/12345\textquotesingle{}) .catch(function (error) \{ if (error.\+response) \{ // The request was made and the server responded with a status code // that falls out of the range of 2xx console.\+log(error.\+response.\+data); console.\+log(error.\+response.\+status); console.\+log(error.\+response.\+headers); \} else if (error.\+request) \{ // The request was made but no response was received // {\ttfamily error.\+request} is an instance of XMLHttp\+Request in the browser and an instance of // http.\+Client\+Request in node.\+js console.\+log(error.\+request); \} else \{ // Something happened in setting up the request that triggered an Error console.\+log(\textquotesingle{}Error\textquotesingle{}, error.\+message); \} console.\+log(error.\+config); \}); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Using\ the\ \`{}validateStatus`\ config\ option,\ you\ can\ override\ the\ default\ condition\ (status\ >=\ 200\ \&\&\ status\ <\ 300)\ and\ define\ HTTP\ code(s)\ that\ should\ throw\ an\ error.}
+
+\end{DoxyCode}
+ js axios.\+get(\textquotesingle{}/user/12345\textquotesingle{}, \{ validate\+Status\+: function (status) \{ return status \texorpdfstring{$<$}{<} 500; // Resolve only if the status code is less than 500 \} \}) 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Using\ \`{}toJSON`\ you\ get\ an\ object\ with\ more\ information\ about\ the\ HTTP\ error.}
+
+\end{DoxyCode}
+ js axios.\+get(\textquotesingle{}/user/12345\textquotesingle{}) .catch(function (error) \{ console.\+log(error.\+to\+JSON()); \}); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\#\ Cancellation}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ AbortController}
+\DoxyCodeLine{}
+\DoxyCodeLine{Starting\ from\ \`{}v0.22.0`\ Axios\ supports\ AbortController\ to\ cancel\ requests\ in\ fetch\ API\ way:}
+
+\end{DoxyCode}
+ js const controller = new Abort\+Controller();
+
+axios.\+get(\textquotesingle{}/foo/bar\textquotesingle{}, \{ signal\+: controller.\+signal \}).then(function(response) \{ //... \}); // cancel the request controller.\+abort() 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\#\#\ CancelToken\ \`{}👎deprecated`}
+\DoxyCodeLine{}
+\DoxyCodeLine{You\ can\ also\ cancel\ a\ request\ using\ a\ *CancelToken*.}
+\DoxyCodeLine{}
+\DoxyCodeLine{>\ The\ axios\ cancel\ token\ API\ is\ based\ on\ the\ withdrawn\ [cancellable\ promises\ proposal](https://github.com/tc39/proposal-\/cancelable-\/promises).}
+\DoxyCodeLine{}
+\DoxyCodeLine{>\ This\ API\ is\ deprecated\ since\ v0.22.0\ and\ shouldn't\ be\ used\ in\ new\ projects}
+\DoxyCodeLine{}
+\DoxyCodeLine{You\ can\ create\ a\ cancel\ token\ using\ the\ \`{}CancelToken.source`\ factory\ as\ shown\ below:}
+
+\end{DoxyCode}
+ js const Cancel\+Token = axios.\+Cancel\+Token; const source = Cancel\+Token.\+source();
+
+axios.\+get(\textquotesingle{}/user/12345\textquotesingle{}, \{ cancel\+Token\+: source.\+token \}).catch(function (thrown) \{ if (axios.\+is\+Cancel(thrown)) \{ console.\+log(\textquotesingle{}Request canceled\textquotesingle{}, thrown.\+message); \} else \{ // handle error \} \});
+
+axios.\+post(\textquotesingle{}/user/12345\textquotesingle{}, \{ name\+: \textquotesingle{}new name\textquotesingle{} \}, \{ cancel\+Token\+: source.\+token \})
+
+// cancel the request (the message parameter is optional) source.\+cancel(\textquotesingle{}Operation canceled by the user.\textquotesingle{}); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{You\ can\ also\ create\ a\ cancel\ token\ by\ passing\ an\ executor\ function\ to\ the\ \`{}CancelToken`\ constructor:}
+
+\end{DoxyCode}
+ js const Cancel\+Token = axios.\+Cancel\+Token; let cancel;
+
+axios.\+get(\textquotesingle{}/user/12345\textquotesingle{}, \{ cancel\+Token\+: new Cancel\+Token(function executor(c) \{ // An executor function receives a cancel function as a parameter cancel = c; \}) \});
+
+// cancel the request cancel(); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{>\ **Note:**\ you\ can\ cancel\ several\ requests\ with\ the\ same\ cancel\ token/abort\ controller.}
+\DoxyCodeLine{>\ If\ a\ cancellation\ token\ is\ already\ cancelled\ at\ the\ moment\ of\ starting\ an\ Axios\ request,\ then\ the\ request\ is\ cancelled\ immediately,\ without\ any\ attempts\ to\ make\ a\ real\ request.}
+\DoxyCodeLine{}
+\DoxyCodeLine{>\ During\ the\ transition\ period,\ you\ can\ use\ both\ cancellation\ APIs,\ even\ for\ the\ same\ request:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ Using\ \`{}application/x-\/www-\/form-\/urlencoded`\ format}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ URLSearchParams}
+\DoxyCodeLine{}
+\DoxyCodeLine{By\ default,\ axios\ serializes\ JavaScript\ objects\ to\ \`{}JSON`.\ To\ send\ data\ in\ the\ [`application/x-\/www-\/form-\/urlencoded`\ format](https://developer.mozilla.org/en-\/US/docs/Web/HTTP/Methods/POST)\ instead,\ you\ can\ use\ the\ [`URLSearchParams`](https://developer.mozilla.org/en-\/US/docs/Web/API/URLSearchParams)\ API,\ which\ is\ [supported](http://www.caniuse.com/\#feat=urlsearchparams)\ in\ the\ vast\ majority\ of\ browsers,and\ [\ Node](https://nodejs.org/api/url.html\#url\_class\_urlsearchparams)\ starting\ with\ v10\ (released\ in\ 2018).}
+
+\end{DoxyCode}
+ js const params = new URLSearch\+Params(\{ foo\+: \textquotesingle{}bar\textquotesingle{} \}); params.\+append(\textquotesingle{}extraparam\textquotesingle{}, \textquotesingle{}value\textquotesingle{}); axios.\+post(\textquotesingle{}/foo\textquotesingle{}, params); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\#\#\ Query\ string\ (Older\ browsers)}
+\DoxyCodeLine{}
+\DoxyCodeLine{For\ compatibility\ with\ very\ old\ browsers,\ there\ is\ a\ [polyfill](https://github.com/WebReflection/url-\/search-\/params)\ available\ (make\ sure\ to\ polyfill\ the\ global\ environment).}
+\DoxyCodeLine{}
+\DoxyCodeLine{Alternatively,\ you\ can\ encode\ data\ using\ the\ [`qs`](https://github.com/ljharb/qs)\ library:}
+
+\end{DoxyCode}
+ js const qs = require(\textquotesingle{}qs\textquotesingle{}); axios.\+post(\textquotesingle{}/foo\textquotesingle{}, qs.\+stringify(\{ \textquotesingle{}bar\textquotesingle{}\+: 123 \})); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Or\ in\ another\ way\ (ES6),}
+
+\end{DoxyCode}
+ js import qs from \textquotesingle{}qs\textquotesingle{}; const data = \{ \textquotesingle{}bar\textquotesingle{}\+: 123 \}; const options = \{ method\+: \textquotesingle{}POST\textquotesingle{}, headers\+: \{ \textquotesingle{}content-\/type\textquotesingle{}\+: \textquotesingle{}application/x-\/www-\/form-\/urlencoded\textquotesingle{} \}, data\+: qs.\+stringify(data), url, \}; axios(options); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\#\#\ Older\ Node.js\ versions}
+\DoxyCodeLine{}
+\DoxyCodeLine{For\ older\ Node.js\ engines,\ you\ can\ use\ the\ [`querystring`](https://nodejs.org/api/querystring.html)\ module\ as\ follows:}
+
+\end{DoxyCode}
+ js const querystring = require(\textquotesingle{}querystring\textquotesingle{}); axios.\+post(\textquotesingle{}\href{https://something.com/'}{\texttt{ https\+://something.\+com/\textquotesingle{}}}, querystring.\+stringify(\{ foo\+: \textquotesingle{}bar\textquotesingle{} \})); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{You\ can\ also\ use\ the\ [`qs`](https://github.com/ljharb/qs)\ library.}
+\DoxyCodeLine{}
+\DoxyCodeLine{>\ **Note**:\ The\ \`{}qs`\ library\ is\ preferable\ if\ you\ need\ to\ stringify\ nested\ objects,\ as\ the\ \`{}querystring`\ method\ has\ [known\ issues](https://github.com/nodejs/node-\/v0.x-\/archive/issues/1665)\ with\ that\ use\ case.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ 🆕\ Automatic\ serialization\ to\ URLSearchParams}
+\DoxyCodeLine{}
+\DoxyCodeLine{Axios\ will\ automatically\ serialize\ the\ data\ object\ to\ urlencoded\ format\ if\ the\ content-\/type\ header\ is\ set\ to\ "{}application/x-\/www-\/form-\/urlencoded"{}.}
+
+\end{DoxyCode}
+ js const data = \{ x\+: 1, arr\+: \mbox{[}1, 2, 3\mbox{]}, arr2\+: \mbox{[}1, \mbox{[}2\mbox{]}, 3\mbox{]}, users\+: \mbox{[}\{name\+: \textquotesingle{}Peter\textquotesingle{}, surname\+: \textquotesingle{}Griffin\textquotesingle{}\}, \{name\+: \textquotesingle{}Thomas\textquotesingle{}, surname\+: \textquotesingle{}Anderson\textquotesingle{}\}\mbox{]}, \};
+
+await axios.\+post\+Form(\textquotesingle{}\href{https://postman-echo.com/post'}{\texttt{ https\+://postman-\/echo.\+com/post\textquotesingle{}}}, data, \{headers\+: \{\textquotesingle{}content-\/type\textquotesingle{}\+: \textquotesingle{}application/x-\/www-\/form-\/urlencoded\textquotesingle{}\}\} ); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{The\ server\ will\ handle\ it\ as:}
+
+\end{DoxyCode}
+ js \{ x\+: \textquotesingle{}1\textquotesingle{}, \textquotesingle{}arr\mbox{[}\mbox{]}\textquotesingle{}\+: \mbox{[} \textquotesingle{}1\textquotesingle{}, \textquotesingle{}2\textquotesingle{}, \textquotesingle{}3\textquotesingle{} \mbox{]}, \textquotesingle{}arr2\mbox{[}0\mbox{]}\textquotesingle{}\+: \textquotesingle{}1\textquotesingle{}, \textquotesingle{}arr2\mbox{[}1\mbox{]}\mbox{[}0\mbox{]}\textquotesingle{}\+: \textquotesingle{}2\textquotesingle{}, \textquotesingle{}arr2\mbox{[}2\mbox{]}\textquotesingle{}\+: \textquotesingle{}3\textquotesingle{}, \textquotesingle{}arr3\mbox{[}\mbox{]}\textquotesingle{}\+: \mbox{[} \textquotesingle{}1\textquotesingle{}, \textquotesingle{}2\textquotesingle{}, \textquotesingle{}3\textquotesingle{} \mbox{]}, \textquotesingle{}users\mbox{[}0\mbox{]}\mbox{[}name\mbox{]}\textquotesingle{}\+: \textquotesingle{}Peter\textquotesingle{}, \textquotesingle{}users\mbox{[}0\mbox{]}\mbox{[}surname\mbox{]}\textquotesingle{}\+: \textquotesingle{}griffin\textquotesingle{}, \textquotesingle{}users\mbox{[}1\mbox{]}\mbox{[}name\mbox{]}\textquotesingle{}\+: \textquotesingle{}Thomas\textquotesingle{}, \textquotesingle{}users\mbox{[}1\mbox{]}\mbox{[}surname\mbox{]}\textquotesingle{}\+: \textquotesingle{}Anderson\textquotesingle{} \} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{If\ your\ backend\ body-\/parser\ (like\ \`{}body-\/parser`\ of\ \`{}express.js`)\ supports\ nested\ objects\ decoding,\ you\ will\ get\ the\ same\ object\ on\ the\ server-\/side\ automatically}
+\DoxyCodeLine{}
+\DoxyCodeLine{\`{}\`{}\`{}js}
+\DoxyCodeLine{\ \ var\ app\ =\ express();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ app.use(bodyParser.urlencoded(\{\ extended:\ true\ \}));\ //\ support\ encoded\ bodies}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ app.post('/',\ function\ (req,\ res,\ next)\ \{}
+\DoxyCodeLine{\ \ \ \ \ //\ echo\ body\ as\ JSON}
+\DoxyCodeLine{\ \ \ \ \ res.send(JSON.stringify(req.body));}
+\DoxyCodeLine{\ \ \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ server\ =\ app.listen(3000);}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ Using\ \`{}multipart/form-\/data`\ format}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ FormData}
+\DoxyCodeLine{}
+\DoxyCodeLine{To\ send\ the\ data\ as\ a\ \`{}multipart/formdata`\ you\ need\ to\ pass\ a\ formData\ instance\ as\ a\ payload.}
+\DoxyCodeLine{Setting\ the\ \`{}Content-\/Type`\ header\ is\ not\ required\ as\ Axios\ guesses\ it\ based\ on\ the\ payload\ type.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\`{}\`{}\`{}js}
+\DoxyCodeLine{const\ formData\ =\ new\ FormData();}
+\DoxyCodeLine{formData.append('foo',\ 'bar');}
+\DoxyCodeLine{}
+\DoxyCodeLine{axios.post('https://httpbin.org/post',\ formData);}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{In\ node.js,\ you\ can\ use\ the\ [`form-\/data`](https://github.com/form-\/data/form-\/data)\ library\ as\ follows:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\`{}\`{}\`{}js}
+\DoxyCodeLine{const\ FormData\ =\ require('form-\/data');}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ form\ =\ new\ FormData();}
+\DoxyCodeLine{form.append('my\_field',\ 'my\ value');}
+\DoxyCodeLine{form.append('my\_buffer',\ new\ Buffer(10));}
+\DoxyCodeLine{form.append('my\_file',\ fs.createReadStream('/foo/bar.jpg'));}
+\DoxyCodeLine{}
+\DoxyCodeLine{axios.post('https://example.com',\ form)}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ 🆕\ Automatic\ serialization\ to\ FormData}
+\DoxyCodeLine{}
+\DoxyCodeLine{Starting\ from\ \`{}v0.27.0`,\ Axios\ supports\ automatic\ object\ serialization\ to\ a\ FormData\ object\ if\ the\ request\ \`{}Content-\/Type`}
+\DoxyCodeLine{header\ is\ set\ to\ \`{}multipart/form-\/data`.}
+\DoxyCodeLine{}
+\DoxyCodeLine{The\ following\ request\ will\ submit\ the\ data\ in\ a\ FormData\ format\ (Browser\ \&\ Node.js):}
+\DoxyCodeLine{}
+\DoxyCodeLine{\`{}\`{}\`{}js}
+\DoxyCodeLine{import\ axios\ from\ 'axios';}
+\DoxyCodeLine{}
+\DoxyCodeLine{axios.post('https://httpbin.org/post',\ \{x:\ 1\},\ \{}
+\DoxyCodeLine{\ \ headers:\ \{}
+\DoxyCodeLine{\ \ \ \ 'Content-\/Type':\ 'multipart/form-\/data'}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}).then((\{data\})\ =>\ console.log(data));}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{In\ the\ \`{}node.js`\ build,\ the\ ([`form-\/data`](https://github.com/form-\/data/form-\/data))\ polyfill\ is\ used\ by\ default.}
+\DoxyCodeLine{}
+\DoxyCodeLine{You\ can\ overload\ the\ FormData\ class\ by\ setting\ the\ \`{}env.FormData`\ config\ variable,}
+\DoxyCodeLine{but\ you\ probably\ won't\ need\ it\ in\ most\ cases:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\`{}\`{}\`{}js}
+\DoxyCodeLine{const\ axios\ =\ require('axios');}
+\DoxyCodeLine{var\ FormData\ =\ require('form-\/data');}
+\DoxyCodeLine{}
+\DoxyCodeLine{axios.post('https://httpbin.org/post',\ \{x:\ 1,\ buf:\ new\ Buffer(10)\},\ \{}
+\DoxyCodeLine{\ \ headers:\ \{}
+\DoxyCodeLine{\ \ \ \ 'Content-\/Type':\ 'multipart/form-\/data'}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}).then((\{data\})\ =>\ console.log(data));}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{Axios\ FormData\ serializer\ supports\ some\ special\ endings\ to\ perform\ the\ following\ operations:}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/\ \`{}\{\}`\ -\/\ serialize\ the\ value\ with\ JSON.stringify}
+\DoxyCodeLine{-\/\ \`{}[]`\ -\/\ unwrap\ the\ array-\/like\ object\ as\ separate\ fields\ with\ the\ same\ key}
+\DoxyCodeLine{}
+\DoxyCodeLine{>\ **Note**:\ unwrap/expand\ operation\ will\ be\ used\ by\ default\ on\ arrays\ and\ FileList\ objects}
+\DoxyCodeLine{}
+\DoxyCodeLine{FormData\ serializer\ supports\ additional\ options\ via\ \`{}config.formSerializer:\ object`\ property\ to\ handle\ rare\ cases:}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/\ \`{}visitor:\ Function`\ -\/\ user-\/defined\ visitor\ function\ that\ will\ be\ called\ recursively\ to\ serialize\ the\ data\ object}
+\DoxyCodeLine{to\ a\ \`{}FormData`\ object\ by\ following\ custom\ rules.}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/\ \`{}dots:\ boolean\ =\ false`\ -\/\ use\ dot\ notation\ instead\ of\ brackets\ to\ serialize\ arrays\ and\ objects;}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/\ \`{}metaTokens:\ boolean\ =\ true`\ -\/\ add\ the\ special\ ending\ (e.g\ \`{}user\{\}:\ '\{"{}name"{}:\ "{}John"{}\}'`)\ in\ the\ FormData\ key.}
+\DoxyCodeLine{The\ back-\/end\ body-\/parser\ could\ potentially\ use\ this\ meta-\/information\ to\ automatically\ parse\ the\ value\ as\ JSON.}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/\ \`{}indexes:\ null|false|true\ =\ false`\ -\/\ controls\ how\ indexes\ will\ be\ added\ to\ unwrapped\ keys\ of\ \`{}flat`\ array-\/like\ objects}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ -\/\ \`{}null`\ -\/\ don't\ add\ brackets\ (`arr:\ 1`,\ \`{}arr:\ 2`,\ \`{}arr:\ 3`)}
+\DoxyCodeLine{\ \ \ \ -\/\ \`{}false`(default)\ -\/\ add\ empty\ brackets\ (`arr[]:\ 1`,\ \`{}arr[]:\ 2`,\ \`{}arr[]:\ 3`)}
+\DoxyCodeLine{\ \ \ \ -\/\ \`{}true`\ -\/\ add\ brackets\ with\ indexes\ \ (`arr[0]:\ 1`,\ \`{}arr[1]:\ 2`,\ \`{}arr[2]:\ 3`)}
+\DoxyCodeLine{}
+\DoxyCodeLine{Let's\ say\ we\ have\ an\ object\ like\ this\ one:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\`{}\`{}\`{}js}
+\DoxyCodeLine{const\ obj\ =\ \{}
+\DoxyCodeLine{\ \ x:\ 1,}
+\DoxyCodeLine{\ \ arr:\ [1,\ 2,\ 3],}
+\DoxyCodeLine{\ \ arr2:\ [1,\ [2],\ 3],}
+\DoxyCodeLine{\ \ users:\ [\{name:\ 'Peter',\ surname:\ 'Griffin'\},\ \{name:\ 'Thomas',\ surname:\ 'Anderson'\}],}
+\DoxyCodeLine{\ \ 'obj2\{\}':\ [\{x:1\}]}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{The\ following\ steps\ will\ be\ executed\ by\ the\ Axios\ serializer\ internally:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\`{}\`{}\`{}js}
+\DoxyCodeLine{const\ formData\ =\ new\ FormData();}
+\DoxyCodeLine{formData.append('x',\ '1');}
+\DoxyCodeLine{formData.append('arr[]',\ '1');}
+\DoxyCodeLine{formData.append('arr[]',\ '2');}
+\DoxyCodeLine{formData.append('arr[]',\ '3');}
+\DoxyCodeLine{formData.append('arr2[0]',\ '1');}
+\DoxyCodeLine{formData.append('arr2[1][0]',\ '2');}
+\DoxyCodeLine{formData.append('arr2[2]',\ '3');}
+\DoxyCodeLine{formData.append('users[0][name]',\ 'Peter');}
+\DoxyCodeLine{formData.append('users[0][surname]',\ 'Griffin');}
+\DoxyCodeLine{formData.append('users[1][name]',\ 'Thomas');}
+\DoxyCodeLine{formData.append('users[1][surname]',\ 'Anderson');}
+\DoxyCodeLine{formData.append('obj2\{\}',\ '[\{"{}x"{}:1\}]');}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{Axios\ supports\ the\ following\ shortcut\ methods:\ \`{}postForm`,\ \`{}putForm`,\ \`{}patchForm`}
+\DoxyCodeLine{which\ are\ just\ the\ corresponding\ http\ methods\ with\ the\ \`{}Content-\/Type`\ header\ preset\ to\ \`{}multipart/form-\/data`.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ Files\ Posting}
+\DoxyCodeLine{}
+\DoxyCodeLine{You\ can\ easily\ submit\ a\ single\ file:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\`{}\`{}\`{}js}
+\DoxyCodeLine{await\ axios.postForm('https://httpbin.org/post',\ \{}
+\DoxyCodeLine{\ \ 'myVar'\ :\ 'foo',}
+\DoxyCodeLine{\ \ 'file':\ document.querySelector('\#fileInput').files[0]}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{or\ multiple\ files\ as\ \`{}multipart/form-\/data`:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\`{}\`{}\`{}js}
+\DoxyCodeLine{await\ axios.postForm('https://httpbin.org/post',\ \{}
+\DoxyCodeLine{\ \ 'files[]':\ document.querySelector('\#fileInput').files}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\`{}FileList`\ object\ can\ be\ passed\ directly:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\`{}\`{}\`{}js}
+\DoxyCodeLine{await\ axios.postForm('https://httpbin.org/post',\ document.querySelector('\#fileInput').files)}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{All\ files\ will\ be\ sent\ with\ the\ same\ field\ names:\ \`{}files[]`.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ 🆕\ HTML\ Form\ Posting\ (browser)}
+\DoxyCodeLine{}
+\DoxyCodeLine{Pass\ HTML\ Form\ element\ as\ a\ payload\ to\ submit\ it\ as\ \`{}multipart/form-\/data`\ content.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\`{}\`{}\`{}js}
+\DoxyCodeLine{await\ axios.postForm('https://httpbin.org/post',\ document.querySelector('\#htmlForm'));}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\`{}FormData`\ and\ \`{}HTMLForm`\ objects\ can\ also\ be\ posted\ as\ \`{}JSON`\ by\ explicitly\ setting\ the\ \`{}Content-\/Type`\ header\ to\ \`{}application/json`:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\`{}\`{}\`{}js}
+\DoxyCodeLine{await\ axios.post('https://httpbin.org/post',\ document.querySelector('\#htmlForm'),\ \{}
+\DoxyCodeLine{\ \ headers:\ \{}
+\DoxyCodeLine{\ \ \ \ 'Content-\/Type':\ 'application/json'}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{For\ example,\ the\ Form}
+\DoxyCodeLine{}
+\DoxyCodeLine{\`{}\`{}\`{}html}
+\DoxyCodeLine{<form\ id="{}form"{}>}
+\DoxyCodeLine{\ \ <input\ type="{}text"{}\ name="{}foo"{}\ value="{}1"{}>}
+\DoxyCodeLine{\ \ <input\ type="{}text"{}\ name="{}deep.prop"{}\ value="{}2"{}>}
+\DoxyCodeLine{\ \ <input\ type="{}text"{}\ name="{}deep\ prop\ spaced"{}\ value="{}3"{}>}
+\DoxyCodeLine{\ \ <input\ type="{}text"{}\ name="{}baz"{}\ value="{}4"{}>}
+\DoxyCodeLine{\ \ <input\ type="{}text"{}\ name="{}baz"{}\ value="{}5"{}>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ <select\ name="{}user.age"{}>}
+\DoxyCodeLine{\ \ \ \ <option\ value="{}value1"{}>Value\ 1</option>}
+\DoxyCodeLine{\ \ \ \ <option\ value="{}value2"{}\ selected>Value\ 2</option>}
+\DoxyCodeLine{\ \ \ \ <option\ value="{}value3"{}>Value\ 3</option>}
+\DoxyCodeLine{\ \ </select>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ <input\ type="{}submit"{}\ value="{}Save"{}>}
+\DoxyCodeLine{</form>}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{will\ be\ submitted\ as\ the\ following\ JSON\ object:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\`{}\`{}\`{}js}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ "{}foo"{}:\ "{}1"{},}
+\DoxyCodeLine{\ \ "{}deep"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ "{}prop"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ "{}spaced"{}:\ "{}3"{}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ "{}baz"{}:\ [}
+\DoxyCodeLine{\ \ \ \ "{}4"{},}
+\DoxyCodeLine{\ \ \ \ "{}5"{}}
+\DoxyCodeLine{\ \ ],}
+\DoxyCodeLine{\ \ "{}user"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ "{}age"{}:\ "{}value2"{}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Sending {\ttfamily Blobs}/{\ttfamily Files} as JSON ({\ttfamily base64}) is not currently supported.\hypertarget{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md161}{}\doxysubsection{\texorpdfstring{🆕 Progress capturing}{🆕 Progress capturing}}\label{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md161}
+Axios supports both browser and node environments to capture request upload/download progress.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{await\ axios.post(url,\ data,\ \{}
+\DoxyCodeLine{\ \ onUploadProgress:\ function\ (axiosProgressEvent)\ \{}
+\DoxyCodeLine{\ \ \ \ /*\{}
+\DoxyCodeLine{\ \ \ \ \ \ loaded:\ number;}
+\DoxyCodeLine{\ \ \ \ \ \ total?:\ number;}
+\DoxyCodeLine{\ \ \ \ \ \ progress?:\ number;\ //\ in\ range\ [0..1]}
+\DoxyCodeLine{\ \ \ \ \ \ bytes:\ number;\ //\ how\ many\ bytes\ have\ been\ transferred\ since\ the\ last\ trigger\ (delta)}
+\DoxyCodeLine{\ \ \ \ \ \ estimated?:\ number;\ //\ estimated\ time\ in\ seconds}
+\DoxyCodeLine{\ \ \ \ \ \ rate?:\ number;\ //\ upload\ speed\ in\ bytes}
+\DoxyCodeLine{\ \ \ \ \ \ upload:\ true;\ //\ upload\ sign}
+\DoxyCodeLine{\ \ \ \ \}*/}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ onDownloadProgress:\ function\ (axiosProgressEvent)\ \{}
+\DoxyCodeLine{\ \ \ \ /*\{}
+\DoxyCodeLine{\ \ \ \ \ \ loaded:\ number;}
+\DoxyCodeLine{\ \ \ \ \ \ total?:\ number;}
+\DoxyCodeLine{\ \ \ \ \ \ progress?:\ number;}
+\DoxyCodeLine{\ \ \ \ \ \ bytes:\ number;\ }
+\DoxyCodeLine{\ \ \ \ \ \ estimated?:\ number;}
+\DoxyCodeLine{\ \ \ \ \ \ rate?:\ number;\ //\ download\ speed\ in\ bytes}
+\DoxyCodeLine{\ \ \ \ \ \ download:\ true;\ //\ download\ sign}
+\DoxyCodeLine{\ \ \ \ \}*/}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\});\ \ }
+
+\end{DoxyCode}
+
+
+You can also track stream upload/download progress in node.\+js\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{data\}\ =\ await\ axios.post(SERVER\_URL,\ readableStream,\ \{}
+\DoxyCodeLine{\ \ \ onUploadProgress:\ (\{progress\})\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \ console.log((progress\ *\ 100).toFixed(2));}
+\DoxyCodeLine{\ \ \ \},}
+\DoxyCodeLine{\ \ }
+\DoxyCodeLine{\ \ \ headers:\ \{}
+\DoxyCodeLine{\ \ \ \ 'Content-\/Length':\ contentLength}
+\DoxyCodeLine{\ \ \ \},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ maxRedirects:\ 0\ //\ avoid\ buffering\ the\ entire\ stream}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{\`{}\`{}\`{}\`{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{>\ **Note:**}
+\DoxyCodeLine{>\ Capturing\ FormData\ upload\ progress\ is\ not\ currently\ supported\ in\ node.js\ environments.}
+\DoxyCodeLine{}
+\DoxyCodeLine{>\ **⚠️\ Warning**}
+\DoxyCodeLine{>\ It\ is\ recommended\ to\ disable\ redirects\ by\ setting\ maxRedirects:\ 0\ to\ upload\ the\ stream\ in\ the\ **node.js**\ environment,}
+\DoxyCodeLine{>\ as\ follow-\/redirects\ package\ will\ buffer\ the\ entire\ stream\ in\ RAM\ without\ following\ the\ "{}backpressure"{}\ algorithm.}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ 🆕\ Rate\ limiting}
+\DoxyCodeLine{}
+\DoxyCodeLine{Download\ and\ upload\ rate\ limits\ can\ only\ be\ set\ for\ the\ http\ adapter\ (node.js):}
+
+\end{DoxyCode}
+ js const \{data\} = await axios.\+post(LOCAL\+\_\+\+SERVER\+\_\+\+URL, my\+Buffer, \{ on\+Upload\+Progress\+: (\{progress, rate\}) =\texorpdfstring{$>$}{>} \{ console.\+log({\ttfamily Upload \mbox{[}\$\{(progress\texorpdfstring{$\ast$}{*}100).to\+Fixed(2)\}\%\mbox{]}\+: \$\{(rate / 1024).to\+Fixed(2)\}KB/s}) \},
+
+max\+Rate\+: \mbox{[}100 \texorpdfstring{$\ast$}{*} 1024\mbox{]}, // 100KB/s limit \}); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\#\ 🆕\ AxiosHeaders}
+\DoxyCodeLine{}
+\DoxyCodeLine{Axios\ has\ its\ own\ \`{}AxiosHeaders`\ class\ to\ manipulate\ headers\ using\ a\ Map-\/like\ API\ that\ guarantees\ caseless\ work.}
+\DoxyCodeLine{Although\ HTTP\ is\ case-\/insensitive\ in\ headers,\ Axios\ will\ retain\ the\ case\ of\ the\ original\ header\ for\ stylistic\ reasons}
+\DoxyCodeLine{and\ for\ a\ workaround\ when\ servers\ mistakenly\ consider\ the\ header's\ case.}
+\DoxyCodeLine{The\ old\ approach\ of\ directly\ manipulating\ headers\ object\ is\ still\ available,\ but\ deprecated\ and\ not\ recommended\ for\ future\ usage.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ Working\ with\ headers}
+\DoxyCodeLine{}
+\DoxyCodeLine{An\ AxiosHeaders\ object\ instance\ can\ contain\ different\ types\ of\ internal\ values.\ that\ control\ setting\ and\ merging\ logic.}
+\DoxyCodeLine{The\ final\ headers\ object\ with\ string\ values\ is\ obtained\ by\ Axios\ by\ calling\ the\ \`{}toJSON`\ method.}
+\DoxyCodeLine{}
+\DoxyCodeLine{>\ Note:\ By\ JSON\ here\ we\ mean\ an\ object\ consisting\ only\ of\ string\ values\ intended\ to\ be\ sent\ over\ the\ network.}
+\DoxyCodeLine{}
+\DoxyCodeLine{The\ header\ value\ can\ be\ one\ of\ the\ following\ types:}
+\DoxyCodeLine{-\/\ \`{}string`\ -\/\ normal\ string\ value\ that\ will\ be\ sent\ to\ the\ server}
+\DoxyCodeLine{-\/\ \`{}null`\ -\/\ skip\ header\ when\ rendering\ to\ JSON}
+\DoxyCodeLine{-\/\ \`{}false`\ -\/\ skip\ header\ when\ rendering\ to\ JSON,\ additionally\ indicates\ that\ \`{}set`\ method\ must\ be\ called\ with\ \`{}rewrite`\ option\ set\ to\ \`{}true`}
+\DoxyCodeLine{\ \ to\ overwrite\ this\ value\ (Axios\ uses\ this\ internally\ to\ allow\ users\ to\ opt\ out\ of\ installing\ certain\ headers\ like\ \`{}User-\/Agent`\ or\ \`{}Content-\/Type`)}
+\DoxyCodeLine{-\/\ \`{}undefined`\ -\/\ value\ is\ not\ set}
+\DoxyCodeLine{}
+\DoxyCodeLine{>\ Note:\ The\ header\ value\ is\ considered\ set\ if\ it\ is\ not\ equal\ to\ undefined.}
+\DoxyCodeLine{}
+\DoxyCodeLine{The\ headers\ object\ is\ always\ initialized\ inside\ interceptors\ and\ transformers:}
+
+\end{DoxyCode}
+ ts axios.\+interceptors.\+request.\+use((request\+: Internal\+Axios\+Request\+Config) =\texorpdfstring{$>$}{>} \{ request.\+headers.\+set(\textquotesingle{}My-\/header\textquotesingle{}, \textquotesingle{}value\textquotesingle{});
+
+request.\+headers.\+set(\{ "{}\+My-\/set-\/header1"{}\+: "{}my-\/set-\/value1"{}, "{}\+My-\/set-\/header2"{}\+: "{}my-\/set-\/value2"{} \});
+
+request.\+headers.\+set(\textquotesingle{}User-\/\+Agent\textquotesingle{}, false); // disable subsequent setting the header by Axios
+
+request.\+headers.\+set\+Content\+Type(\textquotesingle{}text/plain\textquotesingle{});
+
+request.\+headers\mbox{[}\textquotesingle{}My-\/set-\/header2\textquotesingle{}\mbox{]} = \textquotesingle{}new\+Value\textquotesingle{} // direct access is deprecated
+
+return request; \} ); 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{You\ can\ iterate\ over\ an\ \`{}AxiosHeaders`\ instance\ using\ a\ \`{}for...of`\ statement:}
+
+\end{DoxyCode}
+ js const headers = new Axios\+Headers(\{ foo\+: \textquotesingle{}1\textquotesingle{}, bar\+: \textquotesingle{}2\textquotesingle{}, baz\+: \textquotesingle{}3\textquotesingle{} \});
+
+for(const \mbox{[}header, value\mbox{]} of headers) \{ console.\+log(header, value); \}
+
+// foo 1 // bar 2 // baz 3 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\#\#\ new\ AxiosHeaders(headers?)}
+\DoxyCodeLine{}
+\DoxyCodeLine{Constructs\ a\ new\ \`{}AxiosHeaders`\ instance.\ }
+\DoxyCodeLine{}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{constructor(headers?:\ RawAxiosHeaders\ |\ AxiosHeaders\ |\ string);}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{If\ the\ headers\ object\ is\ a\ string,\ it\ will\ be\ parsed\ as\ RAW\ HTTP\ headers.}
+
+\end{DoxyCode}
+ js const headers = new Axios\+Headers({\ttfamily  Host\+: www.\+bing.\+com User-\/\+Agent\+: curl/7.\+54.\+0 Accept\+: \texorpdfstring{$\ast$}{*}/\texorpdfstring{$\ast$}{*}});
+
+console.\+log(headers);
+
+// Object \mbox{[}Axios\+Headers\mbox{]} \{ // host\+: \textquotesingle{}www.\+bing.\+com\textquotesingle{}, // \textquotesingle{}user-\/agent\textquotesingle{}\+: \textquotesingle{}curl/7.\+54.\+0\textquotesingle{}, // accept\+: \textquotesingle{}\texorpdfstring{$\ast$}{*}/\texorpdfstring{$\ast$}{*}\textquotesingle{} // \} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\#\#\ AxiosHeaders\#set}
+\DoxyCodeLine{}
+\DoxyCodeLine{\`{}\`{}\`{}ts}
+\DoxyCodeLine{set(headerName,\ value:\ Axios,\ rewrite?:\ boolean);}
+\DoxyCodeLine{set(headerName,\ value,\ rewrite?:\ (this:\ AxiosHeaders,\ value:\ string,\ name:\ string,\ headers:\ RawAxiosHeaders)\ =>\ boolean);}
+\DoxyCodeLine{set(headers?:\ RawAxiosHeaders\ |\ AxiosHeaders\ |\ string,\ rewrite?:\ boolean);}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{The\ \`{}rewrite`\ argument\ controls\ the\ overwriting\ behavior:}
+\DoxyCodeLine{-\/\ \`{}false`\ -\/\ do\ not\ overwrite\ if\ header's\ value\ is\ set\ (is\ not\ \`{}undefined`)}
+\DoxyCodeLine{-\/\ \`{}undefined`\ (default)\ -\/\ overwrite\ the\ header\ unless\ its\ value\ is\ set\ to\ \`{}false`}
+\DoxyCodeLine{-\/\ \`{}true`\ -\/\ rewrite\ anyway}
+\DoxyCodeLine{}
+\DoxyCodeLine{The\ option\ can\ also\ accept\ a\ user-\/defined\ function\ that\ determines\ whether\ the\ value\ should\ be\ overwritten\ or\ not.}
+\DoxyCodeLine{}
+\DoxyCodeLine{Returns\ \`{}this`.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ AxiosHeaders\#get(header)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\`{}\`{}\`{}}
+\DoxyCodeLine{\ \ get(headerName:\ string,\ matcher?:\ true\ |\ AxiosHeaderMatcher):\ AxiosHeaderValue;}
+\DoxyCodeLine{\ \ get(headerName:\ string,\ parser:\ RegExp):\ RegExpExecArray\ |\ null;}
+
+\end{DoxyCode}
+
+
+Returns the internal value of the header. It can take an extra argument to parse the header\textquotesingle{}s value with {\ttfamily Reg\+Exp.\+exec}, matcher function or internal key-\/value parser.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ headers\ =\ new\ AxiosHeaders(\{}
+\DoxyCodeLine{\ \ 'Content-\/Type':\ 'multipart/form-\/data;\ boundary=Asrf456BGe4h'}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(headers.get('Content-\/Type'));\ }
+\DoxyCodeLine{//\ multipart/form-\/data;\ boundary=Asrf456BGe4h}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(headers.get('Content-\/Type',\ true));\ //\ parse\ key-\/value\ pairs\ from\ a\ string\ separated\ with\ \(\backslash\)s,;=\ delimiters:}
+\DoxyCodeLine{//\ [Object:\ null\ prototype]\ \{}
+\DoxyCodeLine{//\ \ \ 'multipart/form-\/data':\ undefined,}
+\DoxyCodeLine{//\ \ \ \ boundary:\ 'Asrf456BGe4h'}
+\DoxyCodeLine{//\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(headers.get('Content-\/Type',\ (value,\ name,\ headers)\ =>\ \{}
+\DoxyCodeLine{\ \ return\ String(value).replace(/a/g,\ 'ZZZ');}
+\DoxyCodeLine{\}));}
+\DoxyCodeLine{//\ multipZZZrt/form-\/dZZZtZZZ;\ boundZZZry=Asrf456BGe4h}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(headers.get('Content-\/Type',\ /boundary=(\(\backslash\)w+)/)?.[0]);}
+\DoxyCodeLine{//\ boundary=Asrf456BGe4h}
+
+\end{DoxyCode}
+
+
+Returns the value of the header.\hypertarget{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md162}{}\doxysubsubsection{\texorpdfstring{Axios\+Headers\+::has(header, matcher?)}{Axios\+Headers\+::has(header, matcher?)}}\label{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md162}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{has(header:\ string,\ matcher?:\ AxiosHeaderMatcher):\ boolean;}
+
+\end{DoxyCode}
+
+
+Returns {\ttfamily true} if the header is set (has no {\ttfamily undefined} value).\hypertarget{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md163}{}\doxysubsubsection{\texorpdfstring{Axios\+Headers\+::delete(header, matcher?)}{Axios\+Headers\+::delete(header, matcher?)}}\label{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md163}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{delete(header:\ string\ |\ string[],\ matcher?:\ AxiosHeaderMatcher):\ boolean;}
+
+\end{DoxyCode}
+
+
+Returns {\ttfamily true} if at least one header has been removed.\hypertarget{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md164}{}\doxysubsubsection{\texorpdfstring{Axios\+Headers\+::clear(matcher?)}{Axios\+Headers\+::clear(matcher?)}}\label{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md164}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{clear(matcher?:\ AxiosHeaderMatcher):\ boolean;}
+
+\end{DoxyCode}
+
+
+Removes all headers. Unlike the {\ttfamily delete} method matcher, this optional matcher will be used to match against the header name rather than the value.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ headers\ =\ new\ AxiosHeaders(\{}
+\DoxyCodeLine{\ \ 'foo':\ '1',}
+\DoxyCodeLine{\ \ 'x-\/foo':\ '2',}
+\DoxyCodeLine{\ \ 'x-\/bar':\ '3',}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(headers.clear(/\string^x-\//));\ //\ true}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(headers.toJSON());\ //\ [Object:\ null\ prototype]\ \{\ foo:\ '1'\ \}}
+
+\end{DoxyCode}
+
+
+Returns {\ttfamily true} if at least one header has been cleared.\hypertarget{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md165}{}\doxysubsubsection{\texorpdfstring{Axios\+Headers\+::normalize(format);}{Axios\+Headers\+::normalize(format);}}\label{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md165}
+If the headers object was changed directly, it can have duplicates with the same name but in different cases. This method normalizes the headers object by combining duplicate keys into one. Axios uses this method internally after calling each interceptor. Set {\ttfamily format} to true for converting headers name to lowercase and capitalize the initial letters ({\ttfamily c\+Ont\+Ent-\/type} =\texorpdfstring{$>$}{>} {\ttfamily Content-\/\+Type})
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ headers\ =\ new\ AxiosHeaders(\{}
+\DoxyCodeLine{\ \ 'foo':\ '1',}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{headers.Foo\ =\ '2';}
+\DoxyCodeLine{headers.FOO\ =\ '3';}
+\DoxyCodeLine{}
+\DoxyCodeLine{console.log(headers.toJSON());\ //\ [Object:\ null\ prototype]\ \{\ foo:\ '1',\ Foo:\ '2',\ FOO:\ '3'\ \}}
+\DoxyCodeLine{console.log(headers.normalize().toJSON());\ //\ [Object:\ null\ prototype]\ \{\ foo:\ '3'\ \}}
+\DoxyCodeLine{console.log(headers.normalize(true).toJSON());\ //\ [Object:\ null\ prototype]\ \{\ Foo:\ '3'\ \}}
+
+\end{DoxyCode}
+
+
+Returns {\ttfamily this}.\hypertarget{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md166}{}\doxysubsubsection{\texorpdfstring{Axios\+Headers\+::concat(...\+targets)}{Axios\+Headers\+::concat(...\+targets)}}\label{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md166}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{concat(...targets:\ Array<AxiosHeaders\ |\ RawAxiosHeaders\ |\ string\ |\ undefined\ |\ null>):\ AxiosHeaders;}
+
+\end{DoxyCode}
+
+
+Merges the instance with targets into a new {\ttfamily Axios\+Headers} instance. If the target is a string, it will be parsed as RAW HTTP headers.
+
+Returns a new {\ttfamily Axios\+Headers} instance.\hypertarget{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md167}{}\doxysubsubsection{\texorpdfstring{Axios\+Headers\+::to\+JSON(as\+Strings?)}{Axios\+Headers\+::to\+JSON(as\+Strings?)}}\label{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md167}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{toJSON(asStrings?:\ boolean):\ RawAxiosHeaders;}
+
+\end{DoxyCode}
+
+
+Resolve all internal headers values into a new null prototype object. Set {\ttfamily as\+Strings} to true to resolve arrays as a string containing all elements, separated by commas.\hypertarget{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md168}{}\doxysubsubsection{\texorpdfstring{Axios\+Headers.\+from(thing?)}{Axios\+Headers.\+from(thing?)}}\label{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md168}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{from(thing?:\ AxiosHeaders\ |\ RawAxiosHeaders\ |\ string):\ AxiosHeaders;}
+
+\end{DoxyCode}
+
+
+Returns a new {\ttfamily Axios\+Headers} instance created from the raw headers passed in, or simply returns the given headers object if it\textquotesingle{}s an {\ttfamily Axios\+Headers} instance.\hypertarget{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md169}{}\doxysubsubsection{\texorpdfstring{Axios\+Headers.\+concat(...\+targets)}{Axios\+Headers.\+concat(...\+targets)}}\label{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md169}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{concat(...targets:\ Array<AxiosHeaders\ |\ RawAxiosHeaders\ |\ string\ |\ undefined\ |\ null>):\ AxiosHeaders;}
+
+\end{DoxyCode}
+
+
+Returns a new {\ttfamily Axios\+Headers} instance created by merging the target objects.\hypertarget{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md170}{}\doxysubsubsection{\texorpdfstring{Shortcuts}{Shortcuts}}\label{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md170}
+The following shortcuts are available\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily set\+Content\+Type}, {\ttfamily get\+Content\+Type}, {\ttfamily has\+Content\+Type}
+\item {\ttfamily set\+Content\+Length}, {\ttfamily get\+Content\+Length}, {\ttfamily has\+Content\+Length}
+\item {\ttfamily set\+Accept}, {\ttfamily get\+Accept}, {\ttfamily has\+Accept}
+\item {\ttfamily set\+User\+Agent}, {\ttfamily get\+User\+Agent}, {\ttfamily has\+User\+Agent}
+\item {\ttfamily set\+Content\+Encoding}, {\ttfamily get\+Content\+Encoding}, {\ttfamily has\+Content\+Encoding}
+\end{DoxyItemize}\hypertarget{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md171}{}\doxysubsection{\texorpdfstring{Semver}{Semver}}\label{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md171}
+Until axios reaches a {\ttfamily 1.\+0} release, breaking changes will be released with a new minor version. For example {\ttfamily 0.\+5.\+1}, and {\ttfamily 0.\+5.\+4} will have the same API, but {\ttfamily 0.\+6.\+0} will have breaking changes.\hypertarget{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md172}{}\doxysubsection{\texorpdfstring{Promises}{Promises}}\label{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md172}
+axios depends on a native ES6 Promise implementation to be \href{https://caniuse.com/promises}{\texttt{ supported}}. If your environment doesn\textquotesingle{}t support ES6 Promises, you can \href{https://github.com/jakearchibald/es6-promise}{\texttt{ polyfill}}.\hypertarget{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md173}{}\doxysubsection{\texorpdfstring{Type\+Script}{Type\+Script}}\label{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md173}
+axios includes \href{https://typescriptlang.org}{\texttt{ Type\+Script}} definitions and a type guard for axios errors.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{let\ user:\ User\ =\ null;}
+\DoxyCodeLine{try\ \{}
+\DoxyCodeLine{\ \ const\ \{\ data\ \}\ =\ await\ axios.get('/user?ID=12345');}
+\DoxyCodeLine{\ \ user\ =\ data.userDetails;}
+\DoxyCodeLine{\}\ catch\ (error)\ \{}
+\DoxyCodeLine{\ \ if\ (axios.isAxiosError(error))\ \{}
+\DoxyCodeLine{\ \ \ \ handleAxiosError(error);}
+\DoxyCodeLine{\ \ \}\ else\ \{}
+\DoxyCodeLine{\ \ \ \ handleUnexpectedError(error);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Because axios dual publishes with an ESM default export and a CJS {\ttfamily module.\+exports}, there are some caveats. The recommended setting is to use {\ttfamily "{}module\+Resolution"{}\+: "{}node16"{}} (this is implied by {\ttfamily "{}module"{}\+: "{}node16"{}}). Note that this requires Type\+Script 4.\+7 or greater. If use ESM, your settings should be fine. If you compile Type\+Script to CJS and you can’t use {\ttfamily "{}module\+Resolution"{}\+: "{}node 16"{}}, you have to enable {\ttfamily es\+Module\+Interop}. If you use Type\+Script to type check CJS Java\+Script code, your only option is to use {\ttfamily "{}module\+Resolution"{}\+: "{}node16"{}}.\hypertarget{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md174}{}\doxysubsection{\texorpdfstring{Online one-\/click setup}{Online one-\/click setup}}\label{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md174}
+You can use Gitpod, an online IDE(which is free for Open Source) for contributing or running the examples online.
+
+\href{https://gitpod.io/\#https://github.com/axios/axios/blob/main/examples/server.js}{\texttt{ }}\hypertarget{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md175}{}\doxysubsection{\texorpdfstring{Resources}{Resources}}\label{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md175}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/axios/axios/blob/v1.x/CHANGELOG.md}{\texttt{ Changelog}}
+\item \href{https://github.com/axios/axios/blob/v1.x/ECOSYSTEM.md}{\texttt{ Ecosystem}}
+\item \href{https://github.com/axios/axios/blob/v1.x/CONTRIBUTING.md}{\texttt{ Contributing Guide}}
+\item \href{https://github.com/axios/axios/blob/v1.x/CODE_OF_CONDUCT.md}{\texttt{ Code of Conduct}}
+\end{DoxyItemize}\hypertarget{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md176}{}\doxysubsection{\texorpdfstring{Credits}{Credits}}\label{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md176}
+axios is heavily inspired by the \href{https://docs.angularjs.org/api/ng/service/$http}{\texttt{ \$http service}} provided in \href{https://angularjs.org/}{\texttt{ Angular\+JS}}. Ultimately axios is an effort to provide a standalone {\ttfamily \$http}-\/like service for use outside of Angular\+JS.\hypertarget{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md177}{}\doxysubsection{\texorpdfstring{License}{License}}\label{md_node__modules_2axios_2_r_e_a_d_m_e_autotoc_md177}
+\mbox{[}MIT\mbox{]}(LICENSE) 

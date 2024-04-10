@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_07d79607a5b3b5e8afcff74e4c422a5d" xml:lang="fr">
+<title>Répertoire de référence de app/Providers</title>
+<indexterm><primary>Répertoire de référence de app/Providers</primary></indexterm>
+Graphe des dépendances de répertoires pour Providers:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_07d79607a5b3b5e8afcff74e4c422a5d_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fichiers    </title>
+        <itemizedlist>
+            <listitem><para>fichier <link linkend="__app_service_provider_8php">AppServiceProvider.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__auth_service_provider_8php">AuthServiceProvider.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__broadcast_service_provider_8php">BroadcastServiceProvider.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__event_service_provider_8php">EventServiceProvider.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__route_service_provider_8php">RouteServiceProvider.php</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

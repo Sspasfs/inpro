@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__event_service_provider_8php" xml:lang="fr">
+<title>Référence du fichier app/Providers/EventServiceProvider.php</title>
+<indexterm><primary>app/Providers/EventServiceProvider.php</primary></indexterm>
+<simplesect>
+    <title>Structures de données    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_app_1_1_providers_1_1_event_service_provider">EventServiceProvider</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Espaces de nommage    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_app_1_1_providers">App\Providers</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

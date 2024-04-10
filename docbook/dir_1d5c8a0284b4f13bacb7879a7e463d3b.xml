@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_1d5c8a0284b4f13bacb7879a7e463d3b" xml:lang="fr">
+<title>Répertoire de référence de node_modules/chokidar</title>
+<indexterm><primary>Répertoire de référence de node_modules/chokidar</primary></indexterm>
+Graphe des dépendances de répertoires pour chokidar:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_1d5c8a0284b4f13bacb7879a7e463d3b_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>

@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2readdirp_2_r_e_a_d_m_e" xml:lang="fr">
+<title>readdirp &lt;a href=&quot;https://github.com/paulmillr/readdirp&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dw/readdirp.svg&quot; alt=&quot;Weekly downloads&quot;/&gt;&lt;/a&gt;</title>
+<indexterm><primary>readdirp &lt;a href=&quot;https://github.com/paulmillr/readdirp&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dw/readdirp.svg&quot; alt=&quot;Weekly downloads&quot;/&gt;&lt;/a&gt;</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2readdirp_2_r_e_a_d_m_e_1autotoc_md688"/> Recursive version of <link xlink:href="https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback">fs.readdir</link>. Exposes a <emphasis role="bold">stream API</emphasis> and a <emphasis role="bold">promise API</emphasis>.</para>
+
+<para><literallayout><computeroutput>npm&#32;install&#32;readdirp
+</computeroutput></literallayout></para>
+
+<para><literallayout><computeroutput>const&#32;readdirp&#32;=&#32;require(&apos;readdirp&apos;);
+
+//&#32;Use&#32;streams&#32;to&#32;achieve&#32;small&#32;RAM&#32;&amp;&#32;CPU&#32;footprint.
+//&#32;1)&#32;Streams&#32;example&#32;with&#32;for-await.
+for&#32;await&#32;(const&#32;entry&#32;of&#32;readdirp(&apos;.&apos;))&#32;{
+&#32;&#32;const&#32;{path}&#32;=&#32;entry;
+&#32;&#32;console.log(`${JSON.stringify({path})}`);
+}
+
+//&#32;2)&#32;Streams&#32;example,&#32;non&#32;for-await.
+//&#32;Print&#32;out&#32;all&#32;JS&#32;files&#32;along&#32;with&#32;their&#32;size&#32;within&#32;the&#32;current&#32;folder&#32;&amp;&#32;subfolders.
+readdirp(&apos;.&apos;,&#32;{fileFilter:&#32;&apos;*.js&apos;,&#32;alwaysStat:&#32;true})
+&#32;&#32;.on(&apos;data&apos;,&#32;(entry)&#32;=&gt;&#32;{
+&#32;&#32;&#32;&#32;const&#32;{path,&#32;stats:&#32;{size}}&#32;=&#32;entry;
+&#32;&#32;&#32;&#32;console.log(`${JSON.stringify({path,&#32;size})}`);
+&#32;&#32;})
+&#32;&#32;//&#32;Optionally&#32;call&#32;stream.destroy()&#32;in&#32;`warn()`&#32;in&#32;order&#32;to&#32;abort&#32;and&#32;cause&#32;&apos;close&apos;&#32;to&#32;be&#32;emitted
+&#32;&#32;.on(&apos;warn&apos;,&#32;error&#32;=&gt;&#32;console.error(&apos;non-fatal&#32;error&apos;,&#32;error))
+&#32;&#32;.on(&apos;error&apos;,&#32;error&#32;=&gt;&#32;console.error(&apos;fatal&#32;error&apos;,&#32;error))
+&#32;&#32;.on(&apos;end&apos;,&#32;()&#32;=&gt;&#32;console.log(&apos;done&apos;));
+
+//&#32;3)&#32;Promise&#32;example.&#32;More&#32;RAM&#32;and&#32;CPU&#32;than&#32;streams&#32;/&#32;for-await.
+const&#32;files&#32;=&#32;await&#32;readdirp.promise(&apos;.&apos;);
+console.log(files.map(file&#32;=&gt;&#32;file.path));
+
+//&#32;Other&#32;options.
+readdirp(&apos;test&apos;,&#32;{
+&#32;&#32;fileFilter:&#32;&apos;*.js&apos;,
+&#32;&#32;directoryFilter:&#32;[&apos;!.git&apos;,&#32;&apos;!*modules&apos;]
+&#32;&#32;//&#32;directoryFilter:&#32;(di)&#32;=&gt;&#32;di.basename.length&#32;===&#32;9
+&#32;&#32;type:&#32;&apos;files_directories&apos;,
+&#32;&#32;depth:&#32;1
+});
+</computeroutput></literallayout></para>
+
+<para>For more examples, check out <computeroutput>examples</computeroutput> directory.</para>
+<section xml:id="_md_node__modules_2readdirp_2_r_e_a_d_m_e_1autotoc_md689">
+<title><title>API</title></title>
+
+<para><computeroutput>const stream = readdirp(root[, options])</computeroutput> — <emphasis role="bold">Stream API</emphasis></para>
+
+<para><itemizedlist>
+<listitem>
+<para>Reads given root recursively and returns a <computeroutput>stream</computeroutput> of entry infos</para>
+</listitem><listitem>
+<para>Optionally can be used like <computeroutput>for await (const entry of stream)</computeroutput> with node.js 10+ (<computeroutput>asyncIterator</computeroutput>).</para>
+</listitem><listitem>
+<para>&#8216;on(&apos;data&#8217;, (entry) =&gt; {})<computeroutput>[entry info](#entryinfo) for every file / dir. -</computeroutput>on(&apos;warn&apos;, (error) =&gt; {})<computeroutput>non-fatal</computeroutput>Error<computeroutput>that prevents a file / dir from being processed. Example: inaccessible to the user. -</computeroutput>on(&apos;error&apos;, (error) =&gt; {})<computeroutput>fatal</computeroutput>Error<computeroutput>which also ends the stream. Example: illegal options where passed. -</computeroutput>on(&apos;end&apos;)<computeroutput>— we are done. Called when all entries were found and no more will be emitted. -</computeroutput>on(&apos;close&apos;)<computeroutput>— stream is destroyed via</computeroutput>stream.destroy()<computeroutput>. Could be useful if you want to manually abort even on a non fatal error. At that point the stream is no longer</computeroutput>readable` and no more entries, warning or errors are emitted</para>
+</listitem><listitem>
+<para>To learn more about streams, consult the very detailed <link xlink:href="https://nodejs.org/api/stream.html">nodejs streams documentation</link> or the <link xlink:href="https://github.com/substack/stream-handbook">stream-handbook</link></para>
+</listitem></itemizedlist>
+</para>
+
+<para><computeroutput>const entries = await readdirp.promise(root[, options])</computeroutput> — <emphasis role="bold">Promise API</emphasis>. Returns a list of entry infos.</para>
+
+<para>First argument is awalys <computeroutput>root</computeroutput>, path in which to start reading and recursing into subdirectories.</para>
+<section xml:id="_md_node__modules_2readdirp_2_r_e_a_d_m_e_1autotoc_md690">
+<title><title>options</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>fileFilter: [&quot;*.js&quot;]</computeroutput>: filter to include or exclude files. A <computeroutput>Function</computeroutput>, Glob string or Array of glob strings.<itemizedlist>
+<listitem>
+<para><emphasis role="bold">Function</emphasis>: a function that takes an entry info as a parameter and returns true to include or false to exclude the entry</para>
+</listitem><listitem>
+<para><emphasis role="bold">Glob string</emphasis>: a string (e.g., <computeroutput>*.js</computeroutput>) which is matched using <link xlink:href="https://github.com/micromatch/picomatch">picomatch</link>, so go there for more information. Globstars (<computeroutput>**</computeroutput>) are not supported since specifying a recursive pattern for an already recursive function doesn&apos;t make sense. Negated globs (as explained in the minimatch documentation) are allowed, e.g., <computeroutput>!*.txt</computeroutput> matches everything but text files.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Array of glob strings</emphasis>: either need to be all inclusive or all exclusive (negated) patterns otherwise an error is thrown. &#8216;[&#8217;*.json&apos;, &apos;*.js&apos;]<computeroutput>includes all JavaScript and Json files. </computeroutput>[&apos;!.git&apos;, &apos;!node_modules&apos;]&#8216; includes all directories except the &#8217;.git&apos; and &apos;node_modules&apos;.</para>
+</listitem><listitem>
+<para>Directories that do not pass a filter will not be recursed into.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>&#8216;directoryFilter: [&#8217;!.git&apos;]<computeroutput>: filter to include/exclude directories found and to recurse into. Directories that do not pass a filter will not be recursed into. -</computeroutput>depth: 5<computeroutput>: depth at which to stop recursing even if more subdirectories are found -</computeroutput>type: &apos;files&apos;<computeroutput>: determines if data events on the stream should be emitted for</computeroutput>&apos;files&apos;<computeroutput>(default),</computeroutput>&apos;directories&apos;<computeroutput>,</computeroutput>&apos;files_directories&apos;<computeroutput>, or</computeroutput>&apos;all&apos;<computeroutput>. Setting to</computeroutput>&apos;all&apos;<computeroutput>will also include entries for other types of file descriptors like character devices, unix sockets and named pipes. -</computeroutput>alwaysStat: false<computeroutput>: always return</computeroutput>stats<computeroutput>property for every file. Default is</computeroutput>false<computeroutput>, readdirp will return</computeroutput>Dirent<computeroutput>entries. Setting it to</computeroutput>true<computeroutput>can double readdir execution time - use it only when you need file</computeroutput>size<computeroutput>,</computeroutput>mtime<computeroutput>etc. Cannot be enabled on node &lt;10.10.0. -</computeroutput>lstat: false<computeroutput>: include symlink entries in the stream along with files. When</computeroutput>true<computeroutput>,</computeroutput>fs.lstat<computeroutput>would be used instead of</computeroutput>fs.stat`</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2readdirp_2_r_e_a_d_m_e_1autotoc_md691">
+<title><title><computeroutput>EntryInfo</computeroutput></title></title>
+
+<para>Has the following properties:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>&#8216;path: &apos;assets/javascripts/react.js&#8217;<computeroutput>: path to the file/directory (relative to given root) -</computeroutput>fullPath: &apos;/Users/dev/projects/app/assets/javascripts/react.js&apos;<computeroutput>: full path to the file/directory found -</computeroutput>basename: &apos;react.js&apos;<computeroutput>: name of the file/directory -</computeroutput>dirent: fs.Dirent<computeroutput>: built-in [dir entry object](<link xlink:href="https://nodejs.org/api/fs.html">https://nodejs.org/api/fs.html</link>#fs_class_fs_dirent) - only with</computeroutput>alwaysStat: false<computeroutput> -</computeroutput>stats: fs.Stats<computeroutput>: built in [stat object](<link xlink:href="https://nodejs.org/api/fs.html">https://nodejs.org/api/fs.html</link>#fs_class_fs_stats) - only with</computeroutput>alwaysStat: true`</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2readdirp_2_r_e_a_d_m_e_1autotoc_md692">
+<title><title>Changelog</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>3.5 (Oct 13, 2020) disallows recursive directory-based symlinks. Before, it could have entered infinite loop.</para>
+</listitem><listitem>
+<para>3.4 (Mar 19, 2020) adds support for directory-based symlinks.</para>
+</listitem><listitem>
+<para>3.3 (Dec 6, 2019) stabilizes RAM consumption and enables perf management with <computeroutput>highWaterMark</computeroutput> option. Fixes race conditions related to <computeroutput>for-await</computeroutput> looping.</para>
+</listitem><listitem>
+<para>3.2 (Oct 14, 2019) improves performance by 250% and makes streams implementation more idiomatic.</para>
+</listitem><listitem>
+<para>3.1 (Jul 7, 2019) brings <computeroutput>bigint</computeroutput> support to <computeroutput>stat</computeroutput> output on Windows. This is backwards-incompatible for some cases. Be careful. It you use it incorrectly, you&apos;ll see &quot;TypeError: Cannot mix BigInt and other types, use explicit conversions&quot;.</para>
+</listitem><listitem>
+<para>3.0 brings huge performance improvements and stream backpressure support.</para>
+</listitem><listitem>
+<para>Upgrading 2.x to 3.x:<itemizedlist>
+<listitem>
+<para>Signature changed from <computeroutput>readdirp(options)</computeroutput> to <computeroutput>readdirp(root, options)</computeroutput></para>
+</listitem><listitem>
+<para>Replaced callback API with promise API.</para>
+</listitem><listitem>
+<para>Renamed <computeroutput>entryType</computeroutput> option to <computeroutput>type</computeroutput></para>
+</listitem><listitem>
+<para>Renamed &#8216;entryType: &apos;both&#8217;<computeroutput>to</computeroutput>&apos;files_directories&apos;<computeroutput> -</computeroutput>EntryInfo<computeroutput><itemizedlist>
+<listitem>
+<para>Renamedstat<computeroutput>to</computeroutput>stats<computeroutput><itemizedlist>
+<listitem>
+<para>Emitted only whenalwaysStat: true<computeroutput> -</computeroutput>dirent<computeroutput>is emitted instead of</computeroutput>stats<computeroutput>by default with</computeroutput>alwaysStat: false<computeroutput></computeroutput></para>
+</listitem></itemizedlist>
+</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput><computeroutput>Renamed</computeroutput>name<computeroutput>to</computeroutput>basename<computeroutput></computeroutput></computeroutput></para>
+</listitem><listitem>
+<para><computeroutput><computeroutput>Removed</computeroutput>parentDir<computeroutput>and</computeroutput>fullParentDir` properties</computeroutput></para>
+</listitem></itemizedlist>
+</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput><computeroutput>Supported node.js versions:<itemizedlist>
+<listitem>
+<para>3.x: node 8+</para>
+</listitem><listitem>
+<para>2.x: node 0.6+</para>
+</listitem></itemizedlist>
+</computeroutput></computeroutput></para>
+</listitem></itemizedlist>
+</para>
+
+<para><computeroutput><computeroutput></computeroutput></computeroutput></para>
+</section>
+<section xml:id="_md_node__modules_2readdirp_2_r_e_a_d_m_e_1autotoc_md693">
+<title><title><computeroutput><computeroutput>License</computeroutput></computeroutput></title></title>
+
+<para><computeroutput><computeroutput></computeroutput></computeroutput></para>
+
+<para><computeroutput><computeroutput>Copyright (c) 2012-2019 Thorsten Lorenz, Paul Miller (<link xlink:href="https://paulmillr.com">https://paulmillr.com</link>)</computeroutput></computeroutput></para>
+
+<para><computeroutput><computeroutput>MIT License, see [LICENSE](LICENSE) file. </computeroutput></computeroutput></para>
+</section>
+</section>

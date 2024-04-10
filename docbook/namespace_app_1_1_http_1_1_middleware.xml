@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_app_1_1_http_1_1_middleware" xml:lang="fr">
+<title>Référence de l&apos;espace de nommage App\Http\Middleware</title>
+<indexterm><primary>App\Http\Middleware</primary></indexterm>
+<simplesect>
+    <title>Structures de données    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_app_1_1_http_1_1_middleware_1_1_authenticate">Authenticate</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_app_1_1_http_1_1_middleware_1_1_check_auth">CheckAuth</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_app_1_1_http_1_1_middleware_1_1_encrypt_cookies">EncryptCookies</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_app_1_1_http_1_1_middleware_1_1_prevent_requests_during_maintenance">PreventRequestsDuringMaintenance</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_app_1_1_http_1_1_middleware_1_1_redirect_if_authenticated">RedirectIfAuthenticated</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_app_1_1_http_1_1_middleware_1_1_trim_strings">TrimStrings</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_app_1_1_http_1_1_middleware_1_1_trust_hosts">TrustHosts</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_app_1_1_http_1_1_middleware_1_1_trust_proxies">TrustProxies</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_app_1_1_http_1_1_middleware_1_1_validate_signature">ValidateSignature</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_app_1_1_http_1_1_middleware_1_1_verify_csrf_token">VerifyCsrfToken</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_0b9fd741ed1fe99044ae254ef8815ff0" xml:lang="fr">
+<title>Répertoire de référence de node_modules/proxy-from-env</title>
+<indexterm><primary>Répertoire de référence de node_modules/proxy-from-env</primary></indexterm>
+Graphe des dépendances de répertoires pour proxy-from-env:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_0b9fd741ed1fe99044ae254ef8815ff0_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>

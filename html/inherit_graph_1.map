@@ -1,0 +1,19 @@
+<map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
+<area shape="rect" id="Node000000" href="$class_base_controller.html" title=" " alt="" coords="5,153,113,179"/>
+<area shape="rect" id="Node000001" href="$class_app_1_1_http_1_1_controllers_1_1_controller.html" title=" " alt="" coords="161,153,238,179"/>
+<area shape="poly" id="edge2_Node000000_Node000001" title=" " alt="" coords="128,164,160,164,160,169,128,169"/>
+<area shape="rect" id="Node000002" href="$class_app_1_1_http_1_1_controllers_1_1_category_controller.html" title=" " alt="" coords="289,5,419,31"/>
+<area shape="poly" id="edge3_Node000001_Node000002" title=" " alt="" coords="211,138,240,88,260,63,284,40,303,29,305,34,288,44,264,66,244,91,215,141"/>
+<area shape="rect" id="Node000003" href="$class_app_1_1_http_1_1_controllers_1_1_home_controller.html" title=" " alt="" coords="298,55,410,80"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="221,140,250,114,285,89,307,78,309,83,287,94,254,118,225,144"/>
+<area shape="rect" id="Node000004" href="$class_app_1_1_http_1_1_controllers_1_1_inventaire_controller.html" title=" " alt="" coords="287,104,421,130"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="252,147,310,128,312,133,253,152"/>
+<area shape="rect" id="Node000005" href="$class_app_1_1_http_1_1_controllers_1_1_lieux_controller.html" title=" " alt="" coords="300,153,408,179"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="254,164,299,164,299,169,254,169"/>
+<area shape="rect" id="Node000006" href="$class_app_1_1_http_1_1_controllers_1_1_personnel_controller.html" title=" " alt="" coords="286,203,421,228"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="253,181,312,200,310,205,252,186"/>
+<area shape="rect" id="Node000007" href="$class_app_1_1_http_1_1_controllers_1_1_produits_controller.html" title=" " alt="" coords="291,252,416,278"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="225,188,254,214,287,239,309,249,307,254,285,243,250,218,221,192"/>
+<area shape="rect" id="Node000008" href="$class_app_1_1_http_1_1_controllers_1_1_user_controller.html" title=" " alt="" coords="301,301,406,327"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="215,192,244,241,264,266,288,288,305,298,303,303,284,292,260,270,240,244,211,195"/>
+</map>

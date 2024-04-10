@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_0dba7b5e0e0c32d74ace59ac461e8c57" xml:lang="fr">
+<title>Répertoire de référence de node_modules/mime-db</title>
+<indexterm><primary>Répertoire de référence de node_modules/mime-db</primary></indexterm>
+Graphe des dépendances de répertoires pour mime-db:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_0dba7b5e0e0c32d74ace59ac461e8c57_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_0c4ee04d587063ecca91a7f35642b9f3" xml:lang="fr">
+<title>Répertoire de référence de app/Http</title>
+<indexterm><primary>Répertoire de référence de app/Http</primary></indexterm>
+Graphe des dépendances de répertoires pour Http:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_0c4ee04d587063ecca91a7f35642b9f3_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Répertoires    </title>
+        <itemizedlist>
+            <listitem><para>répertoire <link linkend="_dir_27ba1f74dc73f44d4e9ca42f2dd266ec">Controllers</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_ef2b2488ec94a4625ca5ab9839baa414">Middleware</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_18c131bda29cca4f3467a28f24d84656">Requests</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fichiers    </title>
+        <itemizedlist>
+            <listitem><para>fichier <link linkend="__http_2_kernel_8php">Kernel.php</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

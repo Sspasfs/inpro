@@ -1,0 +1,39 @@
+.custom-sidebar {
+    background-color: #020f1f;
+    color: #ffffff;
+}
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: flex;
+}
+
+.pagination li {
+    margin: 0 2px;
+    flex: 1 1 auto;
+}
+
+@media (min-width: 576px) {
+    .pagination li {
+        margin: 0 5px;
+    }
+}
+
+@media (min-width: 768px) {
+    .pagination li {
+        margin: 0 10px;
+    }
+}
+
+@media (min-width: 992px) {
+    .pagination li {
+        margin: 0 15px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .pagination li {
+        margin: 0 20px;
+    }
+}

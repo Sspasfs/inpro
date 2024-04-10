@@ -1,0 +1,159 @@
+\doxysection{Référence de la classe Lieux\+Controller}
+\hypertarget{class_app_1_1_http_1_1_controllers_1_1_lieux_controller}{}\label{class_app_1_1_http_1_1_controllers_1_1_lieux_controller}\index{LieuxController@{LieuxController}}
+
+
+Graphe d\textquotesingle{}héritage de Lieux\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{class_app_1_1_http_1_1_controllers_1_1_lieux_controller__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Lieux\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{class_app_1_1_http_1_1_controllers_1_1_lieux_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_http_1_1_controllers_1_1_lieux_controller_ae8d5e3d9b46695d0d6989e8a07e89e15}{get\+Lieux}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1_http_1_1_controllers_1_1_lieux_controller_a86e3ef67c0c5061e4d2d87e6841ebc29}{get\+Salles\+By\+Lieu}} (\$lieu\+Id)
+\item 
+\mbox{\hyperlink{class_app_1_1_http_1_1_controllers_1_1_lieux_controller_a435e7d7525d4bcd0ed5e34a469f3adf6}{create}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1_http_1_1_controllers_1_1_lieux_controller_a9ef485163104597c12185b53cdacf638}{store}} (Request \$request)
+\item 
+\mbox{\hyperlink{class_app_1_1_http_1_1_controllers_1_1_lieux_controller_a29bf34ae43f0550db629c5004d6610bc}{edit}} (\mbox{\hyperlink{class_app_1_1_models_1_1_lieux}{Lieux}} \$lieu)
+\item 
+\mbox{\hyperlink{class_app_1_1_http_1_1_controllers_1_1_lieux_controller_a5d9309ed8c4ddc8dc014da505209b80d}{update}} (Request \$request, \$lieu)
+\item 
+\mbox{\hyperlink{class_app_1_1_http_1_1_controllers_1_1_lieux_controller_a8bf50d52083e0f35a3e34b517c5eb06e}{destroy}} (\mbox{\hyperlink{class_app_1_1_models_1_1_lieux}{Lieux}} \$lieu)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Contrôleur gérant les opérations liées aux lieux et aux salles. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_app_1_1_http_1_1_controllers_1_1_lieux_controller_a435e7d7525d4bcd0ed5e34a469f3adf6}\label{class_app_1_1_http_1_1_controllers_1_1_lieux_controller_a435e7d7525d4bcd0ed5e34a469f3adf6} 
+\index{LieuxController@{LieuxController}!create@{create}}
+\index{create@{create}!LieuxController@{LieuxController}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Afficher le formulaire de création d\textquotesingle{}un nouveau lieu avec des salles.
+
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+View\textbackslash{}\+View 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_http_1_1_controllers_1_1_lieux_controller_a8bf50d52083e0f35a3e34b517c5eb06e}\label{class_app_1_1_http_1_1_controllers_1_1_lieux_controller_a8bf50d52083e0f35a3e34b517c5eb06e} 
+\index{LieuxController@{LieuxController}!destroy@{destroy}}
+\index{destroy@{destroy}!LieuxController@{LieuxController}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_app_1_1_models_1_1_lieux}{Lieux}}}]{\$lieu }\end{DoxyParamCaption})}
+
+Supprimer un lieu et ses salles associées de la base de données.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\textbackslash{}\+App\textbackslash{}\+Models\textbackslash{}\+Lieux & {\em \$lieu} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Redirect\+Response 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=287pt]{class_app_1_1_http_1_1_controllers_1_1_lieux_controller_a8bf50d52083e0f35a3e34b517c5eb06e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_app_1_1_http_1_1_controllers_1_1_lieux_controller_a29bf34ae43f0550db629c5004d6610bc}\label{class_app_1_1_http_1_1_controllers_1_1_lieux_controller_a29bf34ae43f0550db629c5004d6610bc} 
+\index{LieuxController@{LieuxController}!edit@{edit}}
+\index{edit@{edit}!LieuxController@{LieuxController}}
+\doxysubsubsection{\texorpdfstring{edit()}{edit()}}
+{\footnotesize\ttfamily edit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_app_1_1_models_1_1_lieux}{Lieux}}}]{\$lieu }\end{DoxyParamCaption})}
+
+Afficher le formulaire d\textquotesingle{}édition d\textquotesingle{}un lieu avec des salles.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\textbackslash{}\+App\textbackslash{}\+Models\textbackslash{}\+Lieux & {\em \$lieu} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+View\textbackslash{}\+View 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_http_1_1_controllers_1_1_lieux_controller_ae8d5e3d9b46695d0d6989e8a07e89e15}\label{class_app_1_1_http_1_1_controllers_1_1_lieux_controller_ae8d5e3d9b46695d0d6989e8a07e89e15} 
+\index{LieuxController@{LieuxController}!getLieux@{getLieux}}
+\index{getLieux@{getLieux}!LieuxController@{LieuxController}}
+\doxysubsubsection{\texorpdfstring{getLieux()}{getLieux()}}
+{\footnotesize\ttfamily get\+Lieux (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Afficher la liste des lieux.
+
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+View\textbackslash{}\+View 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_http_1_1_controllers_1_1_lieux_controller_a86e3ef67c0c5061e4d2d87e6841ebc29}\label{class_app_1_1_http_1_1_controllers_1_1_lieux_controller_a86e3ef67c0c5061e4d2d87e6841ebc29} 
+\index{LieuxController@{LieuxController}!getSallesByLieu@{getSallesByLieu}}
+\index{getSallesByLieu@{getSallesByLieu}!LieuxController@{LieuxController}}
+\doxysubsubsection{\texorpdfstring{getSallesByLieu()}{getSallesByLieu()}}
+{\footnotesize\ttfamily get\+Salles\+By\+Lieu (\begin{DoxyParamCaption}\item[{}]{\$lieu\+Id }\end{DoxyParamCaption})}
+
+Récupérer les salles associées à un lieu spécifique.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$lieu\+Id} & Identifiant du lieu. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Json\+Response 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_http_1_1_controllers_1_1_lieux_controller_a9ef485163104597c12185b53cdacf638}\label{class_app_1_1_http_1_1_controllers_1_1_lieux_controller_a9ef485163104597c12185b53cdacf638} 
+\index{LieuxController@{LieuxController}!store@{store}}
+\index{store@{store}!LieuxController@{LieuxController}}
+\doxysubsubsection{\texorpdfstring{store()}{store()}}
+{\footnotesize\ttfamily store (\begin{DoxyParamCaption}\item[{Request}]{\$request }\end{DoxyParamCaption})}
+
+Enregistrer un nouveau lieu avec des salles dans la base de données.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Redirect\+Response 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_http_1_1_controllers_1_1_lieux_controller_a5d9309ed8c4ddc8dc014da505209b80d}\label{class_app_1_1_http_1_1_controllers_1_1_lieux_controller_a5d9309ed8c4ddc8dc014da505209b80d} 
+\index{LieuxController@{LieuxController}!update@{update}}
+\index{update@{update}!LieuxController@{LieuxController}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily update (\begin{DoxyParamCaption}\item[{Request}]{\$request,  }\item[{}]{\$lieu }\end{DoxyParamCaption})}
+
+Mettre à jour un lieu avec des salles dans la base de données.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+int & {\em \$lieu} & Identifiant du lieu. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Redirect\+Response 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+app/\+Http/\+Controllers/\mbox{\hyperlink{_lieux_controller_8php}{Lieux\+Controller.\+php}}\end{DoxyCompactItemize}

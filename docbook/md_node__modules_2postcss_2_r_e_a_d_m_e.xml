@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2postcss_2_r_e_a_d_m_e" xml:lang="fr">
+<title>PostCSS</title>
+<indexterm><primary>PostCSS</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2postcss_2_r_e_a_d_m_e_1autotoc_md678"/> </para>
+
+<para>PostCSS is a tool for transforming styles with JS plugins. These plugins can lint your CSS, support variables and mixins, transpile future CSS syntax, inline images, and more.</para>
+
+<para>PostCSS is used by industry leaders including Wikipedia, Twitter, Alibaba, and JetBrains. The <link xlink:href="https://github.com/postcss/autoprefixer">Autoprefixer</link> and <link xlink:href="https://stylelint.io/">Stylelint</link> PostCSS plugins is one of the most popular CSS tools.</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+
+<para>  Made in <emphasis role="bold"><link xlink:href="https://evilmartians.com/?utm_source=postcss&amp;utm_campaign=devtools-button&amp;utm_medium=github">Evil Martians</link></emphasis>, product consulting for <emphasis role="bold">developer tools</emphasis>.</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+<section xml:id="_md_node__modules_2postcss_2_r_e_a_d_m_e_1autotoc_md681">
+<title><title>Docs</title></title>
+
+<para>Read full docs <emphasis role="bold"><link xlink:href="https://postcss.org/">here</link></emphasis>. </para>
+</section>
+</section>

@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>InPro: proxy-from-env</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">InPro
+   </div>
+   <div id="projectbrief">Un site qui inventorie tout le matériel informatique du Campus Eduservices de Vannes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">proxy-from-env</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md682"></a> <a href="https://travis-ci.org/Rob--W/proxy-from-env"><img src="https://travis-ci.org/Rob--W/proxy-from-env.svg?branch=master" alt="Build Status" style="pointer-events: none;" class="inline"/></a> <a href="https://coveralls.io/github/Rob--W/proxy-from-env?branch=master"><img src="https://coveralls.io/repos/github/Rob--W/proxy-from-env/badge.svg?branch=master" alt="Coverage Status" style="pointer-events: none;" class="inline"/></a></p>
+<p><code>proxy-from-env</code> is a Node.js package that exports a function (<code>getProxyForUrl</code>) that takes an input URL (a string or <a href="https://nodejs.org/docs/latest/api/url.html#url_url_parsing"><code>url.parse</code></a>'s return value) and returns the desired proxy URL (also a string) based on standard proxy environment variables. If no proxy is set, an empty string is returned.</p>
+<p>It is your responsibility to actually proxy the request using the given URL.</p>
+<p>Installation:</p>
+<div class="fragment"><div class="line">npm install proxy-from-env</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md683"></a>
+Example</h1>
+<p>This example shows how the data for a URL can be fetched via the <a href="https://nodejs.org/api/http.html"><code>http</code> module</a>, in a proxy-aware way.</p>
+<div class="fragment"><div class="line">var http = require(&#39;http&#39;);</div>
+<div class="line">var parseUrl = require(&#39;url&#39;).parse;</div>
+<div class="line">var getProxyForUrl = require(&#39;proxy-from-env&#39;).getProxyForUrl;</div>
+<div class="line"> </div>
+<div class="line">var some_url = &#39;http://example.com/something&#39;;</div>
+<div class="line"> </div>
+<div class="line">// // Example, if there is a proxy server at 10.0.0.1:1234, then setting the</div>
+<div class="line">// // http_proxy environment variable causes the request to go through a proxy.</div>
+<div class="line">// process.env.http_proxy = &#39;http://10.0.0.1:1234&#39;;</div>
+<div class="line">// </div>
+<div class="line">// // But if the host to be proxied is listed in NO_PROXY, then the request is</div>
+<div class="line">// // not proxied (but a direct request is made).</div>
+<div class="line">// process.env.no_proxy = &#39;example.com&#39;;</div>
+<div class="line"> </div>
+<div class="line">var proxy_url = getProxyForUrl(some_url);  // &lt;-- Our magic.</div>
+<div class="line">if (proxy_url) {</div>
+<div class="line">  // Should be proxied through proxy_url.</div>
+<div class="line">  var parsed_some_url = parseUrl(some_url);</div>
+<div class="line">  var parsed_proxy_url = parseUrl(proxy_url);</div>
+<div class="line">  // A HTTP proxy is quite simple. It is similar to a normal request, except the</div>
+<div class="line">  // path is an absolute URL, and the proxied URL&#39;s host is put in the header</div>
+<div class="line">  // instead of the server&#39;s actual host.</div>
+<div class="line">  httpOptions = {</div>
+<div class="line">    protocol: parsed_proxy_url.protocol,</div>
+<div class="line">    hostname: parsed_proxy_url.hostname,</div>
+<div class="line">    port: parsed_proxy_url.port,</div>
+<div class="line">    path: parsed_some_url.href,</div>
+<div class="line">    headers: {</div>
+<div class="line">      Host: parsed_some_url.host,  // = host name + optional port.</div>
+<div class="line">    },</div>
+<div class="line">  };</div>
+<div class="line">} else {</div>
+<div class="line">  // Direct request.</div>
+<div class="line">  httpOptions = some_url;</div>
+<div class="line">}</div>
+<div class="line">http.get(httpOptions, function(res) {</div>
+<div class="line">  var responses = [];</div>
+<div class="line">  res.on(&#39;data&#39;, function(chunk) { responses.push(chunk); });</div>
+<div class="line">  res.on(&#39;end&#39;, function() { console.log(responses.join(&#39;&#39;));  });</div>
+<div class="line">});</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md684"></a>
+Environment variables</h1>
+<p>The environment variables can be specified in lowercase or uppercase, with the lowercase name having precedence over the uppercase variant. A variable that is not set has the same meaning as a variable that is set but has no value.</p>
+<h2><a class="anchor" id="autotoc_md685"></a>
+NO_PROXY</h2>
+<p><code>NO_PROXY</code> is a list of host names (optionally with a port). If the input URL matches any of the entries in <code>NO_PROXY</code>, then the input URL should be fetched by a direct request (i.e. without a proxy).</p>
+<p>Matching follows the following rules:</p>
+<ul>
+<li><code>NO_PROXY=*</code> disables all proxies.</li>
+<li>Space and commas may be used to separate the entries in the <code>NO_PROXY</code> list.</li>
+<li>If <code>NO_PROXY</code> does not contain any entries, then proxies are never disabled.</li>
+<li>If a port is added after the host name, then the ports must match. If the URL does not have an explicit port name, the protocol's default port is used.</li>
+<li>Generally, the proxy is only disabled if the host name is an exact match for an entry in the <code>NO_PROXY</code> list. The only exceptions are entries that start with a dot or with a wildcard; then the proxy is disabled if the host name ends with the entry.</li>
+</ul>
+<p>See <code>test.js</code> for examples of what should match and what does not.</p>
+<h2><a class="anchor" id="autotoc_md686"></a>
+*_PROXY</h2>
+<p>The environment variable used for the proxy depends on the protocol of the URL. For example, <code><a href="https://example.com">https://example.com</a></code> uses the "https" protocol, and therefore the proxy to be used is <code>HTTPS_PROXY</code> (<em>NOT</em> <code>HTTP_PROXY</code>, which is <em>only</em> used for <a href="http:-URLs">http:-URLs</a>).</p>
+<p>The library is not limited to http(s), other schemes such as <code>FTP_PROXY</code> (ftp:), <code>WSS_PROXY</code> (wss:), <code>WS_PROXY</code> (ws:) are also supported.</p>
+<p>If present, <code>ALL_PROXY</code> is used as fallback if there is no other match.</p>
+<h1><a class="anchor" id="autotoc_md687"></a>
+External resources</h1>
+<p>The exact way of parsing the environment variables is not codified in any standard. This library is designed to be compatible with formats as expected by existing software. The following resources were used to determine the desired behavior:</p>
+<ul>
+<li>cURL: <a href="https://curl.haxx.se/docs/manpage.html#ENVIRONMENT">https://curl.haxx.se/docs/manpage.html#ENVIRONMENT</a> <br  />
+ <a href="https://github.com/curl/curl/blob/4af40b3646d3b09f68e419f7ca866ff395d1f897/lib/url.c#L4446-L4514">https://github.com/curl/curl/blob/4af40b3646d3b09f68e419f7ca866ff395d1f897/lib/url.c#L4446-L4514</a> <br  />
+ <a href="https://github.com/curl/curl/blob/4af40b3646d3b09f68e419f7ca866ff395d1f897/lib/url.c#L4608-L4638">https://github.com/curl/curl/blob/4af40b3646d3b09f68e419f7ca866ff395d1f897/lib/url.c#L4608-L4638</a> <br  />
+</li>
+<li>wget: <a href="https://www.gnu.org/software/wget/manual/wget.html#Proxies">https://www.gnu.org/software/wget/manual/wget.html#Proxies</a> <br  />
+ <a href="http://git.savannah.gnu.org/cgit/wget.git/tree/src/init.c?id=636a5f9a1c508aa39e35a3a8e9e54520a284d93d#n383">http://git.savannah.gnu.org/cgit/wget.git/tree/src/init.c?id=636a5f9a1c508aa39e35a3a8e9e54520a284d93d#n383</a> <br  />
+ <a href="http://git.savannah.gnu.org/cgit/wget.git/tree/src/retr.c?id=93c1517c4071c4288ba5a4b038e7634e4c6b5482#n1278">http://git.savannah.gnu.org/cgit/wget.git/tree/src/retr.c?id=93c1517c4071c4288ba5a4b038e7634e4c6b5482#n1278</a> <br  />
+</li>
+<li>W3: <a href="https://www.w3.org/Daemon/User/Proxies/ProxyClients.html">https://www.w3.org/Daemon/User/Proxies/ProxyClients.html</a> <br  />
+</li>
+<li>Python's urllib: <a href="https://github.com/python/cpython/blob/936135bb97fe04223aa30ca6e98eac8f3ed6b349/Lib/urllib/request.py#L755-L782">https://github.com/python/cpython/blob/936135bb97fe04223aa30ca6e98eac8f3ed6b349/Lib/urllib/request.py#L755-L782</a> <br  />
+ <a href="https://github.com/python/cpython/blob/936135bb97fe04223aa30ca6e98eac8f3ed6b349/Lib/urllib/request.py#L2444-L2479">https://github.com/python/cpython/blob/936135bb97fe04223aa30ca6e98eac8f3ed6b349/Lib/urllib/request.py#L2444-L2479</a> </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_database_1_1_factories_1_1_user_factory" xml:lang="fr">
+<title>Référence de la classe UserFactory</title>
+<indexterm><primary>UserFactory</primary></indexterm>
+Graphe d&apos;héritage de UserFactory:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_database_1_1_factories_1_1_user_factory__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de UserFactory:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_database_1_1_factories_1_1_user_factory__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_database_1_1_factories_1_1_user_factory_1a6c4fc01ab54e187fee93cb01cd5f9849">definition</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_database_1_1_factories_1_1_user_factory_1adffb240983ed90628323f925d6db01ce">unverified</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>\Database\Eloquent\Factories\Factory&lt;\App\Models\User&gt; </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_database_1_1_factories_1_1_user_factory_1a6c4fc01ab54e187fee93cb01cd5f9849"/><section>
+    <title>definition()</title>
+<indexterm><primary>definition</primary><secondary>UserFactory</secondary></indexterm>
+<indexterm><primary>UserFactory</primary><secondary>definition</secondary></indexterm>
+<para><computeroutput>definition ( )</computeroutput></para>
+<para>Define the model&apos;s default state.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array&lt;string, mixed&gt; </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_database_1_1_factories_1_1_user_factory_1adffb240983ed90628323f925d6db01ce"/><section>
+    <title>unverified()</title>
+<indexterm><primary>unverified</primary><secondary>UserFactory</secondary></indexterm>
+<indexterm><primary>UserFactory</primary><secondary>unverified</secondary></indexterm>
+<para><computeroutput>unverified ( )</computeroutput></para>
+<para>Indicate that the model&apos;s email address should be unverified. </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+database/factories/<link linkend="__user_factory_8php">UserFactory.php</link></section>
+</section>

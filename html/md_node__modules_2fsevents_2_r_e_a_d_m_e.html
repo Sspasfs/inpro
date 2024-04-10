@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>InPro: fsevents</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">InPro
+   </div>
+   <div id="projectbrief">Un site qui inventorie tout le matériel informatique du Campus Eduservices de Vannes</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">fsevents</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md356"></a> Native access to MacOS FSEvents in <a href="https://nodejs.org/">Node.js</a></p>
+<p>The FSEvents API in MacOS allows applications to register for notifications of changes to a given directory tree. It is a very fast and lightweight alternative to kqueue.</p>
+<p>This is a low-level library. For a cross-platform file watching module that uses fsevents, check out <a href="https://github.com/paulmillr/chokidar">Chokidar</a>.</p>
+<h1><a class="anchor" id="autotoc_md357"></a>
+Usage</h1>
+<div class="fragment"><div class="line">npm install fsevents</div>
+</div><!-- fragment --><p>Supports only <b>Node.js v8.16 and higher</b>.</p>
+<div class="fragment"><div class="line">const fsevents = require(&#39;fsevents&#39;);</div>
+<div class="line"> </div>
+<div class="line">// To start observation</div>
+<div class="line">const stop = fsevents.watch(__dirname, (path, flags, id) =&gt; {</div>
+<div class="line">  const info = fsevents.getInfo(path, flags);</div>
+<div class="line">});</div>
+<div class="line"> </div>
+<div class="line">// To end observation</div>
+<div class="line">stop();</div>
+</div><!-- fragment --><blockquote class="doxtable">
+<p>&zwj;<b>Important note:</b> The API behaviour is slightly different from typical JS APIs. The <code>stop</code> function <b>must</b> be retrieved and stored somewhere, even if you don't plan to stop the watcher. If you forget it, the garbage collector will eventually kick in, the watcher will be unregistered, and your callbacks won't be called anymore. </p>
+</blockquote>
+<p>The callback passed as the second parameter to <code>.watch</code> get's called whenever the operating system detects a a change in the file system. It takes three arguments:</p>
+<h5><code>fsevents.watch(dirname: string, (path: string, flags: number, id: string) =&gt; void): () =&gt; Promise&lt;undefined&gt;</code></h5>
+<ul>
+<li><code>path: string</code> - the item in the filesystem that have been changed</li>
+<li><code>flags: number</code> - a numeric value describing what the change was</li>
+<li><code>id: string</code> - an unique-id identifying this specific event</li>
+</ul>
+<p>Returns closer callback which when called returns a Promise resolving when the watcher process has been shut down.</p>
+<h5><code>fsevents.getInfo(path: string, flags: number, id: string): FsEventInfo</code></h5>
+<p>The <code>getInfo</code> function takes the <code>path</code>, <code>flags</code> and <code>id</code> arguments and converts those parameters into a structure that is easier to digest to determine what the change was.</p>
+<p>The <code>FsEventsInfo</code> has the following shape:</p>
+<div class="fragment"><div class="line">/**</div>
+<div class="line"> * @typedef {&#39;created&#39;|&#39;modified&#39;|&#39;deleted&#39;|&#39;moved&#39;|&#39;root-changed&#39;|&#39;cloned&#39;|&#39;unknown&#39;} FsEventsEvent</div>
+<div class="line"> * @typedef {&#39;file&#39;|&#39;directory&#39;|&#39;symlink&#39;} FsEventsType</div>
+<div class="line"> */</div>
+<div class="line">{</div>
+<div class="line">  &quot;event&quot;: &quot;created&quot;, // {FsEventsEvent}</div>
+<div class="line">  &quot;path&quot;: &quot;file.txt&quot;,</div>
+<div class="line">  &quot;type&quot;: &quot;file&quot;,    // {FsEventsType}</div>
+<div class="line">  &quot;changes&quot;: {</div>
+<div class="line">    &quot;inode&quot;: true,   // Had iNode Meta-Information changed</div>
+<div class="line">    &quot;finder&quot;: false, // Had Finder Meta-Data changed</div>
+<div class="line">    &quot;access&quot;: false, // Had access permissions changed</div>
+<div class="line">    &quot;xattrs&quot;: false  // Had xAttributes changed</div>
+<div class="line">  },</div>
+<div class="line">  &quot;flags&quot;: 0x100000000</div>
+<div class="line">}</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md358"></a>
+Changelog</h1>
+<ul>
+<li>v2.3 supports Apple Silicon ARM CPUs</li>
+<li>v2 supports node 8.16+ and reduces package size massively</li>
+<li>v1.2.8 supports node 6+</li>
+<li>v1.2.7 supports node 4+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md359"></a>
+Troubleshooting</h1>
+<ul>
+<li>I'm getting <code>EBADPLATFORM</code> <code>Unsupported platform for fsevents</code> error.</li>
+<li>It's fine, nothing is broken. fsevents is macos-only. Other platforms are skipped. If you want to hide this warning, report a bug to NPM bugtracker asking them to hide ebadplatform warnings by default.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md360"></a>
+License</h1>
+<p>The MIT License Copyright (C) 2010-2020 by Philipp Dunkel, Ben Noordhuis, Elan Shankar, Paul Miller — see LICENSE file.</p>
+<p>Visit our <a href="https://github.com/fsevents/fsevents">GitHub page</a> and <a href="https://npmjs.org/package/fsevents">NPM Page</a> </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

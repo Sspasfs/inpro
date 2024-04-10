@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_app_1_1_http_1_1_middleware_1_1_check_auth" xml:lang="fr">
+<title>Référence de la classe CheckAuth</title>
+<indexterm><primary>CheckAuth</primary></indexterm>
+Graphe de collaboration de CheckAuth:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_http_1_1_middleware_1_1_check_auth__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_middleware_1_1_check_auth_1abc042d95f5786d8adcdee22a40a727bd">handle</link> (Request $request, Closure $next)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_app_1_1_http_1_1_middleware_1_1_check_auth_1abc042d95f5786d8adcdee22a40a727bd"/><section>
+    <title>handle()</title>
+<indexterm><primary>handle</primary><secondary>CheckAuth</secondary></indexterm>
+<indexterm><primary>CheckAuth</primary><secondary>handle</secondary></indexterm>
+<para><computeroutput>handle (Request $request, Closure $next)</computeroutput></para>
+<para>Handle an incoming request.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response) $next </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+app/Http/Middleware/<link linkend="__check_auth_8php">CheckAuth.php</link></section>
+</section>

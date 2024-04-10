@@ -1,0 +1,813 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e" xml:lang="fr">
+<title>Source Map JS</title>
+<indexterm><primary>Source Map JS</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md830"/> <link xlink:href="https://www.npmjs.com/package/source-map-js"></link></para>
+
+<para>Difference between original <link xlink:href="https://github.com/mozilla/source-map">source-map</link>:</para>
+
+<para><blockquote>
+<para>&#8205;TL,DR: it&apos;s fork of original source-map@0.6, but with perfomance optimizations. </para>
+</blockquote>This journey starts from <link xlink:href="https://github.com/mozilla/source-map/blob/master/CHANGELOG.md#070">source-map@0.7.0</link>. Some part of it was rewritten to Rust and WASM and API became async.</para>
+
+<para>It&apos;s still a major block for many libraries like PostCSS or Sass for example because they need to migrate the whole API to the async way. This is the reason why 0.6.1 has 2x more downloads than 0.7.3 while it&apos;s faster several times.</para>
+
+<para></para>
+
+<para>More important that WASM version has some optimizations in JS code too. This is why <link xlink:href="https://github.com/mozilla/source-map/issues/324">community asked to create branch for 0.6 version</link> and port these optimizations but, sadly, the answer was «no». A bit later I discovered <link xlink:href="https://github.com/mozilla/source-map/issues/370">the issue</link> created by <link xlink:href="https://github.com/benthemonkey">Ben Rothman (@benthemonkey)</link> with no response at all.</para>
+
+<para><link xlink:href="https://github.com/lahmatiy">Roman Dvornov (@lahmatiy)</link> wrote a <link xlink:href="https://t.me/gorshochekvarit/76">serveral posts</link> (russian, only, sorry) about source-map library in his own Telegram channel. He mentioned the article <link xlink:href="https://mrale.ph/blog/2018/02/03/maybe-you-dont-need-rust-to-speed-up-your-js.html">«Maybe you don&apos;t need Rust and WASM to speed up your JS»</link> written by <link xlink:href="https://github.com/mraleph">Vyacheslav Egorov (@mraleph)</link>. This article contains optimizations and hacks that lead to almost the same performance compare to WASM implementation.</para>
+
+<para>I decided to fork the original source-map and port these optimizations from the article and several others PR from the original source-map.</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+
+<para>This is a library to generate and consume the source map format <link xlink:href="https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit">described here</link>.</para>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md832">
+<title><title>Use with Node</title></title>
+
+<para><literallayout><computeroutput>$ npm install source-map-js
+</computeroutput></literallayout></para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md833">
+<title><title>Table of Contents</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Examples<itemizedlist>
+<listitem>
+<para>Consuming a source map</para>
+</listitem><listitem>
+<para>Generating a source map<itemizedlist>
+<listitem>
+<para>With SourceNode (high level API)</para>
+</listitem><listitem>
+<para>With SourceMapGenerator (low level API)</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>API<itemizedlist>
+<listitem>
+<para>SourceMapConsumer<itemizedlist>
+<listitem>
+<para>new SourceMapConsumer(rawSourceMap)</para>
+</listitem><listitem>
+<para>SourceMapConsumer.prototype.computeColumnSpans()</para>
+</listitem><listitem>
+<para>SourceMapConsumer.prototype.originalPositionFor(generatedPosition)</para>
+</listitem><listitem>
+<para>SourceMapConsumer.prototype.generatedPositionFor(originalPosition)</para>
+</listitem><listitem>
+<para>SourceMapConsumer.prototype.allGeneratedPositionsFor(originalPosition)</para>
+</listitem><listitem>
+<para>SourceMapConsumer.prototype.hasContentsOfAllSources()</para>
+</listitem><listitem>
+<para>SourceMapConsumer.prototype.sourceContentFor(source[, returnNullOnMissing])</para>
+</listitem><listitem>
+<para>SourceMapConsumer.prototype.eachMapping(callback, context, order)</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>SourceMapGenerator<itemizedlist>
+<listitem>
+<para>new SourceMapGenerator([startOfSourceMap])</para>
+</listitem><listitem>
+<para>SourceMapGenerator.fromSourceMap(sourceMapConsumer)</para>
+</listitem><listitem>
+<para>SourceMapGenerator.prototype.addMapping(mapping)</para>
+</listitem><listitem>
+<para>SourceMapGenerator.prototype.setSourceContent(sourceFile, sourceContent)</para>
+</listitem><listitem>
+<para>SourceMapGenerator.prototype.applySourceMap(sourceMapConsumer[, sourceFile[, sourceMapPath]])</para>
+</listitem><listitem>
+<para>SourceMapGenerator.prototype.toString()</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>SourceNode<itemizedlist>
+<listitem>
+<para>new SourceNode([line, column, source[, chunk[, name]]])</para>
+</listitem><listitem>
+<para>SourceNode.fromStringWithSourceMap(code, sourceMapConsumer[, relativePath])</para>
+</listitem><listitem>
+<para>SourceNode.prototype.add(chunk)</para>
+</listitem><listitem>
+<para>SourceNode.prototype.prepend(chunk)</para>
+</listitem><listitem>
+<para>SourceNode.prototype.setSourceContent(sourceFile, sourceContent)</para>
+</listitem><listitem>
+<para>SourceNode.prototype.walk(fn)</para>
+</listitem><listitem>
+<para>SourceNode.prototype.walkSourceContents(fn)</para>
+</listitem><listitem>
+<para>SourceNode.prototype.join(sep)</para>
+</listitem><listitem>
+<para>SourceNode.prototype.replaceRight(pattern, replacement)</para>
+</listitem><listitem>
+<para>SourceNode.prototype.toString()</para>
+</listitem><listitem>
+<para>SourceNode.prototype.toStringWithSourceMap([startOfSourceMap])</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md834">
+<title><title>Examples</title></title>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md835">
+<title><title>Consuming a source map</title></title>
+
+<para><literallayout><computeroutput>var&#32;rawSourceMap&#32;=&#32;{
+&#32;&#32;version:&#32;3,
+&#32;&#32;file:&#32;&apos;min.js&apos;,
+&#32;&#32;names:&#32;[&apos;bar&apos;,&#32;&apos;baz&apos;,&#32;&apos;n&apos;],
+&#32;&#32;sources:&#32;[&apos;one.js&apos;,&#32;&apos;two.js&apos;],
+&#32;&#32;sourceRoot:&#32;&apos;http://example.com/www/js/&apos;,
+&#32;&#32;mappings:&#32;&apos;CAAC,IAAI,IAAM,SAAUA,GAClB,OAAOC,IAAID;CCDb,IAAI,IAAM,SAAUE,GAClB,OAAOA&apos;
+};
+
+var&#32;smc&#32;=&#32;new&#32;SourceMapConsumer(rawSourceMap);
+
+console.log(smc.sources);
+//&#32;[&#32;&apos;http://example.com/www/js/one.js&apos;,
+//&#32;&#32;&#32;&apos;http://example.com/www/js/two.js&apos;&#32;]
+
+console.log(smc.originalPositionFor({
+&#32;&#32;line:&#32;2,
+&#32;&#32;column:&#32;28
+}));
+//&#32;{&#32;source:&#32;&apos;http://example.com/www/js/two.js&apos;,
+//&#32;&#32;&#32;line:&#32;2,
+//&#32;&#32;&#32;column:&#32;10,
+//&#32;&#32;&#32;name:&#32;&apos;n&apos;&#32;}
+
+console.log(smc.generatedPositionFor({
+&#32;&#32;source:&#32;&apos;http://example.com/www/js/two.js&apos;,
+&#32;&#32;line:&#32;2,
+&#32;&#32;column:&#32;10
+}));
+//&#32;{&#32;line:&#32;2,&#32;column:&#32;28&#32;}
+
+smc.eachMapping(function&#32;(m)&#32;{
+&#32;&#32;//&#32;...
+});
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md836">
+<title><title>Generating a source map</title></title>
+
+<para>In depth guide: <link xlink:href="https://hacks.mozilla.org/2013/05/compiling-to-javascript-and-debugging-with-source-maps/"><emphasis role="bold">Compiling to JavaScript, and Debugging with Source Maps</emphasis></link></para>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md837">
+<title><title>With SourceNode (high level API)</title></title>
+
+<para><literallayout><computeroutput>function&#32;compile(ast)&#32;{
+&#32;&#32;switch&#32;(ast.type)&#32;{
+&#32;&#32;case&#32;&apos;BinaryExpression&apos;:
+&#32;&#32;&#32;&#32;return&#32;new&#32;SourceNode(
+&#32;&#32;&#32;&#32;&#32;&#32;ast.location.line,
+&#32;&#32;&#32;&#32;&#32;&#32;ast.location.column,
+&#32;&#32;&#32;&#32;&#32;&#32;ast.location.source,
+&#32;&#32;&#32;&#32;&#32;&#32;[compile(ast.left),&#32;&quot;&#32;+&#32;&quot;,&#32;compile(ast.right)]
+&#32;&#32;&#32;&#32;);
+&#32;&#32;case&#32;&apos;Literal&apos;:
+&#32;&#32;&#32;&#32;return&#32;new&#32;SourceNode(
+&#32;&#32;&#32;&#32;&#32;&#32;ast.location.line,
+&#32;&#32;&#32;&#32;&#32;&#32;ast.location.column,
+&#32;&#32;&#32;&#32;&#32;&#32;ast.location.source,
+&#32;&#32;&#32;&#32;&#32;&#32;String(ast.value)
+&#32;&#32;&#32;&#32;);
+&#32;&#32;//&#32;...
+&#32;&#32;default:
+&#32;&#32;&#32;&#32;throw&#32;new&#32;Error(&quot;Bad&#32;AST&quot;);
+&#32;&#32;}
+}
+
+var&#32;ast&#32;=&#32;parse(&quot;40&#32;+&#32;2&quot;,&#32;&quot;add.js&quot;);
+console.log(compile(ast).toStringWithSourceMap({
+&#32;&#32;file:&#32;&apos;add.js&apos;
+}));
+//&#32;{&#32;code:&#32;&apos;40&#32;+&#32;2&apos;,
+//&#32;&#32;&#32;map:&#32;[object&#32;SourceMapGenerator]&#32;}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md838">
+<title><title>With SourceMapGenerator (low level API)</title></title>
+
+<para><literallayout><computeroutput>var&#32;map&#32;=&#32;new&#32;SourceMapGenerator({
+&#32;&#32;file:&#32;&quot;source-mapped.js&quot;
+});
+
+map.addMapping({
+&#32;&#32;generated:&#32;{
+&#32;&#32;&#32;&#32;line:&#32;10,
+&#32;&#32;&#32;&#32;column:&#32;35
+&#32;&#32;},
+&#32;&#32;source:&#32;&quot;foo.js&quot;,
+&#32;&#32;original:&#32;{
+&#32;&#32;&#32;&#32;line:&#32;33,
+&#32;&#32;&#32;&#32;column:&#32;2
+&#32;&#32;},
+&#32;&#32;name:&#32;&quot;christopher&quot;
+});
+
+console.log(map.toString());
+//&#32;&apos;{&quot;version&quot;:3,&quot;file&quot;:&quot;source-mapped.js&quot;,&quot;sources&quot;:[&quot;foo.js&quot;],&quot;names&quot;:[&quot;christopher&quot;],&quot;mappings&quot;:&quot;;;;;;;;;;mCAgCEA&quot;}&apos;
+</computeroutput></literallayout></para>
+</section>
+</section>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md839">
+<title><title>API</title></title>
+
+<para>Get a reference to the module:</para>
+
+<para><literallayout><computeroutput>//&#32;Node.js
+var&#32;sourceMap&#32;=&#32;require(&apos;source-map&apos;);
+
+//&#32;Browser&#32;builds
+var&#32;sourceMap&#32;=&#32;window.sourceMap;
+
+//&#32;Inside&#32;Firefox
+const&#32;sourceMap&#32;=&#32;require(&quot;devtools/toolkit/sourcemap/source-map.js&quot;);
+</computeroutput></literallayout></para>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md840">
+<title><title>SourceMapConsumer</title></title>
+
+<para>A SourceMapConsumer instance represents a parsed source map which we can query for information about the original file positions by giving it a file position in the generated source.</para>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md841">
+<title><title>new SourceMapConsumer(rawSourceMap)</title></title>
+
+<para>The only parameter is the raw source map (either as a string which can be <computeroutput>JSON.parse</computeroutput>&apos;d, or an object). According to the spec, source maps have the following attributes:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>version</computeroutput>: Which version of the source map spec this map is following.</para>
+</listitem><listitem>
+<para><computeroutput>sources</computeroutput>: An array of URLs to the original source files.</para>
+</listitem><listitem>
+<para><computeroutput>names</computeroutput>: An array of identifiers which can be referenced by individual mappings.</para>
+</listitem><listitem>
+<para><computeroutput>sourceRoot</computeroutput>: Optional. The URL root from which all sources are relative.</para>
+</listitem><listitem>
+<para><computeroutput>sourcesContent</computeroutput>: Optional. An array of contents of the original source files.</para>
+</listitem><listitem>
+<para><computeroutput>mappings</computeroutput>: A string of base64 VLQs which contain the actual mappings.</para>
+</listitem><listitem>
+<para><computeroutput>file</computeroutput>: Optional. The generated filename this source map is associated with.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>var&#32;consumer&#32;=&#32;new&#32;sourceMap.SourceMapConsumer(rawSourceMapJsonData);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md842">
+<title><title>SourceMapConsumer.prototype.computeColumnSpans()</title></title>
+
+<para>Compute the last column for each generated mapping. The last column is inclusive.</para>
+
+<para><literallayout><computeroutput>//&#32;Before:
+consumer.allGeneratedPositionsFor({&#32;line:&#32;2,&#32;source:&#32;&quot;foo.coffee&quot;&#32;})
+//&#32;[&#32;{&#32;line:&#32;2,
+//&#32;&#32;&#32;&#32;&#32;column:&#32;1&#32;},
+//&#32;&#32;&#32;{&#32;line:&#32;2,
+//&#32;&#32;&#32;&#32;&#32;column:&#32;10&#32;},
+//&#32;&#32;&#32;{&#32;line:&#32;2,
+//&#32;&#32;&#32;&#32;&#32;column:&#32;20&#32;}&#32;]
+
+consumer.computeColumnSpans();
+
+//&#32;After:
+consumer.allGeneratedPositionsFor({&#32;line:&#32;2,&#32;source:&#32;&quot;foo.coffee&quot;&#32;})
+//&#32;[&#32;{&#32;line:&#32;2,
+//&#32;&#32;&#32;&#32;&#32;column:&#32;1,
+//&#32;&#32;&#32;&#32;&#32;lastColumn:&#32;9&#32;},
+//&#32;&#32;&#32;{&#32;line:&#32;2,
+//&#32;&#32;&#32;&#32;&#32;column:&#32;10,
+//&#32;&#32;&#32;&#32;&#32;lastColumn:&#32;19&#32;},
+//&#32;&#32;&#32;{&#32;line:&#32;2,
+//&#32;&#32;&#32;&#32;&#32;column:&#32;20,
+//&#32;&#32;&#32;&#32;&#32;lastColumn:&#32;Infinity&#32;}&#32;]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md843">
+<title><title>SourceMapConsumer.prototype.originalPositionFor(generatedPosition)</title></title>
+
+<para>Returns the original source, line, and column information for the generated source&apos;s line and column positions provided. The only argument is an object with the following properties:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>line</computeroutput>: The line number in the generated source. Line numbers in this library are 1-based (note that the underlying source map specification uses 0-based line numbers &#8211; this library handles the translation).</para>
+</listitem><listitem>
+<para><computeroutput>column</computeroutput>: The column number in the generated source. Column numbers in this library are 0-based.</para>
+</listitem><listitem>
+<para><computeroutput>bias</computeroutput>: Either <computeroutput>SourceMapConsumer.GREATEST_LOWER_BOUND</computeroutput> or <computeroutput>SourceMapConsumer.LEAST_UPPER_BOUND</computeroutput>. Specifies whether to return the closest element that is smaller than or greater than the one we are searching for, respectively, if the exact element cannot be found. Defaults to <computeroutput>SourceMapConsumer.GREATEST_LOWER_BOUND</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>and an object is returned with the following properties:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>source</computeroutput>: The original source file, or null if this information is not available.</para>
+</listitem><listitem>
+<para><computeroutput>line</computeroutput>: The line number in the original source, or null if this information is not available. The line number is 1-based.</para>
+</listitem><listitem>
+<para><computeroutput>column</computeroutput>: The column number in the original source, or null if this information is not available. The column number is 0-based.</para>
+</listitem><listitem>
+<para><computeroutput>name</computeroutput>: The original identifier, or null if this information is not available.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>consumer.originalPositionFor({&#32;line:&#32;2,&#32;column:&#32;10&#32;})
+//&#32;{&#32;source:&#32;&apos;foo.coffee&apos;,
+//&#32;&#32;&#32;line:&#32;2,
+//&#32;&#32;&#32;column:&#32;2,
+//&#32;&#32;&#32;name:&#32;null&#32;}
+
+consumer.originalPositionFor({&#32;line:&#32;99999999999999999,&#32;column:&#32;999999999999999&#32;})
+//&#32;{&#32;source:&#32;null,
+//&#32;&#32;&#32;line:&#32;null,
+//&#32;&#32;&#32;column:&#32;null,
+//&#32;&#32;&#32;name:&#32;null&#32;}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md844">
+<title><title>SourceMapConsumer.prototype.generatedPositionFor(originalPosition)</title></title>
+
+<para>Returns the generated line and column information for the original source, line, and column positions provided. The only argument is an object with the following properties:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>source</computeroutput>: The filename of the original source.</para>
+</listitem><listitem>
+<para><computeroutput>line</computeroutput>: The line number in the original source. The line number is 1-based.</para>
+</listitem><listitem>
+<para><computeroutput>column</computeroutput>: The column number in the original source. The column number is 0-based.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>and an object is returned with the following properties:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>line</computeroutput>: The line number in the generated source, or null. The line number is 1-based.</para>
+</listitem><listitem>
+<para><computeroutput>column</computeroutput>: The column number in the generated source, or null. The column number is 0-based.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>consumer.generatedPositionFor({&#32;source:&#32;&quot;example.js&quot;,&#32;line:&#32;2,&#32;column:&#32;10&#32;})
+//&#32;{&#32;line:&#32;1,
+//&#32;&#32;&#32;column:&#32;56&#32;}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md845">
+<title><title>SourceMapConsumer.prototype.allGeneratedPositionsFor(originalPosition)</title></title>
+
+<para>Returns all generated line and column information for the original source, line, and column provided. If no column is provided, returns all mappings corresponding to a either the line we are searching for or the next closest line that has any mappings. Otherwise, returns all mappings corresponding to the given line and either the column we are searching for or the next closest column that has any offsets.</para>
+
+<para>The only argument is an object with the following properties:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>source</computeroutput>: The filename of the original source.</para>
+</listitem><listitem>
+<para><computeroutput>line</computeroutput>: The line number in the original source. The line number is 1-based.</para>
+</listitem><listitem>
+<para><computeroutput>column</computeroutput>: Optional. The column number in the original source. The column number is 0-based.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>and an array of objects is returned, each with the following properties:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>line</computeroutput>: The line number in the generated source, or null. The line number is 1-based.</para>
+</listitem><listitem>
+<para><computeroutput>column</computeroutput>: The column number in the generated source, or null. The column number is 0-based.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>consumer.allGeneratedpositionsfor({&#32;line:&#32;2,&#32;source:&#32;&quot;foo.coffee&quot;&#32;})
+//&#32;[&#32;{&#32;line:&#32;2,
+//&#32;&#32;&#32;&#32;&#32;column:&#32;1&#32;},
+//&#32;&#32;&#32;{&#32;line:&#32;2,
+//&#32;&#32;&#32;&#32;&#32;column:&#32;10&#32;},
+//&#32;&#32;&#32;{&#32;line:&#32;2,
+//&#32;&#32;&#32;&#32;&#32;column:&#32;20&#32;}&#32;]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md846">
+<title><title>SourceMapConsumer.prototype.hasContentsOfAllSources()</title></title>
+
+<para>Return true if we have the embedded source content for every source listed in the source map, false otherwise.</para>
+
+<para>In other words, if this method returns <computeroutput>true</computeroutput>, then <computeroutput>consumer.sourceContentFor(s)</computeroutput> will succeed for every source <computeroutput>s</computeroutput> in <computeroutput>consumer.sources</computeroutput>.</para>
+
+<para><literallayout><computeroutput>//&#32;...
+if&#32;(consumer.hasContentsOfAllSources())&#32;{
+&#32;&#32;consumerReadyCallback(consumer);
+}&#32;else&#32;{
+&#32;&#32;fetchSources(consumer,&#32;consumerReadyCallback);
+}
+//&#32;...
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md847">
+<title><title>SourceMapConsumer.prototype.sourceContentFor(source[, returnNullOnMissing])</title></title>
+
+<para>Returns the original source content for the source provided. The only argument is the URL of the original source file.</para>
+
+<para>If the source content for the given source is not found, then an error is thrown. Optionally, pass <computeroutput>true</computeroutput> as the second param to have <computeroutput>null</computeroutput> returned instead.</para>
+
+<para><literallayout><computeroutput>consumer.sources
+//&#32;[&#32;&quot;my-cool-lib.clj&quot;&#32;]
+
+consumer.sourceContentFor(&quot;my-cool-lib.clj&quot;)
+//&#32;&quot;...&quot;
+
+consumer.sourceContentFor(&quot;this&#32;is&#32;not&#32;in&#32;the&#32;source&#32;map&quot;);
+//&#32;Error:&#32;&quot;this&#32;is&#32;not&#32;in&#32;the&#32;source&#32;map&quot;&#32;is&#32;not&#32;in&#32;the&#32;source&#32;map
+
+consumer.sourceContentFor(&quot;this&#32;is&#32;not&#32;in&#32;the&#32;source&#32;map&quot;,&#32;true);
+//&#32;null
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md848">
+<title><title>SourceMapConsumer.prototype.eachMapping(callback, context, order)</title></title>
+
+<para>Iterate over each mapping between an original source/line/column and a generated line/column in this source map.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>callback</computeroutput>: The function that is called with each mapping. Mappings have the form <computeroutput>{ source, generatedLine, generatedColumn, originalLine, originalColumn, name }</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>context</computeroutput>: Optional. If specified, this object will be the value of <computeroutput>this</computeroutput> every time that <computeroutput>callback</computeroutput> is called.</para>
+</listitem><listitem>
+<para><computeroutput>order</computeroutput>: Either <computeroutput>SourceMapConsumer.GENERATED_ORDER</computeroutput> or <computeroutput>SourceMapConsumer.ORIGINAL_ORDER</computeroutput>. Specifies whether you want to iterate over the mappings sorted by the generated file&apos;s line/column order or the original&apos;s source/line/column order, respectively. Defaults to <computeroutput>SourceMapConsumer.GENERATED_ORDER</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>consumer.eachMapping(function&#32;(m)&#32;{&#32;console.log(m);&#32;})
+//&#32;...
+//&#32;{&#32;source:&#32;&apos;illmatic.js&apos;,
+//&#32;&#32;&#32;generatedLine:&#32;1,
+//&#32;&#32;&#32;generatedColumn:&#32;0,
+//&#32;&#32;&#32;originalLine:&#32;1,
+//&#32;&#32;&#32;originalColumn:&#32;0,
+//&#32;&#32;&#32;name:&#32;null&#32;}
+//&#32;{&#32;source:&#32;&apos;illmatic.js&apos;,
+//&#32;&#32;&#32;generatedLine:&#32;2,
+//&#32;&#32;&#32;generatedColumn:&#32;0,
+//&#32;&#32;&#32;originalLine:&#32;2,
+//&#32;&#32;&#32;originalColumn:&#32;0,
+//&#32;&#32;&#32;name:&#32;null&#32;}
+//&#32;...
+</computeroutput></literallayout> </para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md849">
+<title><title>SourceMapGenerator</title></title>
+
+<para>An instance of the SourceMapGenerator represents a source map which is being built incrementally.</para>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md850">
+<title><title>new SourceMapGenerator([startOfSourceMap])</title></title>
+
+<para>You may pass an object with the following properties:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>file</computeroutput>: The filename of the generated source that this source map is associated with.</para>
+</listitem><listitem>
+<para><computeroutput>sourceRoot</computeroutput>: A root for all relative URLs in this source map.</para>
+</listitem><listitem>
+<para><computeroutput>skipValidation</computeroutput>: Optional. When <computeroutput>true</computeroutput>, disables validation of mappings as they are added. This can improve performance but should be used with discretion, as a last resort. Even then, one should avoid using this flag when running tests, if possible.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>var&#32;generator&#32;=&#32;new&#32;sourceMap.SourceMapGenerator({
+&#32;&#32;file:&#32;&quot;my-generated-javascript-file.js&quot;,
+&#32;&#32;sourceRoot:&#32;&quot;http://example.com/app/js/&quot;
+});
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md851">
+<title><title>SourceMapGenerator.fromSourceMap(sourceMapConsumer)</title></title>
+
+<para>Creates a new <computeroutput>SourceMapGenerator</computeroutput> from an existing <computeroutput>SourceMapConsumer</computeroutput> instance.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>sourceMapConsumer</computeroutput> The SourceMap.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>var&#32;generator&#32;=&#32;sourceMap.SourceMapGenerator.fromSourceMap(consumer);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md852">
+<title><title>SourceMapGenerator.prototype.addMapping(mapping)</title></title>
+
+<para>Add a single mapping from original source line and column to the generated source&apos;s line and column for this source map being created. The mapping object should have the following properties:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>generated</computeroutput>: An object with the generated line and column positions.</para>
+</listitem><listitem>
+<para><computeroutput>original</computeroutput>: An object with the original line and column positions.</para>
+</listitem><listitem>
+<para><computeroutput>source</computeroutput>: The original source file (relative to the sourceRoot).</para>
+</listitem><listitem>
+<para><computeroutput>name</computeroutput>: An optional original token name for this mapping.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>generator.addMapping({
+&#32;&#32;source:&#32;&quot;module-one.scm&quot;,
+&#32;&#32;original:&#32;{&#32;line:&#32;128,&#32;column:&#32;0&#32;},
+&#32;&#32;generated:&#32;{&#32;line:&#32;3,&#32;column:&#32;456&#32;}
+})
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md853">
+<title><title>SourceMapGenerator.prototype.setSourceContent(sourceFile, sourceContent)</title></title>
+
+<para>Set the source content for an original source file.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>sourceFile</computeroutput> the URL of the original source file.</para>
+</listitem><listitem>
+<para><computeroutput>sourceContent</computeroutput> the content of the source file.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>generator.setSourceContent(&quot;module-one.scm&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fs.readFileSync(&quot;path/to/module-one.scm&quot;))
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md854">
+<title><title>SourceMapGenerator.prototype.applySourceMap(sourceMapConsumer[, sourceFile[, sourceMapPath]])</title></title>
+
+<para>Applies a SourceMap for a source file to the SourceMap. Each mapping to the supplied source file is rewritten using the supplied SourceMap. Note: The resolution for the resulting mappings is the minimum of this map and the supplied map.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>sourceMapConsumer</computeroutput>: The SourceMap to be applied.</para>
+</listitem><listitem>
+<para><computeroutput>sourceFile</computeroutput>: Optional. The filename of the source file. If omitted, sourceMapConsumer.file will be used, if it exists. Otherwise an error will be thrown.</para>
+</listitem><listitem>
+<para><computeroutput>sourceMapPath</computeroutput>: Optional. The dirname of the path to the SourceMap to be applied. If relative, it is relative to the SourceMap.</para>
+
+<para>This parameter is needed when the two SourceMaps aren&apos;t in the same directory, and the SourceMap to be applied contains relative source paths. If so, those relative source paths need to be rewritten relative to the SourceMap.</para>
+
+<para>If omitted, it is assumed that both SourceMaps are in the same directory, thus not needing any rewriting. (Supplying &#8216;&#8217;.&apos;` has the same effect.)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md855">
+<title><title>SourceMapGenerator.prototype.toString()</title></title>
+
+<para>Renders the source map being generated to a string.</para>
+
+<para><literallayout><computeroutput>generator.toString()
+//&#32;&apos;{&quot;version&quot;:3,&quot;sources&quot;:[&quot;module-one.scm&quot;],&quot;names&quot;:[],&quot;mappings&quot;:&quot;...snip...&quot;,&quot;file&quot;:&quot;my-generated-javascript-file.js&quot;,&quot;sourceRoot&quot;:&quot;http://example.com/app/js/&quot;}&apos;
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md856">
+<title><title>SourceNode</title></title>
+
+<para>SourceNodes provide a way to abstract over interpolating and/or concatenating snippets of generated JavaScript source code, while maintaining the line and column information associated between those snippets and the original source code. This is useful as the final intermediate representation a compiler might use before outputting the generated JS and source map.</para>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md857">
+<title><title>new SourceNode([line, column, source[, chunk[, name]]])</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>line</computeroutput>: The original line number associated with this source node, or null if it isn&apos;t associated with an original line. The line number is 1-based.</para>
+</listitem><listitem>
+<para><computeroutput>column</computeroutput>: The original column number associated with this source node, or null if it isn&apos;t associated with an original column. The column number is 0-based.</para>
+</listitem><listitem>
+<para><computeroutput>source</computeroutput>: The original source&apos;s filename; null if no filename is provided.</para>
+</listitem><listitem>
+<para><computeroutput>chunk</computeroutput>: Optional. Is immediately passed to <computeroutput>SourceNode.prototype.add</computeroutput>, see below.</para>
+</listitem><listitem>
+<para><computeroutput>name</computeroutput>: Optional. The original identifier.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>var&#32;node&#32;=&#32;new&#32;SourceNode(1,&#32;2,&#32;&quot;a.cpp&quot;,&#32;[
+&#32;&#32;new&#32;SourceNode(3,&#32;4,&#32;&quot;b.cpp&quot;,&#32;&quot;extern&#32;int&#32;status;\n&quot;),
+&#32;&#32;new&#32;SourceNode(5,&#32;6,&#32;&quot;c.cpp&quot;,&#32;&quot;std::string*&#32;make_string(size_t&#32;n);\n&quot;),
+&#32;&#32;new&#32;SourceNode(7,&#32;8,&#32;&quot;d.cpp&quot;,&#32;&quot;int&#32;main(int&#32;argc,&#32;char**&#32;argv)&#32;{}\n&quot;),
+]);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md858">
+<title><title>SourceNode.fromStringWithSourceMap(code, sourceMapConsumer[, relativePath])</title></title>
+
+<para>Creates a SourceNode from generated code and a SourceMapConsumer.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>code</computeroutput>: The generated code</para>
+</listitem><listitem>
+<para><computeroutput>sourceMapConsumer</computeroutput> The SourceMap for the generated code</para>
+</listitem><listitem>
+<para><computeroutput>relativePath</computeroutput> The optional path that relative sources in <computeroutput>sourceMapConsumer</computeroutput> should be relative to.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>var&#32;consumer&#32;=&#32;new&#32;SourceMapConsumer(fs.readFileSync(&quot;path/to/my-file.js.map&quot;,&#32;&quot;utf8&quot;));
+var&#32;node&#32;=&#32;SourceNode.fromStringWithSourceMap(fs.readFileSync(&quot;path/to/my-file.js&quot;),
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;consumer);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md859">
+<title><title>SourceNode.prototype.add(chunk)</title></title>
+
+<para>Add a chunk of generated JS to this source node.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>chunk</computeroutput>: A string snippet of generated JS code, another instance of <computeroutput>SourceNode</computeroutput>, or an array where each member is one of those things.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>node.add(&quot;&#32;+&#32;&quot;);
+node.add(otherNode);
+node.add([leftHandOperandNode,&#32;&quot;&#32;+&#32;&quot;,&#32;rightHandOperandNode]);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md860">
+<title><title>SourceNode.prototype.prepend(chunk)</title></title>
+
+<para>Prepend a chunk of generated JS to this source node.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>chunk</computeroutput>: A string snippet of generated JS code, another instance of <computeroutput>SourceNode</computeroutput>, or an array where each member is one of those things.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>node.prepend(&quot;/**&#32;Build&#32;Id:&#32;f783haef86324gf&#32;**/\n\n&quot;);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md861">
+<title><title>SourceNode.prototype.setSourceContent(sourceFile, sourceContent)</title></title>
+
+<para>Set the source content for a source file. This will be added to the <computeroutput>SourceMap</computeroutput> in the <computeroutput>sourcesContent</computeroutput> field.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>sourceFile</computeroutput>: The filename of the source file</para>
+</listitem><listitem>
+<para><computeroutput>sourceContent</computeroutput>: The content of the source file</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>node.setSourceContent(&quot;module-one.scm&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fs.readFileSync(&quot;path/to/module-one.scm&quot;))
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md862">
+<title><title>SourceNode.prototype.walk(fn)</title></title>
+
+<para>Walk over the tree of JS snippets in this node and its children. The walking function is called once for each snippet of JS and is passed that snippet and the its original associated source&apos;s line/column location.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>fn</computeroutput>: The traversal function.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>var&#32;node&#32;=&#32;new&#32;SourceNode(1,&#32;2,&#32;&quot;a.js&quot;,&#32;[
+&#32;&#32;new&#32;SourceNode(3,&#32;4,&#32;&quot;b.js&quot;,&#32;&quot;uno&quot;),
+&#32;&#32;&quot;dos&quot;,
+&#32;&#32;[
+&#32;&#32;&#32;&#32;&quot;tres&quot;,
+&#32;&#32;&#32;&#32;new&#32;SourceNode(5,&#32;6,&#32;&quot;c.js&quot;,&#32;&quot;quatro&quot;)
+&#32;&#32;]
+]);
+
+node.walk(function&#32;(code,&#32;loc)&#32;{&#32;console.log(&quot;WALK:&quot;,&#32;code,&#32;loc);&#32;})
+//&#32;WALK:&#32;uno&#32;{&#32;source:&#32;&apos;b.js&apos;,&#32;line:&#32;3,&#32;column:&#32;4,&#32;name:&#32;null&#32;}
+//&#32;WALK:&#32;dos&#32;{&#32;source:&#32;&apos;a.js&apos;,&#32;line:&#32;1,&#32;column:&#32;2,&#32;name:&#32;null&#32;}
+//&#32;WALK:&#32;tres&#32;{&#32;source:&#32;&apos;a.js&apos;,&#32;line:&#32;1,&#32;column:&#32;2,&#32;name:&#32;null&#32;}
+//&#32;WALK:&#32;quatro&#32;{&#32;source:&#32;&apos;c.js&apos;,&#32;line:&#32;5,&#32;column:&#32;6,&#32;name:&#32;null&#32;}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md863">
+<title><title>SourceNode.prototype.walkSourceContents(fn)</title></title>
+
+<para>Walk over the tree of SourceNodes. The walking function is called for each source file content and is passed the filename and source content.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>fn</computeroutput>: The traversal function.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>var&#32;a&#32;=&#32;new&#32;SourceNode(1,&#32;2,&#32;&quot;a.js&quot;,&#32;&quot;generated&#32;from&#32;a&quot;);
+a.setSourceContent(&quot;a.js&quot;,&#32;&quot;original&#32;a&quot;);
+var&#32;b&#32;=&#32;new&#32;SourceNode(1,&#32;2,&#32;&quot;b.js&quot;,&#32;&quot;generated&#32;from&#32;b&quot;);
+b.setSourceContent(&quot;b.js&quot;,&#32;&quot;original&#32;b&quot;);
+var&#32;c&#32;=&#32;new&#32;SourceNode(1,&#32;2,&#32;&quot;c.js&quot;,&#32;&quot;generated&#32;from&#32;c&quot;);
+c.setSourceContent(&quot;c.js&quot;,&#32;&quot;original&#32;c&quot;);
+
+var&#32;node&#32;=&#32;new&#32;SourceNode(null,&#32;null,&#32;null,&#32;[a,&#32;b,&#32;c]);
+node.walkSourceContents(function&#32;(source,&#32;contents)&#32;{&#32;console.log(&quot;WALK:&quot;,&#32;source,&#32;&quot;:&quot;,&#32;contents);&#32;})
+//&#32;WALK:&#32;a.js&#32;:&#32;original&#32;a
+//&#32;WALK:&#32;b.js&#32;:&#32;original&#32;b
+//&#32;WALK:&#32;c.js&#32;:&#32;original&#32;c
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md864">
+<title><title>SourceNode.prototype.join(sep)</title></title>
+
+<para>Like <computeroutput>Array.prototype.join</computeroutput> except for SourceNodes. Inserts the separator between each of this source node&apos;s children.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>sep</computeroutput>: The separator.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>var&#32;lhs&#32;=&#32;new&#32;SourceNode(1,&#32;2,&#32;&quot;a.rs&quot;,&#32;&quot;my_copy&quot;);
+var&#32;operand&#32;=&#32;new&#32;SourceNode(3,&#32;4,&#32;&quot;a.rs&quot;,&#32;&quot;=&quot;);
+var&#32;rhs&#32;=&#32;new&#32;SourceNode(5,&#32;6,&#32;&quot;a.rs&quot;,&#32;&quot;orig.clone()&quot;);
+
+var&#32;node&#32;=&#32;new&#32;SourceNode(null,&#32;null,&#32;null,&#32;[&#32;lhs,&#32;operand,&#32;rhs&#32;]);
+var&#32;joinedNode&#32;=&#32;node.join(&quot;&#32;&quot;);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md865">
+<title><title>SourceNode.prototype.replaceRight(pattern, replacement)</title></title>
+
+<para>Call <computeroutput>String.prototype.replace</computeroutput> on the very right-most source snippet. Useful for trimming white space from the end of a source node, etc.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>pattern</computeroutput>: The pattern to replace.</para>
+</listitem><listitem>
+<para><computeroutput>replacement</computeroutput>: The thing to replace the pattern with.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>//&#32;Trim&#32;trailing&#32;white&#32;space.
+node.replaceRight(/\s*$/,&#32;&quot;&quot;);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md866">
+<title><title>SourceNode.prototype.toString()</title></title>
+
+<para>Return the string representation of this source node. Walks over the tree and concatenates all the various snippets together to one string.</para>
+
+<para><literallayout><computeroutput>var&#32;node&#32;=&#32;new&#32;SourceNode(1,&#32;2,&#32;&quot;a.js&quot;,&#32;[
+&#32;&#32;new&#32;SourceNode(3,&#32;4,&#32;&quot;b.js&quot;,&#32;&quot;uno&quot;),
+&#32;&#32;&quot;dos&quot;,
+&#32;&#32;[
+&#32;&#32;&#32;&#32;&quot;tres&quot;,
+&#32;&#32;&#32;&#32;new&#32;SourceNode(5,&#32;6,&#32;&quot;c.js&quot;,&#32;&quot;quatro&quot;)
+&#32;&#32;]
+]);
+
+node.toString()
+//&#32;&apos;unodostresquatro&apos;
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_r_e_a_d_m_e_1autotoc_md867">
+<title><title>SourceNode.prototype.toStringWithSourceMap([startOfSourceMap])</title></title>
+
+<para>Returns the string representation of this tree of source nodes, plus a SourceMapGenerator which contains all the mappings between the generated and original sources.</para>
+
+<para>The arguments are the same as those to <computeroutput>new SourceMapGenerator</computeroutput>.</para>
+
+<para><literallayout><computeroutput>var&#32;node&#32;=&#32;new&#32;SourceNode(1,&#32;2,&#32;&quot;a.js&quot;,&#32;[
+&#32;&#32;new&#32;SourceNode(3,&#32;4,&#32;&quot;b.js&quot;,&#32;&quot;uno&quot;),
+&#32;&#32;&quot;dos&quot;,
+&#32;&#32;[
+&#32;&#32;&#32;&#32;&quot;tres&quot;,
+&#32;&#32;&#32;&#32;new&#32;SourceNode(5,&#32;6,&#32;&quot;c.js&quot;,&#32;&quot;quatro&quot;)
+&#32;&#32;]
+]);
+
+node.toStringWithSourceMap({&#32;file:&#32;&quot;my-output-file.js&quot;&#32;})
+//&#32;{&#32;code:&#32;&apos;unodostresquatro&apos;,
+//&#32;&#32;&#32;map:&#32;[object&#32;SourceMapGenerator]&#32;}
+</computeroutput></literallayout> </para>
+</section>
+</section>
+</section>
+</section>

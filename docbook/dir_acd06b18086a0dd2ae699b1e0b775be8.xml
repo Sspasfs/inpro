@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_acd06b18086a0dd2ae699b1e0b775be8" xml:lang="fr">
+<title>Répertoire de référence de node_modules</title>
+<indexterm><primary>Répertoire de référence de node_modules</primary></indexterm>
+<simplesect>
+    <title>Répertoires    </title>
+        <itemizedlist>
+            <listitem><para>répertoire <link linkend="_dir_ba7904f7cbca2ea68d72434b81d73856">@esbuild</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_bc803f8fda8b012a8f54deea7e26681b">@popperjs</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_2de235191d18dd1791eb806570e83dec">anymatch</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_8925de973bbd34b811a2f7f2c8ef953b">asynckit</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_f3385884acfd81366893d6c4c902b82a">axios</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_8d75906c2234275c93f91c4ccb63fb74">binary-extensions</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_44156e3c91a86d391c51f0e595d6be78">bootstrap</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_40989cba80abdc555aefe0e4b70b8e5c">braces</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_1d5c8a0284b4f13bacb7879a7e463d3b">chokidar</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_e400c5e67eaa201f41019f527521cace">combined-stream</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_3210cb7bd4e1ce2e440ef84771446467">delayed-stream</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_ec8a610d038e50ea7e9c5379e30836d5">esbuild</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_3fcc35b590f8afe22312348fc6a0e039">fill-range</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_584a1698eeadd519699d931777fbbed2">follow-redirects</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_967c956642cf26145e8688252574c84f">form-data</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_d6cea5dd1ad574a301d4bb97e00bd495">fsevents</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_f2962e632e3c0a95dca49749f98e7ff5">glob-parent</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_ea14baba27f3f685fd18289971a476d4">immutable</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_22dae29294172d75c44f0e59fe97dc44">is-binary-path</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_1c20e0db34585ecc9a55df85a5e8ae5e">is-extglob</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_25ac8cfa27d69183c2ce92fafea8f40c">is-glob</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_697f327462917f89d1814846a0ad4319">is-number</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_4412c9e214104c2ff3ccc1efae456af9">laravel-vite-plugin</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_0dba7b5e0e0c32d74ace59ac461e8c57">mime-db</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_49e1f4fe336b05d85ff3cdcf059590aa">mime-types</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_dbff3518ccac0079db1f76108e8705d6">nanoid</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_0f4aa820eae131cf25ab631d332cb1f9">normalize-path</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_dba109dbb2d6cba37e3a183f2348d522">picocolors</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_7a583677d98b93c95bf092b149de9207">picomatch</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_89573d253c39d404d6de30837b232e6f">postcss</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_0b9fd741ed1fe99044ae254ef8815ff0">proxy-from-env</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_0ddbf0e7693c08af101d6638cc0da5a7">readdirp</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_9c8424a0067b59b53e6f4b0a4b438e49">rollup</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_b9a8349288c7ae8bc2b2cb80d40491ef">sass</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_e383ee6c920e4f5c6647b8cd409a80b8">source-map-js</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_c866655821197af36f98c2337eb99d67">to-regex-range</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_1da6287cdf9906646d37bc082a2ddfe9">vite</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_2ddf2bc0b598ae077739d34e27766bb2">vite-plugin-full-reload</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

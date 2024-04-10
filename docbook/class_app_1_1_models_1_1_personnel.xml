@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_app_1_1_models_1_1_personnel" xml:lang="fr">
+<title>Référence de la classe Personnel</title>
+<indexterm><primary>Personnel</primary></indexterm>
+Graphe d&apos;héritage de Personnel:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_models_1_1_personnel__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de Personnel:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_models_1_1_personnel__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_models_1_1_personnel_1aa0e1a9777ae030cc35904425053ae480">produits</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_models_1_1_personnel_1a6a90e74ccdf5efd70d51d10c906f8e32">$fillable</link> = [&apos;nom&apos;, &apos;prenom&apos;, &apos;ecole&apos;]</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_app_1_1_models_1_1_personnel_1aa0e1a9777ae030cc35904425053ae480"/><section>
+    <title>produits()</title>
+<indexterm><primary>produits</primary><secondary>Personnel</secondary></indexterm>
+<indexterm><primary>Personnel</primary><secondary>produits</secondary></indexterm>
+<para><computeroutput>produits ( )</computeroutput></para>
+<para>Définit la relation entre le personnel et les produits.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>\Illuminate\Database\Eloquent\Relations\HasMany </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_app_1_1_models_1_1_personnel_1a6a90e74ccdf5efd70d51d10c906f8e32"/><section>
+    <title>$fillable</title>
+<indexterm><primary>$fillable</primary><secondary>Personnel</secondary></indexterm>
+<indexterm><primary>Personnel</primary><secondary>$fillable</secondary></indexterm>
+<para><computeroutput>$fillable = [&apos;nom&apos;, &apos;prenom&apos;, &apos;ecole&apos;]<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+app/Models/<link linkend="__personnel_8php">Personnel.php</link></section>
+</section>

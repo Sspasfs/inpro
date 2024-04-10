@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_personnel_table_seeder" xml:lang="fr">
+<title>Référence de la classe PersonnelTableSeeder</title>
+<indexterm><primary>PersonnelTableSeeder</primary></indexterm>
+Graphe d&apos;héritage de PersonnelTableSeeder:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_personnel_table_seeder__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de PersonnelTableSeeder:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_personnel_table_seeder__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_personnel_table_seeder_1afb0fafe7e02a3ae1993c01c19fad2bae">run</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_personnel_table_seeder_1afb0fafe7e02a3ae1993c01c19fad2bae"/><section>
+    <title>run()</title>
+<indexterm><primary>run</primary><secondary>PersonnelTableSeeder</secondary></indexterm>
+<indexterm><primary>PersonnelTableSeeder</primary><secondary>run</secondary></indexterm>
+<para><computeroutput>run ( )</computeroutput></para>
+<para>Run the database seeds.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+database/seeders/<link linkend="__personnel_table_seeder_8php">PersonnelTableSeeder.php</link></section>
+</section>

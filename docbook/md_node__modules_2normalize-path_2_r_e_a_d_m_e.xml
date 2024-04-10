@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2normalize-path_2_r_e_a_d_m_e" xml:lang="fr">
+<title>normalize-path &lt;a href=&quot;https://www.npmjs.com/package/normalize-path&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/v/normalize-path.svg?style=flat&quot; alt=&quot;NPM version&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://npmjs.org/package/normalize-path&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dm/normalize-path.svg?style=flat&quot; alt=&quot;NPM monthly downloads&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://npmjs.org/package/normalize-path&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dt/normalize-path.svg?style=flat&quot; alt=&quot;NPM total downloads&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://travis-ci.org/jonschlinkert/normalize-path&quot; &gt;&lt;img src=&quot;https://img.shields.io/travis/jonschlinkert/normalize-path.svg?style=flat&amp;label=Travis&quot; alt=&quot;Linux Build Status&quot;/&gt;&lt;/a&gt;</title>
+<indexterm><primary>normalize-path &lt;a href=&quot;https://www.npmjs.com/package/normalize-path&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/v/normalize-path.svg?style=flat&quot; alt=&quot;NPM version&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://npmjs.org/package/normalize-path&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dm/normalize-path.svg?style=flat&quot; alt=&quot;NPM monthly downloads&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://npmjs.org/package/normalize-path&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dt/normalize-path.svg?style=flat&quot; alt=&quot;NPM total downloads&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://travis-ci.org/jonschlinkert/normalize-path&quot; &gt;&lt;img src=&quot;https://img.shields.io/travis/jonschlinkert/normalize-path.svg?style=flat&amp;label=Travis&quot; alt=&quot;Linux Build Status&quot;/&gt;&lt;/a&gt;</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2normalize-path_2_r_e_a_d_m_e_1autotoc_md607"/> <blockquote>
+<para>&#8205;Normalize slashes in a file path to be posix/unix-like forward slashes. Also condenses repeat slashes to a single slash and removes and trailing slashes, unless disabled. </para>
+</blockquote>Please consider following this project&apos;s author, <link xlink:href="https://github.com/jonschlinkert">Jon Schlinkert</link>, and consider starring the project to show your :heart: and support.</para>
+<section xml:id="_md_node__modules_2normalize-path_2_r_e_a_d_m_e_1autotoc_md608">
+<title><title>Install</title></title>
+
+<para>Install with <link xlink:href="https://www.npmjs.com/">npm</link>:</para>
+
+<para><literallayout><computeroutput>$&#32;npm&#32;install&#32;--save&#32;normalize-path
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2normalize-path_2_r_e_a_d_m_e_1autotoc_md609">
+<title><title>Usage</title></title>
+
+<para><literallayout><computeroutput>const&#32;normalize&#32;=&#32;require(&apos;normalize-path&apos;);
+
+console.log(normalize(&apos;\\foo\\bar\\baz\\&apos;));&#32;
+//=&gt;&#32;&apos;/foo/bar/baz&apos;
+</computeroutput></literallayout></para>
+
+<para><emphasis role="bold">win32 namespaces</emphasis></para>
+
+<para><literallayout><computeroutput>console.log(normalize(&apos;\\\\?\\UNC\\Server01\\user\\docs\\Letter.txt&apos;));&#32;
+//=&gt;&#32;&apos;//?/UNC/Server01/user/docs/Letter.txt&apos;
+
+console.log(normalize(&apos;\\\\.\\CdRomX&apos;));&#32;
+//=&gt;&#32;&apos;//./CdRomX&apos;
+</computeroutput></literallayout></para>
+
+<para><emphasis role="bold">Consecutive slashes</emphasis></para>
+
+<para>Condenses multiple consecutive forward slashes (except for leading slashes in win32 namespaces) to a single slash.</para>
+
+<para><literallayout><computeroutput>console.log(normalize(&apos;.//foo//bar///////baz/&apos;));&#32;
+//=&gt;&#32;&apos;./foo/bar/baz&apos;
+</computeroutput></literallayout></para>
+<section xml:id="_md_node__modules_2normalize-path_2_r_e_a_d_m_e_1autotoc_md610">
+<title><title>Trailing slashes</title></title>
+
+<para>By default trailing slashes are removed. Pass <computeroutput>false</computeroutput> as the last argument to disable this behavior and <emphasis><emphasis role="bold">keep</emphasis> trailing slashes</emphasis>:</para>
+
+<para><literallayout><computeroutput>console.log(normalize(&apos;foo\\bar\\baz\\&apos;,&#32;false));&#32;//=&gt;&#32;&apos;foo/bar/baz/&apos;
+console.log(normalize(&apos;./foo/bar/baz/&apos;,&#32;false));&#32;//=&gt;&#32;&apos;./foo/bar/baz/&apos;
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2normalize-path_2_r_e_a_d_m_e_1autotoc_md611">
+<title><title>Release history</title></title>
+<section xml:id="_md_node__modules_2normalize-path_2_r_e_a_d_m_e_1autotoc_md612">
+<title><title>v3.0</title></title>
+
+<para>No breaking changes in this release.</para>
+
+<para><itemizedlist>
+<listitem>
+<para>a check was added to ensure that <link xlink:href="https://msdn.microsoft.com/library/windows/desktop/aa365247(v=vs.85).aspx#namespaces">win32 namespaces</link> are handled properly by win32 <computeroutput>path.parse()</computeroutput> after a path has been normalized by this library.</para>
+</listitem><listitem>
+<para>a minor optimization was made to simplify how the trailing separator was handled</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2normalize-path_2_r_e_a_d_m_e_1autotoc_md613">
+<title><title>About</title></title>
+
+<para>
+<para><emphasis role="bold"><emphasis role="bold">Contributing</emphasis></emphasis></para><para>
+<para></para>
+
+<para>Pull requests and stars are always welcome. For bugs and feature requests, <link xlink:href="../../issues/new">please create an issue</link>.</para>
+
+<para></para>
+</para>
+</para>
+
+<para>
+<para><emphasis role="bold"><emphasis role="bold">Running Tests</emphasis></emphasis></para><para>
+<para></para>
+
+<para>Running and reviewing unit tests is a great way to get familiarized with a library and its API. You can install dependencies and run tests with the following command:</para>
+
+<para><literallayout><computeroutput>$&#32;npm&#32;install&#32;&amp;&amp;&#32;npm&#32;test
+</computeroutput></literallayout></para>
+
+<para></para>
+</para>
+</para>
+
+<para>
+<para><emphasis role="bold"><emphasis role="bold">Building docs</emphasis></emphasis></para><para>
+<para></para>
+
+<para>_(This project&apos;s readme.md is generated by <link xlink:href="https://github.com/verbose/verb-generate-readme">verb</link>, please don&apos;t edit the readme directly. Any changes to the readme must be made in the .verb.md readme template.)_</para>
+
+<para>To generate the readme, run the following command:</para>
+
+<para><literallayout><computeroutput>$&#32;npm&#32;install&#32;-g&#32;verbose/verb#dev&#32;verb-generate-readme&#32;&amp;&amp;&#32;verb
+</computeroutput></literallayout></para>
+
+<para></para>
+</para>
+</para>
+<section xml:id="_md_node__modules_2normalize-path_2_r_e_a_d_m_e_1autotoc_md614">
+<title><title>Related projects</title></title>
+
+<para>Other useful path-related libraries:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://www.npmjs.com/package/contains-path">contains-path</link>: Return true if a file path contains the given path. | <link xlink:href="https://github.com/jonschlinkert/contains-path">homepage</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://www.npmjs.com/package/is-absolute">is-absolute</link>: Returns true if a file path is absolute. Does not rely on the path module… <link xlink:href="https://github.com/jonschlinkert/is-absolute">more</link> | <link xlink:href="https://github.com/jonschlinkert/is-absolute">homepage</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://www.npmjs.com/package/is-relative">is-relative</link>: Returns <computeroutput>true</computeroutput> if the path appears to be relative. | <link xlink:href="https://github.com/jonschlinkert/is-relative">homepage</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://www.npmjs.com/package/parse-filepath">parse-filepath</link>: Pollyfill for node.js <computeroutput>path.parse</computeroutput>, parses a filepath into an object. | <link xlink:href="https://github.com/jonschlinkert/parse-filepath">homepage</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://www.npmjs.com/package/path-ends-with">path-ends-with</link>: Return <computeroutput>true</computeroutput> if a file path ends with the given string/suffix. | <link xlink:href="https://github.com/jonschlinkert/path-ends-with">homepage</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://www.npmjs.com/package/unixify">unixify</link>: Convert Windows file paths to unix paths. | <link xlink:href="https://github.com/jonschlinkert/unixify">homepage</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2normalize-path_2_r_e_a_d_m_e_1autotoc_md615">
+<title><title>Contributors</title></title>
+
+<para><informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para><emphasis role="bold">Commits</emphasis>   </para>
+</entry><entry>
+<para><emphasis role="bold">Contributor</emphasis>    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>35   </para>
+</entry><entry>
+<para><link xlink:href="https://github.com/jonschlinkert">jonschlinkert</link>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>1   </para>
+</entry><entry>
+<para><link xlink:href="https://github.com/phated">phated</link>   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_node__modules_2normalize-path_2_r_e_a_d_m_e_1autotoc_md616">
+<title><title>Author</title></title>
+
+<para><emphasis role="bold">Jon Schlinkert</emphasis></para>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://linkedin.com/in/jonschlinkert">LinkedIn Profile</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/jonschlinkert">GitHub Profile</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://twitter.com/jonschlinkert">Twitter Profile</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2normalize-path_2_r_e_a_d_m_e_1autotoc_md617">
+<title><title>License</title></title>
+
+<para>Copyright © 2018, <link xlink:href="https://github.com/jonschlinkert">Jon Schlinkert</link>. Released under the [MIT License](LICENSE).</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+
+<para><emphasis>This file was generated by <link xlink:href="https://github.com/verbose/verb-generate-readme">verb-generate-readme</link>, v0.6.0, on April 19, 2018.</emphasis> </para>
+</section>
+</section>
+</section>

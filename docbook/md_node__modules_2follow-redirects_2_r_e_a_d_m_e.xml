@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2follow-redirects_2_r_e_a_d_m_e" xml:lang="fr">
+<title>Follow Redirects</title>
+<indexterm><primary>Follow Redirects</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2follow-redirects_2_r_e_a_d_m_e_1autotoc_md324"/> Drop-in replacement for Node&apos;s <computeroutput>http</computeroutput> and <computeroutput>https</computeroutput> modules that automatically follows redirects.</para>
+
+<para><link xlink:href="https://www.npmjs.com/package/follow-redirects"></link> <link xlink:href="https://github.com/follow-redirects/follow-redirects/actions"></link> <link xlink:href="https://coveralls.io/r/follow-redirects/follow-redirects?branch=master"></link> <link xlink:href="https://www.npmjs.com/package/follow-redirects"></link> <link xlink:href="https://github.com/sponsors/RubenVerborgh"></link></para>
+
+<para><computeroutput>follow-redirects</computeroutput> provides <link xlink:href="https://nodejs.org/api/http.html#http_http_request_options_callback">request</link> and <link xlink:href="https://nodejs.org/api/http.html#http_http_get_options_callback">get</link> methods that behave identically to those found on the native <link xlink:href="https://nodejs.org/api/http.html#http_http_request_options_callback">http</link> and <link xlink:href="https://nodejs.org/api/https.html#https_https_request_options_callback">https</link> modules, with the exception that they will seamlessly follow redirects.</para>
+
+<para><literallayout><computeroutput>const&#32;{&#32;http,&#32;https&#32;}&#32;=&#32;require(&apos;follow-redirects&apos;);
+
+http.get(&apos;http://bit.ly/900913&apos;,&#32;response&#32;=&gt;&#32;{
+&#32;&#32;response.on(&apos;data&apos;,&#32;chunk&#32;=&gt;&#32;{
+&#32;&#32;&#32;&#32;console.log(chunk);
+&#32;&#32;});
+}).on(&apos;error&apos;,&#32;err&#32;=&gt;&#32;{
+&#32;&#32;console.error(err);
+});
+</computeroutput></literallayout></para>
+
+<para>You can inspect the final redirected URL through the <computeroutput>responseUrl</computeroutput> property on the <computeroutput>response</computeroutput>. If no redirection happened, <computeroutput>responseUrl</computeroutput> is the original request URL.</para>
+
+<para><literallayout><computeroutput>const&#32;request&#32;=&#32;https.request({
+&#32;&#32;host:&#32;&apos;bitly.com&apos;,
+&#32;&#32;path:&#32;&apos;/UHfDGO&apos;,
+},&#32;response&#32;=&gt;&#32;{
+&#32;&#32;console.log(response.responseUrl);
+&#32;&#32;//&#32;&apos;http://duckduckgo.com/robots.txt&apos;
+});
+request.end();
+</computeroutput></literallayout></para>
+<section xml:id="_md_node__modules_2follow-redirects_2_r_e_a_d_m_e_1autotoc_md325">
+<title><title>Options</title></title>
+<section xml:id="_md_node__modules_2follow-redirects_2_r_e_a_d_m_e_1autotoc_md326">
+<title><title>Global options</title></title>
+
+<para>Global options are set directly on the <computeroutput>follow-redirects</computeroutput> module:</para>
+
+<para><literallayout><computeroutput>const&#32;followRedirects&#32;=&#32;require(&apos;follow-redirects&apos;);
+followRedirects.maxRedirects&#32;=&#32;10;
+followRedirects.maxBodyLength&#32;=&#32;20&#32;*&#32;1024&#32;*&#32;1024;&#32;//&#32;20&#32;MB
+</computeroutput></literallayout></para>
+
+<para>The following global options are supported:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>maxRedirects</computeroutput> (default: <computeroutput>21</computeroutput>) – sets the maximum number of allowed redirects; if exceeded, an error will be emitted.</para>
+</listitem><listitem>
+<para><computeroutput>maxBodyLength</computeroutput> (default: 10MB) – sets the maximum size of the request body; if exceeded, an error will be emitted.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2follow-redirects_2_r_e_a_d_m_e_1autotoc_md327">
+<title><title>Per-request options</title></title>
+
+<para>Per-request options are set by passing an <computeroutput>options</computeroutput> object:</para>
+
+<para><literallayout><computeroutput>const&#32;url&#32;=&#32;require(&apos;url&apos;);
+const&#32;{&#32;http,&#32;https&#32;}&#32;=&#32;require(&apos;follow-redirects&apos;);
+
+const&#32;options&#32;=&#32;url.parse(&apos;http://bit.ly/900913&apos;);
+options.maxRedirects&#32;=&#32;10;
+options.beforeRedirect&#32;=&#32;(options,&#32;response,&#32;request)&#32;=&gt;&#32;{
+&#32;&#32;//&#32;Use&#32;this&#32;to&#32;adjust&#32;the&#32;request&#32;options&#32;upon&#32;redirecting,
+&#32;&#32;//&#32;to&#32;inspect&#32;the&#32;latest&#32;response&#32;headers,
+&#32;&#32;//&#32;or&#32;to&#32;cancel&#32;the&#32;request&#32;by&#32;throwing&#32;an&#32;error
+
+&#32;&#32;//&#32;response.headers&#32;=&#32;the&#32;redirect&#32;response&#32;headers
+&#32;&#32;//&#32;response.statusCode&#32;=&#32;the&#32;redirect&#32;response&#32;code&#32;(eg.&#32;301,&#32;307,&#32;etc.)
+
+&#32;&#32;//&#32;request.url&#32;=&#32;the&#32;requested&#32;URL&#32;that&#32;resulted&#32;in&#32;a&#32;redirect
+&#32;&#32;//&#32;request.headers&#32;=&#32;the&#32;headers&#32;in&#32;the&#32;request&#32;that&#32;resulted&#32;in&#32;a&#32;redirect
+&#32;&#32;//&#32;request.method&#32;=&#32;the&#32;method&#32;of&#32;the&#32;request&#32;that&#32;resulted&#32;in&#32;a&#32;redirect
+&#32;&#32;if&#32;(options.hostname&#32;===&#32;&quot;example.com&quot;)&#32;{
+&#32;&#32;&#32;&#32;options.auth&#32;=&#32;&quot;user:password&quot;;
+&#32;&#32;}
+};
+http.request(options);
+</computeroutput></literallayout></para>
+
+<para>In addition to the <link xlink:href="https://nodejs.org/api/http.html#http_http_request_options_callback">standard HTTP</link> and <link xlink:href="https://nodejs.org/api/https.html#https_https_request_options_callback">HTTPS options</link>, the following per-request options are supported:<itemizedlist>
+<listitem>
+<para><computeroutput>followRedirects</computeroutput> (default: <computeroutput>true</computeroutput>) – whether redirects should be followed.</para>
+</listitem><listitem>
+<para><computeroutput>maxRedirects</computeroutput> (default: <computeroutput>21</computeroutput>) – sets the maximum number of allowed redirects; if exceeded, an error will be emitted.</para>
+</listitem><listitem>
+<para><computeroutput>maxBodyLength</computeroutput> (default: 10MB) – sets the maximum size of the request body; if exceeded, an error will be emitted.</para>
+</listitem><listitem>
+<para><computeroutput>beforeRedirect</computeroutput> (default: <computeroutput>undefined</computeroutput>) – optionally change the request <computeroutput>options</computeroutput> on redirects, or abort the request by throwing an error.</para>
+</listitem><listitem>
+<para><computeroutput>agents</computeroutput> (default: <computeroutput>undefined</computeroutput>) – sets the <computeroutput>agent</computeroutput> option per protocol, since HTTP and HTTPS use different agents. Example value: <computeroutput>{ http: new http.Agent(), https: new https.Agent() }</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>trackRedirects</computeroutput> (default: <computeroutput>false</computeroutput>) – whether to store the redirected response details into the <computeroutput>redirects</computeroutput> array on the response object.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2follow-redirects_2_r_e_a_d_m_e_1autotoc_md328">
+<title><title>Advanced usage</title></title>
+
+<para>By default, <computeroutput>follow-redirects</computeroutput> will use the Node.js default implementations of <link xlink:href="https://nodejs.org/api/http.html"><computeroutput>http</computeroutput></link> and <link xlink:href="https://nodejs.org/api/https.html"><computeroutput>https</computeroutput></link>. To enable features such as caching and/or intermediate request tracking, you might instead want to wrap <computeroutput>follow-redirects</computeroutput> around custom protocol implementations:</para>
+
+<para><literallayout><computeroutput>const&#32;{&#32;http,&#32;https&#32;}&#32;=&#32;require(&apos;follow-redirects&apos;).wrap({
+&#32;&#32;http:&#32;require(&apos;your-custom-http&apos;),
+&#32;&#32;https:&#32;require(&apos;your-custom-https&apos;),
+});
+</computeroutput></literallayout></para>
+
+<para>Such custom protocols only need an implementation of the <computeroutput>request</computeroutput> method.</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2follow-redirects_2_r_e_a_d_m_e_1autotoc_md329">
+<title><title>Browser Usage</title></title>
+
+<para>Due to the way the browser works, the <computeroutput>http</computeroutput> and <computeroutput>https</computeroutput> browser equivalents perform redirects by default.</para>
+
+<para>By requiring <computeroutput>follow-redirects</computeroutput> this way: <literallayout><computeroutput>const&#32;http&#32;=&#32;require(&apos;follow-redirects/http&apos;);
+const&#32;https&#32;=&#32;require(&apos;follow-redirects/https&apos;);
+</computeroutput></literallayout> you can easily tell webpack and friends to replace <computeroutput>follow-redirect</computeroutput> by the built-in versions:</para>
+
+<para><literallayout><computeroutput>{
+&#32;&#32;&quot;follow-redirects/http&quot;&#32;&#32;:&#32;&quot;http&quot;,
+&#32;&#32;&quot;follow-redirects/https&quot;&#32;:&#32;&quot;https&quot;
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2follow-redirects_2_r_e_a_d_m_e_1autotoc_md330">
+<title><title>Contributing</title></title>
+
+<para>Pull Requests are always welcome. Please <link xlink:href="https://github.com/follow-redirects/follow-redirects/issues">file an issue</link> detailing your proposal before you invest your valuable time. Additional features and bug fixes should be accompanied by tests. You can run the test suite locally with a simple <computeroutput>npm test</computeroutput> command.</para>
+</section>
+<section xml:id="_md_node__modules_2follow-redirects_2_r_e_a_d_m_e_1autotoc_md331">
+<title><title>Debug Logging</title></title>
+
+<para><computeroutput>follow-redirects</computeroutput> uses the excellent <link xlink:href="https://www.npmjs.com/package/debug">debug</link> for logging. To turn on logging set the environment variable <computeroutput>DEBUG=follow-redirects</computeroutput> for debug output from just this module. When running the test suite it is sometimes advantageous to set <computeroutput>DEBUG=*</computeroutput> to see output from the express server as well.</para>
+</section>
+<section xml:id="_md_node__modules_2follow-redirects_2_r_e_a_d_m_e_1autotoc_md332">
+<title><title>Authors</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://ruben.verborgh.org/">Ruben Verborgh</link></para>
+</listitem><listitem>
+<para><link xlink:href="mailto:olalonde@gmail.com">Olivier Lalonde</link></para>
+</listitem><listitem>
+<para><link xlink:href="mailto:james@talmage.io">James Talmage</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2follow-redirects_2_r_e_a_d_m_e_1autotoc_md333">
+<title><title>License</title></title>
+
+<para><link xlink:href="https://github.com/follow-redirects/follow-redirects/blob/master/LICENSE">MIT License</link> </para>
+</section>
+</section>

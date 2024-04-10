@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_app_1_1_models_1_1_salle" xml:lang="fr">
+<title>Référence de la classe Salle</title>
+<indexterm><primary>Salle</primary></indexterm>
+Graphe d&apos;héritage de Salle:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_models_1_1_salle__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de Salle:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_models_1_1_salle__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_models_1_1_salle_1ad47e072701552e6164ae0a7e5a80cb19">lieu</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_models_1_1_salle_1aa0e1a9777ae030cc35904425053ae480">produits</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_models_1_1_salle_1a6a90e74ccdf5efd70d51d10c906f8e32">$fillable</link> = [&apos;name&apos;, &apos;lieux_id&apos;]</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_app_1_1_models_1_1_salle_1ad47e072701552e6164ae0a7e5a80cb19"/><section>
+    <title>lieu()</title>
+<indexterm><primary>lieu</primary><secondary>Salle</secondary></indexterm>
+<indexterm><primary>Salle</primary><secondary>lieu</secondary></indexterm>
+<para><computeroutput>lieu ( )</computeroutput></para>
+<para>Définit la relation entre les salles et les lieux.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>\Illuminate\Database\Eloquent\Relations\BelongsTo </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_app_1_1_models_1_1_salle_1aa0e1a9777ae030cc35904425053ae480"/><section>
+    <title>produits()</title>
+<indexterm><primary>produits</primary><secondary>Salle</secondary></indexterm>
+<indexterm><primary>Salle</primary><secondary>produits</secondary></indexterm>
+<para><computeroutput>produits ( )</computeroutput></para>
+<para>Définit la relation entre les salles et les produits.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>\Illuminate\Database\Eloquent\Relations\HasMany </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_app_1_1_models_1_1_salle_1a6a90e74ccdf5efd70d51d10c906f8e32"/><section>
+    <title>$fillable</title>
+<indexterm><primary>$fillable</primary><secondary>Salle</secondary></indexterm>
+<indexterm><primary>Salle</primary><secondary>$fillable</secondary></indexterm>
+<para><computeroutput>$fillable = [&apos;name&apos;, &apos;lieux_id&apos;]<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+app/Models/<link linkend="__salle_8php">Salle.php</link></section>
+</section>

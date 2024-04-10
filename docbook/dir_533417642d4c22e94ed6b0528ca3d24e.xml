@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_533417642d4c22e94ed6b0528ca3d24e" xml:lang="fr">
+<title>Répertoire de référence de routes</title>
+<indexterm><primary>Répertoire de référence de routes</primary></indexterm>
+<simplesect>
+    <title>Fichiers    </title>
+        <itemizedlist>
+            <listitem><para>fichier <link linkend="_api_8php">api.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="_channels_8php">channels.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="_console_8php">console.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="_web_8php">web.php</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

@@ -1,0 +1,262 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_app_1_1_http_1_1_controllers_1_1_lieux_controller" xml:lang="fr">
+<title>Référence de la classe LieuxController</title>
+<indexterm><primary>LieuxController</primary></indexterm>
+Graphe d&apos;héritage de LieuxController:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_http_1_1_controllers_1_1_lieux_controller__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de LieuxController:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_http_1_1_controllers_1_1_lieux_controller__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_controllers_1_1_lieux_controller_1ae8d5e3d9b46695d0d6989e8a07e89e15">getLieux</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_controllers_1_1_lieux_controller_1a86e3ef67c0c5061e4d2d87e6841ebc29">getSallesByLieu</link> ($lieuId)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_controllers_1_1_lieux_controller_1a435e7d7525d4bcd0ed5e34a469f3adf6">create</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_controllers_1_1_lieux_controller_1a9ef485163104597c12185b53cdacf638">store</link> (Request $request)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_controllers_1_1_lieux_controller_1a29bf34ae43f0550db629c5004d6610bc">edit</link> (<link linkend="_class_app_1_1_models_1_1_lieux">Lieux</link> $lieu)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_controllers_1_1_lieux_controller_1a5d9309ed8c4ddc8dc014da505209b80d">update</link> (Request $request, $lieu)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_controllers_1_1_lieux_controller_1a8bf50d52083e0f35a3e34b517c5eb06e">destroy</link> (<link linkend="_class_app_1_1_models_1_1_lieux">Lieux</link> $lieu)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Contrôleur gérant les opérations liées aux lieux et aux salles. </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_app_1_1_http_1_1_controllers_1_1_lieux_controller_1a435e7d7525d4bcd0ed5e34a469f3adf6"/><section>
+    <title>create()</title>
+<indexterm><primary>create</primary><secondary>LieuxController</secondary></indexterm>
+<indexterm><primary>LieuxController</primary><secondary>create</secondary></indexterm>
+<para><computeroutput>create ( )</computeroutput></para>
+<para>Afficher le formulaire de création d&apos;un nouveau lieu avec des salles.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>\Illuminate\Contracts\View\View </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_app_1_1_http_1_1_controllers_1_1_lieux_controller_1a8bf50d52083e0f35a3e34b517c5eb06e"/><section>
+    <title>destroy()</title>
+<indexterm><primary>destroy</primary><secondary>LieuxController</secondary></indexterm>
+<indexterm><primary>LieuxController</primary><secondary>destroy</secondary></indexterm>
+<para><computeroutput>destroy (<link linkend="_class_app_1_1_models_1_1_lieux">Lieux</link> $lieu)</computeroutput></para>
+<para>Supprimer un lieu et ses salles associées de la base de données.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>\App\Models\Lieux</entry><entry>$lieu</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>\Illuminate\Http\RedirectResponse </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_http_1_1_controllers_1_1_lieux_controller_a8bf50d52083e0f35a3e34b517c5eb06e_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_app_1_1_http_1_1_controllers_1_1_lieux_controller_1a29bf34ae43f0550db629c5004d6610bc"/><section>
+    <title>edit()</title>
+<indexterm><primary>edit</primary><secondary>LieuxController</secondary></indexterm>
+<indexterm><primary>LieuxController</primary><secondary>edit</secondary></indexterm>
+<para><computeroutput>edit (<link linkend="_class_app_1_1_models_1_1_lieux">Lieux</link> $lieu)</computeroutput></para>
+<para>Afficher le formulaire d&apos;édition d&apos;un lieu avec des salles.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>\App\Models\Lieux</entry><entry>$lieu</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>\Illuminate\Contracts\View\View </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_app_1_1_http_1_1_controllers_1_1_lieux_controller_1ae8d5e3d9b46695d0d6989e8a07e89e15"/><section>
+    <title>getLieux()</title>
+<indexterm><primary>getLieux</primary><secondary>LieuxController</secondary></indexterm>
+<indexterm><primary>LieuxController</primary><secondary>getLieux</secondary></indexterm>
+<para><computeroutput>getLieux ( )</computeroutput></para>
+<para>Afficher la liste des lieux.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>\Illuminate\Contracts\View\View </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_app_1_1_http_1_1_controllers_1_1_lieux_controller_1a86e3ef67c0c5061e4d2d87e6841ebc29"/><section>
+    <title>getSallesByLieu()</title>
+<indexterm><primary>getSallesByLieu</primary><secondary>LieuxController</secondary></indexterm>
+<indexterm><primary>LieuxController</primary><secondary>getSallesByLieu</secondary></indexterm>
+<para><computeroutput>getSallesByLieu ( $lieuId)</computeroutput></para>
+<para>Récupérer les salles associées à un lieu spécifique.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$lieuId</entry><entry>
+<para>Identifiant du lieu. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>\Illuminate\Http\JsonResponse </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_app_1_1_http_1_1_controllers_1_1_lieux_controller_1a9ef485163104597c12185b53cdacf638"/><section>
+    <title>store()</title>
+<indexterm><primary>store</primary><secondary>LieuxController</secondary></indexterm>
+<indexterm><primary>LieuxController</primary><secondary>store</secondary></indexterm>
+<para><computeroutput>store (Request $request)</computeroutput></para>
+<para>Enregistrer un nouveau lieu avec des salles dans la base de données.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>\Illuminate\Http\Request</entry><entry>$request</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>\Illuminate\Http\RedirectResponse </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_app_1_1_http_1_1_controllers_1_1_lieux_controller_1a5d9309ed8c4ddc8dc014da505209b80d"/><section>
+    <title>update()</title>
+<indexterm><primary>update</primary><secondary>LieuxController</secondary></indexterm>
+<indexterm><primary>LieuxController</primary><secondary>update</secondary></indexterm>
+<para><computeroutput>update (Request $request,  $lieu)</computeroutput></para>
+<para>Mettre à jour un lieu avec des salles dans la base de données.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>\Illuminate\Http\Request</entry><entry>$request</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$lieu</entry><entry>
+<para>Identifiant du lieu. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>\Illuminate\Http\RedirectResponse </para>
+</formalpara>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+app/Http/Controllers/<link linkend="__lieux_controller_8php">LieuxController.php</link></section>
+</section>

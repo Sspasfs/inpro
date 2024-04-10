@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_1da6287cdf9906646d37bc082a2ddfe9" xml:lang="fr">
+<title>Répertoire de référence de node_modules/vite</title>
+<indexterm><primary>Répertoire de référence de node_modules/vite</primary></indexterm>
+Graphe des dépendances de répertoires pour vite:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_1da6287cdf9906646d37bc082a2ddfe9_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>

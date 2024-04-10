@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_database_1_1_factories_1_1_category_factory" xml:lang="fr">
+<title>Référence de la classe CategoryFactory</title>
+<indexterm><primary>CategoryFactory</primary></indexterm>
+Graphe d&apos;héritage de CategoryFactory:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_database_1_1_factories_1_1_category_factory__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de CategoryFactory:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_database_1_1_factories_1_1_category_factory__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_database_1_1_factories_1_1_category_factory_1a6c4fc01ab54e187fee93cb01cd5f9849">definition</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>\Database\Eloquent\Factories\Factory&lt;\App\Models\Category&gt; </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_database_1_1_factories_1_1_category_factory_1a6c4fc01ab54e187fee93cb01cd5f9849"/><section>
+    <title>definition()</title>
+<indexterm><primary>definition</primary><secondary>CategoryFactory</secondary></indexterm>
+<indexterm><primary>CategoryFactory</primary><secondary>definition</secondary></indexterm>
+<para><computeroutput>definition ( )</computeroutput></para>
+<para>Define the model&apos;s default state.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array&lt;string, mixed&gt; </para>
+</formalpara>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+database/factories/<link linkend="__category_factory_8php">CategoryFactory.php</link></section>
+</section>

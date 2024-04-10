@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2mime-db_2_r_e_a_d_m_e" xml:lang="fr">
+<title>mime-db</title>
+<indexterm><primary>mime-db</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2mime-db_2_r_e_a_d_m_e_1autotoc_md533"/> <link xlink:href="https://npmjs.org/package/mime-db"></link> <link xlink:href="https://npmjs.org/package/mime-db"></link> <link xlink:href="https://nodejs.org/en/download"></link> <link xlink:href="https://github.com/jshttp/mime-db/actions?query=workflow%3Aci"></link> <link xlink:href="https://coveralls.io/r/jshttp/mime-db?branch=master"></link></para>
+
+<para>This is a large database of mime types and information about them. It consists of a single, public JSON file and does not include any logic, allowing it to remain as un-opinionated as possible with an API. It aggregates data from the following sources:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="http://www.iana.org/assignments/media-types/media-types.xhtml">http://www.iana.org/assignments/media-types/media-types.xhtml</link></para>
+</listitem><listitem>
+<para><link xlink:href="http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types">http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types</link></para>
+</listitem><listitem>
+<para><link xlink:href="http://hg.nginx.org/nginx/raw-file/default/conf/mime.types">http://hg.nginx.org/nginx/raw-file/default/conf/mime.types</link></para>
+</listitem></itemizedlist>
+</para>
+<section xml:id="_md_node__modules_2mime-db_2_r_e_a_d_m_e_1autotoc_md534">
+<title><title>Installation</title></title>
+
+<para><literallayout><computeroutput>npm&#32;install&#32;mime-db
+</computeroutput></literallayout></para>
+<section xml:id="_md_node__modules_2mime-db_2_r_e_a_d_m_e_1autotoc_md535">
+<title><title>Database Download</title></title>
+
+<para>If you&apos;re crazy enough to use this in the browser, you can just grab the JSON file using <link xlink:href="https://www.jsdelivr.com/">jsDelivr</link>. It is recommended to replace <computeroutput>master</computeroutput> with <link xlink:href="https://github.com/jshttp/mime-db/tags">a release tag</link> as the JSON format may change in the future.</para>
+
+<para><literallayout><computeroutput>https://cdn.jsdelivr.net/gh/jshttp/mime-db@master/db.json
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_r_e_a_d_m_e_1autotoc_md536">
+<title><title>Usage</title></title>
+
+<para><literallayout><computeroutput>var&#32;db&#32;=&#32;require(&apos;mime-db&apos;)
+
+//&#32;grab&#32;data&#32;on&#32;.js&#32;files
+var&#32;data&#32;=&#32;db[&apos;application/javascript&apos;]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_r_e_a_d_m_e_1autotoc_md537">
+<title><title>Data Structure</title></title>
+
+<para>The JSON file is a map lookup for lowercased mime types. Each mime type has the following properties:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>.source</computeroutput> - where the mime type is defined. If not set, it&apos;s probably a custom media type.<itemizedlist>
+<listitem>
+<para><computeroutput>apache</computeroutput> - <link xlink:href="http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types">Apache common media types</link></para>
+</listitem><listitem>
+<para><computeroutput>iana</computeroutput> - <link xlink:href="http://www.iana.org/assignments/media-types/media-types.xhtml">IANA-defined media types</link></para>
+</listitem><listitem>
+<para><computeroutput>nginx</computeroutput> - <link xlink:href="http://hg.nginx.org/nginx/raw-file/default/conf/mime.types">nginx media types</link></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>.extensions[]</computeroutput> - known extensions associated with this mime type.</para>
+</listitem><listitem>
+<para><computeroutput>.compressible</computeroutput> - whether a file of this type can be gzipped.</para>
+</listitem><listitem>
+<para><computeroutput>.charset</computeroutput> - the default charset associated with this type, if any.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>If unknown, every property could be <computeroutput>undefined</computeroutput>.</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_r_e_a_d_m_e_1autotoc_md538">
+<title><title>Contributing</title></title>
+
+<para>To edit the database, only make PRs against <computeroutput>src/custom-types.json</computeroutput> or <computeroutput>src/custom-suffix.json</computeroutput>.</para>
+
+<para>The <computeroutput>src/custom-types.json</computeroutput> file is a JSON object with the MIME type as the keys and the values being an object with the following keys:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>compressible</computeroutput> - leave out if you don&apos;t know, otherwise <computeroutput>true</computeroutput>/<computeroutput>false</computeroutput> to indicate whether the data represented by the type is typically compressible.</para>
+</listitem><listitem>
+<para><computeroutput>extensions</computeroutput> - include an array of file extensions that are associated with the type.</para>
+</listitem><listitem>
+<para><computeroutput>notes</computeroutput> - human-readable notes about the type, typically what the type is.</para>
+</listitem><listitem>
+<para><computeroutput>sources</computeroutput> - include an array of URLs of where the MIME type and the associated extensions are sourced from. This needs to be a <link xlink:href="https://en.wikipedia.org/wiki/Primary_source">primary source</link>; links to type aggregating sites and Wikipedia are <emphasis>not acceptable</emphasis>.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>To update the build, run <computeroutput>npm run build</computeroutput>.</para>
+<section xml:id="_md_node__modules_2mime-db_2_r_e_a_d_m_e_1autotoc_md539">
+<title><title>Adding Custom Media Types</title></title>
+
+<para>The best way to get new media types included in this library is to register them with the IANA. The community registration procedure is outlined in <link xlink:href="http://tools.ietf.org/html/rfc6838#section-5">RFC 6838 section 5</link>. Types registered with the IANA are automatically pulled into this library.</para>
+
+<para>If that is not possible / feasible, they can be added directly here as a &quot;custom&quot; type. To do this, it is required to have a primary source that definitively lists the media type. If an extension is going to be listed as associateed with this media type, the source must definitively link the media type and extension as well. </para>
+</section>
+</section>
+</section>

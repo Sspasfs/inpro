@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_app_1_1_http_1_1_middleware_1_1_authenticate" xml:lang="fr">
+<title>Référence de la classe Authenticate</title>
+<indexterm><primary>Authenticate</primary></indexterm>
+Graphe d&apos;héritage de Authenticate:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_http_1_1_middleware_1_1_authenticate__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de Authenticate:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_http_1_1_middleware_1_1_authenticate__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres protégées    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_middleware_1_1_authenticate_1a427c6e9474256652a4df41523ea51251">redirectTo</link> (Request $request)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_app_1_1_http_1_1_middleware_1_1_authenticate_1a427c6e9474256652a4df41523ea51251"/><section>
+    <title>redirectTo()</title>
+<indexterm><primary>redirectTo</primary><secondary>Authenticate</secondary></indexterm>
+<indexterm><primary>Authenticate</primary><secondary>redirectTo</secondary></indexterm>
+<para><computeroutput>redirectTo (Request $request)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Get the path the user should be redirected to when they are not authenticated. </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+app/Http/Middleware/<link linkend="__authenticate_8php">Authenticate.php</link></section>
+</section>

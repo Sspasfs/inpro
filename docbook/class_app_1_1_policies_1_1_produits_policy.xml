@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_app_1_1_policies_1_1_produits_policy" xml:lang="fr">
+<title>Référence de la classe ProduitsPolicy</title>
+<indexterm><primary>ProduitsPolicy</primary></indexterm>
+Graphe de collaboration de ProduitsPolicy:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_policies_1_1_produits_policy__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_policies_1_1_produits_policy_1ab91821546d40b791783ecdfab9622e7d">viewAny</link> (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_policies_1_1_produits_policy_1aeb22edcaedebfb87e3ff9f8aab016e2d">view</link> (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user, <link linkend="_class_app_1_1_models_1_1_produits">Produits</link> $produits)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_policies_1_1_produits_policy_1a7626db07d2ee9a50d2839c019dbf037d">create</link> (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_policies_1_1_produits_policy_1ae5492010a4652c434866958926bd6c94">update</link> (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user, <link linkend="_class_app_1_1_models_1_1_produits">Produits</link> $produits)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_policies_1_1_produits_policy_1a84c2231c8c84b90303e1edfdd7bd35fd">delete</link> (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user, <link linkend="_class_app_1_1_models_1_1_produits">Produits</link> $produits)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_policies_1_1_produits_policy_1afd7f9929c22ee394891a3ed4b6d61e44">restore</link> (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user, <link linkend="_class_app_1_1_models_1_1_produits">Produits</link> $produits)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_policies_1_1_produits_policy_1aa8810ffdaad20f6bde60534cceb73478">forceDelete</link> (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user, <link linkend="_class_app_1_1_models_1_1_produits">Produits</link> $produits)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_app_1_1_policies_1_1_produits_policy_1a7626db07d2ee9a50d2839c019dbf037d"/><section>
+    <title>create()</title>
+<indexterm><primary>create</primary><secondary>ProduitsPolicy</secondary></indexterm>
+<indexterm><primary>ProduitsPolicy</primary><secondary>create</secondary></indexterm>
+<para><computeroutput>create (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user)</computeroutput></para>
+<para>Determine whether the user can create models. </para>
+</section>
+<anchor xml:id="_class_app_1_1_policies_1_1_produits_policy_1a84c2231c8c84b90303e1edfdd7bd35fd"/><section>
+    <title>delete()</title>
+<indexterm><primary>delete</primary><secondary>ProduitsPolicy</secondary></indexterm>
+<indexterm><primary>ProduitsPolicy</primary><secondary>delete</secondary></indexterm>
+<para><computeroutput>delete (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user, <link linkend="_class_app_1_1_models_1_1_produits">Produits</link> $produits)</computeroutput></para>
+<para>Determine whether the user can delete the model. </para>
+</section>
+<anchor xml:id="_class_app_1_1_policies_1_1_produits_policy_1aa8810ffdaad20f6bde60534cceb73478"/><section>
+    <title>forceDelete()</title>
+<indexterm><primary>forceDelete</primary><secondary>ProduitsPolicy</secondary></indexterm>
+<indexterm><primary>ProduitsPolicy</primary><secondary>forceDelete</secondary></indexterm>
+<para><computeroutput>forceDelete (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user, <link linkend="_class_app_1_1_models_1_1_produits">Produits</link> $produits)</computeroutput></para>
+<para>Determine whether the user can permanently delete the model. </para>
+</section>
+<anchor xml:id="_class_app_1_1_policies_1_1_produits_policy_1afd7f9929c22ee394891a3ed4b6d61e44"/><section>
+    <title>restore()</title>
+<indexterm><primary>restore</primary><secondary>ProduitsPolicy</secondary></indexterm>
+<indexterm><primary>ProduitsPolicy</primary><secondary>restore</secondary></indexterm>
+<para><computeroutput>restore (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user, <link linkend="_class_app_1_1_models_1_1_produits">Produits</link> $produits)</computeroutput></para>
+<para>Determine whether the user can restore the model. </para>
+</section>
+<anchor xml:id="_class_app_1_1_policies_1_1_produits_policy_1ae5492010a4652c434866958926bd6c94"/><section>
+    <title>update()</title>
+<indexterm><primary>update</primary><secondary>ProduitsPolicy</secondary></indexterm>
+<indexterm><primary>ProduitsPolicy</primary><secondary>update</secondary></indexterm>
+<para><computeroutput>update (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user, <link linkend="_class_app_1_1_models_1_1_produits">Produits</link> $produits)</computeroutput></para>
+<para>Determine whether the user can update the model. </para>
+</section>
+<anchor xml:id="_class_app_1_1_policies_1_1_produits_policy_1aeb22edcaedebfb87e3ff9f8aab016e2d"/><section>
+    <title>view()</title>
+<indexterm><primary>view</primary><secondary>ProduitsPolicy</secondary></indexterm>
+<indexterm><primary>ProduitsPolicy</primary><secondary>view</secondary></indexterm>
+<para><computeroutput>view (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user, <link linkend="_class_app_1_1_models_1_1_produits">Produits</link> $produits)</computeroutput></para>
+<para>Determine whether the user can view the model. </para>
+</section>
+<anchor xml:id="_class_app_1_1_policies_1_1_produits_policy_1ab91821546d40b791783ecdfab9622e7d"/><section>
+    <title>viewAny()</title>
+<indexterm><primary>viewAny</primary><secondary>ProduitsPolicy</secondary></indexterm>
+<indexterm><primary>ProduitsPolicy</primary><secondary>viewAny</secondary></indexterm>
+<para><computeroutput>viewAny (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user)</computeroutput></para>
+<para>Determine whether the user can view any models. </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+app/Policies/<link linkend="__produits_policy_8php">ProduitsPolicy.php</link></section>
+</section>

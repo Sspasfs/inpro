@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2delayed-stream_2_readme" xml:lang="fr">
+<title>delayed-stream</title>
+<indexterm><primary>delayed-stream</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2delayed-stream_2_readme_1autotoc_md290"/> Buffers events from a stream until you are ready to handle them.</para>
+<section xml:id="_md_node__modules_2delayed-stream_2_readme_1autotoc_md291">
+<title><title>Installation</title></title>
+
+<para><literallayout><computeroutput>&#32;bash
+npm&#32;install&#32;delayed-stream
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2delayed-stream_2_readme_1autotoc_md292">
+<title><title>Usage</title></title>
+
+<para>The following example shows how to write a http echo server that delays its response by 1000 ms.</para>
+
+<para><literallayout><computeroutput>&#32;javascript
+var&#32;DelayedStream&#32;=&#32;require(&apos;delayed-stream&apos;);
+var&#32;http&#32;=&#32;require(&apos;http&apos;);
+
+http.createServer(function(req,&#32;res)&#32;{
+&#32;&#32;var&#32;delayed&#32;=&#32;DelayedStream.create(req);
+
+&#32;&#32;setTimeout(function()&#32;{
+&#32;&#32;&#32;&#32;res.writeHead(200);
+&#32;&#32;&#32;&#32;delayed.pipe(res);
+&#32;&#32;},&#32;1000);
+});
+</computeroutput></literallayout></para>
+
+<para>If you are not using <computeroutput>Stream#pipe</computeroutput>, you can also manually release the buffered events by calling <computeroutput>delayedStream.resume()</computeroutput>:</para>
+
+<para><literallayout><computeroutput>&#32;javascript
+var&#32;delayed&#32;=&#32;DelayedStream.create(req);
+
+setTimeout(function()&#32;{
+&#32;&#32;//&#32;Emit&#32;all&#32;buffered&#32;events&#32;and&#32;resume&#32;underlaying&#32;source
+&#32;&#32;delayed.resume();
+},&#32;1000);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2delayed-stream_2_readme_1autotoc_md293">
+<title><title>Implementation</title></title>
+
+<para>In order to use this meta stream properly, here are a few things you should know about the implementation.</para>
+<section xml:id="_md_node__modules_2delayed-stream_2_readme_1autotoc_md294">
+<title><title>Event Buffering / Proxying</title></title>
+
+<para>All events of the <computeroutput>source</computeroutput> stream are hijacked by overwriting the <computeroutput>source.emit</computeroutput> method. Until node implements a catch-all event listener, this is the only way.</para>
+
+<para>However, delayed-stream still continues to emit all events it captures on the <computeroutput>source</computeroutput>, regardless of whether you have released the delayed stream yet or not.</para>
+
+<para>Upon creation, delayed-stream captures all <computeroutput>source</computeroutput> events and stores them in an internal event buffer. Once <computeroutput>delayedStream.release()</computeroutput> is called, all buffered events are emitted on the <computeroutput>delayedStream</computeroutput>, and the event buffer is cleared. After that, delayed-stream merely acts as a proxy for the underlaying source.</para>
+</section>
+<section xml:id="_md_node__modules_2delayed-stream_2_readme_1autotoc_md295">
+<title><title>Error handling</title></title>
+
+<para>Error events on <computeroutput>source</computeroutput> are buffered / proxied just like any other events. However, <computeroutput>delayedStream.create</computeroutput> attaches a no-op &#8216;&apos;error&#8217;<computeroutput>listener to the </computeroutput>source<computeroutput>. This way you only have to handle errors on the</computeroutput>delayedStream` object, rather than in two places.</para>
+</section>
+<section xml:id="_md_node__modules_2delayed-stream_2_readme_1autotoc_md296">
+<title><title>Buffer limits</title></title>
+
+<para>delayed-stream provides a <computeroutput>maxDataSize</computeroutput> property that can be used to limit the amount of data being buffered. In order to protect you from bad <computeroutput>source</computeroutput> streams that don&apos;t react to <computeroutput>source.pause()</computeroutput>, this feature is enabled by default.</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2delayed-stream_2_readme_1autotoc_md297">
+<title><title>API</title></title>
+<section xml:id="_md_node__modules_2delayed-stream_2_readme_1autotoc_md298">
+<title><title>DelayedStream.create(source, [options])</title></title>
+
+<para>Returns a new <computeroutput>delayedStream</computeroutput>. Available options are:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>pauseStream</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>maxDataSize</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+
+<para>The description for those properties can be found below.</para>
+</section>
+<section xml:id="_md_node__modules_2delayed-stream_2_readme_1autotoc_md299">
+<title><title>delayedStream.source</title></title>
+
+<para>The <computeroutput>source</computeroutput> stream managed by this object. This is useful if you are passing your <computeroutput>delayedStream</computeroutput> around, and you still want to access properties on the <computeroutput>source</computeroutput> object.</para>
+</section>
+<section xml:id="_md_node__modules_2delayed-stream_2_readme_1autotoc_md300">
+<title><title>delayedStream.pauseStream = true</title></title>
+
+<para>Whether to pause the underlaying <computeroutput>source</computeroutput> when calling <computeroutput>DelayedStream.create()</computeroutput>. Modifying this property afterwards has no effect.</para>
+</section>
+<section xml:id="_md_node__modules_2delayed-stream_2_readme_1autotoc_md301">
+<title><title>delayedStream.maxDataSize = 1024 * 1024</title></title>
+
+<para>The amount of data to buffer before emitting an <computeroutput>error</computeroutput>.</para>
+
+<para>If the underlaying source is emitting <computeroutput>Buffer</computeroutput> objects, the <computeroutput>maxDataSize</computeroutput> refers to bytes.</para>
+
+<para>If the underlaying source is emitting JavaScript strings, the size refers to characters.</para>
+
+<para>If you know what you are doing, you can set this property to <computeroutput>Infinity</computeroutput> to disable this feature. You can also modify this property during runtime.</para>
+</section>
+<section xml:id="_md_node__modules_2delayed-stream_2_readme_1autotoc_md302">
+<title><title>delayedStream.dataSize = 0</title></title>
+
+<para>The amount of data buffered so far.</para>
+</section>
+<section xml:id="_md_node__modules_2delayed-stream_2_readme_1autotoc_md303">
+<title><title>delayedStream.readable</title></title>
+
+<para>An ECMA5 getter that returns the value of <computeroutput>source.readable</computeroutput>.</para>
+</section>
+<section xml:id="_md_node__modules_2delayed-stream_2_readme_1autotoc_md304">
+<title><title>delayedStream.resume()</title></title>
+
+<para>If the <computeroutput>delayedStream</computeroutput> has not been released so far, <computeroutput>delayedStream.release()</computeroutput> is called.</para>
+
+<para>In either case, <computeroutput>source.resume()</computeroutput> is called.</para>
+</section>
+<section xml:id="_md_node__modules_2delayed-stream_2_readme_1autotoc_md305">
+<title><title>delayedStream.pause()</title></title>
+
+<para>Calls <computeroutput>source.pause()</computeroutput>.</para>
+</section>
+<section xml:id="_md_node__modules_2delayed-stream_2_readme_1autotoc_md306">
+<title><title>delayedStream.pipe(dest)</title></title>
+
+<para>Calls <computeroutput>delayedStream.resume()</computeroutput> and then proxies the arguments to <computeroutput>source.pipe</computeroutput>.</para>
+</section>
+<section xml:id="_md_node__modules_2delayed-stream_2_readme_1autotoc_md307">
+<title><title>delayedStream.release()</title></title>
+
+<para>Emits and clears all events that have been buffered up so far. This does not resume the underlaying source, use <computeroutput>delayedStream.resume()</computeroutput> instead.</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2delayed-stream_2_readme_1autotoc_md308">
+<title><title>License</title></title>
+
+<para>delayed-stream is licensed under the MIT license. </para>
+</section>
+</section>

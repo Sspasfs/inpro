@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2vite_2_r_e_a_d_m_e" xml:lang="fr">
+<title>vite ⚡</title>
+<indexterm><primary>vite ⚡</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2vite_2_r_e_a_d_m_e_1autotoc_md1155"/> <blockquote>
+<para>&#8205;Next Generation Frontend Tooling </para>
+</blockquote><itemizedlist>
+<listitem>
+<para>💡 Instant Server Start</para>
+</listitem><listitem>
+<para>⚡️ Lightning Fast HMR</para>
+</listitem><listitem>
+<para>🛠️ Rich Features</para>
+</listitem><listitem>
+<para>📦 Optimized Build</para>
+</listitem><listitem>
+<para>🔩 Universal Plugin Interface</para>
+</listitem><listitem>
+<para>🔑 Fully Typed APIs</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Vite (French word for &quot;fast&quot;, pronounced <computeroutput>/vit/</computeroutput>) is a new breed of frontend build tool that significantly improves the frontend development experience. It consists of two major parts:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>A dev server that serves your source files over <link xlink:href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules">native ES modules</link>, with <link xlink:href="https://vitejs.dev/guide/features.html">rich built-in features</link> and astonishingly fast <link xlink:href="https://vitejs.dev/guide/features.html#hot-module-replacement">Hot Module Replacement (HMR)</link>.</para>
+</listitem><listitem>
+<para>A <link xlink:href="https://vitejs.dev/guide/build.html">build command</link> that bundles your code with <link xlink:href="https://rollupjs.org">Rollup</link>, pre-configured to output highly optimized static assets for production.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>In addition, Vite is highly extensible via its <link xlink:href="https://vitejs.dev/guide/api-plugin.html">Plugin API</link> and <link xlink:href="https://vitejs.dev/guide/api-javascript.html">JavaScript API</link> with full typing support.</para>
+
+<para><link xlink:href="https://vitejs.dev">Read the Docs to Learn More</link>. </para>
+</section>

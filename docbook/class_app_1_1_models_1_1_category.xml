@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_app_1_1_models_1_1_category" xml:lang="fr">
+<title>Référence de la classe Category</title>
+<indexterm><primary>Category</primary></indexterm>
+Graphe d&apos;héritage de Category:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_models_1_1_category__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de Category:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_models_1_1_category__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_models_1_1_category_1a1dfa1e04d64fb75d4fd0a6362c6cd0c5">products</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_models_1_1_category_1a6a90e74ccdf5efd70d51d10c906f8e32">$fillable</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_app_1_1_models_1_1_category_1a1dfa1e04d64fb75d4fd0a6362c6cd0c5"/><section>
+    <title>products()</title>
+<indexterm><primary>products</primary><secondary>Category</secondary></indexterm>
+<indexterm><primary>Category</primary><secondary>products</secondary></indexterm>
+<para><computeroutput>products ( )</computeroutput></para></section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_app_1_1_models_1_1_category_1a6a90e74ccdf5efd70d51d10c906f8e32"/><section>
+    <title>$fillable</title>
+<indexterm><primary>$fillable</primary><secondary>Category</secondary></indexterm>
+<indexterm><primary>Category</primary><secondary>$fillable</secondary></indexterm>
+<para><computeroutput>$fillable<computeroutput>[protected]</computeroutput></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;name&apos;</emphasis>,
+&#32;&#32;&#32;&#32;]
+</programlisting></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+app/Models/<link linkend="__category_8php">Category.php</link></section>
+</section>

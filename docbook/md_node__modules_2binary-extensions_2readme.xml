@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2binary-extensions_2readme" xml:lang="fr">
+<title>binary-extensions</title>
+<indexterm><primary>binary-extensions</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2binary-extensions_2readme_1autotoc_md179"/> <blockquote>
+<para>&#8205;List of binary file extensions </para>
+</blockquote>The list is just a <link xlink:href="binary-extensions.json">JSON file</link> and can be used anywhere.</para>
+<section xml:id="_md_node__modules_2binary-extensions_2readme_1autotoc_md180">
+<title><title>Install</title></title>
+
+<para><literallayout><computeroutput>$&#32;npm&#32;install&#32;binary-extensions
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2binary-extensions_2readme_1autotoc_md181">
+<title><title>Usage</title></title>
+
+<para><literallayout><computeroutput>const&#32;binaryExtensions&#32;=&#32;require(&apos;binary-extensions&apos;);
+
+console.log(binaryExtensions);
+//=&gt;&#32;[&apos;3ds&apos;,&#32;&apos;3g2&apos;,&#32;…]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2binary-extensions_2readme_1autotoc_md182">
+<title><title>Related</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://github.com/sindresorhus/is-binary-path">is-binary-path</link> - Check if a filepath is a binary file</para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/sindresorhus/text-extensions">text-extensions</link> - List of text file extensions</para>
+</listitem></itemizedlist>
+</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+
+<para> <emphasis role="bold"> <link xlink:href="https://tidelift.com/subscription/pkg/npm-binary-extensions?utm_source=npm-binary-extensions&amp;utm_medium=referral&amp;utm_campaign=readme">Get professional support for this package with a Tidelift subscription</link> </emphasis> <?linebreak?> <subscript> Tidelift helps make open source sustainable for maintainers while giving companies<?linebreak?>assurances about security, maintenance, and licensing for their dependencies. </subscript>  </para>
+</section>
+</section>

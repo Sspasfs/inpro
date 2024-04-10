@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2vite-plugin-full-reload_2_r_e_a_d_m_e" xml:lang="fr">
+<title>README</title>
+<indexterm><primary>README</primary></indexterm>
+
+<para><formalpara><title>vite-plugin-full-reload</title></formalpara>
+</para>
+
+<para></para>
+
+<para>Automatically reload the page when files are modified</para>
+
+<para></para>
+
+<para><link xlink:href="https://www.npmjs.com/package/vite-plugin-full-reload"> </link> <link xlink:href="https://github.com/ElMassimo/vite-plugin-full-reload/blob/main/LICENSE.txt"> </link> </para>
+
+<para><?linebreak?></para>
+<section xml:id="_md_node__modules_2vite-plugin-full-reload_2_r_e_a_d_m_e_1autotoc_md889">
+<title><title>Why? 🤔</title></title>
+
+<para>When using <emphasis>[Vite Ruby]</emphasis>, I wanted to see changes to server-rendered layouts and templates without having to manually reload the page.</para>
+
+<para>Also, in <emphasis>[JS From Routes]</emphasis> path helpers are generated when Rails reload is triggered.</para>
+
+<para>Triggering a page reload when <computeroutput>config/routes.rb</computeroutput> is modified makes the DX very smooth.</para>
+</section>
+<section xml:id="_md_node__modules_2vite-plugin-full-reload_2_r_e_a_d_m_e_1autotoc_md890">
+<title><title>Installation 💿</title></title>
+
+<para>Install the package as a development dependency:</para>
+
+<para><literallayout><computeroutput>npm&#32;i&#32;-D&#32;vite-plugin-full-reload&#32;#&#32;yarn&#32;add&#32;-D&#32;vite-plugin-full-reload
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2vite-plugin-full-reload_2_r_e_a_d_m_e_1autotoc_md891">
+<title><title>Usage 🚀</title></title>
+
+<para>Add it to your plugins in <computeroutput>vite.config.ts</computeroutput></para>
+
+<para><literallayout><computeroutput>import&#32;{&#32;defineConfig&#32;}&#32;from&#32;&apos;vite&apos;
+import&#32;FullReload&#32;from&#32;&apos;vite-plugin-full-reload&apos;
+
+export&#32;default&#32;defineConfig({
+&#32;&#32;plugins:&#32;[
+&#32;&#32;&#32;&#32;FullReload([&apos;config/routes.rb&apos;,&#32;&apos;app/views/**/*&apos;])
+&#32;&#32;],
+})
+</computeroutput></literallayout></para>
+
+<para>This is useful to trigger a page refresh for files that are not being imported, such as server-rendered templates.</para>
+
+<para>To see which file globbing options are available, check <link xlink:href="https://github.com/micromatch/picomatch#globbing-features">picomatch</link>.</para>
+</section>
+<section xml:id="_md_node__modules_2vite-plugin-full-reload_2_r_e_a_d_m_e_1autotoc_md892">
+<title><title>Configuration ⚙️</title></title>
+
+<para>The following options can be provided:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>root</computeroutput></para>
+
+<para>Files will be resolved against this directory.</para>
+
+<para><emphasis role="bold">Default:</emphasis> <computeroutput>process.cwd()</computeroutput></para>
+
+<para><literallayout><computeroutput>js
+&#32;FullReload(&apos;config/routes.rb&apos;,&#32;{&#32;root:&#32;__dirname&#32;}),
+</computeroutput></literallayout></para>
+</listitem><listitem>
+<para><computeroutput>delay</computeroutput></para>
+
+<para>How many milliseconds to wait before reloading the page after a file change. It can be used to offset slow template compilation in Rails.</para>
+
+<para><emphasis role="bold">Default:</emphasis> <computeroutput>0</computeroutput></para>
+
+<para><literallayout><computeroutput>FullReload(&apos;app/views/**/*&apos;,&#32;{&#32;delay:&#32;100&#32;})
+</computeroutput></literallayout></para>
+</listitem><listitem>
+<para><computeroutput>always</computeroutput></para>
+
+<para>Whether to refresh the page even if the modified HTML file is not currently being displayed.</para>
+
+<para><emphasis role="bold">Default:</emphasis> <computeroutput>true</computeroutput></para>
+
+<para><literallayout><computeroutput>FullReload(&apos;app/views/**/*&apos;,&#32;{&#32;always:&#32;false&#32;})
+</computeroutput></literallayout></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2vite-plugin-full-reload_2_r_e_a_d_m_e_1autotoc_md893">
+<title><title>Acknowledgements</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput><link xlink:href="https://github.com/arnoson/vite-plugin-live-reload">vite-plugin-live-reload</link></computeroutput></para>
+
+<para>This is a nice plugin, I found it right before publishing this one.</para>
+
+<para>I&apos;ve made <link xlink:href="https://github.com/arnoson/vite-plugin-live-reload/pull/3">two</link> <link xlink:href="https://github.com/arnoson/vite-plugin-live-reload/pull/5">PRs</link> that were needed to support these use cases.</para>
+
+<para>At this point in time they are very similar, except this library doesn&apos;t create another <computeroutput>chokidar</computeroutput> watcher.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2vite-plugin-full-reload_2_r_e_a_d_m_e_1autotoc_md894">
+<title><title>License</title></title>
+
+<para>This library is available as open source under the terms of the <link xlink:href="https://opensource.org/licenses/MIT">MIT License</link>. </para>
+</section>
+</section>

@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2fsevents_2_r_e_a_d_m_e" xml:lang="fr">
+<title>fsevents</title>
+<indexterm><primary>fsevents</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2fsevents_2_r_e_a_d_m_e_1autotoc_md356"/> Native access to MacOS FSEvents in <link xlink:href="https://nodejs.org/">Node.js</link></para>
+
+<para>The FSEvents API in MacOS allows applications to register for notifications of changes to a given directory tree. It is a very fast and lightweight alternative to kqueue.</para>
+
+<para>This is a low-level library. For a cross-platform file watching module that uses fsevents, check out <link xlink:href="https://github.com/paulmillr/chokidar">Chokidar</link>.</para>
+<section xml:id="_md_node__modules_2fsevents_2_r_e_a_d_m_e_1autotoc_md357">
+<title><title>Usage</title></title>
+
+<para><literallayout><computeroutput>npm&#32;install&#32;fsevents
+</computeroutput></literallayout></para>
+
+<para>Supports only <emphasis role="bold">Node.js v8.16 and higher</emphasis>.</para>
+
+<para><literallayout><computeroutput>const&#32;fsevents&#32;=&#32;require(&apos;fsevents&apos;);
+
+//&#32;To&#32;start&#32;observation
+const&#32;stop&#32;=&#32;fsevents.watch(__dirname,&#32;(path,&#32;flags,&#32;id)&#32;=&gt;&#32;{
+&#32;&#32;const&#32;info&#32;=&#32;fsevents.getInfo(path,&#32;flags);
+});
+
+//&#32;To&#32;end&#32;observation
+stop();
+</computeroutput></literallayout></para>
+
+<para><blockquote>
+<para>&#8205;<emphasis role="bold">Important note:</emphasis> The API behaviour is slightly different from typical JS APIs. The <computeroutput>stop</computeroutput> function <emphasis role="bold">must</emphasis> be retrieved and stored somewhere, even if you don&apos;t plan to stop the watcher. If you forget it, the garbage collector will eventually kick in, the watcher will be unregistered, and your callbacks won&apos;t be called anymore. </para>
+</blockquote>The callback passed as the second parameter to <computeroutput>.watch</computeroutput> get&apos;s called whenever the operating system detects a a change in the file system. It takes three arguments:</para>
+
+<para><formalpara><title><computeroutput>fsevents.watch(dirname: string, (path: string, flags: number, id: string) =&gt; void): () =&gt; Promise&lt;undefined&gt;</computeroutput></title></formalpara>
+</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>path: string</computeroutput> - the item in the filesystem that have been changed</para>
+</listitem><listitem>
+<para><computeroutput>flags: number</computeroutput> - a numeric value describing what the change was</para>
+</listitem><listitem>
+<para><computeroutput>id: string</computeroutput> - an unique-id identifying this specific event</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Returns closer callback which when called returns a Promise resolving when the watcher process has been shut down.</para>
+
+<para><formalpara><title><computeroutput>fsevents.getInfo(path: string, flags: number, id: string): FsEventInfo</computeroutput></title></formalpara>
+</para>
+
+<para>The <computeroutput>getInfo</computeroutput> function takes the <computeroutput>path</computeroutput>, <computeroutput>flags</computeroutput> and <computeroutput>id</computeroutput> arguments and converts those parameters into a structure that is easier to digest to determine what the change was.</para>
+
+<para>The <computeroutput>FsEventsInfo</computeroutput> has the following shape:</para>
+
+<para><literallayout><computeroutput>/**
+&#32;*&#32;@typedef&#32;{&apos;created&apos;|&apos;modified&apos;|&apos;deleted&apos;|&apos;moved&apos;|&apos;root-changed&apos;|&apos;cloned&apos;|&apos;unknown&apos;}&#32;FsEventsEvent
+&#32;*&#32;@typedef&#32;{&apos;file&apos;|&apos;directory&apos;|&apos;symlink&apos;}&#32;FsEventsType
+&#32;*/
+{
+&#32;&#32;&quot;event&quot;:&#32;&quot;created&quot;,&#32;//&#32;{FsEventsEvent}
+&#32;&#32;&quot;path&quot;:&#32;&quot;file.txt&quot;,
+&#32;&#32;&quot;type&quot;:&#32;&quot;file&quot;,&#32;&#32;&#32;&#32;//&#32;{FsEventsType}
+&#32;&#32;&quot;changes&quot;:&#32;{
+&#32;&#32;&#32;&#32;&quot;inode&quot;:&#32;true,&#32;&#32;&#32;//&#32;Had&#32;iNode&#32;Meta-Information&#32;changed
+&#32;&#32;&#32;&#32;&quot;finder&quot;:&#32;false,&#32;//&#32;Had&#32;Finder&#32;Meta-Data&#32;changed
+&#32;&#32;&#32;&#32;&quot;access&quot;:&#32;false,&#32;//&#32;Had&#32;access&#32;permissions&#32;changed
+&#32;&#32;&#32;&#32;&quot;xattrs&quot;:&#32;false&#32;&#32;//&#32;Had&#32;xAttributes&#32;changed
+&#32;&#32;},
+&#32;&#32;&quot;flags&quot;:&#32;0x100000000
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2fsevents_2_r_e_a_d_m_e_1autotoc_md358">
+<title><title>Changelog</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>v2.3 supports Apple Silicon ARM CPUs</para>
+</listitem><listitem>
+<para>v2 supports node 8.16+ and reduces package size massively</para>
+</listitem><listitem>
+<para>v1.2.8 supports node 6+</para>
+</listitem><listitem>
+<para>v1.2.7 supports node 4+</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2fsevents_2_r_e_a_d_m_e_1autotoc_md359">
+<title><title>Troubleshooting</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>I&apos;m getting <computeroutput>EBADPLATFORM</computeroutput> <computeroutput>Unsupported platform for fsevents</computeroutput> error.</para>
+</listitem><listitem>
+<para>It&apos;s fine, nothing is broken. fsevents is macos-only. Other platforms are skipped. If you want to hide this warning, report a bug to NPM bugtracker asking them to hide ebadplatform warnings by default.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2fsevents_2_r_e_a_d_m_e_1autotoc_md360">
+<title><title>License</title></title>
+
+<para>The MIT License Copyright (C) 2010-2020 by Philipp Dunkel, Ben Noordhuis, Elan Shankar, Paul Miller — see LICENSE file.</para>
+
+<para>Visit our <link xlink:href="https://github.com/fsevents/fsevents">GitHub page</link> and <link xlink:href="https://npmjs.org/package/fsevents">NPM Page</link> </para>
+</section>
+</section>

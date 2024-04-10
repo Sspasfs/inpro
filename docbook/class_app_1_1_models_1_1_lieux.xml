@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_app_1_1_models_1_1_lieux" xml:lang="fr">
+<title>Référence de la classe Lieux</title>
+<indexterm><primary>Lieux</primary></indexterm>
+Graphe d&apos;héritage de Lieux:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_models_1_1_lieux__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de Lieux:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_models_1_1_lieux__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_models_1_1_lieux_1a852ce5e5fe873dfda8f0d36128c5f3c8">salles</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_models_1_1_lieux_1ae8876a14058f368335baccf35af4a22b">$table</link> = &apos;lieux&apos;</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_models_1_1_lieux_1a6a90e74ccdf5efd70d51d10c906f8e32">$fillable</link> = [&apos;name&apos;, &apos;quantity&apos;]</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_app_1_1_models_1_1_lieux_1a852ce5e5fe873dfda8f0d36128c5f3c8"/><section>
+    <title>salles()</title>
+<indexterm><primary>salles</primary><secondary>Lieux</secondary></indexterm>
+<indexterm><primary>Lieux</primary><secondary>salles</secondary></indexterm>
+<para><computeroutput>salles ( )</computeroutput></para>
+<para>Définit la relation entre les lieux et les salles.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>\Illuminate\Database\Eloquent\Relations\HasMany </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_models_1_1_lieux_a852ce5e5fe873dfda8f0d36128c5f3c8_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_app_1_1_models_1_1_lieux_1a6a90e74ccdf5efd70d51d10c906f8e32"/><section>
+    <title>$fillable</title>
+<indexterm><primary>$fillable</primary><secondary>Lieux</secondary></indexterm>
+<indexterm><primary>Lieux</primary><secondary>$fillable</secondary></indexterm>
+<para><computeroutput>$fillable = [&apos;name&apos;, &apos;quantity&apos;]<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_app_1_1_models_1_1_lieux_1ae8876a14058f368335baccf35af4a22b"/><section>
+    <title>$table</title>
+<indexterm><primary>$table</primary><secondary>Lieux</secondary></indexterm>
+<indexterm><primary>Lieux</primary><secondary>$table</secondary></indexterm>
+<para><computeroutput>$table = &apos;lieux&apos;<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+app/Models/<link linkend="__lieux_8php">Lieux.php</link></section>
+</section>

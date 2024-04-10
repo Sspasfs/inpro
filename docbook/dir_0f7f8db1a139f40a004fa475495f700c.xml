@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_0f7f8db1a139f40a004fa475495f700c" xml:lang="fr">
+<title>Répertoire de référence de node_modules/@popperjs/core</title>
+<indexterm><primary>Répertoire de référence de node_modules/@popperjs/core</primary></indexterm>
+Graphe des dépendances de répertoires pour core:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_0f7f8db1a139f40a004fa475495f700c_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>

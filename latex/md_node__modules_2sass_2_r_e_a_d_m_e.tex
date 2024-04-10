@@ -1,0 +1,75 @@
+\chapter{README}
+\hypertarget{md_node__modules_2sass_2_r_e_a_d_m_e}{}\label{md_node__modules_2sass_2_r_e_a_d_m_e}\index{README@{README}}
+A pure Java\+Script implementation of \href{https://sass-lang.com/}{\texttt{ Sass}}. {\bfseries{Sass makes CSS fun again}}.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+  &\href{https://www.npmjs.com/package/sass}{\texttt{ }}  &\href{https://github.com/sass/dart-sass/actions}{\texttt{ }} ~\newline
+ \href{https://ci.appveyor.com/project/nex3/dart-sass}{\texttt{ }}   \\\cline{1-3}
+\end{longtabu}
+
+
+This package is a distribution of \href{https://github.com/sass/dart-sass}{\texttt{ Dart Sass}}, compiled to pure Java\+Script with no native code or external dependencies. It provides a command-\/line {\ttfamily sass} executable and a Node.\+js API.
+
+
+\begin{DoxyItemize}
+\item Usage
+\item See Also
+\item Behavioral Differences from Ruby Sass
+\end{DoxyItemize}\hypertarget{md_node__modules_2sass_2_r_e_a_d_m_e_autotoc_md772}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{md_node__modules_2sass_2_r_e_a_d_m_e_autotoc_md772}
+You can install Sass globally using {\ttfamily npm install -\/g sass} which will provide access to the {\ttfamily sass} executable. You can also add it to your project using {\ttfamily npm install -\/-\/save-\/dev sass}. This provides the executable as well as a library\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ sass\ =\ require('sass');}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ result\ =\ sass.compile(scssFilename);}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ OR}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ Note\ that\ \`{}compileAsync()`\ is\ substantially\ slower\ than\ \`{}compile()`.}
+\DoxyCodeLine{const\ result\ =\ await\ sass.compileAsync(scssFilename);}
+
+\end{DoxyCode}
+
+
+See \href{https://sass-lang.com/documentation/js-api}{\texttt{ the Sass website}} for full API documentation.\hypertarget{md_node__modules_2sass_2_r_e_a_d_m_e_autotoc_md773}{}\doxysubsubsection{\texorpdfstring{Legacy API}{Legacy API}}\label{md_node__modules_2sass_2_r_e_a_d_m_e_autotoc_md773}
+Dart Sass also supports an older Java\+Script API that\textquotesingle{}s fully compatible with \mbox{[}Node Sass\mbox{]} (with a few exceptions listed below), with support for both the \href{https://sass-lang.com/documentation/js-api/functions/render}{\texttt{ {\ttfamily render()}}} and \href{https://sass-lang.com/documentation/js-api/functions/renderSync}{\texttt{ {\ttfamily render\+Sync()}}} functions. This API is considered deprecated and will be removed in Dart Sass 2.\+0.\+0, so it should be avoided in new projects.
+
+Sass\textquotesingle{}s support for the legacy Java\+Script API has the following limitations\+:
+
+
+\begin{DoxyItemize}
+\item Only the {\ttfamily "{}expanded"{}} and {\ttfamily "{}compressed"{}} values of \href{https://sass-lang.com/documentation/js-api/interfaces/LegacySharedOptions\#outputStyle}{\texttt{ {\ttfamily output\+Style}}} are supported.
+\item Dart Sass doesn\textquotesingle{}t support the \href{https://github.com/sass/node-sass\#precision}{\texttt{ {\ttfamily precision}}} option. Dart Sass defaults to a sufficiently high precision for all existing browsers, and making this customizable would make the code substantially less efficient.
+\item Dart Sass doesn\textquotesingle{}t support the \href{https://github.com/sass/node-sass\#sourcecomments}{\texttt{ {\ttfamily source\+Comments}}} option. Source maps are the recommended way of locating the origin of generated selectors.
+\end{DoxyItemize}\hypertarget{md_node__modules_2sass_2_r_e_a_d_m_e_autotoc_md774}{}\doxysubsection{\texorpdfstring{See Also}{See Also}}\label{md_node__modules_2sass_2_r_e_a_d_m_e_autotoc_md774}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/sass/dart-sass}{\texttt{ Dart Sass}}, from which this package is compiled, can be used either as a stand-\/alone executable or as a Dart library. Running Dart Sass on the Dart VM is substantially faster than running the pure Java\+Script version, so this may be appropriate for performance-\/sensitive applications. The Dart API is also (currently) more user-\/friendly than the Java\+Script API. See \href{https://github.com/sass/dart-sass\#using-dart-sass}{\texttt{ the Dart Sass README}} for details on how to use it.
+\item \href{https://github.com/sass/node-sass}{\texttt{ Node Sass}}, which is a wrapper around \href{https://sass-lang.com/libsass}{\texttt{ Lib\+Sass}}, the C++ implementation of Sass. Node Sass supports the same API as this package and is also faster (although it\textquotesingle{}s usually a little slower than Dart Sass). However, it requires a native library which may be difficult to install, and it\textquotesingle{}s generally slower to add features and fix bugs.
+\end{DoxyItemize}\hypertarget{md_node__modules_2sass_2_r_e_a_d_m_e_autotoc_md775}{}\doxysubsection{\texorpdfstring{Behavioral Differences from Ruby Sass}{Behavioral Differences from Ruby Sass}}\label{md_node__modules_2sass_2_r_e_a_d_m_e_autotoc_md775}
+There are a few intentional behavioral differences between Dart Sass and Ruby Sass. These are generally places where Ruby Sass has an undesired behavior, and it\textquotesingle{}s substantially easier to implement the correct behavior than it would be to implement compatible behavior. These should all have tracking bugs against Ruby Sass to update the reference behavior.
+
+
+\begin{DoxyEnumerate}
+\item {\ttfamily @extend} only accepts simple selectors, as does the second argument of {\ttfamily selector-\/extend()}. See \href{https://github.com/sass/sass/issues/1599}{\texttt{ issue 1599}}.
+\item Subject selectors are not supported. See \href{https://github.com/sass/sass/issues/1126}{\texttt{ issue 1126}}.
+\item Pseudo selector arguments are parsed as {\ttfamily \texorpdfstring{$<$}{<}declaration-\/value\texorpdfstring{$>$}{>}}s rather than having a more limited custom parsing. See \href{https://github.com/sass/sass/issues/2120}{\texttt{ issue 2120}}.
+\item The numeric precision is set to 10. See \href{https://github.com/sass/sass/issues/1122}{\texttt{ issue 1122}}.
+\item The indented syntax parser is more flexible\+: it doesn\textquotesingle{}t require consistent indentation across the whole document. See \href{https://github.com/sass/sass/issues/2176}{\texttt{ issue 2176}}.
+\item Colors do not support channel-\/by-\/channel arithmetic. See \href{https://github.com/sass/sass/issues/2144}{\texttt{ issue 2144}}.
+\item Unitless numbers aren\textquotesingle{}t {\ttfamily ==} to unit numbers with the same value. In addition, map keys follow the same logic as {\ttfamily ==}-\/equality. See \href{https://github.com/sass/sass/issues/1496}{\texttt{ issue 1496}}.
+\item {\ttfamily rgba()} and {\ttfamily hsla()} alpha values with percentage units are interpreted as percentages. Other units are forbidden. See \href{https://github.com/sass/sass/issues/1525}{\texttt{ issue 1525}}.
+\item Too many variable arguments passed to a function is an error. See \href{https://github.com/sass/sass/issues/1408}{\texttt{ issue 1408}}.
+\item Allow {\ttfamily @extend} to reach outside a media query if there\textquotesingle{}s an identical {\ttfamily @extend} defined outside that query. This isn\textquotesingle{}t tracked explicitly, because it\textquotesingle{}ll be irrelevant when \href{https://github.com/sass/sass/issues/1050}{\texttt{ issue 1050}} is fixed.
+\item Some selector pseudos containing placeholder selectors will be compiled where they wouldn\textquotesingle{}t be in Ruby Sass. This better matches the semantics of the selectors in question, and is more efficient. See \href{https://github.com/sass/sass/issues/2228}{\texttt{ issue 2228}}.
+\item The old-\/style {\ttfamily \+:property value} syntax is not supported in the indented syntax. See \href{https://github.com/sass/sass/issues/2245}{\texttt{ issue 2245}}.
+\item The reference combinator is not supported. See \href{https://github.com/sass/sass/issues/303}{\texttt{ issue 303}}.
+\item Universal selector unification is symmetrical. See \href{https://github.com/sass/sass/issues/2247}{\texttt{ issue 2247}}.
+\item {\ttfamily @extend} doesn\textquotesingle{}t produce an error if it matches but fails to unify. See \href{https://github.com/sass/sass/issues/2250}{\texttt{ issue 2250}}.
+\item Dart Sass currently only supports UTF-\/8 documents. We\textquotesingle{}d like to support more, but Dart currently doesn\textquotesingle{}t support them. See \href{https://github.com/dart-lang/sdk/issues/11744}{\texttt{ dart-\/lang/sdk\#11744}}, for example.
+\end{DoxyEnumerate}
+
+Disclaimer\+: this is not an official Google product. 

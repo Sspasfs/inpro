@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_ba7904f7cbca2ea68d72434b81d73856" xml:lang="fr">
+<title>Répertoire de référence de node_modules/@esbuild</title>
+<indexterm><primary>Répertoire de référence de node_modules/@esbuild</primary></indexterm>
+Graphe des dépendances de répertoires pour @esbuild:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_ba7904f7cbca2ea68d72434b81d73856_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Répertoires    </title>
+        <itemizedlist>
+            <listitem><para>répertoire <link linkend="_dir_866c95f79684819d4fd363c9f553ca78">darwin-arm64</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

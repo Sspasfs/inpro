@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_40a1d9eb7a98c3857c61418cc8990e05" xml:lang="fr">
+<title>Répertoire de référence de app/Policies</title>
+<indexterm><primary>Répertoire de référence de app/Policies</primary></indexterm>
+Graphe des dépendances de répertoires pour Policies:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_40a1d9eb7a98c3857c61418cc8990e05_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fichiers    </title>
+        <itemizedlist>
+            <listitem><para>fichier <link linkend="__category_policy_8php">CategoryPolicy.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__personnel_policy_8php">PersonnelPolicy.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__produits_policy_8php">ProduitsPolicy.php</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

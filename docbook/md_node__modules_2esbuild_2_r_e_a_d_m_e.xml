@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2esbuild_2_r_e_a_d_m_e" xml:lang="fr">
+<title>esbuild</title>
+<indexterm><primary>esbuild</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2esbuild_2_r_e_a_d_m_e_1autotoc_md309"/> This is a JavaScript bundler and minifier. See <link xlink:href="https://github.com/evanw/esbuild">https://github.com/evanw/esbuild</link> and the <link xlink:href="https://esbuild.github.io/api/">JavaScript API documentation</link> for details. </para>
+</section>

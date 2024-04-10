@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_app_1_1_policies_1_1_personnel_policy" xml:lang="fr">
+<title>Référence de la classe PersonnelPolicy</title>
+<indexterm><primary>PersonnelPolicy</primary></indexterm>
+Graphe de collaboration de PersonnelPolicy:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_policies_1_1_personnel_policy__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_policies_1_1_personnel_policy_1ab91821546d40b791783ecdfab9622e7d">viewAny</link> (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_policies_1_1_personnel_policy_1aa091ec696efcac012166d54d812df0c6">view</link> (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user, <link linkend="_class_app_1_1_models_1_1_personnel">Personnel</link> $personnel)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_policies_1_1_personnel_policy_1a7626db07d2ee9a50d2839c019dbf037d">create</link> (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_policies_1_1_personnel_policy_1ad5b946274132bc7153f6e5e2b1d5dd75">update</link> (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user, <link linkend="_class_app_1_1_models_1_1_personnel">Personnel</link> $personnel)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_policies_1_1_personnel_policy_1a5d5dd18a70787fbbfeef784a1c1699b1">delete</link> (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user, <link linkend="_class_app_1_1_models_1_1_personnel">Personnel</link> $personnel)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_policies_1_1_personnel_policy_1af5551871a8737d192484525ac31c7a40">restore</link> (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user, <link linkend="_class_app_1_1_models_1_1_personnel">Personnel</link> $personnel)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_policies_1_1_personnel_policy_1af29c4032fa2e98e7f0f09c7a70fda4a4">forceDelete</link> (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user, <link linkend="_class_app_1_1_models_1_1_personnel">Personnel</link> $personnel)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_app_1_1_policies_1_1_personnel_policy_1a7626db07d2ee9a50d2839c019dbf037d"/><section>
+    <title>create()</title>
+<indexterm><primary>create</primary><secondary>PersonnelPolicy</secondary></indexterm>
+<indexterm><primary>PersonnelPolicy</primary><secondary>create</secondary></indexterm>
+<para><computeroutput>create (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user)</computeroutput></para>
+<para>Determine whether the user can create models. </para>
+</section>
+<anchor xml:id="_class_app_1_1_policies_1_1_personnel_policy_1a5d5dd18a70787fbbfeef784a1c1699b1"/><section>
+    <title>delete()</title>
+<indexterm><primary>delete</primary><secondary>PersonnelPolicy</secondary></indexterm>
+<indexterm><primary>PersonnelPolicy</primary><secondary>delete</secondary></indexterm>
+<para><computeroutput>delete (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user, <link linkend="_class_app_1_1_models_1_1_personnel">Personnel</link> $personnel)</computeroutput></para>
+<para>Determine whether the user can delete the model. </para>
+</section>
+<anchor xml:id="_class_app_1_1_policies_1_1_personnel_policy_1af29c4032fa2e98e7f0f09c7a70fda4a4"/><section>
+    <title>forceDelete()</title>
+<indexterm><primary>forceDelete</primary><secondary>PersonnelPolicy</secondary></indexterm>
+<indexterm><primary>PersonnelPolicy</primary><secondary>forceDelete</secondary></indexterm>
+<para><computeroutput>forceDelete (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user, <link linkend="_class_app_1_1_models_1_1_personnel">Personnel</link> $personnel)</computeroutput></para>
+<para>Determine whether the user can permanently delete the model. </para>
+</section>
+<anchor xml:id="_class_app_1_1_policies_1_1_personnel_policy_1af5551871a8737d192484525ac31c7a40"/><section>
+    <title>restore()</title>
+<indexterm><primary>restore</primary><secondary>PersonnelPolicy</secondary></indexterm>
+<indexterm><primary>PersonnelPolicy</primary><secondary>restore</secondary></indexterm>
+<para><computeroutput>restore (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user, <link linkend="_class_app_1_1_models_1_1_personnel">Personnel</link> $personnel)</computeroutput></para>
+<para>Determine whether the user can restore the model. </para>
+</section>
+<anchor xml:id="_class_app_1_1_policies_1_1_personnel_policy_1ad5b946274132bc7153f6e5e2b1d5dd75"/><section>
+    <title>update()</title>
+<indexterm><primary>update</primary><secondary>PersonnelPolicy</secondary></indexterm>
+<indexterm><primary>PersonnelPolicy</primary><secondary>update</secondary></indexterm>
+<para><computeroutput>update (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user, <link linkend="_class_app_1_1_models_1_1_personnel">Personnel</link> $personnel)</computeroutput></para>
+<para>Determine whether the user can update the model. </para>
+</section>
+<anchor xml:id="_class_app_1_1_policies_1_1_personnel_policy_1aa091ec696efcac012166d54d812df0c6"/><section>
+    <title>view()</title>
+<indexterm><primary>view</primary><secondary>PersonnelPolicy</secondary></indexterm>
+<indexterm><primary>PersonnelPolicy</primary><secondary>view</secondary></indexterm>
+<para><computeroutput>view (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user, <link linkend="_class_app_1_1_models_1_1_personnel">Personnel</link> $personnel)</computeroutput></para>
+<para>Determine whether the user can view the model. </para>
+</section>
+<anchor xml:id="_class_app_1_1_policies_1_1_personnel_policy_1ab91821546d40b791783ecdfab9622e7d"/><section>
+    <title>viewAny()</title>
+<indexterm><primary>viewAny</primary><secondary>PersonnelPolicy</secondary></indexterm>
+<indexterm><primary>PersonnelPolicy</primary><secondary>viewAny</secondary></indexterm>
+<para><computeroutput>viewAny (<link linkend="_class_app_1_1_models_1_1_user">User</link> $user)</computeroutput></para>
+<para>Determine whether the user can view any models. </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+app/Policies/<link linkend="__personnel_policy_8php">PersonnelPolicy.php</link></section>
+</section>

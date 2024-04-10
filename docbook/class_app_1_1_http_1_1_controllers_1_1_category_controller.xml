@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_app_1_1_http_1_1_controllers_1_1_category_controller" xml:lang="fr">
+<title>Référence de la classe CategoryController</title>
+<indexterm><primary>CategoryController</primary></indexterm>
+Graphe d&apos;héritage de CategoryController:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_http_1_1_controllers_1_1_category_controller__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de CategoryController:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_http_1_1_controllers_1_1_category_controller__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_controllers_1_1_category_controller_1a149eb92716c1084a935e04a8d95f7347">index</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_controllers_1_1_category_controller_1a435e7d7525d4bcd0ed5e34a469f3adf6">create</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_controllers_1_1_category_controller_1a9ef485163104597c12185b53cdacf638">store</link> (Request $request)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_controllers_1_1_category_controller_1ad9ad53a4b56a0b5d0ebb0bf303c49ef6">show</link> (<link linkend="_class_app_1_1_models_1_1_category">Category</link> $category)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_controllers_1_1_category_controller_1adac8df65cff06d50c20ef50d0e579185">edit</link> (<link linkend="_class_app_1_1_models_1_1_category">Category</link> $category)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_controllers_1_1_category_controller_1a25022d28f38e80e1d423cc3c07b637bc">update</link> (Request $request, <link linkend="_class_app_1_1_models_1_1_category">Category</link> $category)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_controllers_1_1_category_controller_1a9fffdedb579cf3a00fbe12fa8f1c001d">destroy</link> (<link linkend="_class_app_1_1_models_1_1_category">Category</link> $category)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_app_1_1_http_1_1_controllers_1_1_category_controller_1a435e7d7525d4bcd0ed5e34a469f3adf6"/><section>
+    <title>create()</title>
+<indexterm><primary>create</primary><secondary>CategoryController</secondary></indexterm>
+<indexterm><primary>CategoryController</primary><secondary>create</secondary></indexterm>
+<para><computeroutput>create ( )</computeroutput></para></section>
+<anchor xml:id="_class_app_1_1_http_1_1_controllers_1_1_category_controller_1a9fffdedb579cf3a00fbe12fa8f1c001d"/><section>
+    <title>destroy()</title>
+<indexterm><primary>destroy</primary><secondary>CategoryController</secondary></indexterm>
+<indexterm><primary>CategoryController</primary><secondary>destroy</secondary></indexterm>
+<para><computeroutput>destroy (<link linkend="_class_app_1_1_models_1_1_category">Category</link> $category)</computeroutput></para></section>
+<anchor xml:id="_class_app_1_1_http_1_1_controllers_1_1_category_controller_1adac8df65cff06d50c20ef50d0e579185"/><section>
+    <title>edit()</title>
+<indexterm><primary>edit</primary><secondary>CategoryController</secondary></indexterm>
+<indexterm><primary>CategoryController</primary><secondary>edit</secondary></indexterm>
+<para><computeroutput>edit (<link linkend="_class_app_1_1_models_1_1_category">Category</link> $category)</computeroutput></para></section>
+<anchor xml:id="_class_app_1_1_http_1_1_controllers_1_1_category_controller_1a149eb92716c1084a935e04a8d95f7347"/><section>
+    <title>index()</title>
+<indexterm><primary>index</primary><secondary>CategoryController</secondary></indexterm>
+<indexterm><primary>CategoryController</primary><secondary>index</secondary></indexterm>
+<para><computeroutput>index ( )</computeroutput></para></section>
+<anchor xml:id="_class_app_1_1_http_1_1_controllers_1_1_category_controller_1ad9ad53a4b56a0b5d0ebb0bf303c49ef6"/><section>
+    <title>show()</title>
+<indexterm><primary>show</primary><secondary>CategoryController</secondary></indexterm>
+<indexterm><primary>CategoryController</primary><secondary>show</secondary></indexterm>
+<para><computeroutput>show (<link linkend="_class_app_1_1_models_1_1_category">Category</link> $category)</computeroutput></para></section>
+<anchor xml:id="_class_app_1_1_http_1_1_controllers_1_1_category_controller_1a9ef485163104597c12185b53cdacf638"/><section>
+    <title>store()</title>
+<indexterm><primary>store</primary><secondary>CategoryController</secondary></indexterm>
+<indexterm><primary>CategoryController</primary><secondary>store</secondary></indexterm>
+<para><computeroutput>store (Request $request)</computeroutput></para></section>
+<anchor xml:id="_class_app_1_1_http_1_1_controllers_1_1_category_controller_1a25022d28f38e80e1d423cc3c07b637bc"/><section>
+    <title>update()</title>
+<indexterm><primary>update</primary><secondary>CategoryController</secondary></indexterm>
+<indexterm><primary>CategoryController</primary><secondary>update</secondary></indexterm>
+<para><computeroutput>update (Request $request, <link linkend="_class_app_1_1_models_1_1_category">Category</link> $category)</computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+app/Http/Controllers/<link linkend="__category_controller_8php">CategoryController.php</link></section>
+</section>

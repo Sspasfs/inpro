@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__redirect_if_authenticated_8php" xml:lang="fr">
+<title>Référence du fichier app/Http/Middleware/RedirectIfAuthenticated.php</title>
+<indexterm><primary>app/Http/Middleware/RedirectIfAuthenticated.php</primary></indexterm>
+<simplesect>
+    <title>Structures de données    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_app_1_1_http_1_1_middleware_1_1_redirect_if_authenticated">RedirectIfAuthenticated</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Espaces de nommage    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_app_1_1_http_1_1_middleware">App\Http\Middleware</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

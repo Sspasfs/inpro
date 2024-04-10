@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_25ac8cfa27d69183c2ce92fafea8f40c" xml:lang="fr">
+<title>Répertoire de référence de node_modules/is-glob</title>
+<indexterm><primary>Répertoire de référence de node_modules/is-glob</primary></indexterm>
+Graphe des dépendances de répertoires pour is-glob:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_25ac8cfa27d69183c2ce92fafea8f40c_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_app" xml:lang="fr">
+<title>Référence de l&apos;espace de nommage App</title>
+<indexterm><primary>App</primary></indexterm>
+<simplesect>
+    <title>Espaces de nommage    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_app_1_1_console">Console</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_app_1_1_exceptions">Exceptions</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_app_1_1_http">Http</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_app_1_1_models">Models</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_app_1_1_policies">Policies</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_app_1_1_providers">Providers</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Modèle représentant les lieux dans l&apos;application.</para>
+
+<para>\Models</para>
+
+<para>Modèle représentant le personnel dans l&apos;application.</para>
+
+<para>\Models</para>
+
+<para>Modèle représentant les produits dans l&apos;application.</para>
+
+<para>\Models</para>
+
+<para>Modèle représentant les salles dans l&apos;application.</para>
+
+<para>\Models</para>
+
+<para>Modèle représentant les utilisateurs dans l&apos;application.</para>
+
+<para>\Models </para>
+</section>
+</section>

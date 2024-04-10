@@ -1,0 +1,5 @@
+2024-04-05 13:15:22 [2@MacBook-Pro-de-Alex.local]
+User ID: 2 tried to access or perform an action on /glpi/front/appliance_item.form.php with insufficient rights. Additional information: User failed a can* method check for right 4 (CREATE) on item Type: Appliance_Item ID: -1
+	Stack Trace:
+		/Users/alexleblay/Documents/Edcuservice/inpro-laravel/public/glpi/src/CommonDBTM.php:3054 displayRightError()
+		/Users/alexleblay/Documents/Edcuservice/inpro-laravel/public/glpi/front/appliance_item.form.php:53 check()

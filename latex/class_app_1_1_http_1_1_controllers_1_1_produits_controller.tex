@@ -1,0 +1,152 @@
+\doxysection{Référence de la classe Produits\+Controller}
+\hypertarget{class_app_1_1_http_1_1_controllers_1_1_produits_controller}{}\label{class_app_1_1_http_1_1_controllers_1_1_produits_controller}\index{ProduitsController@{ProduitsController}}
+
+
+Graphe d\textquotesingle{}héritage de Produits\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{class_app_1_1_http_1_1_controllers_1_1_produits_controller__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Produits\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{class_app_1_1_http_1_1_controllers_1_1_produits_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_http_1_1_controllers_1_1_produits_controller_a149eb92716c1084a935e04a8d95f7347}{index}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1_http_1_1_controllers_1_1_produits_controller_a435e7d7525d4bcd0ed5e34a469f3adf6}{create}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1_http_1_1_controllers_1_1_produits_controller_a9ef485163104597c12185b53cdacf638}{store}} (Request \$request)
+\item 
+\mbox{\hyperlink{class_app_1_1_http_1_1_controllers_1_1_produits_controller_aa1084dca2023d0205f4d383a4fa3276d}{show}} (string \$id)
+\item 
+\mbox{\hyperlink{class_app_1_1_http_1_1_controllers_1_1_produits_controller_a770dc774eb0c503adc8523130d7872a9}{edit}} (string \$id)
+\item 
+\mbox{\hyperlink{class_app_1_1_http_1_1_controllers_1_1_produits_controller_affb03cc19897a1800a0f411264d6c7cc}{update}} (Request \$request, \$id)
+\item 
+\mbox{\hyperlink{class_app_1_1_http_1_1_controllers_1_1_produits_controller_a726fa8a4b4b187b9ca32ba427aac8137}{destroy}} (\$id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Contrôleur gérant les opérations liées aux produits. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_app_1_1_http_1_1_controllers_1_1_produits_controller_a435e7d7525d4bcd0ed5e34a469f3adf6}\label{class_app_1_1_http_1_1_controllers_1_1_produits_controller_a435e7d7525d4bcd0ed5e34a469f3adf6} 
+\index{ProduitsController@{ProduitsController}!create@{create}}
+\index{create@{create}!ProduitsController@{ProduitsController}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Afficher le formulaire de création d\textquotesingle{}un nouveau produit.
+
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+View\textbackslash{}\+View Vue contenant le formulaire de création. 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_http_1_1_controllers_1_1_produits_controller_a726fa8a4b4b187b9ca32ba427aac8137}\label{class_app_1_1_http_1_1_controllers_1_1_produits_controller_a726fa8a4b4b187b9ca32ba427aac8137} 
+\index{ProduitsController@{ProduitsController}!destroy@{destroy}}
+\index{destroy@{destroy}!ProduitsController@{ProduitsController}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily destroy (\begin{DoxyParamCaption}\item[{}]{\$id }\end{DoxyParamCaption})}
+
+Supprimer un produit de la base de données.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$id} & Identifiant du produit. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Redirect\+Response 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_http_1_1_controllers_1_1_produits_controller_a770dc774eb0c503adc8523130d7872a9}\label{class_app_1_1_http_1_1_controllers_1_1_produits_controller_a770dc774eb0c503adc8523130d7872a9} 
+\index{ProduitsController@{ProduitsController}!edit@{edit}}
+\index{edit@{edit}!ProduitsController@{ProduitsController}}
+\doxysubsubsection{\texorpdfstring{edit()}{edit()}}
+{\footnotesize\ttfamily edit (\begin{DoxyParamCaption}\item[{string}]{\$id }\end{DoxyParamCaption})}
+
+Afficher le formulaire d\textquotesingle{}édition d\textquotesingle{}un produit.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$id} & Identifiant du produit. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+View\textbackslash{}\+View Vue contenant le formulaire d\textquotesingle{}édition. 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_http_1_1_controllers_1_1_produits_controller_a149eb92716c1084a935e04a8d95f7347}\label{class_app_1_1_http_1_1_controllers_1_1_produits_controller_a149eb92716c1084a935e04a8d95f7347} 
+\index{ProduitsController@{ProduitsController}!index@{index}}
+\index{index@{index}!ProduitsController@{ProduitsController}}
+\doxysubsubsection{\texorpdfstring{index()}{index()}}
+{\footnotesize\ttfamily index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Afficher la liste des produits.
+
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+View\textbackslash{}\+View Vue contenant la liste des produits. 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_http_1_1_controllers_1_1_produits_controller_aa1084dca2023d0205f4d383a4fa3276d}\label{class_app_1_1_http_1_1_controllers_1_1_produits_controller_aa1084dca2023d0205f4d383a4fa3276d} 
+\index{ProduitsController@{ProduitsController}!show@{show}}
+\index{show@{show}!ProduitsController@{ProduitsController}}
+\doxysubsubsection{\texorpdfstring{show()}{show()}}
+{\footnotesize\ttfamily show (\begin{DoxyParamCaption}\item[{string}]{\$id }\end{DoxyParamCaption})}
+
+Afficher les détails d\textquotesingle{}un produit.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$id} & Identifiant du produit. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+View\textbackslash{}\+View Vue contenant les détails du produit. 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_http_1_1_controllers_1_1_produits_controller_a9ef485163104597c12185b53cdacf638}\label{class_app_1_1_http_1_1_controllers_1_1_produits_controller_a9ef485163104597c12185b53cdacf638} 
+\index{ProduitsController@{ProduitsController}!store@{store}}
+\index{store@{store}!ProduitsController@{ProduitsController}}
+\doxysubsubsection{\texorpdfstring{store()}{store()}}
+{\footnotesize\ttfamily store (\begin{DoxyParamCaption}\item[{Request}]{\$request }\end{DoxyParamCaption})}
+
+Enregistrer un nouveau produit dans la base de données.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Redirect\+Response 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_http_1_1_controllers_1_1_produits_controller_affb03cc19897a1800a0f411264d6c7cc}\label{class_app_1_1_http_1_1_controllers_1_1_produits_controller_affb03cc19897a1800a0f411264d6c7cc} 
+\index{ProduitsController@{ProduitsController}!update@{update}}
+\index{update@{update}!ProduitsController@{ProduitsController}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily update (\begin{DoxyParamCaption}\item[{Request}]{\$request,  }\item[{}]{\$id }\end{DoxyParamCaption})}
+
+Mettre à jour un produit dans la base de données.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+string & {\em \$id} & Identifiant du produit. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Redirect\+Response 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+app/\+Http/\+Controllers/\mbox{\hyperlink{_produits_controller_8php}{Produits\+Controller.\+php}}\end{DoxyCompactItemize}

@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_app_1_1_console_1_1_kernel" xml:lang="fr">
+<title>Référence de la classe Kernel</title>
+<indexterm><primary>Kernel</primary></indexterm>
+Graphe d&apos;héritage de Kernel:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_console_1_1_kernel__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de Kernel:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_console_1_1_kernel__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres protégées    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_console_1_1_kernel_1ac8f0af578c80277b7a25381c6a9e268c">schedule</link> (Schedule $schedule)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_console_1_1_kernel_1af0afefa0d79d09344a638cf6c532aa39">commands</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_app_1_1_console_1_1_kernel_1af0afefa0d79d09344a638cf6c532aa39"/><section>
+    <title>commands()</title>
+<indexterm><primary>commands</primary><secondary>Kernel</secondary></indexterm>
+<indexterm><primary>Kernel</primary><secondary>commands</secondary></indexterm>
+<para><computeroutput>commands ( )<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Register the commands for the application. </para>
+</section>
+<anchor xml:id="_class_app_1_1_console_1_1_kernel_1ac8f0af578c80277b7a25381c6a9e268c"/><section>
+    <title>schedule()</title>
+<indexterm><primary>schedule</primary><secondary>Kernel</secondary></indexterm>
+<indexterm><primary>Kernel</primary><secondary>schedule</secondary></indexterm>
+<para><computeroutput>schedule (Schedule $schedule)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Define the application&apos;s command schedule. </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+app/Console/<link linkend="__console_2_kernel_8php">Kernel.php</link></section>
+</section>

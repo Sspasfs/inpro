@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_2de235191d18dd1791eb806570e83dec" xml:lang="fr">
+<title>Répertoire de référence de node_modules/anymatch</title>
+<indexterm><primary>Répertoire de référence de node_modules/anymatch</primary></indexterm>
+Graphe des dépendances de répertoires pour anymatch:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_2de235191d18dd1791eb806570e83dec_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>

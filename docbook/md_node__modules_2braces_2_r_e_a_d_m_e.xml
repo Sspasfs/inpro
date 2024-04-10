@@ -1,0 +1,906 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e" xml:lang="fr">
+<title>braces &lt;a href=&quot;https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=W8YFZ425KND68&quot; &gt;&lt;img src=&quot;https://img.shields.io/badge/Donate-PayPal-green.svg&quot; alt=&quot;Donate&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://www.npmjs.com/package/braces&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/v/braces.svg?style=flat&quot; alt=&quot;NPM version&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://npmjs.org/package/braces&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dm/braces.svg?style=flat&quot; alt=&quot;NPM monthly downloads&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://npmjs.org/package/braces&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dt/braces.svg?style=flat&quot; alt=&quot;NPM total downloads&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://travis-ci.org/micromatch/braces&quot; &gt;&lt;img src=&quot;https://img.shields.io/travis/micromatch/braces.svg?style=flat&amp;label=Travis&quot; alt=&quot;Linux Build Status&quot;/&gt;&lt;/a&gt;</title>
+<indexterm><primary>braces &lt;a href=&quot;https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=W8YFZ425KND68&quot; &gt;&lt;img src=&quot;https://img.shields.io/badge/Donate-PayPal-green.svg&quot; alt=&quot;Donate&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://www.npmjs.com/package/braces&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/v/braces.svg?style=flat&quot; alt=&quot;NPM version&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://npmjs.org/package/braces&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dm/braces.svg?style=flat&quot; alt=&quot;NPM monthly downloads&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://npmjs.org/package/braces&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dt/braces.svg?style=flat&quot; alt=&quot;NPM total downloads&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://travis-ci.org/micromatch/braces&quot; &gt;&lt;img src=&quot;https://img.shields.io/travis/micromatch/braces.svg?style=flat&amp;label=Travis&quot; alt=&quot;Linux Build Status&quot;/&gt;&lt;/a&gt;</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md225"/> <blockquote>
+<para>&#8205;Bash-like brace expansion, implemented in JavaScript. Safer than other brace expansion libs, with complete support for the Bash 4.3 braces specification, without sacrificing speed. </para>
+</blockquote>Please consider following this project&apos;s author, <link xlink:href="https://github.com/jonschlinkert">Jon Schlinkert</link>, and consider starring the project to show your :heart: and support.</para>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md226">
+<title><title>Install</title></title>
+
+<para>Install with <link xlink:href="https://www.npmjs.com/">npm</link>:</para>
+
+<para><literallayout><computeroutput>$&#32;npm&#32;install&#32;--save&#32;braces
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md227">
+<title><title>v3.0.0 Released!!</title></title>
+
+<para>See the <link linkend="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g">changelog</link> for details.</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md228">
+<title><title>Why use braces?</title></title>
+
+<para>Brace patterns make globs more powerful by adding the ability to match specific ranges and sequences of characters.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">Accurate</emphasis> - complete support for the <link xlink:href="www.gnu.org/software/bash/">Bash 4.3 Brace Expansion</link> specification (passes all of the Bash braces tests)</para>
+</listitem><listitem>
+<para><emphasis role="bold">fast and performant</emphasis> - Starts fast, runs fast and scales well as patterns increase in complexity.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Organized code base</emphasis> - The parser and compiler are easy to maintain and update when edge cases crop up.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Well-tested</emphasis> - Thousands of test assertions, and passes all of the Bash, minimatch, and <link xlink:href="https://github.com/juliangruber/brace-expansion">brace-expansion</link> unit tests (as of the date this was written).</para>
+</listitem><listitem>
+<para><emphasis role="bold">Safer</emphasis> - You shouldn&apos;t have to worry about users defining aggressive or malicious brace patterns that can break your application. Braces takes measures to prevent malicious regex that can be used for DDoS attacks (see <link xlink:href="https://www.regular-expressions.info/catastrophic.html">catastrophic backtracking</link>).</para>
+</listitem><listitem>
+<para>Supports lists - (aka &quot;sets&quot;) <computeroutput>a/{b,c}/d</computeroutput> =&gt; &#8216;[&apos;a/b/d&#8217;, &apos;a/c/d&apos;]<computeroutput></computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>[Supports sequences](#sequences) - (aka &quot;ranges&quot;)</computeroutput>{01..03}<computeroutput>=&gt;</computeroutput>[&apos;01&apos;, &apos;02&apos;, &apos;03&apos;]<computeroutput></computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>[Supports steps](#steps) - (aka &quot;increments&quot;)</computeroutput>{2..10..2}<computeroutput>=&gt;</computeroutput>[&apos;2&apos;, &apos;4&apos;, &apos;6&apos;, &apos;8&apos;, &apos;10&apos;]`</para>
+</listitem><listitem>
+<para>Supports escaping - To prevent evaluation of special characters.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md229">
+<title><title>Usage</title></title>
+
+<para>The main export is a function that takes one or more brace <computeroutput>patterns</computeroutput> and <computeroutput>options</computeroutput>.</para>
+
+<para><literallayout><computeroutput>const&#32;braces&#32;=&#32;require(&apos;braces&apos;);
+//&#32;braces(patterns[,&#32;options]);
+
+console.log(braces([&apos;{01..05}&apos;,&#32;&apos;{a..e}&apos;]));
+//=&gt;&#32;[&apos;(0[1-5])&apos;,&#32;&apos;([a-e])&apos;]
+
+console.log(braces([&apos;{01..05}&apos;,&#32;&apos;{a..e}&apos;],&#32;{&#32;expand:&#32;true&#32;}));
+//=&gt;&#32;[&apos;01&apos;,&#32;&apos;02&apos;,&#32;&apos;03&apos;,&#32;&apos;04&apos;,&#32;&apos;05&apos;,&#32;&apos;a&apos;,&#32;&apos;b&apos;,&#32;&apos;c&apos;,&#32;&apos;d&apos;,&#32;&apos;e&apos;]
+</computeroutput></literallayout></para>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md230">
+<title><title>Brace Expansion vs. Compilation</title></title>
+
+<para>By default, brace patterns are compiled into strings that are optimized for creating regular expressions and matching.</para>
+
+<para><emphasis role="bold">Compiled</emphasis></para>
+
+<para><literallayout><computeroutput>console.log(braces(&apos;a/{x,y,z}/b&apos;));&#32;
+//=&gt;&#32;[&apos;a/(x|y|z)/b&apos;]
+console.log(braces([&apos;a/{01..20}/b&apos;,&#32;&apos;a/{1..5}/b&apos;]));&#32;
+//=&gt;&#32;[&#32;&apos;a/(0[1-9]|1[0-9]|20)/b&apos;,&#32;&apos;a/([1-5])/b&apos;&#32;]
+</computeroutput></literallayout></para>
+
+<para><emphasis role="bold">Expanded</emphasis></para>
+
+<para>Enable brace expansion by setting the <computeroutput>expand</computeroutput> option to true, or by using braces.expand() (returns an array similar to what you&apos;d expect from Bash, or <computeroutput>echo {1..5}</computeroutput>, or <link xlink:href="https://github.com/isaacs/minimatch">minimatch</link>):</para>
+
+<para><literallayout><computeroutput>console.log(braces(&apos;a/{x,y,z}/b&apos;,&#32;{&#32;expand:&#32;true&#32;}));
+//=&gt;&#32;[&apos;a/x/b&apos;,&#32;&apos;a/y/b&apos;,&#32;&apos;a/z/b&apos;]
+
+console.log(braces.expand(&apos;{01..10}&apos;));
+//=&gt;&#32;[&apos;01&apos;,&apos;02&apos;,&apos;03&apos;,&apos;04&apos;,&apos;05&apos;,&apos;06&apos;,&apos;07&apos;,&apos;08&apos;,&apos;09&apos;,&apos;10&apos;]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md231">
+<title><title>Lists</title></title>
+
+<para>Expand lists (like Bash &quot;sets&quot;):</para>
+
+<para><literallayout><computeroutput>console.log(braces(&apos;a/{foo,bar,baz}/*.js&apos;));
+//=&gt;&#32;[&apos;a/(foo|bar|baz)/*.js&apos;]
+
+console.log(braces.expand(&apos;a/{foo,bar,baz}/*.js&apos;));
+//=&gt;&#32;[&apos;a/foo/*.js&apos;,&#32;&apos;a/bar/*.js&apos;,&#32;&apos;a/baz/*.js&apos;]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md232">
+<title><title>Sequences</title></title>
+
+<para>Expand ranges of characters (like Bash &quot;sequences&quot;):</para>
+
+<para><literallayout><computeroutput>console.log(braces.expand(&apos;{1..3}&apos;));&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;[&apos;1&apos;,&#32;&apos;2&apos;,&#32;&apos;3&apos;]
+console.log(braces.expand(&apos;a/{1..3}/b&apos;));&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;[&apos;a/1/b&apos;,&#32;&apos;a/2/b&apos;,&#32;&apos;a/3/b&apos;]
+console.log(braces(&apos;{a..c}&apos;,&#32;{&#32;expand:&#32;true&#32;}));&#32;&#32;&#32;&#32;&#32;//&#32;[&apos;a&apos;,&#32;&apos;b&apos;,&#32;&apos;c&apos;]
+console.log(braces(&apos;foo/{a..c}&apos;,&#32;{&#32;expand:&#32;true&#32;}));&#32;//&#32;[&apos;foo/a&apos;,&#32;&apos;foo/b&apos;,&#32;&apos;foo/c&apos;]
+
+//&#32;supports&#32;zero-padded&#32;ranges
+console.log(braces(&apos;a/{01..03}/b&apos;));&#32;&#32;&#32;//=&gt;&#32;[&apos;a/(0[1-3])/b&apos;]
+console.log(braces(&apos;a/{001..300}/b&apos;));&#32;//=&gt;&#32;[&apos;a/(0{2}[1-9]|0[1-9][0-9]|[12][0-9]{2}|300)/b&apos;]
+</computeroutput></literallayout></para>
+
+<para>See <link xlink:href="https://github.com/jonschlinkert/fill-range">fill-range</link> for all available range-expansion options.</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md233">
+<title><title>Steppped ranges</title></title>
+
+<para>Steps, or increments, may be used with ranges:</para>
+
+<para><literallayout><computeroutput>console.log(braces.expand(&apos;{2..10..2}&apos;));
+//=&gt;&#32;[&apos;2&apos;,&#32;&apos;4&apos;,&#32;&apos;6&apos;,&#32;&apos;8&apos;,&#32;&apos;10&apos;]
+
+console.log(braces(&apos;{2..10..2}&apos;));
+//=&gt;&#32;[&apos;(2|4|6|8|10)&apos;]
+</computeroutput></literallayout></para>
+
+<para>When the .optimize method is used, or options.optimize is set to true, sequences are passed to <link xlink:href="https://github.com/jonschlinkert/to-regex-range">to-regex-range</link> for expansion.</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md234">
+<title><title>Nesting</title></title>
+
+<para>Brace patterns may be nested. The results of each expanded string are not sorted, and left to right order is preserved.</para>
+
+<para>**&quot;Expanded&quot; braces**</para>
+
+<para><literallayout><computeroutput>console.log(braces.expand(&apos;a{b,c,/{x,y}}/e&apos;));
+//=&gt;&#32;[&apos;ab/e&apos;,&#32;&apos;ac/e&apos;,&#32;&apos;a/x/e&apos;,&#32;&apos;a/y/e&apos;]
+
+console.log(braces.expand(&apos;a/{x,{1..5},y}/c&apos;));
+//=&gt;&#32;[&apos;a/x/c&apos;,&#32;&apos;a/1/c&apos;,&#32;&apos;a/2/c&apos;,&#32;&apos;a/3/c&apos;,&#32;&apos;a/4/c&apos;,&#32;&apos;a/5/c&apos;,&#32;&apos;a/y/c&apos;]
+</computeroutput></literallayout></para>
+
+<para>**&quot;Optimized&quot; braces**</para>
+
+<para><literallayout><computeroutput>console.log(braces(&apos;a{b,c,/{x,y}}/e&apos;));
+//=&gt;&#32;[&apos;a(b|c|/(x|y))/e&apos;]
+
+console.log(braces(&apos;a/{x,{1..5},y}/c&apos;));
+//=&gt;&#32;[&apos;a/(x|([1-5])|y)/c&apos;]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md235">
+<title><title>Escaping</title></title>
+
+<para><emphasis role="bold">Escaping braces</emphasis></para>
+
+<para>A brace pattern will not be expanded or evaluted if <emphasis>either the opening or closing brace is escaped</emphasis>:</para>
+
+<para><literallayout><computeroutput>console.log(braces.expand(&apos;a\\{d,c,b}e&apos;));
+//=&gt;&#32;[&apos;a{d,c,b}e&apos;]
+
+console.log(braces.expand(&apos;a{d,c,b\\}e&apos;));
+//=&gt;&#32;[&apos;a{d,c,b}e&apos;]
+</computeroutput></literallayout></para>
+
+<para><emphasis role="bold">Escaping commas</emphasis></para>
+
+<para>Commas inside braces may also be escaped:</para>
+
+<para><literallayout><computeroutput>console.log(braces.expand(&apos;a{b\\,c}d&apos;));
+//=&gt;&#32;[&apos;a{b,c}d&apos;]
+
+console.log(braces.expand(&apos;a{d\\,c,b}e&apos;));
+//=&gt;&#32;[&apos;ad,ce&apos;,&#32;&apos;abe&apos;]
+</computeroutput></literallayout></para>
+
+<para><emphasis role="bold">Single items</emphasis></para>
+
+<para>Following bash conventions, a brace pattern is also not expanded when it contains a single character:</para>
+
+<para><literallayout><computeroutput>console.log(braces.expand(&apos;a{b}c&apos;));
+//=&gt;&#32;[&apos;a{b}c&apos;]
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md236">
+<title><title>Options</title></title>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md237">
+<title><title>options.maxLength</title></title>
+
+<para><emphasis role="bold">Type</emphasis>: <computeroutput>Number</computeroutput></para>
+
+<para><emphasis role="bold">Default</emphasis>: <computeroutput>65,536</computeroutput></para>
+
+<para><emphasis role="bold">Description</emphasis>: Limit the length of the input string. Useful when the input string is generated or your application allows users to pass a string, et cetera.</para>
+
+<para><literallayout><computeroutput>console.log(braces(&apos;a/{b,c}/d&apos;,&#32;{&#32;maxLength:&#32;3&#32;}));&#32;&#32;//=&gt;&#32;throws&#32;an&#32;error
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md238">
+<title><title>options.expand</title></title>
+
+<para><emphasis role="bold">Type</emphasis>: <computeroutput>Boolean</computeroutput></para>
+
+<para><emphasis role="bold">Default</emphasis>: <computeroutput>undefined</computeroutput></para>
+
+<para><emphasis role="bold">Description</emphasis>: Generate an &quot;expanded&quot; brace pattern (alternatively you can use the <computeroutput>braces.expand()</computeroutput> method, which does the same thing).</para>
+
+<para><literallayout><computeroutput>console.log(braces(&apos;a/{b,c}/d&apos;,&#32;{&#32;expand:&#32;true&#32;}));
+//=&gt;&#32;[&#32;&apos;a/b/d&apos;,&#32;&apos;a/c/d&apos;&#32;]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md239">
+<title><title>options.nodupes</title></title>
+
+<para><emphasis role="bold">Type</emphasis>: <computeroutput>Boolean</computeroutput></para>
+
+<para><emphasis role="bold">Default</emphasis>: <computeroutput>undefined</computeroutput></para>
+
+<para><emphasis role="bold">Description</emphasis>: Remove duplicates from the returned array.</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md240">
+<title><title>options.rangeLimit</title></title>
+
+<para><emphasis role="bold">Type</emphasis>: <computeroutput>Number</computeroutput></para>
+
+<para><emphasis role="bold">Default</emphasis>: <computeroutput>1000</computeroutput></para>
+
+<para><emphasis role="bold">Description</emphasis>: To prevent malicious patterns from being passed by users, an error is thrown when <computeroutput>braces.expand()</computeroutput> is used or <computeroutput>options.expand</computeroutput> is true and the generated range will exceed the <computeroutput>rangeLimit</computeroutput>.</para>
+
+<para>You can customize <computeroutput>options.rangeLimit</computeroutput> or set it to <computeroutput>Inifinity</computeroutput> to disable this altogether.</para>
+
+<para><emphasis role="bold">Examples</emphasis></para>
+
+<para><literallayout><computeroutput>//&#32;pattern&#32;exceeds&#32;the&#32;&quot;rangeLimit&quot;,&#32;so&#32;it&apos;s&#32;optimized&#32;automatically
+console.log(braces.expand(&apos;{1..1000}&apos;));
+//=&gt;&#32;[&apos;([1-9]|[1-9][0-9]{1,2}|1000)&apos;]
+
+//&#32;pattern&#32;does&#32;not&#32;exceed&#32;&quot;rangeLimit&quot;,&#32;so&#32;it&apos;s&#32;NOT&#32;optimized
+console.log(braces.expand(&apos;{1..100}&apos;));
+//=&gt;&#32;[&apos;1&apos;,&#32;&apos;2&apos;,&#32;&apos;3&apos;,&#32;&apos;4&apos;,&#32;&apos;5&apos;,&#32;&apos;6&apos;,&#32;&apos;7&apos;,&#32;&apos;8&apos;,&#32;&apos;9&apos;,&#32;&apos;10&apos;,&#32;&apos;11&apos;,&#32;&apos;12&apos;,&#32;&apos;13&apos;,&#32;&apos;14&apos;,&#32;&apos;15&apos;,&#32;&apos;16&apos;,&#32;&apos;17&apos;,&#32;&apos;18&apos;,&#32;&apos;19&apos;,&#32;&apos;20&apos;,&#32;&apos;21&apos;,&#32;&apos;22&apos;,&#32;&apos;23&apos;,&#32;&apos;24&apos;,&#32;&apos;25&apos;,&#32;&apos;26&apos;,&#32;&apos;27&apos;,&#32;&apos;28&apos;,&#32;&apos;29&apos;,&#32;&apos;30&apos;,&#32;&apos;31&apos;,&#32;&apos;32&apos;,&#32;&apos;33&apos;,&#32;&apos;34&apos;,&#32;&apos;35&apos;,&#32;&apos;36&apos;,&#32;&apos;37&apos;,&#32;&apos;38&apos;,&#32;&apos;39&apos;,&#32;&apos;40&apos;,&#32;&apos;41&apos;,&#32;&apos;42&apos;,&#32;&apos;43&apos;,&#32;&apos;44&apos;,&#32;&apos;45&apos;,&#32;&apos;46&apos;,&#32;&apos;47&apos;,&#32;&apos;48&apos;,&#32;&apos;49&apos;,&#32;&apos;50&apos;,&#32;&apos;51&apos;,&#32;&apos;52&apos;,&#32;&apos;53&apos;,&#32;&apos;54&apos;,&#32;&apos;55&apos;,&#32;&apos;56&apos;,&#32;&apos;57&apos;,&#32;&apos;58&apos;,&#32;&apos;59&apos;,&#32;&apos;60&apos;,&#32;&apos;61&apos;,&#32;&apos;62&apos;,&#32;&apos;63&apos;,&#32;&apos;64&apos;,&#32;&apos;65&apos;,&#32;&apos;66&apos;,&#32;&apos;67&apos;,&#32;&apos;68&apos;,&#32;&apos;69&apos;,&#32;&apos;70&apos;,&#32;&apos;71&apos;,&#32;&apos;72&apos;,&#32;&apos;73&apos;,&#32;&apos;74&apos;,&#32;&apos;75&apos;,&#32;&apos;76&apos;,&#32;&apos;77&apos;,&#32;&apos;78&apos;,&#32;&apos;79&apos;,&#32;&apos;80&apos;,&#32;&apos;81&apos;,&#32;&apos;82&apos;,&#32;&apos;83&apos;,&#32;&apos;84&apos;,&#32;&apos;85&apos;,&#32;&apos;86&apos;,&#32;&apos;87&apos;,&#32;&apos;88&apos;,&#32;&apos;89&apos;,&#32;&apos;90&apos;,&#32;&apos;91&apos;,&#32;&apos;92&apos;,&#32;&apos;93&apos;,&#32;&apos;94&apos;,&#32;&apos;95&apos;,&#32;&apos;96&apos;,&#32;&apos;97&apos;,&#32;&apos;98&apos;,&#32;&apos;99&apos;,&#32;&apos;100&apos;]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md241">
+<title><title>options.transform</title></title>
+
+<para><emphasis role="bold">Type</emphasis>: <computeroutput>Function</computeroutput></para>
+
+<para><emphasis role="bold">Default</emphasis>: <computeroutput>undefined</computeroutput></para>
+
+<para><emphasis role="bold">Description</emphasis>: Customize range expansion.</para>
+
+<para><emphasis role="bold">Example: Transforming non-numeric values</emphasis></para>
+
+<para><literallayout><computeroutput>const&#32;alpha&#32;=&#32;braces.expand(&apos;x/{a..e}/y&apos;,&#32;{
+&#32;&#32;transform(value,&#32;index)&#32;{
+&#32;&#32;&#32;&#32;//&#32;When&#32;non-numeric&#32;values&#32;are&#32;passed,&#32;&quot;value&quot;&#32;is&#32;a&#32;character&#32;code.
+&#32;&#32;&#32;&#32;return&#32;&apos;foo/&apos;&#32;+&#32;String.fromCharCode(value)&#32;+&#32;&apos;-&apos;&#32;+&#32;index;
+&#32;&#32;}
+});
+console.log(alpha);
+//=&gt;&#32;[&#32;&apos;x/foo/a-0/y&apos;,&#32;&apos;x/foo/b-1/y&apos;,&#32;&apos;x/foo/c-2/y&apos;,&#32;&apos;x/foo/d-3/y&apos;,&#32;&apos;x/foo/e-4/y&apos;&#32;]
+</computeroutput></literallayout></para>
+
+<para><emphasis role="bold">Example: Transforming numeric values</emphasis></para>
+
+<para><literallayout><computeroutput>const&#32;numeric&#32;=&#32;braces.expand(&apos;{1..5}&apos;,&#32;{
+&#32;&#32;transform(value)&#32;{
+&#32;&#32;&#32;&#32;//&#32;when&#32;numeric&#32;values&#32;are&#32;passed,&#32;&quot;value&quot;&#32;is&#32;a&#32;number
+&#32;&#32;&#32;&#32;return&#32;&apos;foo/&apos;&#32;+&#32;value&#32;*&#32;2;
+&#32;&#32;}
+});
+console.log(numeric);&#32;
+//=&gt;&#32;[&#32;&apos;foo/2&apos;,&#32;&apos;foo/4&apos;,&#32;&apos;foo/6&apos;,&#32;&apos;foo/8&apos;,&#32;&apos;foo/10&apos;&#32;]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md242">
+<title><title>options.quantifiers</title></title>
+
+<para><emphasis role="bold">Type</emphasis>: <computeroutput>Boolean</computeroutput></para>
+
+<para><emphasis role="bold">Default</emphasis>: <computeroutput>undefined</computeroutput></para>
+
+<para><emphasis role="bold">Description</emphasis>: In regular expressions, quanitifiers can be used to specify how many times a token can be repeated. For example, <computeroutput>a{1,3}</computeroutput> will match the letter <computeroutput>a</computeroutput> one to three times.</para>
+
+<para>Unfortunately, regex quantifiers happen to share the same syntax as Bash lists</para>
+
+<para>The <computeroutput>quantifiers</computeroutput> option tells braces to detect when <link xlink:href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#quantifiers">regex quantifiers</link> are defined in the given pattern, and not to try to expand them as lists.</para>
+
+<para><emphasis role="bold">Examples</emphasis></para>
+
+<para><literallayout><computeroutput>const&#32;braces&#32;=&#32;require(&apos;braces&apos;);
+console.log(braces(&apos;a/b{1,3}/{x,y,z}&apos;));
+//=&gt;&#32;[&#32;&apos;a/b(1|3)/(x|y|z)&apos;&#32;]
+console.log(braces(&apos;a/b{1,3}/{x,y,z}&apos;,&#32;{quantifiers:&#32;true}));
+//=&gt;&#32;[&#32;&apos;a/b{1,3}/(x|y|z)&apos;&#32;]
+console.log(braces(&apos;a/b{1,3}/{x,y,z}&apos;,&#32;{quantifiers:&#32;true,&#32;expand:&#32;true}));
+//=&gt;&#32;[&#32;&apos;a/b{1,3}/x&apos;,&#32;&apos;a/b{1,3}/y&apos;,&#32;&apos;a/b{1,3}/z&apos;&#32;]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md243">
+<title><title>options.unescape</title></title>
+
+<para><emphasis role="bold">Type</emphasis>: <computeroutput>Boolean</computeroutput></para>
+
+<para><emphasis role="bold">Default</emphasis>: <computeroutput>undefined</computeroutput></para>
+
+<para><emphasis role="bold">Description</emphasis>: Strip backslashes that were used for escaping from the result.</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md244">
+<title><title>What is &quot;brace expansion&quot;?</title></title>
+
+<para>Brace expansion is a type of parameter expansion that was made popular by unix shells for generating lists of strings, as well as regex-like matching when used alongside wildcards (globs).</para>
+
+<para>In addition to &quot;expansion&quot;, braces are also used for matching. In other words:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>brace expansion is for generating new lists</para>
+</listitem><listitem>
+<para>brace matching is for filtering existing lists</para>
+</listitem></itemizedlist>
+</para>
+
+<para>
+<para><emphasis role="bold"><emphasis role="bold">More about brace expansion</emphasis> (click to expand)</emphasis></para><para>
+<para></para>
+
+<para>There are two main types of brace expansion:</para>
+
+<para><orderedlist>
+<listitem>
+<para><emphasis role="bold">lists</emphasis>: which are defined using comma-separated values inside curly braces: <computeroutput>{a,b,c}</computeroutput></para>
+</listitem><listitem>
+<para><emphasis role="bold">sequences</emphasis>: which are defined using a starting value and an ending value, separated by two dots: <computeroutput>a{1..3}b</computeroutput>. Optionally, a third argument may be passed to define a &quot;step&quot; or increment to use: <computeroutput>a{1..100..10}b</computeroutput>. These are also sometimes referred to as &quot;ranges&quot;.</para>
+</listitem></orderedlist>
+</para>
+
+<para>Here are some example brace patterns to illustrate how they work:</para>
+
+<para><emphasis role="bold">Sets</emphasis></para>
+
+<para><literallayout><computeroutput>{a,b,c}&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;a&#32;b&#32;c
+{a,b,c}{1,2}&#32;&#32;=&gt;&#32;a1&#32;a2&#32;b1&#32;b2&#32;c1&#32;c2
+</computeroutput></literallayout></para>
+
+<para><emphasis role="bold">Sequences</emphasis></para>
+
+<para><literallayout><computeroutput>{1..9}&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;1&#32;2&#32;3&#32;4&#32;5&#32;6&#32;7&#32;8&#32;9
+{4..-4}&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;4&#32;3&#32;2&#32;1&#32;0&#32;-1&#32;-2&#32;-3&#32;-4
+{1..20..3}&#32;&#32;&#32;&#32;=&gt;&#32;1&#32;4&#32;7&#32;10&#32;13&#32;16&#32;19
+{a..j}&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;a&#32;b&#32;c&#32;d&#32;e&#32;f&#32;g&#32;h&#32;i&#32;j
+{j..a}&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;j&#32;i&#32;h&#32;g&#32;f&#32;e&#32;d&#32;c&#32;b&#32;a
+{a..z..3}&#32;&#32;&#32;&#32;&#32;=&gt;&#32;a&#32;d&#32;g&#32;j&#32;m&#32;p&#32;s&#32;v&#32;y
+</computeroutput></literallayout></para>
+
+<para><emphasis role="bold">Combination</emphasis></para>
+
+<para>Sets and sequences can be mixed together or used along with any other strings.</para>
+
+<para><literallayout><computeroutput>{a,b,c}{1..3}&#32;&#32;&#32;=&gt;&#32;a1&#32;a2&#32;a3&#32;b1&#32;b2&#32;b3&#32;c1&#32;c2&#32;c3
+foo/{a,b,c}/bar&#32;=&gt;&#32;foo/a/bar&#32;foo/b/bar&#32;foo/c/bar
+</computeroutput></literallayout></para>
+
+<para>The fact that braces can be &quot;expanded&quot; from relatively simple patterns makes them ideal for quickly generating test fixtures, file paths, and similar use cases.</para>
+
+<para></para>
+</para>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md245">
+<title><title>Brace matching</title></title>
+
+<para>In addition to <emphasis>expansion</emphasis>, brace patterns are also useful for performing regular-expression-like matching.</para>
+
+<para>For example, the pattern <computeroutput>foo/{1..3}/bar</computeroutput> would match any of following strings:</para>
+
+<para><literallayout><computeroutput>foo/1/bar
+foo/2/bar
+foo/3/bar
+</computeroutput></literallayout></para>
+
+<para>But not:</para>
+
+<para><literallayout><computeroutput>baz/1/qux
+baz/2/qux
+baz/3/qux
+</computeroutput></literallayout></para>
+
+<para>Braces can also be combined with <link xlink:href="https://github.com/jonschlinkert/micromatch">glob patterns</link> to perform more advanced wildcard matching. For example, the pattern <computeroutput>*/{1..3}/*</computeroutput> would match any of following strings:</para>
+
+<para><literallayout><computeroutput>foo/1/bar
+foo/2/bar
+foo/3/bar
+baz/1/qux
+baz/2/qux
+baz/3/qux
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md246">
+<title><title>Brace matching pitfalls</title></title>
+
+<para>Although brace patterns offer a user-friendly way of matching ranges or sets of strings, there are also some major disadvantages and potential risks you should be aware of.</para>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md247">
+<title><title>tldr</title></title>
+
+<para>**&quot;brace bombs&quot;**</para>
+
+<para><itemizedlist>
+<listitem>
+<para>brace expansion can eat up a huge amount of processing resources</para>
+</listitem><listitem>
+<para>as brace patterns increase <emphasis>linearly in size</emphasis>, the system resources required to expand the pattern increase exponentially</para>
+</listitem><listitem>
+<para>users can accidentally (or intentially) exhaust your system&apos;s resources resulting in the equivalent of a DoS attack (bonus: no programming knowledge is required!)</para>
+</listitem></itemizedlist>
+</para>
+
+<para>For a more detailed explanation with examples, see the geometric complexity section.</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md248">
+<title><title>The solution</title></title>
+
+<para>Jump to the performance section to see how Braces solves this problem in comparison to other libraries.</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md249">
+<title><title>Geometric complexity</title></title>
+
+<para>At minimum, brace patterns with sets limited to two elements have quadradic or <computeroutput>O(n^2)</computeroutput> complexity. But the complexity of the algorithm increases exponentially as the number of sets, <emphasis>and elements per set</emphasis>, increases, which is <computeroutput>O(n^c)</computeroutput>.</para>
+
+<para>For example, the following sets demonstrate quadratic (<computeroutput>O(n^2)</computeroutput>) complexity:</para>
+
+<para><literallayout><computeroutput>{1,2}{3,4}&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;(2X2)&#32;&#32;&#32;&#32;=&gt;&#32;13&#32;14&#32;23&#32;24
+{1,2}{3,4}{5,6}&#32;=&gt;&#32;(2X2X2)&#32;&#32;=&gt;&#32;135&#32;136&#32;145&#32;146&#32;235&#32;236&#32;245&#32;246
+</computeroutput></literallayout></para>
+
+<para>But add an element to a set, and we get a n-fold Cartesian product with <computeroutput>O(n^c)</computeroutput> complexity:</para>
+
+<para><literallayout><computeroutput>{1,2,3}{4,5,6}{7,8,9}&#32;=&gt;&#32;(3X3X3)&#32;=&gt;&#32;147&#32;148&#32;149&#32;157&#32;158&#32;159&#32;167&#32;168&#32;169&#32;247&#32;248&#32;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;249&#32;257&#32;258&#32;259&#32;267&#32;268&#32;269&#32;347&#32;348&#32;349&#32;357&#32;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;358&#32;359&#32;367&#32;368&#32;369
+</computeroutput></literallayout></para>
+
+<para>Now, imagine how this complexity grows given that each element is a n-tuple:</para>
+
+<para><literallayout><computeroutput>{1..100}{1..100}&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;(100X100)&#32;&#32;&#32;&#32;&#32;=&gt;&#32;10,000&#32;elements&#32;(38.4&#32;kB)
+{1..100}{1..100}{1..100}&#32;=&gt;&#32;(100X100X100)&#32;=&gt;&#32;1,000,000&#32;elements&#32;(5.76&#32;MB)
+</computeroutput></literallayout></para>
+
+<para>Although these examples are clearly contrived, they demonstrate how brace patterns can quickly grow out of control.</para>
+
+<para><emphasis role="bold">More information</emphasis></para>
+
+<para>Interested in learning more about brace expansion?</para>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="http://www.linuxjournal.com/content/bash-brace-expansion">linuxjournal/bash-brace-expansion</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://rosettacode.org/wiki/Brace_expansion">rosettacode/Brace_expansion</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://en.wikipedia.org/wiki/Cartesian_product">cartesian product</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md250">
+<title><title>Performance</title></title>
+
+<para>Braces is not only screaming fast, it&apos;s also more accurate the other brace expansion libraries.</para>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md251">
+<title><title>Better algorithms</title></title>
+
+<para>Fortunately there is a solution to the &quot;brace bomb&quot; problem: <emphasis>don&apos;t expand brace patterns into an array when they&apos;re used for matching</emphasis>.</para>
+
+<para>Instead, convert the pattern into an optimized regular expression. This is easier said than done, and braces is the only library that does this currently.</para>
+
+<para><emphasis role="bold">The proof is in the numbers</emphasis></para>
+
+<para>Minimatch gets exponentially slower as patterns increase in complexity, braces does not. The following results were generated using <computeroutput>braces()</computeroutput> and <computeroutput>minimatch.braceExpand()</computeroutput>, respectively.</para>
+
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para><emphasis role="bold">Pattern</emphasis>   </para>
+</entry><entry>
+<para><emphasis role="bold">braces</emphasis>   </para>
+</entry><entry>
+<para><emphasis role="bold">[minimatch][]</emphasis>    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>{1..9007199254740991}</computeroutput>[^1]   </para>
+</entry><entry>
+<para><computeroutput>298 B</computeroutput> (5ms 459μs)   </para>
+</entry><entry>
+<para>N/A (freezes)    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>{1..1000000000000000}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>41 B</computeroutput> (1ms 15μs)   </para>
+</entry><entry>
+<para>N/A (freezes)    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>{1..100000000000000}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>40 B</computeroutput> (890μs)   </para>
+</entry><entry>
+<para>N/A (freezes)    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>{1..10000000000000}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>39 B</computeroutput> (2ms 49μs)   </para>
+</entry><entry>
+<para>N/A (freezes)    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>{1..1000000000000}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>38 B</computeroutput> (608μs)   </para>
+</entry><entry>
+<para>N/A (freezes)    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>{1..100000000000}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>37 B</computeroutput> (397μs)   </para>
+</entry><entry>
+<para>N/A (freezes)    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>{1..10000000000}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>35 B</computeroutput> (983μs)   </para>
+</entry><entry>
+<para>N/A (freezes)    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>{1..1000000000}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>34 B</computeroutput> (798μs)   </para>
+</entry><entry>
+<para>N/A (freezes)    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>{1..100000000}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>33 B</computeroutput> (733μs)   </para>
+</entry><entry>
+<para>N/A (freezes)    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>{1..10000000}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>32 B</computeroutput> (5ms 632μs)   </para>
+</entry><entry>
+<para><computeroutput>78.89 MB</computeroutput> (16s 388ms 569μs)    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>{1..1000000}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>31 B</computeroutput> (1ms 381μs)   </para>
+</entry><entry>
+<para><computeroutput>6.89 MB</computeroutput> (1s 496ms 887μs)    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>{1..100000}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>30 B</computeroutput> (950μs)   </para>
+</entry><entry>
+<para><computeroutput>588.89 kB</computeroutput> (146ms 921μs)    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>{1..10000}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>29 B</computeroutput> (1ms 114μs)   </para>
+</entry><entry>
+<para><computeroutput>48.89 kB</computeroutput> (14ms 187μs)    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>{1..1000}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>28 B</computeroutput> (760μs)   </para>
+</entry><entry>
+<para><computeroutput>3.89 kB</computeroutput> (1ms 453μs)    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>{1..100}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>22 B</computeroutput> (345μs)   </para>
+</entry><entry>
+<para><computeroutput>291 B</computeroutput> (196μs)    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>{1..10}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>10 B</computeroutput> (533μs)   </para>
+</entry><entry>
+<para><computeroutput>20 B</computeroutput> (37μs)    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>{1..3}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>7 B</computeroutput> (190μs)   </para>
+</entry><entry>
+<para><computeroutput>5 B</computeroutput> (27μs)   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md252">
+<title><title>Faster algorithms</title></title>
+
+<para>When you need expansion, braces is still much faster.</para>
+
+<para>_(the following results were generated using <computeroutput>braces.expand()</computeroutput> and <computeroutput>minimatch.braceExpand()</computeroutput>, respectively)_</para>
+
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para><emphasis role="bold">Pattern</emphasis>   </para>
+</entry><entry>
+<para><emphasis role="bold">braces</emphasis>   </para>
+</entry><entry>
+<para><emphasis role="bold">[minimatch][]</emphasis>    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>{1..10000000}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>78.89 MB</computeroutput> (2s 698ms 642μs)   </para>
+</entry><entry>
+<para><computeroutput>78.89 MB</computeroutput> (18s 601ms 974μs)    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>{1..1000000}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>6.89 MB</computeroutput> (458ms 576μs)   </para>
+</entry><entry>
+<para><computeroutput>6.89 MB</computeroutput> (1s 491ms 621μs)    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>{1..100000}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>588.89 kB</computeroutput> (20ms 728μs)   </para>
+</entry><entry>
+<para><computeroutput>588.89 kB</computeroutput> (156ms 919μs)    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>{1..10000}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>48.89 kB</computeroutput> (2ms 202μs)   </para>
+</entry><entry>
+<para><computeroutput>48.89 kB</computeroutput> (13ms 641μs)    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>{1..1000}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>3.89 kB</computeroutput> (1ms 796μs)   </para>
+</entry><entry>
+<para><computeroutput>3.89 kB</computeroutput> (1ms 958μs)    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>{1..100}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>291 B</computeroutput> (424μs)   </para>
+</entry><entry>
+<para><computeroutput>291 B</computeroutput> (211μs)    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>{1..10}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>20 B</computeroutput> (487μs)   </para>
+</entry><entry>
+<para><computeroutput>20 B</computeroutput> (72μs)    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>{1..3}</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>5 B</computeroutput> (166μs)   </para>
+</entry><entry>
+<para><computeroutput>5 B</computeroutput> (27μs)   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para>If you&apos;d like to run these comparisons yourself, see <link xlink:href="test/support/generate.js">test/support/generate.js</link>.</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md253">
+<title><title>Benchmarks</title></title>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md254">
+<title><title>Running benchmarks</title></title>
+
+<para>Install dev dependencies:</para>
+
+<para><literallayout><computeroutput>npm&#32;i&#32;-d&#32;&amp;&amp;&#32;npm&#32;benchmark
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md255">
+<title><title>Latest results</title></title>
+
+<para>Braces is more accurate, without sacrificing performance.</para>
+
+<para><literallayout><computeroutput>#&#32;range&#32;(expanded)
+&#32;&#32;braces&#32;x&#32;29,040&#32;ops/sec&#32;±3.69%&#32;(91&#32;runs&#32;sampled))
+&#32;&#32;minimatch&#32;x&#32;4,735&#32;ops/sec&#32;±1.28%&#32;(90&#32;runs&#32;sampled)
+
+#&#32;range&#32;(optimized&#32;for&#32;regex)
+&#32;&#32;braces&#32;x&#32;382,878&#32;ops/sec&#32;±0.56%&#32;(94&#32;runs&#32;sampled)
+&#32;&#32;minimatch&#32;x&#32;1,040&#32;ops/sec&#32;±0.44%&#32;(93&#32;runs&#32;sampled)
+
+#&#32;nested&#32;ranges&#32;(expanded)
+&#32;&#32;braces&#32;x&#32;19,744&#32;ops/sec&#32;±2.27%&#32;(92&#32;runs&#32;sampled))
+&#32;&#32;minimatch&#32;x&#32;4,579&#32;ops/sec&#32;±0.50%&#32;(93&#32;runs&#32;sampled)
+
+#&#32;nested&#32;ranges&#32;(optimized&#32;for&#32;regex)
+&#32;&#32;braces&#32;x&#32;246,019&#32;ops/sec&#32;±2.02%&#32;(93&#32;runs&#32;sampled)
+&#32;&#32;minimatch&#32;x&#32;1,028&#32;ops/sec&#32;±0.39%&#32;(94&#32;runs&#32;sampled)
+
+#&#32;set&#32;(expanded)&#32;
+&#32;&#32;braces&#32;x&#32;138,641&#32;ops/sec&#32;±0.53%&#32;(95&#32;runs&#32;sampled)
+&#32;&#32;minimatch&#32;x&#32;219,582&#32;ops/sec&#32;±0.98%&#32;(94&#32;runs&#32;sampled)
+
+#&#32;set&#32;(optimized&#32;for&#32;regex)
+&#32;&#32;braces&#32;x&#32;388,408&#32;ops/sec&#32;±0.41%&#32;(95&#32;runs&#32;sampled)
+&#32;&#32;minimatch&#32;x&#32;44,724&#32;ops/sec&#32;±0.91%&#32;(89&#32;runs&#32;sampled)
+
+#&#32;nested&#32;sets&#32;(expanded)
+&#32;&#32;braces&#32;x&#32;84,966&#32;ops/sec&#32;±0.48%&#32;(94&#32;runs&#32;sampled)
+&#32;&#32;minimatch&#32;x&#32;140,720&#32;ops/sec&#32;±0.37%&#32;(95&#32;runs&#32;sampled)
+
+#&#32;nested&#32;sets&#32;(optimized&#32;for&#32;regex)
+&#32;&#32;braces&#32;x&#32;263,340&#32;ops/sec&#32;±2.06%&#32;(92&#32;runs&#32;sampled)
+&#32;&#32;minimatch&#32;x&#32;28,714&#32;ops/sec&#32;±0.40%&#32;(90&#32;runs&#32;sampled)
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md256">
+<title><title>About</title></title>
+
+<para>
+<para><emphasis role="bold"><emphasis role="bold">Contributing</emphasis></emphasis></para><para>
+<para></para>
+
+<para>Pull requests and stars are always welcome. For bugs and feature requests, <link xlink:href="../../issues/new">please create an issue</link>.</para>
+
+<para></para>
+</para>
+</para>
+
+<para>
+<para><emphasis role="bold"><emphasis role="bold">Running Tests</emphasis></emphasis></para><para>
+<para></para>
+
+<para>Running and reviewing unit tests is a great way to get familiarized with a library and its API. You can install dependencies and run tests with the following command:</para>
+
+<para><literallayout><computeroutput>$&#32;npm&#32;install&#32;&amp;&amp;&#32;npm&#32;test
+</computeroutput></literallayout></para>
+
+<para></para>
+</para>
+</para>
+
+<para>
+<para><emphasis role="bold"><emphasis role="bold">Building docs</emphasis></emphasis></para><para>
+<para></para>
+
+<para>_(This project&apos;s readme.md is generated by <link xlink:href="https://github.com/verbose/verb-generate-readme">verb</link>, please don&apos;t edit the readme directly. Any changes to the readme must be made in the .verb.md readme template.)_</para>
+
+<para>To generate the readme, run the following command:</para>
+
+<para><literallayout><computeroutput>$&#32;npm&#32;install&#32;-g&#32;verbose/verb#dev&#32;verb-generate-readme&#32;&amp;&amp;&#32;verb
+</computeroutput></literallayout></para>
+
+<para></para>
+</para>
+</para>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md257">
+<title><title>Contributors</title></title>
+
+<para><informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para><emphasis role="bold">Commits</emphasis>   </para>
+</entry><entry>
+<para><emphasis role="bold">Contributor</emphasis>    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>197   </para>
+</entry><entry>
+<para><link xlink:href="https://github.com/jonschlinkert">jonschlinkert</link>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>4   </para>
+</entry><entry>
+<para><link xlink:href="https://github.com/doowb">doowb</link>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>1   </para>
+</entry><entry>
+<para><link xlink:href="https://github.com/es128">es128</link>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>1   </para>
+</entry><entry>
+<para><link xlink:href="https://github.com/eush77">eush77</link>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>1   </para>
+</entry><entry>
+<para><link xlink:href="https://github.com/hemanth">hemanth</link>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>1   </para>
+</entry><entry>
+<para><link xlink:href="https://github.com/wtgtybhertgeghgtwtg">wtgtybhertgeghgtwtg</link>   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md258">
+<title><title>Author</title></title>
+
+<para><emphasis role="bold">Jon Schlinkert</emphasis></para>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://github.com/jonschlinkert">GitHub Profile</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://twitter.com/jonschlinkert">Twitter Profile</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://linkedin.com/in/jonschlinkert">LinkedIn Profile</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_r_e_a_d_m_e_1autotoc_md259">
+<title><title>License</title></title>
+
+<para>Copyright © 2019, <link xlink:href="https://github.com/jonschlinkert">Jon Schlinkert</link>. Released under the [MIT License](LICENSE).</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+
+<para><emphasis>This file was generated by <link xlink:href="https://github.com/verbose/verb-generate-readme">verb-generate-readme</link>, v0.8.0, on April 08, 2019.</emphasis> </para>
+</section>
+</section>
+</section>

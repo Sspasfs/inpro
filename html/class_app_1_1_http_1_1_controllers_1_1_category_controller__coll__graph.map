@@ -1,0 +1,7 @@
+<map id="CategoryController" name="CategoryController">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,232,181,447"/>
+<area shape="rect" id="Node000002" href="$class_app_1_1_http_1_1_controllers_1_1_controller.html" title=" " alt="" coords="59,119,128,184"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,199,96,232,91,232,91,199"/>
+<area shape="rect" id="Node000003" href="$class_base_controller.html" title=" " alt="" coords="44,5,143,71"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="96,85,96,119,91,119,91,85"/>
+</map>

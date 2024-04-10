@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md__r_e_a_d_m_e" xml:lang="fr">
+<title>README</title>
+<indexterm><primary>README</primary></indexterm>
+
+<para></para>
+
+<para><link xlink:href="https://laravel.com"></link></para>
+
+<para></para>
+
+<para><link xlink:href="https://github.com/laravel/framework/actions"></link> <link xlink:href="https://packagist.org/packages/laravel/framework"></link> <link xlink:href="https://packagist.org/packages/laravel/framework"></link> <link xlink:href="https://packagist.org/packages/laravel/framework"></link> </para>
+<section xml:id="_md__r_e_a_d_m_e_1autotoc_md1156">
+<title><title>About Laravel</title></title>
+
+<para>Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://laravel.com/docs/routing">Simple, fast routing engine</link>.</para>
+</listitem><listitem>
+<para><link xlink:href="https://laravel.com/docs/container">Powerful dependency injection container</link>.</para>
+</listitem><listitem>
+<para>Multiple back-ends for <link xlink:href="https://laravel.com/docs/session">session</link> and <link xlink:href="https://laravel.com/docs/cache">cache</link> storage.</para>
+</listitem><listitem>
+<para>Expressive, intuitive <link xlink:href="https://laravel.com/docs/eloquent">database ORM</link>.</para>
+</listitem><listitem>
+<para>Database agnostic <link xlink:href="https://laravel.com/docs/migrations">schema migrations</link>.</para>
+</listitem><listitem>
+<para><link xlink:href="https://laravel.com/docs/queues">Robust background job processing</link>.</para>
+</listitem><listitem>
+<para><link xlink:href="https://laravel.com/docs/broadcasting">Real-time event broadcasting</link>.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Laravel is accessible, powerful, and provides tools required for large, robust applications.</para>
+</section>
+<section xml:id="_md__r_e_a_d_m_e_1autotoc_md1157">
+<title><title>Learning Laravel</title></title>
+
+<para>Laravel has the most extensive and thorough <link xlink:href="https://laravel.com/docs">documentation</link> and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.</para>
+
+<para>You may also try the <link xlink:href="https://bootcamp.laravel.com">Laravel Bootcamp</link>, where you will be guided through building a modern Laravel application from scratch.</para>
+
+<para>If you don&apos;t feel like reading, <link xlink:href="https://laracasts.com">Laracasts</link> can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.</para>
+</section>
+<section xml:id="_md__r_e_a_d_m_e_1autotoc_md1158">
+<title><title>Laravel Sponsors</title></title>
+
+<para>We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel <link xlink:href="https://patreon.com/taylorotwell">Patreon page</link>.</para>
+<section xml:id="_md__r_e_a_d_m_e_1autotoc_md1159">
+<title><title>Premium Partners</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold"><link xlink:href="https://vehikl.com/">Vehikl</link></emphasis></para>
+</listitem><listitem>
+<para><emphasis role="bold"><link xlink:href="https://tighten.co">Tighten Co.</link></emphasis></para>
+</listitem><listitem>
+<para><emphasis role="bold"><link xlink:href="https://kirschbaumdevelopment.com">Kirschbaum Development Group</link></emphasis></para>
+</listitem><listitem>
+<para><emphasis role="bold"><link xlink:href="https://64robots.com">64 Robots</link></emphasis></para>
+</listitem><listitem>
+<para><emphasis role="bold"><link xlink:href="https://cubettech.com">Cubet Techno Labs</link></emphasis></para>
+</listitem><listitem>
+<para><emphasis role="bold"><link xlink:href="https://cyber-duck.co.uk">Cyber-Duck</link></emphasis></para>
+</listitem><listitem>
+<para><emphasis role="bold"><link xlink:href="https://www.many.co.uk">Many</link></emphasis></para>
+</listitem><listitem>
+<para><emphasis role="bold"><link xlink:href="https://www.webdock.io/en">Webdock, Fast VPS Hosting</link></emphasis></para>
+</listitem><listitem>
+<para><emphasis role="bold"><link xlink:href="https://devsquad.com">DevSquad</link></emphasis></para>
+</listitem><listitem>
+<para><emphasis role="bold"><link xlink:href="https://www.curotec.com/services/technologies/laravel/">Curotec</link></emphasis></para>
+</listitem><listitem>
+<para><emphasis role="bold"><link xlink:href="https://op.gg">OP.GG</link></emphasis></para>
+</listitem><listitem>
+<para><emphasis role="bold"><link xlink:href="https://webreinvent.com/?utm_source=laravel&amp;utm_medium=github&amp;utm_campaign=patreon-sponsors">WebReinvent</link></emphasis></para>
+</listitem><listitem>
+<para><emphasis role="bold"><link xlink:href="https://lendio.com">Lendio</link></emphasis></para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md__r_e_a_d_m_e_1autotoc_md1160">
+<title><title>Contributing</title></title>
+
+<para>Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the <link xlink:href="https://laravel.com/docs/contributions">Laravel documentation</link>.</para>
+</section>
+<section xml:id="_md__r_e_a_d_m_e_1autotoc_md1161">
+<title><title>Code of Conduct</title></title>
+
+<para>In order to ensure that the Laravel community is welcoming to all, please review and abide by the <link xlink:href="https://laravel.com/docs/contributions#code-of-conduct">Code of Conduct</link>.</para>
+</section>
+<section xml:id="_md__r_e_a_d_m_e_1autotoc_md1162">
+<title><title>Security Vulnerabilities</title></title>
+
+<para>If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via <link xlink:href="mailto:taylor@laravel.com">taylor@laravel.com</link>. All security vulnerabilities will be promptly addressed.</para>
+</section>
+<section xml:id="_md__r_e_a_d_m_e_1autotoc_md1163">
+<title><title>License</title></title>
+
+<para>The Laravel framework is open-sourced software licensed under the <link xlink:href="https://opensource.org/licenses/MIT">MIT license</link>. </para>
+</section>
+</section>

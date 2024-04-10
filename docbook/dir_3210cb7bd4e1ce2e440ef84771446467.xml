@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_3210cb7bd4e1ce2e440ef84771446467" xml:lang="fr">
+<title>Répertoire de référence de node_modules/delayed-stream</title>
+<indexterm><primary>Répertoire de référence de node_modules/delayed-stream</primary></indexterm>
+Graphe des dépendances de répertoires pour delayed-stream:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_3210cb7bd4e1ce2e440ef84771446467_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>

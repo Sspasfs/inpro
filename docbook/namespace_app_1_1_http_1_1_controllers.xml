@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_app_1_1_http_1_1_controllers" xml:lang="fr">
+<title>Référence de l&apos;espace de nommage App\Http\Controllers</title>
+<indexterm><primary>App\Http\Controllers</primary></indexterm>
+<simplesect>
+    <title>Structures de données    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_app_1_1_http_1_1_controllers_1_1_category_controller">CategoryController</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_app_1_1_http_1_1_controllers_1_1_controller">Controller</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_app_1_1_http_1_1_controllers_1_1_home_controller">HomeController</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_app_1_1_http_1_1_controllers_1_1_inventaire_controller">InventaireController</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_app_1_1_http_1_1_controllers_1_1_lieux_controller">LieuxController</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_app_1_1_http_1_1_controllers_1_1_personnel_controller">PersonnelController</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_app_1_1_http_1_1_controllers_1_1_produits_controller">ProduitsController</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_app_1_1_http_1_1_controllers_1_1_user_controller">UserController</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

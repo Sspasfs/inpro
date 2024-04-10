@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_app_1_1_http_1_1_controllers_1_1_inventaire_controller" xml:lang="fr">
+<title>Référence de la classe InventaireController</title>
+<indexterm><primary>InventaireController</primary></indexterm>
+Graphe d&apos;héritage de InventaireController:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_http_1_1_controllers_1_1_inventaire_controller__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de InventaireController:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_http_1_1_controllers_1_1_inventaire_controller__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_controllers_1_1_inventaire_controller_1a149eb92716c1084a935e04a8d95f7347">index</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Contrôleur gérant les opérations liées à l&apos;inventaire des produits. </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_app_1_1_http_1_1_controllers_1_1_inventaire_controller_1a149eb92716c1084a935e04a8d95f7347"/><section>
+    <title>index()</title>
+<indexterm><primary>index</primary><secondary>InventaireController</secondary></indexterm>
+<indexterm><primary>InventaireController</primary><secondary>index</secondary></indexterm>
+<para><computeroutput>index ( )</computeroutput></para>
+<para>Afficher la page d&apos;inventaire avec la liste des catégories de produits.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>\Illuminate\Contracts\View\View </para>
+</formalpara>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+app/Http/Controllers/<link linkend="__inventaire_controller_8php">InventaireController.php</link></section>
+</section>

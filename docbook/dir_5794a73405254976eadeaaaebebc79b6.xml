@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_5794a73405254976eadeaaaebebc79b6" xml:lang="fr">
+<title>Répertoire de référence de resources/views</title>
+<indexterm><primary>Répertoire de référence de resources/views</primary></indexterm>
+Graphe des dépendances de répertoires pour views:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_5794a73405254976eadeaaaebebc79b6_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Répertoires    </title>
+        <itemizedlist>
+            <listitem><para>répertoire <link linkend="_dir_b48138ec509da3e493df7d292813247c">category</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_3383e38c1daad0535b81c8fafcf7b43f">layouts</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_43c363303e89dc4e4aa7a6d4c91fe4a0">personnels</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fichiers    </title>
+        <itemizedlist>
+            <listitem><para>fichier <link linkend="_create_8blade_8php">create.blade.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="_createlieux_8blade_8php">createlieux.blade.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="_delete_8blade_8php">delete.blade.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="_edit_8blade_8php">edit.blade.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="_editlieu_8blade_8php">editlieu.blade.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="_home_8blade_8php">home.blade.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="_index_8blade_8php">index.blade.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="_inventaire_8blade_8php">inventaire.blade.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="_lieux_8blade_8php">lieux.blade.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="_salle_8blade_8php">salle.blade.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="_show_8blade_8php">show.blade.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="_welcome_8blade_8php">welcome.blade.php</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

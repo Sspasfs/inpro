@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_f32c53f2c0f0ccaeb11076e30674d5f4" xml:lang="fr">
+<title>Répertoire de référence de database</title>
+<indexterm><primary>Répertoire de référence de database</primary></indexterm>
+<simplesect>
+    <title>Répertoires    </title>
+        <itemizedlist>
+            <listitem><para>répertoire <link linkend="_dir_8d7848641b04af23957804b8afbeab71">factories</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_60ac0e461401d42a1487e6744db0f9b7">migrations</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_7f39bdd714b5c574825c6c42997ce95d">seeders</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

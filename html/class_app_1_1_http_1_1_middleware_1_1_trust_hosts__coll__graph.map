@@ -1,0 +1,5 @@
+<map id="TrustHosts" name="TrustHosts">
+<area shape="rect" id="Node000001" title=" " alt="" coords="6,119,83,184"/>
+<area shape="rect" id="Node000002" href="$class_middleware.html" title=" " alt="" coords="5,5,84,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="47,85,47,119,42,119,42,85"/>
+</map>

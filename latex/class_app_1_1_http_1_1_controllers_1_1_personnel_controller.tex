@@ -1,0 +1,152 @@
+\doxysection{Référence de la classe Personnel\+Controller}
+\hypertarget{class_app_1_1_http_1_1_controllers_1_1_personnel_controller}{}\label{class_app_1_1_http_1_1_controllers_1_1_personnel_controller}\index{PersonnelController@{PersonnelController}}
+
+
+Graphe d\textquotesingle{}héritage de Personnel\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{class_app_1_1_http_1_1_controllers_1_1_personnel_controller__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Personnel\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{class_app_1_1_http_1_1_controllers_1_1_personnel_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_http_1_1_controllers_1_1_personnel_controller_a149eb92716c1084a935e04a8d95f7347}{index}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1_http_1_1_controllers_1_1_personnel_controller_a435e7d7525d4bcd0ed5e34a469f3adf6}{create}} ()
+\item 
+\mbox{\hyperlink{class_app_1_1_http_1_1_controllers_1_1_personnel_controller_a9ef485163104597c12185b53cdacf638}{store}} (Request \$request)
+\item 
+\mbox{\hyperlink{class_app_1_1_http_1_1_controllers_1_1_personnel_controller_ae4914d07a9bbe4aede7a5dea759f6287}{show}} (\$id)
+\item 
+\mbox{\hyperlink{class_app_1_1_http_1_1_controllers_1_1_personnel_controller_a770dc774eb0c503adc8523130d7872a9}{edit}} (string \$id)
+\item 
+\mbox{\hyperlink{class_app_1_1_http_1_1_controllers_1_1_personnel_controller_affb03cc19897a1800a0f411264d6c7cc}{update}} (Request \$request, \$id)
+\item 
+\mbox{\hyperlink{class_app_1_1_http_1_1_controllers_1_1_personnel_controller_a726fa8a4b4b187b9ca32ba427aac8137}{destroy}} (\$id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Contrôleur gérant les opérations liées au personnel. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_app_1_1_http_1_1_controllers_1_1_personnel_controller_a435e7d7525d4bcd0ed5e34a469f3adf6}\label{class_app_1_1_http_1_1_controllers_1_1_personnel_controller_a435e7d7525d4bcd0ed5e34a469f3adf6} 
+\index{PersonnelController@{PersonnelController}!create@{create}}
+\index{create@{create}!PersonnelController@{PersonnelController}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Afficher le formulaire de création d\textquotesingle{}un nouveau membre du personnel.
+
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+View\textbackslash{}\+View 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_http_1_1_controllers_1_1_personnel_controller_a726fa8a4b4b187b9ca32ba427aac8137}\label{class_app_1_1_http_1_1_controllers_1_1_personnel_controller_a726fa8a4b4b187b9ca32ba427aac8137} 
+\index{PersonnelController@{PersonnelController}!destroy@{destroy}}
+\index{destroy@{destroy}!PersonnelController@{PersonnelController}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily destroy (\begin{DoxyParamCaption}\item[{}]{\$id }\end{DoxyParamCaption})}
+
+Supprimer un membre du personnel de la base de données.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$id} & Identifiant du membre du personnel. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Redirect\+Response 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_http_1_1_controllers_1_1_personnel_controller_a770dc774eb0c503adc8523130d7872a9}\label{class_app_1_1_http_1_1_controllers_1_1_personnel_controller_a770dc774eb0c503adc8523130d7872a9} 
+\index{PersonnelController@{PersonnelController}!edit@{edit}}
+\index{edit@{edit}!PersonnelController@{PersonnelController}}
+\doxysubsubsection{\texorpdfstring{edit()}{edit()}}
+{\footnotesize\ttfamily edit (\begin{DoxyParamCaption}\item[{string}]{\$id }\end{DoxyParamCaption})}
+
+Afficher le formulaire d\textquotesingle{}édition d\textquotesingle{}un membre du personnel.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$id} & Identifiant du membre du personnel. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+View\textbackslash{}\+View 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_http_1_1_controllers_1_1_personnel_controller_a149eb92716c1084a935e04a8d95f7347}\label{class_app_1_1_http_1_1_controllers_1_1_personnel_controller_a149eb92716c1084a935e04a8d95f7347} 
+\index{PersonnelController@{PersonnelController}!index@{index}}
+\index{index@{index}!PersonnelController@{PersonnelController}}
+\doxysubsubsection{\texorpdfstring{index()}{index()}}
+{\footnotesize\ttfamily index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Afficher la liste des membres du personnel.
+
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+View\textbackslash{}\+View 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_http_1_1_controllers_1_1_personnel_controller_ae4914d07a9bbe4aede7a5dea759f6287}\label{class_app_1_1_http_1_1_controllers_1_1_personnel_controller_ae4914d07a9bbe4aede7a5dea759f6287} 
+\index{PersonnelController@{PersonnelController}!show@{show}}
+\index{show@{show}!PersonnelController@{PersonnelController}}
+\doxysubsubsection{\texorpdfstring{show()}{show()}}
+{\footnotesize\ttfamily show (\begin{DoxyParamCaption}\item[{}]{\$id }\end{DoxyParamCaption})}
+
+Afficher les détails d\textquotesingle{}un membre du personnel.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$id} & Identifiant du membre du personnel. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Illuminate\textbackslash{}\+Contracts\textbackslash{}\+View\textbackslash{}\+View 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_http_1_1_controllers_1_1_personnel_controller_a9ef485163104597c12185b53cdacf638}\label{class_app_1_1_http_1_1_controllers_1_1_personnel_controller_a9ef485163104597c12185b53cdacf638} 
+\index{PersonnelController@{PersonnelController}!store@{store}}
+\index{store@{store}!PersonnelController@{PersonnelController}}
+\doxysubsubsection{\texorpdfstring{store()}{store()}}
+{\footnotesize\ttfamily store (\begin{DoxyParamCaption}\item[{Request}]{\$request }\end{DoxyParamCaption})}
+
+Enregistrer un nouveau membre du personnel dans la base de données.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Redirect\+Response 
+\end{DoxyReturn}
+\Hypertarget{class_app_1_1_http_1_1_controllers_1_1_personnel_controller_affb03cc19897a1800a0f411264d6c7cc}\label{class_app_1_1_http_1_1_controllers_1_1_personnel_controller_affb03cc19897a1800a0f411264d6c7cc} 
+\index{PersonnelController@{PersonnelController}!update@{update}}
+\index{update@{update}!PersonnelController@{PersonnelController}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily update (\begin{DoxyParamCaption}\item[{Request}]{\$request,  }\item[{}]{\$id }\end{DoxyParamCaption})}
+
+Mettre à jour un membre du personnel dans la base de données.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Request & {\em \$request} & \\
+\hline
+int & {\em \$id} & Identifiant du membre du personnel. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Illuminate\textbackslash{}\+Http\textbackslash{}\+Redirect\+Response 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+app/\+Http/\+Controllers/\mbox{\hyperlink{_personnel_controller_8php}{Personnel\+Controller.\+php}}\end{DoxyCompactItemize}

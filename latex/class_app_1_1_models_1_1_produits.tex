@@ -1,0 +1,99 @@
+\doxysection{Référence de la classe Produits}
+\hypertarget{class_app_1_1_models_1_1_produits}{}\label{class_app_1_1_models_1_1_produits}\index{Produits@{Produits}}
+
+
+Graphe d\textquotesingle{}héritage de Produits\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{class_app_1_1_models_1_1_produits__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Produits\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{class_app_1_1_models_1_1_produits__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_produits_aeed092534153f2977f4840b0d2e65801}{salle}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Attributs publics statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_app_1_1_models_1_1_produits_a26e733a49083be09fdb16d004becef88}{\$create\+Rules}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_models_1_1_produits_a6a90e74ccdf5efd70d51d10c906f8e32}{\$fillable}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_app_1_1_models_1_1_produits_aeed092534153f2977f4840b0d2e65801}\label{class_app_1_1_models_1_1_produits_aeed092534153f2977f4840b0d2e65801} 
+\index{Produits@{Produits}!salle@{salle}}
+\index{salle@{salle}!Produits@{Produits}}
+\doxysubsubsection{\texorpdfstring{salle()}{salle()}}
+{\footnotesize\ttfamily salle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Définit la relation entre les produits et les salles.
+
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Illuminate\textbackslash{}\+Database\textbackslash{}\+Eloquent\textbackslash{}\+Relations\textbackslash{}\+Belongs\+To 
+\end{DoxyReturn}
+
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{class_app_1_1_models_1_1_produits_a26e733a49083be09fdb16d004becef88}\label{class_app_1_1_models_1_1_produits_a26e733a49083be09fdb16d004becef88} 
+\index{Produits@{Produits}!\$createRules@{\$createRules}}
+\index{\$createRules@{\$createRules}!Produits@{Produits}}
+\doxysubsubsection{\texorpdfstring{\$createRules}{\$createRules}}
+{\footnotesize\ttfamily \$create\+Rules\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'name'}\ =>\ \textcolor{stringliteral}{'required|string|max:255'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'category'}\ =>\ \textcolor{stringliteral}{'required|string|max:255'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'serialnumber'}\ =>\ \textcolor{stringliteral}{'required|unique:produits|max:255'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'imei'}\ =>\ \textcolor{stringliteral}{'nullable|required\_if:category,Téléphone\ Portable|string|max:255'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'lieu'}\ =>\ \textcolor{stringliteral}{'required|string|max:255'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'fournisseur'}\ =>\ \textcolor{stringliteral}{'required|string|max:255'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'etat'}\ =>\ \textcolor{stringliteral}{'required|string|max:255'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'achat'}\ =>\ \textcolor{stringliteral}{'required|date'},}
+\DoxyCodeLine{\ \ \ \ ]}
+
+\end{DoxyCode}
+\Hypertarget{class_app_1_1_models_1_1_produits_a6a90e74ccdf5efd70d51d10c906f8e32}\label{class_app_1_1_models_1_1_produits_a6a90e74ccdf5efd70d51d10c906f8e32} 
+\index{Produits@{Produits}!\$fillable@{\$fillable}}
+\index{\$fillable@{\$fillable}!Produits@{Produits}}
+\doxysubsubsection{\texorpdfstring{\$fillable}{\$fillable}}
+{\footnotesize\ttfamily \$fillable\hspace{0.3cm}{\ttfamily [protected]}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'name'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'category'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'serialnumber'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'lieu'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'achat'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'fournisseur'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'imei'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'etat'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'salle'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'salle\_id'},}
+\DoxyCodeLine{\ \ \ \ ]}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+app/\+Models/\mbox{\hyperlink{_produits_8php}{Produits.\+php}}\end{DoxyCompactItemize}

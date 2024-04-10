@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__feature_2_example_test_8php" xml:lang="fr">
+<title>Référence du fichier tests/Feature/ExampleTest.php</title>
+<indexterm><primary>tests/Feature/ExampleTest.php</primary></indexterm>
+<simplesect>
+    <title>Structures de données    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_tests_1_1_feature_1_1_example_test">ExampleTest</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Espaces de nommage    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_tests_1_1_feature">Tests\Feature</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

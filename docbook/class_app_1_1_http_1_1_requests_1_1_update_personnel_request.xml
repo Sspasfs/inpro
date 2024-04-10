@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_app_1_1_http_1_1_requests_1_1_update_personnel_request" xml:lang="fr">
+<title>Référence de la classe UpdatePersonnelRequest</title>
+<indexterm><primary>UpdatePersonnelRequest</primary></indexterm>
+Graphe d&apos;héritage de UpdatePersonnelRequest:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_http_1_1_requests_1_1_update_personnel_request__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de UpdatePersonnelRequest:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_http_1_1_requests_1_1_update_personnel_request__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_requests_1_1_update_personnel_request_1a49fd51a5864a57e7549db5c97c1fb610">authorize</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_requests_1_1_update_personnel_request_1a17dba92d96b9dd48c62f3ede3eef94d4">rules</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_app_1_1_http_1_1_requests_1_1_update_personnel_request_1a49fd51a5864a57e7549db5c97c1fb610"/><section>
+    <title>authorize()</title>
+<indexterm><primary>authorize</primary><secondary>UpdatePersonnelRequest</secondary></indexterm>
+<indexterm><primary>UpdatePersonnelRequest</primary><secondary>authorize</secondary></indexterm>
+<para><computeroutput>authorize ( )</computeroutput></para>
+<para>Determine if the user is authorized to make this request. </para>
+</section>
+<anchor xml:id="_class_app_1_1_http_1_1_requests_1_1_update_personnel_request_1a17dba92d96b9dd48c62f3ede3eef94d4"/><section>
+    <title>rules()</title>
+<indexterm><primary>rules</primary><secondary>UpdatePersonnelRequest</secondary></indexterm>
+<indexterm><primary>UpdatePersonnelRequest</primary><secondary>rules</secondary></indexterm>
+<para><computeroutput>rules ( )</computeroutput></para>
+<para>Get the validation rules that apply to the request.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array&lt;string, \Illuminate\Contracts\Validation\ValidationRule|array&lt;mixed&gt;|string&gt; </para>
+</formalpara>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+app/Http/Requests/<link linkend="__update_personnel_request_8php">UpdatePersonnelRequest.php</link></section>
+</section>

@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2anymatch_2_r_e_a_d_m_e" xml:lang="fr">
+<title>anymatch &lt;a href=&quot;https://travis-ci.org/micromatch/anymatch&quot; &gt;&lt;img src=&quot;https://travis-ci.org/micromatch/anymatch.svg?branch=master&quot; alt=&quot;Build Status&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://coveralls.io/r/micromatch/anymatch?branch=master&quot; &gt;&lt;img src=&quot;https://img.shields.io/coveralls/micromatch/anymatch.svg?branch=master&quot; alt=&quot;Coverage Status&quot;/&gt;&lt;/a&gt;</title>
+<indexterm><primary>anymatch &lt;a href=&quot;https://travis-ci.org/micromatch/anymatch&quot; &gt;&lt;img src=&quot;https://travis-ci.org/micromatch/anymatch.svg?branch=master&quot; alt=&quot;Build Status&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://coveralls.io/r/micromatch/anymatch?branch=master&quot; &gt;&lt;img src=&quot;https://img.shields.io/coveralls/micromatch/anymatch.svg?branch=master&quot; alt=&quot;Coverage Status&quot;/&gt;&lt;/a&gt;</primary></indexterm>
+
+<para>Javascript module to match a string against a regular expression, glob, string, or function that takes the string as an argument and returns a truthy or falsy value. The matcher can also be an array of any or all of these. Useful for allowing a very flexible user-defined config to define things like file paths.</para>
+
+<para><emphasis role="bold">Note: This module has Bash-parity, please be aware that Windows-style backslashes are not supported as separators. See <link xlink:href="https://github.com/micromatch/micromatch#backslashes">https://github.com/micromatch/micromatch#backslashes</link> for more information.</emphasis></para>
+<section xml:id="_md_node__modules_2anymatch_2_r_e_a_d_m_e_1autotoc_md18">
+<title><title>Usage</title></title>
+
+<para><literallayout><computeroutput>npm&#32;install&#32;anymatch
+</computeroutput></literallayout></para>
+<section xml:id="_md_node__modules_2anymatch_2_r_e_a_d_m_e_1autotoc_md19">
+<title><title>anymatch(matchers, testString, [returnIndex], [options])</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">matchers</emphasis>: (<emphasis>Array|String|RegExp|Function</emphasis>) String to be directly matched, string with glob patterns, regular expression test, function that takes the testString as an argument and returns a truthy value if it should be matched, or an array of any number and mix of these types.</para>
+</listitem><listitem>
+<para><emphasis role="bold">testString</emphasis>: (<emphasis>String|Array</emphasis>) The string to test against the matchers. If passed as an array, the first element of the array will be used as the <computeroutput>testString</computeroutput> for non-function matchers, while the entire array will be applied as the arguments for function matchers.</para>
+</listitem><listitem>
+<para><emphasis role="bold">options</emphasis>: (<emphasis>Object</emphasis> [optional]_) Any of the <link xlink:href="https://github.com/micromatch/picomatch#options">picomatch</link> options.<itemizedlist>
+<listitem>
+<para><emphasis role="bold">returnIndex</emphasis>: (<emphasis>Boolean [optional]</emphasis>) If true, return the array index of the first matcher that that testString matched, or -1 if no match, instead of a boolean result.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>const&#32;anymatch&#32;=&#32;require(&apos;anymatch&apos;);
+
+const&#32;matchers&#32;=&#32;[&#32;&apos;path/to/file.js&apos;,&#32;&apos;path/anyjs/**/*.js&apos;,&#32;/foo.js$/,&#32;string&#32;=&gt;&#32;string.includes(&apos;bar&apos;)&#32;&amp;&amp;&#32;string.length&#32;&gt;&#32;10&#32;]&#32;;
+
+anymatch(matchers,&#32;&apos;path/to/file.js&apos;);&#32;//&#32;true
+anymatch(matchers,&#32;&apos;path/anyjs/baz.js&apos;);&#32;//&#32;true
+anymatch(matchers,&#32;&apos;path/to/foo.js&apos;);&#32;//&#32;true
+anymatch(matchers,&#32;&apos;path/to/bar.js&apos;);&#32;//&#32;true
+anymatch(matchers,&#32;&apos;bar.js&apos;);&#32;//&#32;false
+
+//&#32;returnIndex&#32;=&#32;true
+anymatch(matchers,&#32;&apos;foo.js&apos;,&#32;{returnIndex:&#32;true});&#32;//&#32;2
+anymatch(matchers,&#32;&apos;path/anyjs/foo.js&apos;,&#32;{returnIndex:&#32;true});&#32;//&#32;1
+
+//&#32;any&#32;picomatc
+
+//&#32;using&#32;globs&#32;to&#32;match&#32;directories&#32;and&#32;their&#32;children
+anymatch(&apos;node_modules&apos;,&#32;&apos;node_modules&apos;);&#32;//&#32;true
+anymatch(&apos;node_modules&apos;,&#32;&apos;node_modules/somelib/index.js&apos;);&#32;//&#32;false
+anymatch(&apos;node_modules/**&apos;,&#32;&apos;node_modules/somelib/index.js&apos;);&#32;//&#32;true
+anymatch(&apos;node_modules/**&apos;,&#32;&apos;/absolute/path/to/node_modules/somelib/index.js&apos;);&#32;//&#32;false
+anymatch(&apos;**/node_modules/**&apos;,&#32;&apos;/absolute/path/to/node_modules/somelib/index.js&apos;);&#32;//&#32;true
+
+const&#32;matcher&#32;=&#32;anymatch(matchers);
+[&apos;foo.js&apos;,&#32;&apos;bar.js&apos;].filter(matcher);&#32;&#32;//&#32;[&#32;&apos;foo.js&apos;&#32;]
+anymatch&#32;master*&#32;❯
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2anymatch_2_r_e_a_d_m_e_1autotoc_md20">
+<title><title>anymatch(matchers)</title></title>
+
+<para>You can also pass in only your matcher(s) to get a curried function that has already been bound to the provided matching criteria. This can be used as an <computeroutput>Array#filter</computeroutput> callback.</para>
+
+<para><literallayout><computeroutput>var&#32;matcher&#32;=&#32;anymatch(matchers);
+
+matcher(&apos;path/to/file.js&apos;);&#32;//&#32;true
+matcher(&apos;path/anyjs/baz.js&apos;,&#32;true);&#32;//&#32;1
+
+[&apos;foo.js&apos;,&#32;&apos;bar.js&apos;].filter(matcher);&#32;//&#32;[&apos;foo.js&apos;]
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2anymatch_2_r_e_a_d_m_e_1autotoc_md21">
+<title><title>Changelog</title></title>
+
+<para><link xlink:href="https://github.com/micromatch/anymatch/releases">See release notes page on GitHub</link></para>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">v3.0:</emphasis> Removed <computeroutput>startIndex</computeroutput> and <computeroutput>endIndex</computeroutput> arguments. Node 8.x-only.</para>
+</listitem><listitem>
+<para><emphasis role="bold">v2.0:</emphasis> <link xlink:href="https://github.com/jonschlinkert/micromatch">micromatch</link> moves away from minimatch-parity and inline with Bash. This includes handling backslashes differently (see <link xlink:href="https://github.com/micromatch/micromatch#backslashes">https://github.com/micromatch/micromatch#backslashes</link> for more information).</para>
+</listitem><listitem>
+<para><emphasis role="bold">v1.2:</emphasis> anymatch uses <link xlink:href="https://github.com/jonschlinkert/micromatch">micromatch</link> for glob pattern matching. Issues with glob pattern matching should be reported directly to the <link xlink:href="https://github.com/jonschlinkert/micromatch/issues">micromatch issue tracker</link>.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2anymatch_2_r_e_a_d_m_e_1autotoc_md22">
+<title><title>License</title></title>
+
+<para><link xlink:href="https://raw.github.com/micromatch/anymatch/master/LICENSE">ISC</link> </para>
+</section>
+</section>

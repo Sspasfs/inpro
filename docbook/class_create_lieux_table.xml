@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_create_lieux_table" xml:lang="fr">
+<title>Référence de la classe CreateLieuxTable</title>
+<indexterm><primary>CreateLieuxTable</primary></indexterm>
+Graphe d&apos;héritage de CreateLieuxTable:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_create_lieux_table__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de CreateLieuxTable:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_create_lieux_table__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_create_lieux_table_1a4edef5efd5ab94ce9d17295898ead93a">up</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_create_lieux_table_1af5fda92f47a449c7a33f9dd5ef5aa6c3">down</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_create_lieux_table_1af5fda92f47a449c7a33f9dd5ef5aa6c3"/><section>
+    <title>down()</title>
+<indexterm><primary>down</primary><secondary>CreateLieuxTable</secondary></indexterm>
+<indexterm><primary>CreateLieuxTable</primary><secondary>down</secondary></indexterm>
+<para><computeroutput>down ( )</computeroutput></para></section>
+<anchor xml:id="_class_create_lieux_table_1a4edef5efd5ab94ce9d17295898ead93a"/><section>
+    <title>up()</title>
+<indexterm><primary>up</primary><secondary>CreateLieuxTable</secondary></indexterm>
+<indexterm><primary>CreateLieuxTable</primary><secondary>up</secondary></indexterm>
+<para><computeroutput>up ( )</computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+database/migrations/<link linkend="_2024__01__03__101204__create__lieux__table_8php">2024_01_03_101204_create_lieux_table.php</link></section>
+</section>

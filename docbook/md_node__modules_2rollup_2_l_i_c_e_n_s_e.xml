@@ -1,0 +1,604 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e" xml:lang="fr">
+<title>Rollup core license</title>
+<indexterm><primary>Rollup core license</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md694"/>Rollup is released under the MIT license:</para>
+
+<para>The MIT License (MIT)</para>
+
+<para>Copyright (c) 2017 <link xlink:href="https://github.com/rollup/rollup/graphs/contributors">these people</link></para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md695">
+<title><title>Licenses of bundled dependencies</title></title>
+
+<para>The published Rollup artifact additionally contains code with the following licenses: MIT, ISC</para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md696">
+<title><title>Bundled dependencies:</title></title>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md697">
+<title><title>@jridgewell/sourcemap-codec</title></title>
+
+<para>License: MIT By: Rich Harris Repository: git+https://github.com/jridgewell/sourcemap-codec.git</para>
+
+<para><blockquote>
+<para>&#8205;The MIT License</para>
+
+<para>Copyright (c) 2015 Rich Harris</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md698">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md699">
+<title><title>@rollup/pluginutils</title></title>
+
+<para>License: MIT By: Rich Harris Repository: rollup/plugins</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md701">
+<title><title>acorn</title></title>
+
+<para>License: MIT By: Marijn Haverbeke, Ingvar Stepanyan, Adrian Heine Repository: <link xlink:href="https://github.com/acornjs/acorn.git">https://github.com/acornjs/acorn.git</link></para>
+
+<para><blockquote>
+<para>&#8205;MIT License</para>
+
+<para>Copyright (C) 2012-2022 by various contributors (see AUTHORS)</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md702">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md703">
+<title><title>acorn-import-assertions</title></title>
+
+<para>License: MIT By: Sven Sauleau Repository: <link xlink:href="https://github.com/xtuc/acorn-import-assertions">https://github.com/xtuc/acorn-import-assertions</link></para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md705">
+<title><title>acorn-walk</title></title>
+
+<para>License: MIT By: Marijn Haverbeke, Ingvar Stepanyan, Adrian Heine Repository: <link xlink:href="https://github.com/acornjs/acorn.git">https://github.com/acornjs/acorn.git</link></para>
+
+<para><blockquote>
+<para>&#8205;MIT License</para>
+
+<para>Copyright (C) 2012-2020 by various contributors (see AUTHORS)</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md706">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md707">
+<title><title>anymatch</title></title>
+
+<para>License: ISC By: Elan Shanker Repository: <link xlink:href="https://github.com/micromatch/anymatch">https://github.com/micromatch/anymatch</link></para>
+
+<para><blockquote>
+<para>&#8205;The ISC License</para>
+
+<para>Copyright (c) 2019 Elan Shanker, Paul Miller (<link xlink:href="https://paulmillr.com">https://paulmillr.com</link>)</para>
+
+<para>Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md708">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md709">
+<title><title>binary-extensions</title></title>
+
+<para>License: MIT By: Sindre Sorhus Repository: sindresorhus/binary-extensions</para>
+
+<para><blockquote>
+<para>&#8205;MIT License</para>
+
+<para>Copyright (c) 2019 Sindre Sorhus <link xlink:href="mailto:sindresorhus@gmail.com">sindresorhus@gmail.com</link> (<link xlink:href="https://sindresorhus.com">https://sindresorhus.com</link>), Paul Miller (<link xlink:href="https://paulmillr.com">https://paulmillr.com</link>)</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md710">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md711">
+<title><title>braces</title></title>
+
+<para>License: MIT By: Jon Schlinkert, Brian Woodward, Elan Shanker, Eugene Sharygin, hemanth.hm Repository: micromatch/braces</para>
+
+<para><blockquote>
+<para>&#8205;The MIT License (MIT)</para>
+
+<para>Copyright (c) 2014-2018, Jon Schlinkert.</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md712">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md713">
+<title><title>builtin-modules</title></title>
+
+<para>License: MIT By: Sindre Sorhus Repository: sindresorhus/builtin-modules</para>
+
+<para><blockquote>
+<para>&#8205;MIT License</para>
+
+<para>Copyright (c) Sindre Sorhus <link xlink:href="mailto:sindresorhus@gmail.com">sindresorhus@gmail.com</link> (<link xlink:href="https://sindresorhus.com">https://sindresorhus.com</link>)</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md714">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md715">
+<title><title>chokidar</title></title>
+
+<para>License: MIT By: Paul Miller, Elan Shanker Repository: git+https://github.com/paulmillr/chokidar.git</para>
+
+<para><blockquote>
+<para>&#8205;The MIT License (MIT)</para>
+
+<para>Copyright (c) 2012-2019 Paul Miller (<link xlink:href="https://paulmillr.com">https://paulmillr.com</link>), Elan Shanker</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md716">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md717">
+<title><title>colorette</title></title>
+
+<para>License: MIT By: Jorge Bucaran Repository: jorgebucaran/colorette</para>
+
+<para><blockquote>
+<para>&#8205;Copyright © Jorge Bucaran &lt;<link xlink:href="https://jorgebucaran.com">https://jorgebucaran.com</link>&gt;</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &apos;Software&apos;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &apos;AS IS&apos;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md718">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md719">
+<title><title>date-time</title></title>
+
+<para>License: MIT By: Sindre Sorhus Repository: sindresorhus/date-time</para>
+
+<para><blockquote>
+<para>&#8205;MIT License</para>
+
+<para>Copyright (c) Sindre Sorhus <link xlink:href="mailto:sindresorhus@gmail.com">sindresorhus@gmail.com</link> (<link xlink:href="https://sindresorhus.com">https://sindresorhus.com</link>)</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md720">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md721">
+<title><title>fill-range</title></title>
+
+<para>License: MIT By: Jon Schlinkert, Edo Rivai, Paul Miller, Rouven Weßling Repository: jonschlinkert/fill-range</para>
+
+<para><blockquote>
+<para>&#8205;The MIT License (MIT)</para>
+
+<para>Copyright (c) 2014-present, Jon Schlinkert.</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md722">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md723">
+<title><title>flru</title></title>
+
+<para>License: MIT By: Luke Edwards Repository: lukeed/flru</para>
+
+<para><blockquote>
+<para>&#8205;MIT License</para>
+
+<para>Copyright (c) Luke Edwards <link xlink:href="mailto:luke.edwards05@gmail.com">luke.edwards05@gmail.com</link> (lukeed.com)</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md724">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md725">
+<title><title>glob-parent</title></title>
+
+<para>License: ISC By: Gulp Team, Elan Shanker, Blaine Bublitz Repository: gulpjs/glob-parent</para>
+
+<para><blockquote>
+<para>&#8205;The ISC License</para>
+
+<para>Copyright (c) 2015, 2019 Elan Shanker</para>
+
+<para>Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md726">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md727">
+<title><title>is-binary-path</title></title>
+
+<para>License: MIT By: Sindre Sorhus Repository: sindresorhus/is-binary-path</para>
+
+<para><blockquote>
+<para>&#8205;MIT License</para>
+
+<para>Copyright (c) 2019 Sindre Sorhus <link xlink:href="mailto:sindresorhus@gmail.com">sindresorhus@gmail.com</link> (<link xlink:href="https://sindresorhus.com">https://sindresorhus.com</link>), Paul Miller (<link xlink:href="https://paulmillr.com">https://paulmillr.com</link>)</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md728">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md729">
+<title><title>is-extglob</title></title>
+
+<para>License: MIT By: Jon Schlinkert Repository: jonschlinkert/is-extglob</para>
+
+<para><blockquote>
+<para>&#8205;The MIT License (MIT)</para>
+
+<para>Copyright (c) 2014-2016, Jon Schlinkert</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md730">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md731">
+<title><title>is-glob</title></title>
+
+<para>License: MIT By: Jon Schlinkert, Brian Woodward, Daniel Perez Repository: micromatch/is-glob</para>
+
+<para><blockquote>
+<para>&#8205;The MIT License (MIT)</para>
+
+<para>Copyright (c) 2014-2017, Jon Schlinkert.</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md732">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md733">
+<title><title>is-number</title></title>
+
+<para>License: MIT By: Jon Schlinkert, Olsten Larck, Rouven Weßling Repository: jonschlinkert/is-number</para>
+
+<para><blockquote>
+<para>&#8205;The MIT License (MIT)</para>
+
+<para>Copyright (c) 2014-present, Jon Schlinkert.</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md734">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md735">
+<title><title>is-reference</title></title>
+
+<para>License: MIT By: Rich Harris Repository: git+https://github.com/Rich-Harris/is-reference.git</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md737">
+<title><title>locate-character</title></title>
+
+<para>License: MIT By: Rich Harris Repository: git+https://gitlab.com/Rich-Harris/locate-character.git</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md739">
+<title><title>magic-string</title></title>
+
+<para>License: MIT By: Rich Harris Repository: <link xlink:href="https://github.com/rich-harris/magic-string">https://github.com/rich-harris/magic-string</link></para>
+
+<para><blockquote>
+<para>&#8205;Copyright 2018 Rich Harris</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md740">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md741">
+<title><title>normalize-path</title></title>
+
+<para>License: MIT By: Jon Schlinkert, Blaine Bublitz Repository: jonschlinkert/normalize-path</para>
+
+<para><blockquote>
+<para>&#8205;The MIT License (MIT)</para>
+
+<para>Copyright (c) 2014-2018, Jon Schlinkert.</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md742">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md743">
+<title><title>parse-ms</title></title>
+
+<para>License: MIT By: Sindre Sorhus Repository: sindresorhus/parse-ms</para>
+
+<para><blockquote>
+<para>&#8205;MIT License</para>
+
+<para>Copyright (c) Sindre Sorhus <link xlink:href="mailto:sindresorhus@gmail.com">sindresorhus@gmail.com</link> (<link xlink:href="https://sindresorhus.com">https://sindresorhus.com</link>)</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md744">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md745">
+<title><title>picomatch</title></title>
+
+<para>License: MIT By: Jon Schlinkert Repository: micromatch/picomatch</para>
+
+<para><blockquote>
+<para>&#8205;The MIT License (MIT)</para>
+
+<para>Copyright (c) 2017-present, Jon Schlinkert.</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md746">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md747">
+<title><title>pretty-bytes</title></title>
+
+<para>License: MIT By: Sindre Sorhus Repository: sindresorhus/pretty-bytes</para>
+
+<para><blockquote>
+<para>&#8205;MIT License</para>
+
+<para>Copyright (c) Sindre Sorhus <link xlink:href="mailto:sindresorhus@gmail.com">sindresorhus@gmail.com</link> (<link xlink:href="https://sindresorhus.com">https://sindresorhus.com</link>)</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md748">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md749">
+<title><title>pretty-ms</title></title>
+
+<para>License: MIT By: Sindre Sorhus Repository: sindresorhus/pretty-ms</para>
+
+<para><blockquote>
+<para>&#8205;MIT License</para>
+
+<para>Copyright (c) Sindre Sorhus <link xlink:href="mailto:sindresorhus@gmail.com">sindresorhus@gmail.com</link> (<link xlink:href="https://sindresorhus.com">https://sindresorhus.com</link>)</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md750">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md751">
+<title><title>readdirp</title></title>
+
+<para>License: MIT By: Thorsten Lorenz, Paul Miller Repository: git://github.com/paulmillr/readdirp.git</para>
+
+<para><blockquote>
+<para>&#8205;MIT License</para>
+
+<para>Copyright (c) 2012-2019 Thorsten Lorenz, Paul Miller (<link xlink:href="https://paulmillr.com">https://paulmillr.com</link>)</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md752">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md753">
+<title><title>signal-exit</title></title>
+
+<para>License: ISC By: Ben Coe Repository: <link xlink:href="https://github.com/tapjs/signal-exit.git">https://github.com/tapjs/signal-exit.git</link></para>
+
+<para><blockquote>
+<para>&#8205;The ISC License</para>
+
+<para>Copyright (c) 2015-2023 Benjamin Coe, Isaac Z. Schlueter, and Contributors</para>
+
+<para>Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md754">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md755">
+<title><title>time-zone</title></title>
+
+<para>License: MIT By: Sindre Sorhus Repository: sindresorhus/time-zone</para>
+
+<para><blockquote>
+<para>&#8205;MIT License</para>
+
+<para>Copyright (c) Sindre Sorhus <link xlink:href="mailto:sindresorhus@gmail.com">sindresorhus@gmail.com</link> (<link xlink:href="https://sindresorhus.com">https://sindresorhus.com</link>)</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md756">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md757">
+<title><title>to-regex-range</title></title>
+
+<para>License: MIT By: Jon Schlinkert, Rouven Weßling Repository: micromatch/to-regex-range</para>
+
+<para><blockquote>
+<para>&#8205;The MIT License (MIT)</para>
+
+<para>Copyright (c) 2015-present, Jon Schlinkert.</para>
+
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
+
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md758">
+<title></title>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_l_i_c_e_n_s_e_1autotoc_md759">
+<title><title>yargs-parser</title></title>
+
+<para>License: ISC By: Ben Coe Repository: <link xlink:href="https://github.com/yargs/yargs-parser.git">https://github.com/yargs/yargs-parser.git</link></para>
+
+<para><blockquote>
+<para>&#8205;Copyright (c) 2016, Contributors</para>
+
+<para>Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.</para>
+
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE. </para>
+</blockquote></para>
+</section>
+</section>
+</section>

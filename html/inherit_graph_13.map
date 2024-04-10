@@ -1,0 +1,13 @@
+<map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,104,62,130"/>
+<area shape="rect" id="Node000001" href="$class_app_1_1_models_1_1_category.html" title=" " alt="" coords="112,5,187,31"/>
+<area shape="poly" id="edge39_Node000000_Node000001" title=" " alt="" coords="55,91,108,40,123,29,126,34,111,44,58,95"/>
+<area shape="rect" id="Node000002" href="$class_app_1_1_models_1_1_lieux.html" title=" " alt="" coords="123,55,176,80"/>
+<area shape="poly" id="edge40_Node000000_Node000002" title=" " alt="" coords="75,96,122,76,124,81,77,101"/>
+<area shape="rect" id="Node000003" href="$class_app_1_1_models_1_1_personnel.html" title=" " alt="" coords="110,104,189,130"/>
+<area shape="poly" id="edge41_Node000000_Node000003" title=" " alt="" coords="77,114,109,114,109,120,77,120"/>
+<area shape="rect" id="Node000004" href="$class_app_1_1_models_1_1_produits.html" title=" " alt="" coords="115,153,184,179"/>
+<area shape="poly" id="edge42_Node000000_Node000004" title=" " alt="" coords="77,132,118,150,116,155,75,137"/>
+<area shape="rect" id="Node000005" href="$class_app_1_1_models_1_1_salle.html" title=" " alt="" coords="124,203,175,228"/>
+<area shape="poly" id="edge43_Node000000_Node000005" title=" " alt="" coords="58,139,111,189,126,200,123,204,108,194,55,143"/>
+</map>

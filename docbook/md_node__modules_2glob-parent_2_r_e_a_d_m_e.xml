@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2glob-parent_2_r_e_a_d_m_e" xml:lang="fr">
+<title>README</title>
+<indexterm><primary>README</primary></indexterm>
+
+<para></para>
+
+<para><link xlink:href="https://gulpjs.com"> </link> </para>
+<section xml:id="_md_node__modules_2glob-parent_2_r_e_a_d_m_e_1autotoc_md390">
+<title><title>glob-parent</title></title>
+
+<para><link xlink:href="https://www.npmjs.com/package/glob-parent"></link> <link xlink:href="https://www.npmjs.com/package/glob-parent"></link> <link xlink:href="https://dev.azure.com/gulpjs/gulp/_build/latest?definitionId=2&amp;branchName=master"></link> <link xlink:href="https://travis-ci.org/gulpjs/glob-parent"></link> <link xlink:href="https://ci.appveyor.com/project/gulpjs/glob-parent"></link> <link xlink:href="https://coveralls.io/r/gulpjs/glob-parent"></link> <link xlink:href="https://gitter.im/gulpjs/gulp"></link></para>
+
+<para>Extract the non-magic parent path from a glob string.</para>
+<section xml:id="_md_node__modules_2glob-parent_2_r_e_a_d_m_e_1autotoc_md391">
+<title><title>Usage</title></title>
+
+<para><literallayout><computeroutput>var&#32;globParent&#32;=&#32;require(&apos;glob-parent&apos;);
+
+globParent(&apos;path/to/*.js&apos;);&#32;//&#32;&apos;path/to&apos;
+globParent(&apos;/root/path/to/*.js&apos;);&#32;//&#32;&apos;/root/path/to&apos;
+globParent(&apos;/*.js&apos;);&#32;//&#32;&apos;/&apos;
+globParent(&apos;*.js&apos;);&#32;//&#32;&apos;.&apos;
+globParent(&apos;**/*.js&apos;);&#32;//&#32;&apos;.&apos;
+globParent(&apos;path/{to,from}&apos;);&#32;//&#32;&apos;path&apos;
+globParent(&apos;path/!(to|from)&apos;);&#32;//&#32;&apos;path&apos;
+globParent(&apos;path/?(to|from)&apos;);&#32;//&#32;&apos;path&apos;
+globParent(&apos;path/+(to|from)&apos;);&#32;//&#32;&apos;path&apos;
+globParent(&apos;path/*(to|from)&apos;);&#32;//&#32;&apos;path&apos;
+globParent(&apos;path/@(to|from)&apos;);&#32;//&#32;&apos;path&apos;
+globParent(&apos;path/**/*&apos;);&#32;//&#32;&apos;path&apos;
+
+//&#32;if&#32;provided&#32;a&#32;non-glob&#32;path,&#32;returns&#32;the&#32;nearest&#32;dir
+globParent(&apos;path/foo/bar.js&apos;);&#32;//&#32;&apos;path/foo&apos;
+globParent(&apos;path/foo/&apos;);&#32;//&#32;&apos;path/foo&apos;
+globParent(&apos;path/foo&apos;);&#32;//&#32;&apos;path&apos;&#32;(see&#32;issue&#32;#3&#32;for&#32;details)
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_r_e_a_d_m_e_1autotoc_md392">
+<title><title>API</title></title>
+<section xml:id="_md_node__modules_2glob-parent_2_r_e_a_d_m_e_1autotoc_md393">
+<title><title><computeroutput>globParent(maybeGlobString, [options])</computeroutput></title></title>
+
+<para>Takes a string and returns the part of the path before the glob begins. Be aware of Escaping rules and Limitations below.</para>
+<section xml:id="_md_node__modules_2glob-parent_2_r_e_a_d_m_e_1autotoc_md394">
+<title><title>options</title></title>
+
+<para><literallayout><computeroutput>{
+&#32;&#32;//&#32;Disables&#32;the&#32;automatic&#32;conversion&#32;of&#32;slashes&#32;for&#32;Windows
+&#32;&#32;flipBackslashes:&#32;true
+}
+</computeroutput></literallayout></para>
+</section>
+</section>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_r_e_a_d_m_e_1autotoc_md395">
+<title><title>Escaping</title></title>
+
+<para>The following characters have special significance in glob patterns and must be escaped if you want them to be treated as regular path characters:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>?</computeroutput> (question mark) unless used as a path segment alone</para>
+</listitem><listitem>
+<para><computeroutput>*</computeroutput> (asterisk)</para>
+</listitem><listitem>
+<para><computeroutput>|</computeroutput> (pipe)</para>
+</listitem><listitem>
+<para><computeroutput>(</computeroutput> (opening parenthesis)</para>
+</listitem><listitem>
+<para><computeroutput>)</computeroutput> (closing parenthesis)</para>
+</listitem><listitem>
+<para><computeroutput>{</computeroutput> (opening curly brace)</para>
+</listitem><listitem>
+<para><computeroutput>}</computeroutput> (closing curly brace)</para>
+</listitem><listitem>
+<para><computeroutput>[</computeroutput> (opening bracket)</para>
+</listitem><listitem>
+<para><computeroutput>]</computeroutput> (closing bracket)</para>
+</listitem></itemizedlist>
+</para>
+
+<para><emphasis role="bold">Example</emphasis></para>
+
+<para><literallayout><computeroutput>globParent(&apos;foo/[bar]/&apos;)&#32;//&#32;&apos;foo&apos;
+globParent(&apos;foo/\\[bar]/&apos;)&#32;//&#32;&apos;foo/[bar]&apos;
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_r_e_a_d_m_e_1autotoc_md396">
+<title><title>Limitations</title></title>
+<section xml:id="_md_node__modules_2glob-parent_2_r_e_a_d_m_e_1autotoc_md397">
+<title><title>Braces &amp; Brackets</title></title>
+
+<para>This library attempts a quick and imperfect method of determining which path parts have glob magic without fully parsing/lexing the pattern. There are some advanced use cases that can trip it up, such as nested braces where the outer pair is escaped and the inner one contains a path separator. If you find yourself in the unlikely circumstance of being affected by this or need to ensure higher-fidelity glob handling in your library, it is recommended that you pre-process your input with <link xlink:href="https://github.com/jonschlinkert/expand-braces">expand-braces</link> and/or <link xlink:href="https://github.com/jonschlinkert/expand-brackets">expand-brackets</link>.</para>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_r_e_a_d_m_e_1autotoc_md398">
+<title><title>Windows</title></title>
+
+<para>Backslashes are not valid path separators for globs. If a path with backslashes is provided anyway, for simple cases, glob-parent will replace the path separator for you and return the non-glob parent path (now with forward-slashes, which are still valid as Windows path separators).</para>
+
+<para>This cannot be used in conjunction with escape characters.</para>
+
+<para><literallayout><computeroutput>//&#32;BAD
+globParent(&apos;C:\\Program&#32;Files&#32;\\(x86\\)\\*.ext&apos;)&#32;//&#32;&apos;C:/Program&#32;Files&#32;/(x86/)&apos;
+
+//&#32;GOOD
+globParent(&apos;C:/Program&#32;Files\\(x86\\)/*.ext&apos;)&#32;//&#32;&apos;C:/Program&#32;Files&#32;(x86)&apos;
+</computeroutput></literallayout></para>
+
+<para>If you are using escape characters for a pattern without path parts (i.e. relative to <computeroutput>cwd</computeroutput>), prefix with <computeroutput>./</computeroutput> to avoid confusing glob-parent.</para>
+
+<para><literallayout><computeroutput>//&#32;BAD
+globParent(&apos;foo&#32;\\[bar]&apos;)&#32;//&#32;&apos;foo&#32;&apos;
+globParent(&apos;foo&#32;\\[bar]*&apos;)&#32;//&#32;&apos;foo&#32;&apos;
+
+//&#32;GOOD
+globParent(&apos;./foo&#32;\\[bar]&apos;)&#32;//&#32;&apos;foo&#32;[bar]&apos;
+globParent(&apos;./foo&#32;\\[bar]*&apos;)&#32;//&#32;&apos;.&apos;
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_r_e_a_d_m_e_1autotoc_md399">
+<title><title>License</title></title>
+
+<para>ISC </para>
+</section>
+</section>
+</section>

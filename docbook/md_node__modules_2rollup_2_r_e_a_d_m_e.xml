@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2rollup_2_r_e_a_d_m_e" xml:lang="fr">
+<title>README</title>
+<indexterm><primary>README</primary></indexterm>
+
+<para></para>
+
+<para><link xlink:href="https://rollupjs.org/"></link> </para>
+
+<para></para>
+
+<para><link xlink:href="https://www.npmjs.com/package/rollup"> </link> <link xlink:href="https://packagephobia.now.sh/result?p=rollup"> </link> <link xlink:href="https://codecov.io/gh/rollup/rollup"> </link> <link linkend="__2_users_2alexleblay_2_documents_2_edcuservice_2inpro-laravel_2node_modules_2rollup_2_r_e_a_d_m_e_8md_1backers"> </link> <link linkend="__2_users_2alexleblay_2_documents_2_edcuservice_2inpro-laravel_2node_modules_2rollup_2_r_e_a_d_m_e_8md_1sponsors"> </link> <link xlink:href="https://github.com/rollup/rollup/blob/master/LICENSE.md"> </link></para>
+
+<para><link xlink:href="https://is.gd/rollup_chat?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"> </link> </para>
+
+<para><formalpara><title>Rollup</title></formalpara>
+</para>
+<section xml:id="_md_node__modules_2rollup_2_r_e_a_d_m_e_1autotoc_md760">
+<title><title>Overview</title></title>
+
+<para>Rollup is a module bundler for JavaScript which compiles small pieces of code into something larger and more complex, such as a library or application. It uses the standardized ES module format for code, instead of previous idiosyncratic solutions such as CommonJS and AMD. ES modules let you freely and seamlessly combine the most useful individual functions from your favorite libraries. Rollup can optimize ES modules for faster native loading in modern browsers, or output a legacy module format allowing ES module workflows today.</para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_r_e_a_d_m_e_1autotoc_md761">
+<title><title>Quick Start Guide</title></title>
+
+<para>Install with <computeroutput>npm install --global rollup</computeroutput>. Rollup can be used either through a <link xlink:href="https://rollupjs.org/command-line-interface/">command line interface</link> with an optional configuration file or else through its <link xlink:href="https://rollupjs.org/javascript-api/">JavaScript API</link>. Run <computeroutput>rollup --help</computeroutput> to see the available options and parameters. The starter project templates, <link xlink:href="https://github.com/rollup/rollup-starter-lib">rollup-starter-lib</link> and <link xlink:href="https://github.com/rollup/rollup-starter-app">rollup-starter-app</link>, demonstrate common configuration options, and more detailed instructions are available throughout the <link xlink:href="https://rollupjs.org/introduction/">user guide</link>.</para>
+<section xml:id="_md_node__modules_2rollup_2_r_e_a_d_m_e_1autotoc_md762">
+<title><title>Commands</title></title>
+
+<para>These commands assume the entry point to your application is named main.js, and that you&apos;d like all imports compiled into a single file named bundle.js.</para>
+
+<para>For browsers:</para>
+
+<para><literallayout><computeroutput>#&#32;compile&#32;to&#32;a&#32;&lt;script&gt;&#32;containing&#32;a&#32;self-executing&#32;function
+rollup&#32;main.js&#32;--format&#32;iife&#32;--name&#32;&quot;myBundle&quot;&#32;--file&#32;bundle.js
+</computeroutput></literallayout></para>
+
+<para>For Node.js:</para>
+
+<para><literallayout><computeroutput>#&#32;compile&#32;to&#32;a&#32;CommonJS&#32;module
+rollup&#32;main.js&#32;--format&#32;cjs&#32;--file&#32;bundle.js
+</computeroutput></literallayout></para>
+
+<para>For both browsers and Node.js:</para>
+
+<para><literallayout><computeroutput>#&#32;UMD&#32;format&#32;requires&#32;a&#32;bundle&#32;name
+rollup&#32;main.js&#32;--format&#32;umd&#32;--name&#32;&quot;myBundle&quot;&#32;--file&#32;bundle.js
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_r_e_a_d_m_e_1autotoc_md763">
+<title><title>Why</title></title>
+
+<para>Developing software is usually easier if you break your project into smaller separate pieces, since that often removes unexpected interactions and dramatically reduces the complexity of the problems you&apos;ll need to solve, and simply writing smaller projects in the first place <link xlink:href="https://medium.com/@Rich_Harris/small-modules-it-s-not-quite-that-simple-3ca532d65de4">isn&apos;t necessarily the answer</link>. Unfortunately, JavaScript has not historically included this capability as a core feature in the language.</para>
+
+<para>This finally changed with ES modules support in JavaScript, which provides a syntax for importing and exporting functions and data so they can be shared between separate scripts. Most browsers and Node.js support ES modules. However, Node.js releases before 12.17 support ES modules only behind the <computeroutput>--experimental-modules</computeroutput> flag, and older browsers like Internet Explorer do not support ES modules at all. Rollup allows you to write your code using ES modules, and run your application even in environments that do not support ES modules natively. For environments that support them, Rollup can output optimized ES modules; for environments that don&apos;t, Rollup can compile your code to other formats such as CommonJS modules, AMD modules, and IIFE-style scripts. This means that you get to <emphasis>write future-proof code</emphasis>, and you also get the tremendous benefits of...</para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_r_e_a_d_m_e_1autotoc_md764">
+<title><title>Tree Shaking</title></title>
+
+<para>In addition to enabling the use of ES modules, Rollup also statically analyzes and optimizes the code you are importing, and will exclude anything that isn&apos;t actually used. This allows you to build on top of existing tools and modules without adding extra dependencies or bloating the size of your project.</para>
+
+<para>For example, with CommonJS, the <emphasis>entire tool or library must be imported</emphasis>.</para>
+
+<para><literallayout><computeroutput>//&#32;import&#32;the&#32;entire&#32;utils&#32;object&#32;with&#32;CommonJS
+var&#32;utils&#32;=&#32;require(&apos;node:utils&apos;);
+var&#32;query&#32;=&#32;&apos;Rollup&apos;;
+//&#32;use&#32;the&#32;ajax&#32;method&#32;of&#32;the&#32;utils&#32;object
+utils.ajax(&apos;https://api.example.com?search=&apos;&#32;+&#32;query).then(handleResponse);
+</computeroutput></literallayout></para>
+
+<para>But with ES modules, instead of importing the whole <computeroutput>utils</computeroutput> object, we can just import the one <computeroutput>ajax</computeroutput> function we need:</para>
+
+<para><literallayout><computeroutput>//&#32;import&#32;the&#32;ajax&#32;function&#32;with&#32;an&#32;ES&#32;import&#32;statement
+import&#32;{&#32;ajax&#32;}&#32;from&#32;&apos;node:utils&apos;;
+var&#32;query&#32;=&#32;&apos;Rollup&apos;;
+//&#32;call&#32;the&#32;ajax&#32;function
+ajax(&apos;https://api.example.com?search=&apos;&#32;+&#32;query).then(handleResponse);
+</computeroutput></literallayout></para>
+
+<para>Because Rollup includes the bare minimum, it results in lighter, faster, and less complicated libraries and applications. Since this approach is based on explicit <computeroutput>import</computeroutput> and <computeroutput>export</computeroutput> statements, it is vastly more effective than simply running an automated minifier to detect unused variables in the compiled output code.</para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_r_e_a_d_m_e_1autotoc_md765">
+<title><title>Compatibility</title></title>
+<section xml:id="_md_node__modules_2rollup_2_r_e_a_d_m_e_1autotoc_md766">
+<title><title>Importing CommonJS</title></title>
+
+<para>Rollup can import existing CommonJS modules <link xlink:href="https://github.com/rollup/plugins/tree/master/packages/commonjs">through a plugin</link>.</para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_r_e_a_d_m_e_1autotoc_md767">
+<title><title>Publishing ES Modules</title></title>
+
+<para>To make sure your ES modules are immediately usable by tools that work with CommonJS such as Node.js and webpack, you can use Rollup to compile to UMD or CommonJS format, and then point to that compiled version with the <computeroutput>main</computeroutput> property in your <computeroutput>package.json</computeroutput> file. If your <computeroutput>package.json</computeroutput> file also has a <computeroutput>module</computeroutput> field, ES-module-aware tools like Rollup and <link xlink:href="https://webpack.js.org/">webpack</link> will <link xlink:href="https://github.com/rollup/rollup/wiki/pkg.module">import the ES module version</link> directly.</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_r_e_a_d_m_e_1autotoc_md768">
+<title><title>Contributors</title></title>
+
+<para>This project exists thanks to all the people who contribute. [Contribute]. <link xlink:href="https://github.com/rollup/rollup/graphs/contributors"></link></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_r_e_a_d_m_e_1autotoc_md769">
+<title><title>Backers</title></title>
+
+<para>Thank you to all our backers! 🙏 [<link xlink:href="https://opencollective.com/rollup#backer">Become a backer</link>]</para>
+
+<para><link xlink:href="https://opencollective.com/rollup#backers"></link></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_r_e_a_d_m_e_1autotoc_md770">
+<title><title>Sponsors</title></title>
+
+<para>Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [<link xlink:href="https://opencollective.com/rollup#sponsor">Become a sponsor</link>]</para>
+
+<para><link xlink:href="https://opencollective.com/rollup/sponsor/0/website"></link> <link xlink:href="https://opencollective.com/rollup/sponsor/1/website"></link> <link xlink:href="https://opencollective.com/rollup/sponsor/2/website"></link> <link xlink:href="https://opencollective.com/rollup/sponsor/3/website"></link> <link xlink:href="https://opencollective.com/rollup/sponsor/4/website"></link> <link xlink:href="https://opencollective.com/rollup/sponsor/5/website"></link> <link xlink:href="https://opencollective.com/rollup/sponsor/6/website"></link> <link xlink:href="https://opencollective.com/rollup/sponsor/7/website"></link> <link xlink:href="https://opencollective.com/rollup/sponsor/8/website"></link> <link xlink:href="https://opencollective.com/rollup/sponsor/9/website"></link> <link xlink:href="https://opencollective.com/rollup/sponsor/10/website"></link> <link xlink:href="https://opencollective.com/rollup/sponsor/11/website"></link> <link xlink:href="https://opencollective.com/rollup/sponsor/12/website"></link> <link xlink:href="https://opencollective.com/rollup/sponsor/13/website"></link> <link xlink:href="https://opencollective.com/rollup/sponsor/14/website"></link></para>
+</section>
+<section xml:id="_md_node__modules_2rollup_2_r_e_a_d_m_e_1autotoc_md771">
+<title><title>License</title></title>
+
+<para><link xlink:href="https://github.com/rollup/rollup/blob/master/LICENSE.md">MIT</link> </para>
+</section>
+</section>

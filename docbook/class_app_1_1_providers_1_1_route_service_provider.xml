@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_app_1_1_providers_1_1_route_service_provider" xml:lang="fr">
+<title>Référence de la classe RouteServiceProvider</title>
+<indexterm><primary>RouteServiceProvider</primary></indexterm>
+Graphe d&apos;héritage de RouteServiceProvider:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_providers_1_1_route_service_provider__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de RouteServiceProvider:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_providers_1_1_route_service_provider__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_providers_1_1_route_service_provider_1a8814ea4b5beba763c570b4818980814e">boot</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_class_app_1_1_providers_1_1_route_service_provider_1ad5937d1b8a0dcaa1c2ffdca45ec67bf2">HOME</link> = &apos;/home&apos;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_app_1_1_providers_1_1_route_service_provider_1a8814ea4b5beba763c570b4818980814e"/><section>
+    <title>boot()</title>
+<indexterm><primary>boot</primary><secondary>RouteServiceProvider</secondary></indexterm>
+<indexterm><primary>RouteServiceProvider</primary><secondary>boot</secondary></indexterm>
+<para><computeroutput>boot ( )</computeroutput></para>
+<para>Define your route model bindings, pattern filters, and other route configuration. </para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_app_1_1_providers_1_1_route_service_provider_1ad5937d1b8a0dcaa1c2ffdca45ec67bf2"/><section>
+    <title>HOME</title>
+<indexterm><primary>HOME</primary><secondary>RouteServiceProvider</secondary></indexterm>
+<indexterm><primary>RouteServiceProvider</primary><secondary>HOME</secondary></indexterm>
+<para><computeroutput>const HOME = &apos;/home&apos;</computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+app/Providers/<link linkend="__route_service_provider_8php">RouteServiceProvider.php</link></section>
+</section>

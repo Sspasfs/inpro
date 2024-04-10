@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2proxy-from-env_2_r_e_a_d_m_e" xml:lang="fr">
+<title>proxy-from-env</title>
+<indexterm><primary>proxy-from-env</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2proxy-from-env_2_r_e_a_d_m_e_1autotoc_md682"/> <link xlink:href="https://travis-ci.org/Rob--W/proxy-from-env"></link> <link xlink:href="https://coveralls.io/github/Rob--W/proxy-from-env?branch=master"></link></para>
+
+<para><computeroutput>proxy-from-env</computeroutput> is a Node.js package that exports a function (<computeroutput>getProxyForUrl</computeroutput>) that takes an input URL (a string or <link xlink:href="https://nodejs.org/docs/latest/api/url.html#url_url_parsing"><computeroutput>url.parse</computeroutput></link>&apos;s return value) and returns the desired proxy URL (also a string) based on standard proxy environment variables. If no proxy is set, an empty string is returned.</para>
+
+<para>It is your responsibility to actually proxy the request using the given URL.</para>
+
+<para>Installation:</para>
+
+<para><literallayout><computeroutput>npm&#32;install&#32;proxy-from-env
+</computeroutput></literallayout></para>
+<section xml:id="_md_node__modules_2proxy-from-env_2_r_e_a_d_m_e_1autotoc_md683">
+<title><title>Example</title></title>
+
+<para>This example shows how the data for a URL can be fetched via the <link xlink:href="https://nodejs.org/api/http.html"><computeroutput>http</computeroutput> module</link>, in a proxy-aware way.</para>
+
+<para><literallayout><computeroutput>var&#32;http&#32;=&#32;require(&apos;http&apos;);
+var&#32;parseUrl&#32;=&#32;require(&apos;url&apos;).parse;
+var&#32;getProxyForUrl&#32;=&#32;require(&apos;proxy-from-env&apos;).getProxyForUrl;
+
+var&#32;some_url&#32;=&#32;&apos;http://example.com/something&apos;;
+
+//&#32;//&#32;Example,&#32;if&#32;there&#32;is&#32;a&#32;proxy&#32;server&#32;at&#32;10.0.0.1:1234,&#32;then&#32;setting&#32;the
+//&#32;//&#32;http_proxy&#32;environment&#32;variable&#32;causes&#32;the&#32;request&#32;to&#32;go&#32;through&#32;a&#32;proxy.
+//&#32;process.env.http_proxy&#32;=&#32;&apos;http://10.0.0.1:1234&apos;;
+//&#32;
+//&#32;//&#32;But&#32;if&#32;the&#32;host&#32;to&#32;be&#32;proxied&#32;is&#32;listed&#32;in&#32;NO_PROXY,&#32;then&#32;the&#32;request&#32;is
+//&#32;//&#32;not&#32;proxied&#32;(but&#32;a&#32;direct&#32;request&#32;is&#32;made).
+//&#32;process.env.no_proxy&#32;=&#32;&apos;example.com&apos;;
+
+var&#32;proxy_url&#32;=&#32;getProxyForUrl(some_url);&#32;&#32;//&#32;&lt;--&#32;Our&#32;magic.
+if&#32;(proxy_url)&#32;{
+&#32;&#32;//&#32;Should&#32;be&#32;proxied&#32;through&#32;proxy_url.
+&#32;&#32;var&#32;parsed_some_url&#32;=&#32;parseUrl(some_url);
+&#32;&#32;var&#32;parsed_proxy_url&#32;=&#32;parseUrl(proxy_url);
+&#32;&#32;//&#32;A&#32;HTTP&#32;proxy&#32;is&#32;quite&#32;simple.&#32;It&#32;is&#32;similar&#32;to&#32;a&#32;normal&#32;request,&#32;except&#32;the
+&#32;&#32;//&#32;path&#32;is&#32;an&#32;absolute&#32;URL,&#32;and&#32;the&#32;proxied&#32;URL&apos;s&#32;host&#32;is&#32;put&#32;in&#32;the&#32;header
+&#32;&#32;//&#32;instead&#32;of&#32;the&#32;server&apos;s&#32;actual&#32;host.
+&#32;&#32;httpOptions&#32;=&#32;{
+&#32;&#32;&#32;&#32;protocol:&#32;parsed_proxy_url.protocol,
+&#32;&#32;&#32;&#32;hostname:&#32;parsed_proxy_url.hostname,
+&#32;&#32;&#32;&#32;port:&#32;parsed_proxy_url.port,
+&#32;&#32;&#32;&#32;path:&#32;parsed_some_url.href,
+&#32;&#32;&#32;&#32;headers:&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;Host:&#32;parsed_some_url.host,&#32;&#32;//&#32;=&#32;host&#32;name&#32;+&#32;optional&#32;port.
+&#32;&#32;&#32;&#32;},
+&#32;&#32;};
+}&#32;else&#32;{
+&#32;&#32;//&#32;Direct&#32;request.
+&#32;&#32;httpOptions&#32;=&#32;some_url;
+}
+http.get(httpOptions,&#32;function(res)&#32;{
+&#32;&#32;var&#32;responses&#32;=&#32;[];
+&#32;&#32;res.on(&apos;data&apos;,&#32;function(chunk)&#32;{&#32;responses.push(chunk);&#32;});
+&#32;&#32;res.on(&apos;end&apos;,&#32;function()&#32;{&#32;console.log(responses.join(&apos;&apos;));&#32;&#32;});
+});
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2proxy-from-env_2_r_e_a_d_m_e_1autotoc_md684">
+<title><title>Environment variables</title></title>
+
+<para>The environment variables can be specified in lowercase or uppercase, with the lowercase name having precedence over the uppercase variant. A variable that is not set has the same meaning as a variable that is set but has no value.</para>
+<section xml:id="_md_node__modules_2proxy-from-env_2_r_e_a_d_m_e_1autotoc_md685">
+<title><title>NO_PROXY</title></title>
+
+<para><computeroutput>NO_PROXY</computeroutput> is a list of host names (optionally with a port). If the input URL matches any of the entries in <computeroutput>NO_PROXY</computeroutput>, then the input URL should be fetched by a direct request (i.e. without a proxy).</para>
+
+<para>Matching follows the following rules:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>NO_PROXY=*</computeroutput> disables all proxies.</para>
+</listitem><listitem>
+<para>Space and commas may be used to separate the entries in the <computeroutput>NO_PROXY</computeroutput> list.</para>
+</listitem><listitem>
+<para>If <computeroutput>NO_PROXY</computeroutput> does not contain any entries, then proxies are never disabled.</para>
+</listitem><listitem>
+<para>If a port is added after the host name, then the ports must match. If the URL does not have an explicit port name, the protocol&apos;s default port is used.</para>
+</listitem><listitem>
+<para>Generally, the proxy is only disabled if the host name is an exact match for an entry in the <computeroutput>NO_PROXY</computeroutput> list. The only exceptions are entries that start with a dot or with a wildcard; then the proxy is disabled if the host name ends with the entry.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>See <computeroutput>test.js</computeroutput> for examples of what should match and what does not.</para>
+</section>
+<section xml:id="_md_node__modules_2proxy-from-env_2_r_e_a_d_m_e_1autotoc_md686">
+<title><title>*_PROXY</title></title>
+
+<para>The environment variable used for the proxy depends on the protocol of the URL. For example, <computeroutput><link xlink:href="https://example.com">https://example.com</link></computeroutput> uses the &quot;https&quot; protocol, and therefore the proxy to be used is <computeroutput>HTTPS_PROXY</computeroutput> (<emphasis>NOT</emphasis> <computeroutput>HTTP_PROXY</computeroutput>, which is <emphasis>only</emphasis> used for <link xlink:href="http:-URLs">http:-URLs</link>).</para>
+
+<para>The library is not limited to http(s), other schemes such as <computeroutput>FTP_PROXY</computeroutput> (ftp:), <computeroutput>WSS_PROXY</computeroutput> (wss:), <computeroutput>WS_PROXY</computeroutput> (ws:) are also supported.</para>
+
+<para>If present, <computeroutput>ALL_PROXY</computeroutput> is used as fallback if there is no other match.</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2proxy-from-env_2_r_e_a_d_m_e_1autotoc_md687">
+<title><title>External resources</title></title>
+
+<para>The exact way of parsing the environment variables is not codified in any standard. This library is designed to be compatible with formats as expected by existing software. The following resources were used to determine the desired behavior:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>cURL: <link xlink:href="https://curl.haxx.se/docs/manpage.html#ENVIRONMENT">https://curl.haxx.se/docs/manpage.html#ENVIRONMENT</link> <?linebreak?> <link xlink:href="https://github.com/curl/curl/blob/4af40b3646d3b09f68e419f7ca866ff395d1f897/lib/url.c#L4446-L4514">https://github.com/curl/curl/blob/4af40b3646d3b09f68e419f7ca866ff395d1f897/lib/url.c#L4446-L4514</link> <?linebreak?> <link xlink:href="https://github.com/curl/curl/blob/4af40b3646d3b09f68e419f7ca866ff395d1f897/lib/url.c#L4608-L4638">https://github.com/curl/curl/blob/4af40b3646d3b09f68e419f7ca866ff395d1f897/lib/url.c#L4608-L4638</link> <?linebreak?></para>
+</listitem><listitem>
+<para>wget: <link xlink:href="https://www.gnu.org/software/wget/manual/wget.html#Proxies">https://www.gnu.org/software/wget/manual/wget.html#Proxies</link> <?linebreak?> <link xlink:href="http://git.savannah.gnu.org/cgit/wget.git/tree/src/init.c?id=636a5f9a1c508aa39e35a3a8e9e54520a284d93d#n383">http://git.savannah.gnu.org/cgit/wget.git/tree/src/init.c?id=636a5f9a1c508aa39e35a3a8e9e54520a284d93d#n383</link> <?linebreak?> <link xlink:href="http://git.savannah.gnu.org/cgit/wget.git/tree/src/retr.c?id=93c1517c4071c4288ba5a4b038e7634e4c6b5482#n1278">http://git.savannah.gnu.org/cgit/wget.git/tree/src/retr.c?id=93c1517c4071c4288ba5a4b038e7634e4c6b5482#n1278</link> <?linebreak?></para>
+</listitem><listitem>
+<para>W3: <link xlink:href="https://www.w3.org/Daemon/User/Proxies/ProxyClients.html">https://www.w3.org/Daemon/User/Proxies/ProxyClients.html</link> <?linebreak?></para>
+</listitem><listitem>
+<para>Python&apos;s urllib: <link xlink:href="https://github.com/python/cpython/blob/936135bb97fe04223aa30ca6e98eac8f3ed6b349/Lib/urllib/request.py#L755-L782">https://github.com/python/cpython/blob/936135bb97fe04223aa30ca6e98eac8f3ed6b349/Lib/urllib/request.py#L755-L782</link> <?linebreak?> <link xlink:href="https://github.com/python/cpython/blob/936135bb97fe04223aa30ca6e98eac8f3ed6b349/Lib/urllib/request.py#L2444-L2479">https://github.com/python/cpython/blob/936135bb97fe04223aa30ca6e98eac8f3ed6b349/Lib/urllib/request.py#L2444-L2479</link> </para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>

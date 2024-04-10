@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_2019__12__14__000001__create__personal__access__tokens__table_8php" xml:lang="fr">
+<title>Référence du fichier database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php</title>
+<indexterm><primary>database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php</primary></indexterm>
+<simplesect>
+    <title>Structures de données    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_migration">Migration</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

@@ -1,0 +1,268 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2is-number_2_r_e_a_d_m_e" xml:lang="fr">
+<title>is-number &lt;a href=&quot;https://www.npmjs.com/package/is-number&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/v/is-number.svg?style=flat&quot; alt=&quot;NPM version&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://npmjs.org/package/is-number&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dm/is-number.svg?style=flat&quot; alt=&quot;NPM monthly downloads&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://npmjs.org/package/is-number&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dt/is-number.svg?style=flat&quot; alt=&quot;NPM total downloads&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://travis-ci.org/jonschlinkert/is-number&quot; &gt;&lt;img src=&quot;https://img.shields.io/travis/jonschlinkert/is-number.svg?style=flat&amp;label=Travis&quot; alt=&quot;Linux Build Status&quot;/&gt;&lt;/a&gt;</title>
+<indexterm><primary>is-number &lt;a href=&quot;https://www.npmjs.com/package/is-number&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/v/is-number.svg?style=flat&quot; alt=&quot;NPM version&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://npmjs.org/package/is-number&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dm/is-number.svg?style=flat&quot; alt=&quot;NPM monthly downloads&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://npmjs.org/package/is-number&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dt/is-number.svg?style=flat&quot; alt=&quot;NPM total downloads&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://travis-ci.org/jonschlinkert/is-number&quot; &gt;&lt;img src=&quot;https://img.shields.io/travis/jonschlinkert/is-number.svg?style=flat&amp;label=Travis&quot; alt=&quot;Linux Build Status&quot;/&gt;&lt;/a&gt;</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2is-number_2_r_e_a_d_m_e_1autotoc_md450"/> <blockquote>
+<para>&#8205;Returns true if the value is a finite number. </para>
+</blockquote>Please consider following this project&apos;s author, <link xlink:href="https://github.com/jonschlinkert">Jon Schlinkert</link>, and consider starring the project to show your :heart: and support.</para>
+<section xml:id="_md_node__modules_2is-number_2_r_e_a_d_m_e_1autotoc_md451">
+<title><title>Install</title></title>
+
+<para>Install with <link xlink:href="https://www.npmjs.com/">npm</link>:</para>
+
+<para><literallayout><computeroutput>$&#32;npm&#32;install&#32;--save&#32;is-number
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2is-number_2_r_e_a_d_m_e_1autotoc_md452">
+<title><title>Why is this needed?</title></title>
+
+<para>In JavaScript, it&apos;s not always as straightforward as it should be to reliably check if a value is a number. It&apos;s common for devs to use <computeroutput>+</computeroutput>, <computeroutput>-</computeroutput>, or <computeroutput>Number()</computeroutput> to cast a string value to a number (for example, when values are returned from user input, regex matches, parsers, etc). But there are many non-intuitive edge cases that yield unexpected results:</para>
+
+<para><literallayout><computeroutput>console.log(+[]);&#32;//=&gt;&#32;0
+console.log(+&apos;&apos;);&#32;//=&gt;&#32;0
+console.log(+&apos;&#32;&#32;&#32;&apos;);&#32;//=&gt;&#32;0
+console.log(typeof&#32;NaN);&#32;//=&gt;&#32;&apos;number&apos;
+</computeroutput></literallayout></para>
+
+<para>This library offers a performant way to smooth out edge cases like these.</para>
+</section>
+<section xml:id="_md_node__modules_2is-number_2_r_e_a_d_m_e_1autotoc_md453">
+<title><title>Usage</title></title>
+
+<para><literallayout><computeroutput>const&#32;isNumber&#32;=&#32;require(&apos;is-number&apos;);
+</computeroutput></literallayout></para>
+
+<para>See the <link xlink:href="./test.js">tests</link> for more examples.</para>
+<section xml:id="_md_node__modules_2is-number_2_r_e_a_d_m_e_1autotoc_md454">
+<title><title>true</title></title>
+
+<para><literallayout><computeroutput>isNumber(5e3);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;true
+isNumber(0xff);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;true
+isNumber(-1.1);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;true
+isNumber(0);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;true
+isNumber(1);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;true
+isNumber(1.1);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;true
+isNumber(10);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;true
+isNumber(10.10);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;true
+isNumber(100);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;true
+isNumber(&apos;-1.1&apos;);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;true
+isNumber(&apos;0&apos;);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;true
+isNumber(&apos;012&apos;);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;true
+isNumber(&apos;0xff&apos;);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;true
+isNumber(&apos;1&apos;);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;true
+isNumber(&apos;1.1&apos;);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;true
+isNumber(&apos;10&apos;);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;true
+isNumber(&apos;10.10&apos;);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;true
+isNumber(&apos;100&apos;);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;true
+isNumber(&apos;5e3&apos;);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;true
+isNumber(parseInt(&apos;012&apos;));&#32;&#32;&#32;//&#32;true
+isNumber(parseFloat(&apos;012&apos;));&#32;//&#32;true
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2is-number_2_r_e_a_d_m_e_1autotoc_md455">
+<title><title>False</title></title>
+
+<para>Everything else is false, as you would expect:</para>
+
+<para><literallayout><computeroutput>isNumber(Infinity);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;false
+isNumber(NaN);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;false
+isNumber(null);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;false
+isNumber(undefined);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;false
+isNumber(&apos;&apos;);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;false
+isNumber(&apos;&#32;&#32;&#32;&apos;);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;false
+isNumber(&apos;foo&apos;);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;false
+isNumber([1]);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;false
+isNumber([]);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;false
+isNumber(function&#32;()&#32;{});&#32;&#32;&#32;&#32;//&#32;false
+isNumber({});&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;false
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2is-number_2_r_e_a_d_m_e_1autotoc_md456">
+<title><title>Release history</title></title>
+<section xml:id="_md_node__modules_2is-number_2_r_e_a_d_m_e_1autotoc_md457">
+<title><title>7.0.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Refactor. Now uses <computeroutput>.isFinite</computeroutput> if it exists.</para>
+</listitem><listitem>
+<para>Performance is about the same as v6.0 when the value is a string or number. But it&apos;s now 3x-4x faster when the value is not a string or number.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2is-number_2_r_e_a_d_m_e_1autotoc_md458">
+<title><title>6.0.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Optimizations, thanks to @benaadams.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2is-number_2_r_e_a_d_m_e_1autotoc_md459">
+<title><title>5.0.0</title></title>
+
+<para><emphasis role="bold">Breaking changes</emphasis></para>
+
+<para><itemizedlist>
+<listitem>
+<para>removed support for <computeroutput>instanceof Number</computeroutput> and <computeroutput>instanceof String</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2is-number_2_r_e_a_d_m_e_1autotoc_md460">
+<title><title>Benchmarks</title></title>
+
+<para>As with all benchmarks, take these with a grain of salt. See the <link xlink:href="./benchmark/index.js">benchmarks</link> for more detail.</para>
+
+<para><literallayout><computeroutput>#&#32;all
+v7.0&#32;x&#32;413,222&#32;ops/sec&#32;±2.02%&#32;(86&#32;runs&#32;sampled)
+v6.0&#32;x&#32;111,061&#32;ops/sec&#32;±1.29%&#32;(85&#32;runs&#32;sampled)
+parseFloat&#32;x&#32;317,596&#32;ops/sec&#32;±1.36%&#32;(86&#32;runs&#32;sampled)
+fastest&#32;is&#32;&apos;v7.0&apos;
+
+#&#32;string
+v7.0&#32;x&#32;3,054,496&#32;ops/sec&#32;±1.05%&#32;(89&#32;runs&#32;sampled)
+v6.0&#32;x&#32;2,957,781&#32;ops/sec&#32;±0.98%&#32;(88&#32;runs&#32;sampled)
+parseFloat&#32;x&#32;3,071,060&#32;ops/sec&#32;±1.13%&#32;(88&#32;runs&#32;sampled)
+fastest&#32;is&#32;&apos;parseFloat,v7.0&apos;
+
+#&#32;number
+v7.0&#32;x&#32;3,146,895&#32;ops/sec&#32;±0.89%&#32;(89&#32;runs&#32;sampled)
+v6.0&#32;x&#32;3,214,038&#32;ops/sec&#32;±1.07%&#32;(89&#32;runs&#32;sampled)
+parseFloat&#32;x&#32;3,077,588&#32;ops/sec&#32;±1.07%&#32;(87&#32;runs&#32;sampled)
+fastest&#32;is&#32;&apos;v6.0&apos;
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2is-number_2_r_e_a_d_m_e_1autotoc_md461">
+<title><title>About</title></title>
+
+<para>
+<para><emphasis role="bold"><emphasis role="bold">Contributing</emphasis></emphasis></para><para>
+<para></para>
+
+<para>Pull requests and stars are always welcome. For bugs and feature requests, <link xlink:href="../../issues/new">please create an issue</link>.</para>
+
+<para></para>
+</para>
+</para>
+
+<para>
+<para><emphasis role="bold"><emphasis role="bold">Running Tests</emphasis></emphasis></para><para>
+<para></para>
+
+<para>Running and reviewing unit tests is a great way to get familiarized with a library and its API. You can install dependencies and run tests with the following command:</para>
+
+<para><literallayout><computeroutput>$&#32;npm&#32;install&#32;&amp;&amp;&#32;npm&#32;test
+</computeroutput></literallayout></para>
+
+<para></para>
+</para>
+</para>
+
+<para>
+<para><emphasis role="bold"><emphasis role="bold">Building docs</emphasis></emphasis></para><para>
+<para></para>
+
+<para>_(This project&apos;s readme.md is generated by <link xlink:href="https://github.com/verbose/verb-generate-readme">verb</link>, please don&apos;t edit the readme directly. Any changes to the readme must be made in the .verb.md readme template.)_</para>
+
+<para>To generate the readme, run the following command:</para>
+
+<para><literallayout><computeroutput>$&#32;npm&#32;install&#32;-g&#32;verbose/verb#dev&#32;verb-generate-readme&#32;&amp;&amp;&#32;verb
+</computeroutput></literallayout></para>
+
+<para></para>
+</para>
+</para>
+<section xml:id="_md_node__modules_2is-number_2_r_e_a_d_m_e_1autotoc_md462">
+<title><title>Related projects</title></title>
+
+<para>You might also be interested in these projects:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://www.npmjs.com/package/is-plain-object">is-plain-object</link>: Returns true if an object was created by the <computeroutput>Object</computeroutput> constructor. | <link xlink:href="https://github.com/jonschlinkert/is-plain-object">homepage</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://www.npmjs.com/package/is-primitive">is-primitive</link>: Returns <computeroutput>true</computeroutput> if the value is a primitive. | <link xlink:href="https://github.com/jonschlinkert/is-primitive">homepage</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://www.npmjs.com/package/isobject">isobject</link>: Returns true if the value is an object and not an array or null. | <link xlink:href="https://github.com/jonschlinkert/isobject">homepage</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://www.npmjs.com/package/kind-of">kind-of</link>: Get the native type of a value. | <link xlink:href="https://github.com/jonschlinkert/kind-of">homepage</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2is-number_2_r_e_a_d_m_e_1autotoc_md463">
+<title><title>Contributors</title></title>
+
+<para><informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para><emphasis role="bold">Commits</emphasis>   </para>
+</entry><entry>
+<para><emphasis role="bold">Contributor</emphasis>    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>49   </para>
+</entry><entry>
+<para><link xlink:href="https://github.com/jonschlinkert">jonschlinkert</link>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>5   </para>
+</entry><entry>
+<para><link xlink:href="https://github.com/charlike-old">charlike-old</link>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>1   </para>
+</entry><entry>
+<para><link xlink:href="https://github.com/benaadams">benaadams</link>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>1   </para>
+</entry><entry>
+<para><link xlink:href="https://github.com/realityking">realityking</link>   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_node__modules_2is-number_2_r_e_a_d_m_e_1autotoc_md464">
+<title><title>Author</title></title>
+
+<para><emphasis role="bold">Jon Schlinkert</emphasis></para>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://linkedin.com/in/jonschlinkert">LinkedIn Profile</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/jonschlinkert">GitHub Profile</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://twitter.com/jonschlinkert">Twitter Profile</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2is-number_2_r_e_a_d_m_e_1autotoc_md465">
+<title><title>License</title></title>
+
+<para>Copyright © 2018, <link xlink:href="https://github.com/jonschlinkert">Jon Schlinkert</link>. Released under the [MIT License](LICENSE).</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+
+<para><emphasis>This file was generated by <link xlink:href="https://github.com/verbose/verb-generate-readme">verb-generate-readme</link>, v0.6.0, on June 15, 2018.</emphasis> </para>
+</section>
+</section>
+</section>

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_3d1ba3611a4a97efda365b0b5c48ea62" xml:lang="fr">
+<title>Répertoire de référence de node_modules/axios/lib</title>
+<indexterm><primary>Répertoire de référence de node_modules/axios/lib</primary></indexterm>
+Graphe des dépendances de répertoires pour lib:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_3d1ba3611a4a97efda365b0b5c48ea62_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Répertoires    </title>
+        <itemizedlist>
+            <listitem><para>répertoire <link linkend="_dir_66bf83921eb57855dc3409fe09c4e1de">adapters</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_2f8d64ec016c8aca1d4ba7894bfe8a71">core</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_a78bad58cf068ddbb5730b65e3499699">env</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_8376eadeb40d1432687bab3d0626d755">helpers</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

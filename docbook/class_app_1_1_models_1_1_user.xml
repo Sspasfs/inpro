@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_app_1_1_models_1_1_user" xml:lang="fr">
+<title>Référence de la classe User</title>
+<indexterm><primary>User</primary></indexterm>
+Graphe d&apos;héritage de User:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_models_1_1_user__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de User:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_models_1_1_user__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_models_1_1_user_1a6a90e74ccdf5efd70d51d10c906f8e32">$fillable</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_models_1_1_user_1a4a374564d2858d8ae869a8fb890aad56">$hidden</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_models_1_1_user_1a1649e00448c72a723c2c79fe5f915b97">$casts</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_app_1_1_models_1_1_user_1a1649e00448c72a723c2c79fe5f915b97"/><section>
+    <title>$casts</title>
+<indexterm><primary>$casts</primary><secondary>User</secondary></indexterm>
+<indexterm><primary>User</primary><secondary>$casts</secondary></indexterm>
+<para><computeroutput>$casts<computeroutput>[protected]</computeroutput></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;email_verified_at&apos;</emphasis>&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;datetime&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;password&apos;</emphasis>&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;hashed&apos;</emphasis>,
+&#32;&#32;&#32;&#32;]
+</programlisting></section>
+<anchor xml:id="_class_app_1_1_models_1_1_user_1a6a90e74ccdf5efd70d51d10c906f8e32"/><section>
+    <title>$fillable</title>
+<indexterm><primary>$fillable</primary><secondary>User</secondary></indexterm>
+<indexterm><primary>User</primary><secondary>$fillable</secondary></indexterm>
+<para><computeroutput>$fillable<computeroutput>[protected]</computeroutput></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;name&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;email&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;password&apos;</emphasis>,
+&#32;&#32;&#32;&#32;]
+</programlisting></section>
+<anchor xml:id="_class_app_1_1_models_1_1_user_1a4a374564d2858d8ae869a8fb890aad56"/><section>
+    <title>$hidden</title>
+<indexterm><primary>$hidden</primary><secondary>User</secondary></indexterm>
+<indexterm><primary>User</primary><secondary>$hidden</secondary></indexterm>
+<para><computeroutput>$hidden<computeroutput>[protected]</computeroutput></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;password&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;remember_token&apos;</emphasis>,
+&#32;&#32;&#32;&#32;]
+</programlisting></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+app/Models/<link linkend="__user_8php">User.php</link></section>
+</section>

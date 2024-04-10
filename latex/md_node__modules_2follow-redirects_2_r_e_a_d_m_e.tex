@@ -1,0 +1,138 @@
+\chapter{Follow Redirects}
+\hypertarget{md_node__modules_2follow-redirects_2_r_e_a_d_m_e}{}\label{md_node__modules_2follow-redirects_2_r_e_a_d_m_e}\index{Follow Redirects@{Follow Redirects}}
+\label{md_node__modules_2follow-redirects_2_r_e_a_d_m_e_autotoc_md324}%
+\Hypertarget{md_node__modules_2follow-redirects_2_r_e_a_d_m_e_autotoc_md324}%
+ Drop-\/in replacement for Node\textquotesingle{}s {\ttfamily http} and {\ttfamily https} modules that automatically follows redirects.
+
+\href{https://www.npmjs.com/package/follow-redirects}{\texttt{ }} \href{https://github.com/follow-redirects/follow-redirects/actions}{\texttt{ }} \href{https://coveralls.io/r/follow-redirects/follow-redirects?branch=master}{\texttt{ }} \href{https://www.npmjs.com/package/follow-redirects}{\texttt{ }} \href{https://github.com/sponsors/RubenVerborgh}{\texttt{ }}
+
+{\ttfamily follow-\/redirects} provides \href{https://nodejs.org/api/http.html\#http_http_request_options_callback}{\texttt{ request}} and \href{https://nodejs.org/api/http.html\#http_http_get_options_callback}{\texttt{ get}} methods that behave identically to those found on the native \href{https://nodejs.org/api/http.html\#http_http_request_options_callback}{\texttt{ http}} and \href{https://nodejs.org/api/https.html\#https_https_request_options_callback}{\texttt{ https}} modules, with the exception that they will seamlessly follow redirects.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ http,\ https\ \}\ =\ require('follow-\/redirects');}
+\DoxyCodeLine{}
+\DoxyCodeLine{http.get('http://bit.ly/900913',\ response\ =>\ \{}
+\DoxyCodeLine{\ \ response.on('data',\ chunk\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ console.log(chunk);}
+\DoxyCodeLine{\ \ \});}
+\DoxyCodeLine{\}).on('error',\ err\ =>\ \{}
+\DoxyCodeLine{\ \ console.error(err);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+You can inspect the final redirected URL through the {\ttfamily response\+Url} property on the {\ttfamily response}. If no redirection happened, {\ttfamily response\+Url} is the original request URL.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ request\ =\ https.request(\{}
+\DoxyCodeLine{\ \ host:\ 'bitly.com',}
+\DoxyCodeLine{\ \ path:\ '/UHfDGO',}
+\DoxyCodeLine{\},\ response\ =>\ \{}
+\DoxyCodeLine{\ \ console.log(response.responseUrl);}
+\DoxyCodeLine{\ \ //\ 'http://duckduckgo.com/robots.txt'}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{request.end();}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2follow-redirects_2_r_e_a_d_m_e_autotoc_md325}{}\doxysection{\texorpdfstring{Options}{Options}}\label{md_node__modules_2follow-redirects_2_r_e_a_d_m_e_autotoc_md325}
+\hypertarget{md_node__modules_2follow-redirects_2_r_e_a_d_m_e_autotoc_md326}{}\doxysubsection{\texorpdfstring{Global options}{Global options}}\label{md_node__modules_2follow-redirects_2_r_e_a_d_m_e_autotoc_md326}
+Global options are set directly on the {\ttfamily follow-\/redirects} module\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ followRedirects\ =\ require('follow-\/redirects');}
+\DoxyCodeLine{followRedirects.maxRedirects\ =\ 10;}
+\DoxyCodeLine{followRedirects.maxBodyLength\ =\ 20\ *\ 1024\ *\ 1024;\ //\ 20\ MB}
+
+\end{DoxyCode}
+
+
+The following global options are supported\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily max\+Redirects} (default\+: {\ttfamily 21}) – sets the maximum number of allowed redirects; if exceeded, an error will be emitted.
+\item {\ttfamily max\+Body\+Length} (default\+: 10MB) – sets the maximum size of the request body; if exceeded, an error will be emitted.
+\end{DoxyItemize}\hypertarget{md_node__modules_2follow-redirects_2_r_e_a_d_m_e_autotoc_md327}{}\doxysubsection{\texorpdfstring{Per-\/request options}{Per-\/request options}}\label{md_node__modules_2follow-redirects_2_r_e_a_d_m_e_autotoc_md327}
+Per-\/request options are set by passing an {\ttfamily options} object\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ url\ =\ require('url');}
+\DoxyCodeLine{const\ \{\ http,\ https\ \}\ =\ require('follow-\/redirects');}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\ options\ =\ url.parse('http://bit.ly/900913');}
+\DoxyCodeLine{options.maxRedirects\ =\ 10;}
+\DoxyCodeLine{options.beforeRedirect\ =\ (options,\ response,\ request)\ =>\ \{}
+\DoxyCodeLine{\ \ //\ Use\ this\ to\ adjust\ the\ request\ options\ upon\ redirecting,}
+\DoxyCodeLine{\ \ //\ to\ inspect\ the\ latest\ response\ headers,}
+\DoxyCodeLine{\ \ //\ or\ to\ cancel\ the\ request\ by\ throwing\ an\ error}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ response.headers\ =\ the\ redirect\ response\ headers}
+\DoxyCodeLine{\ \ //\ response.statusCode\ =\ the\ redirect\ response\ code\ (eg.\ 301,\ 307,\ etc.)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ request.url\ =\ the\ requested\ URL\ that\ resulted\ in\ a\ redirect}
+\DoxyCodeLine{\ \ //\ request.headers\ =\ the\ headers\ in\ the\ request\ that\ resulted\ in\ a\ redirect}
+\DoxyCodeLine{\ \ //\ request.method\ =\ the\ method\ of\ the\ request\ that\ resulted\ in\ a\ redirect}
+\DoxyCodeLine{\ \ if\ (options.hostname\ ===\ "{}example.com"{})\ \{}
+\DoxyCodeLine{\ \ \ \ options.auth\ =\ "{}user:password"{};}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{http.request(options);}
+
+\end{DoxyCode}
+
+
+In addition to the \href{https://nodejs.org/api/http.html\#http_http_request_options_callback}{\texttt{ standard HTTP}} and \href{https://nodejs.org/api/https.html\#https_https_request_options_callback}{\texttt{ HTTPS options}}, the following per-\/request options are supported\+:
+\begin{DoxyItemize}
+\item {\ttfamily follow\+Redirects} (default\+: {\ttfamily true}) – whether redirects should be followed.
+\item {\ttfamily max\+Redirects} (default\+: {\ttfamily 21}) – sets the maximum number of allowed redirects; if exceeded, an error will be emitted.
+\item {\ttfamily max\+Body\+Length} (default\+: 10MB) – sets the maximum size of the request body; if exceeded, an error will be emitted.
+\item {\ttfamily before\+Redirect} (default\+: {\ttfamily undefined}) – optionally change the request {\ttfamily options} on redirects, or abort the request by throwing an error.
+\item {\ttfamily agents} (default\+: {\ttfamily undefined}) – sets the {\ttfamily agent} option per protocol, since HTTP and HTTPS use different agents. Example value\+: {\ttfamily \{ http\+: new http.\+Agent(), https\+: new https.\+Agent() \}}
+\item {\ttfamily track\+Redirects} (default\+: {\ttfamily false}) – whether to store the redirected response details into the {\ttfamily redirects} array on the response object.
+\end{DoxyItemize}\hypertarget{md_node__modules_2follow-redirects_2_r_e_a_d_m_e_autotoc_md328}{}\doxysubsection{\texorpdfstring{Advanced usage}{Advanced usage}}\label{md_node__modules_2follow-redirects_2_r_e_a_d_m_e_autotoc_md328}
+By default, {\ttfamily follow-\/redirects} will use the Node.\+js default implementations of \href{https://nodejs.org/api/http.html}{\texttt{ {\ttfamily http}}} and \href{https://nodejs.org/api/https.html}{\texttt{ {\ttfamily https}}}. To enable features such as caching and/or intermediate request tracking, you might instead want to wrap {\ttfamily follow-\/redirects} around custom protocol implementations\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ \{\ http,\ https\ \}\ =\ require('follow-\/redirects').wrap(\{}
+\DoxyCodeLine{\ \ http:\ require('your-\/custom-\/http'),}
+\DoxyCodeLine{\ \ https:\ require('your-\/custom-\/https'),}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+Such custom protocols only need an implementation of the {\ttfamily request} method.\hypertarget{md_node__modules_2follow-redirects_2_r_e_a_d_m_e_autotoc_md329}{}\doxysection{\texorpdfstring{Browser Usage}{Browser Usage}}\label{md_node__modules_2follow-redirects_2_r_e_a_d_m_e_autotoc_md329}
+Due to the way the browser works, the {\ttfamily http} and {\ttfamily https} browser equivalents perform redirects by default.
+
+By requiring {\ttfamily follow-\/redirects} this way\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ http\ =\ require('follow-\/redirects/http');}
+\DoxyCodeLine{const\ https\ =\ require('follow-\/redirects/https');}
+
+\end{DoxyCode}
+ you can easily tell webpack and friends to replace {\ttfamily follow-\/redirect} by the built-\/in versions\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ "{}follow-\/redirects/http"{}\ \ :\ "{}http"{},}
+\DoxyCodeLine{\ \ "{}follow-\/redirects/https"{}\ :\ "{}https"{}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2follow-redirects_2_r_e_a_d_m_e_autotoc_md330}{}\doxysection{\texorpdfstring{Contributing}{Contributing}}\label{md_node__modules_2follow-redirects_2_r_e_a_d_m_e_autotoc_md330}
+Pull Requests are always welcome. Please \href{https://github.com/follow-redirects/follow-redirects/issues}{\texttt{ file an issue}} detailing your proposal before you invest your valuable time. Additional features and bug fixes should be accompanied by tests. You can run the test suite locally with a simple {\ttfamily npm test} command.\hypertarget{md_node__modules_2follow-redirects_2_r_e_a_d_m_e_autotoc_md331}{}\doxysection{\texorpdfstring{Debug Logging}{Debug Logging}}\label{md_node__modules_2follow-redirects_2_r_e_a_d_m_e_autotoc_md331}
+{\ttfamily follow-\/redirects} uses the excellent \href{https://www.npmjs.com/package/debug}{\texttt{ debug}} for logging. To turn on logging set the environment variable {\ttfamily DEBUG=follow-\/redirects} for debug output from just this module. When running the test suite it is sometimes advantageous to set {\ttfamily DEBUG=\texorpdfstring{$\ast$}{*}} to see output from the express server as well.\hypertarget{md_node__modules_2follow-redirects_2_r_e_a_d_m_e_autotoc_md332}{}\doxysection{\texorpdfstring{Authors}{Authors}}\label{md_node__modules_2follow-redirects_2_r_e_a_d_m_e_autotoc_md332}
+
+\begin{DoxyItemize}
+\item \href{https://ruben.verborgh.org/}{\texttt{ Ruben Verborgh}}
+\item \href{mailto:olalonde@gmail.com}{\texttt{ Olivier Lalonde}}
+\item \href{mailto:james@talmage.io}{\texttt{ James Talmage}}
+\end{DoxyItemize}\hypertarget{md_node__modules_2follow-redirects_2_r_e_a_d_m_e_autotoc_md333}{}\doxysection{\texorpdfstring{License}{License}}\label{md_node__modules_2follow-redirects_2_r_e_a_d_m_e_autotoc_md333}
+\href{https://github.com/follow-redirects/follow-redirects/blob/master/LICENSE}{\texttt{ MIT License}} 

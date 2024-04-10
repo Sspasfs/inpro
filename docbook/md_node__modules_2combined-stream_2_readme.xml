@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2combined-stream_2_readme" xml:lang="fr">
+<title>combined-stream</title>
+<indexterm><primary>combined-stream</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2combined-stream_2_readme_1autotoc_md275"/> A stream that emits multiple other streams one after another.</para>
+
+<para><emphasis role="bold">NB</emphasis> Currently <computeroutput>combined-stream</computeroutput> works with streams version 1 only. There is ongoing effort to switch this library to streams version 2. Any help is welcome. :) Meanwhile you can explore other libraries that provide streams2 support with more or less compatibility with <computeroutput>combined-stream</computeroutput>.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://www.npmjs.com/package/combined-stream2">combined-stream2</link>: A drop-in streams2-compatible replacement for the combined-stream module.</para>
+</listitem><listitem>
+<para><link xlink:href="https://www.npmjs.com/package/multistream">multistream</link>: A stream that emits multiple other streams one after another.</para>
+</listitem></itemizedlist>
+</para>
+<section xml:id="_md_node__modules_2combined-stream_2_readme_1autotoc_md276">
+<title><title>Installation</title></title>
+
+<para><literallayout><computeroutput>&#32;bash
+npm&#32;install&#32;combined-stream
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2combined-stream_2_readme_1autotoc_md277">
+<title><title>Usage</title></title>
+
+<para>Here is a simple example that shows how you can use combined-stream to combine two files into one:</para>
+
+<para><literallayout><computeroutput>&#32;javascript
+var&#32;CombinedStream&#32;=&#32;require(&apos;combined-stream&apos;);
+var&#32;fs&#32;=&#32;require(&apos;fs&apos;);
+
+var&#32;combinedStream&#32;=&#32;CombinedStream.create();
+combinedStream.append(fs.createReadStream(&apos;file1.txt&apos;));
+combinedStream.append(fs.createReadStream(&apos;file2.txt&apos;));
+
+combinedStream.pipe(fs.createWriteStream(&apos;combined.txt&apos;));
+</computeroutput></literallayout></para>
+
+<para>While the example above works great, it will pause all source streams until they are needed. If you don&apos;t want that to happen, you can set <computeroutput>pauseStreams</computeroutput> to <computeroutput>false</computeroutput>:</para>
+
+<para><literallayout><computeroutput>&#32;javascript
+var&#32;CombinedStream&#32;=&#32;require(&apos;combined-stream&apos;);
+var&#32;fs&#32;=&#32;require(&apos;fs&apos;);
+
+var&#32;combinedStream&#32;=&#32;CombinedStream.create({pauseStreams:&#32;false});
+combinedStream.append(fs.createReadStream(&apos;file1.txt&apos;));
+combinedStream.append(fs.createReadStream(&apos;file2.txt&apos;));
+
+combinedStream.pipe(fs.createWriteStream(&apos;combined.txt&apos;));
+</computeroutput></literallayout></para>
+
+<para>However, what if you don&apos;t have all the source streams yet, or you don&apos;t want to allocate the resources (file descriptors, memory, etc.) for them right away? Well, in that case you can simply provide a callback that supplies the stream by calling a <computeroutput>next()</computeroutput> function:</para>
+
+<para><literallayout><computeroutput>&#32;javascript
+var&#32;CombinedStream&#32;=&#32;require(&apos;combined-stream&apos;);
+var&#32;fs&#32;=&#32;require(&apos;fs&apos;);
+
+var&#32;combinedStream&#32;=&#32;CombinedStream.create();
+combinedStream.append(function(next)&#32;{
+&#32;&#32;next(fs.createReadStream(&apos;file1.txt&apos;));
+});
+combinedStream.append(function(next)&#32;{
+&#32;&#32;next(fs.createReadStream(&apos;file2.txt&apos;));
+});
+
+combinedStream.pipe(fs.createWriteStream(&apos;combined.txt&apos;));
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2combined-stream_2_readme_1autotoc_md278">
+<title><title>API</title></title>
+<section xml:id="_md_node__modules_2combined-stream_2_readme_1autotoc_md279">
+<title><title>CombinedStream.create([options])</title></title>
+
+<para>Returns a new combined stream object. Available options are:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>maxDataSize</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>pauseStreams</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+
+<para>The effect of those options is described below.</para>
+</section>
+<section xml:id="_md_node__modules_2combined-stream_2_readme_1autotoc_md280">
+<title><title>combinedStream.pauseStreams = <computeroutput>true</computeroutput></title></title>
+
+<para>Whether to apply back pressure to the underlaying streams. If set to <computeroutput>false</computeroutput>, the underlaying streams will never be paused. If set to <computeroutput>true</computeroutput>, the underlaying streams will be paused right after being appended, as well as when <computeroutput>delayedStream.pipe()</computeroutput> wants to throttle.</para>
+</section>
+<section xml:id="_md_node__modules_2combined-stream_2_readme_1autotoc_md281">
+<title><title>combinedStream.maxDataSize = <computeroutput>2 * 1024 * 1024</computeroutput></title></title>
+
+<para>The maximum amount of bytes (or characters) to buffer for all source streams. If this value is exceeded, <computeroutput>combinedStream</computeroutput> emits an &#8216;&apos;error&#8217;` event.</para>
+</section>
+<section xml:id="_md_node__modules_2combined-stream_2_readme_1autotoc_md282">
+<title><title>combinedStream.dataSize = <computeroutput>0</computeroutput></title></title>
+
+<para>The amount of bytes (or characters) currently buffered by <computeroutput>combinedStream</computeroutput>.</para>
+</section>
+<section xml:id="_md_node__modules_2combined-stream_2_readme_1autotoc_md283">
+<title><title>combinedStream.append(stream)</title></title>
+
+<para>Appends the given <computeroutput>stream</computeroutput> to the combinedStream object. If <computeroutput>pauseStreams</computeroutput> is set to `true, this stream will also be paused right away.</para>
+
+<para><computeroutput>streams</computeroutput> can also be a function that takes one parameter called <computeroutput>next</computeroutput>. <computeroutput>next</computeroutput> is a function that must be invoked in order to provide the <computeroutput>next</computeroutput> stream, see example above.</para>
+
+<para>Regardless of how the <computeroutput>stream</computeroutput> is appended, combined-stream always attaches an &#8216;&apos;error&#8217;` listener to it, so you don&apos;t have to do that manually.</para>
+
+<para>Special case: <computeroutput>stream</computeroutput> can also be a String or Buffer.</para>
+</section>
+<section xml:id="_md_node__modules_2combined-stream_2_readme_1autotoc_md284">
+<title><title>combinedStream.write(data)</title></title>
+
+<para>You should not call this, <computeroutput>combinedStream</computeroutput> takes care of piping the appended streams into itself for you.</para>
+</section>
+<section xml:id="_md_node__modules_2combined-stream_2_readme_1autotoc_md285">
+<title><title>combinedStream.resume()</title></title>
+
+<para>Causes <computeroutput>combinedStream</computeroutput> to start drain the streams it manages. The function is idempotent, and also emits a &#8216;&apos;resume&#8217;` event each time which usually goes to the stream that is currently being drained.</para>
+</section>
+<section xml:id="_md_node__modules_2combined-stream_2_readme_1autotoc_md286">
+<title><title>combinedStream.pause();</title></title>
+
+<para>If <computeroutput>combinedStream.pauseStreams</computeroutput> is set to <computeroutput>false</computeroutput>, this does nothing. Otherwise a &#8216;&apos;pause&#8217;` event is emitted, this goes to the stream that is currently being drained, so you can use it to apply back pressure.</para>
+</section>
+<section xml:id="_md_node__modules_2combined-stream_2_readme_1autotoc_md287">
+<title><title>combinedStream.end();</title></title>
+
+<para>Sets <computeroutput>combinedStream.writable</computeroutput> to false, emits an &#8216;&apos;end&#8217;` event, and removes all streams from the queue.</para>
+</section>
+<section xml:id="_md_node__modules_2combined-stream_2_readme_1autotoc_md288">
+<title><title>combinedStream.destroy();</title></title>
+
+<para>Same as <computeroutput>combinedStream.end()</computeroutput>, except it emits a &#8216;&apos;close&#8217;<computeroutput>event instead of </computeroutput>&apos;end&apos;`.</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2combined-stream_2_readme_1autotoc_md289">
+<title><title>License</title></title>
+
+<para>combined-stream is licensed under the MIT license. </para>
+</section>
+</section>

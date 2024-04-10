@@ -1,0 +1,388 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2form-data_2_readme" xml:lang="fr">
+<title>Form-Data &lt;a href=&quot;https://www.npmjs.com/package/form-data&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/v/form-data.svg&quot; alt=&quot;NPM Module&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://gitter.im/form-data/form-data&quot; &gt;&lt;img src=&quot;http://form-data.github.io/images/gitterbadge.svg&quot; alt=&quot;Join the chat at https://gitter.im/form-data/form-data&quot;/&gt;&lt;/a&gt;</title>
+<indexterm><primary>Form-Data &lt;a href=&quot;https://www.npmjs.com/package/form-data&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/v/form-data.svg&quot; alt=&quot;NPM Module&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://gitter.im/form-data/form-data&quot; &gt;&lt;img src=&quot;http://form-data.github.io/images/gitterbadge.svg&quot; alt=&quot;Join the chat at https://gitter.im/form-data/form-data&quot;/&gt;&lt;/a&gt;</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2form-data_2_readme_1autotoc_md334"/> A library to create readable <computeroutput>&quot;multipart/form-data&quot;</computeroutput> streams. Can be used to submit forms and file uploads to other web applications.</para>
+
+<para>The API of this library is inspired by the <link xlink:href="http://dev.w3.org/2006/webapi/XMLHttpRequest-2/Overview.html#the-formdata-interface">XMLHttpRequest-2 FormData Interface</link>.</para>
+
+<para><link xlink:href="https://travis-ci.org/form-data/form-data"></link> <link xlink:href="https://travis-ci.org/form-data/form-data"></link> <link xlink:href="https://travis-ci.org/form-data/form-data"></link></para>
+
+<para><link xlink:href="https://coveralls.io/github/form-data/form-data?branch=master"></link> <link xlink:href="https://david-dm.org/form-data/form-data"></link></para>
+<section xml:id="_md_node__modules_2form-data_2_readme_1autotoc_md335">
+<title><title>Install</title></title>
+
+<para><literallayout><computeroutput>npm&#32;install&#32;--save&#32;form-data
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2form-data_2_readme_1autotoc_md336">
+<title><title>Usage</title></title>
+
+<para>In this example we are constructing a form with 3 fields that contain a string, a buffer and a file stream.</para>
+
+<para><literallayout><computeroutput>&#32;javascript
+var&#32;FormData&#32;=&#32;require(&apos;form-data&apos;);
+var&#32;fs&#32;=&#32;require(&apos;fs&apos;);
+
+var&#32;form&#32;=&#32;new&#32;FormData();
+form.append(&apos;my_field&apos;,&#32;&apos;my&#32;value&apos;);
+form.append(&apos;my_buffer&apos;,&#32;new&#32;Buffer(10));
+form.append(&apos;my_file&apos;,&#32;fs.createReadStream(&apos;/foo/bar.jpg&apos;));
+</computeroutput></literallayout></para>
+
+<para>Also you can use http-response stream:</para>
+
+<para><literallayout><computeroutput>&#32;javascript
+var&#32;FormData&#32;=&#32;require(&apos;form-data&apos;);
+var&#32;http&#32;=&#32;require(&apos;http&apos;);
+
+var&#32;form&#32;=&#32;new&#32;FormData();
+
+http.request(&apos;http://nodejs.org/images/logo.png&apos;,&#32;function(response)&#32;{
+&#32;&#32;form.append(&apos;my_field&apos;,&#32;&apos;my&#32;value&apos;);
+&#32;&#32;form.append(&apos;my_buffer&apos;,&#32;new&#32;Buffer(10));
+&#32;&#32;form.append(&apos;my_logo&apos;,&#32;response);
+});
+</computeroutput></literallayout></para>
+
+<para>Or @mikeal&apos;s <link xlink:href="https://github.com/request/request">request</link> stream:</para>
+
+<para><literallayout><computeroutput>&#32;javascript
+var&#32;FormData&#32;=&#32;require(&apos;form-data&apos;);
+var&#32;request&#32;=&#32;require(&apos;request&apos;);
+
+var&#32;form&#32;=&#32;new&#32;FormData();
+
+form.append(&apos;my_field&apos;,&#32;&apos;my&#32;value&apos;);
+form.append(&apos;my_buffer&apos;,&#32;new&#32;Buffer(10));
+form.append(&apos;my_logo&apos;,&#32;request(&apos;http://nodejs.org/images/logo.png&apos;));
+</computeroutput></literallayout></para>
+
+<para>In order to submit this form to a web application, call <computeroutput>submit(url, [callback])</computeroutput> method:</para>
+
+<para><literallayout><computeroutput>&#32;javascript
+form.submit(&apos;http://example.org/&apos;,&#32;function(err,&#32;res)&#32;{
+&#32;&#32;//&#32;res&#32;–&#32;response&#32;object&#32;(http.IncomingMessage)&#32;&#32;//
+&#32;&#32;res.resume();
+});
+</computeroutput></literallayout></para>
+
+<para>For more advanced request manipulations <computeroutput>submit()</computeroutput> method returns <computeroutput>http.ClientRequest</computeroutput> object, or you can choose from one of the alternative submission methods.</para>
+<section xml:id="_md_node__modules_2form-data_2_readme_1autotoc_md337">
+<title><title>Custom options</title></title>
+
+<para>You can provide custom options, such as <computeroutput>maxDataSize</computeroutput>:</para>
+
+<para><literallayout><computeroutput>&#32;javascript
+var&#32;FormData&#32;=&#32;require(&apos;form-data&apos;);
+
+var&#32;form&#32;=&#32;new&#32;FormData({&#32;maxDataSize:&#32;20971520&#32;});
+form.append(&apos;my_field&apos;,&#32;&apos;my&#32;value&apos;);
+form.append(&apos;my_buffer&apos;,&#32;/*&#32;something&#32;big&#32;*/);
+</computeroutput></literallayout></para>
+
+<para>List of available options could be found in <link xlink:href="https://github.com/felixge/node-combined-stream/blob/master/lib/combined_stream.js#L7-L15">combined-stream</link></para>
+</section>
+<section xml:id="_md_node__modules_2form-data_2_readme_1autotoc_md338">
+<title><title>Alternative submission methods</title></title>
+
+<para>You can use node&apos;s http client interface:</para>
+
+<para><literallayout><computeroutput>&#32;javascript
+var&#32;http&#32;=&#32;require(&apos;http&apos;);
+
+var&#32;request&#32;=&#32;http.request({
+&#32;&#32;method:&#32;&apos;post&apos;,
+&#32;&#32;host:&#32;&apos;example.org&apos;,
+&#32;&#32;path:&#32;&apos;/upload&apos;,
+&#32;&#32;headers:&#32;form.getHeaders()
+});
+
+form.pipe(request);
+
+request.on(&apos;response&apos;,&#32;function(res)&#32;{
+&#32;&#32;console.log(res.statusCode);
+});
+</computeroutput></literallayout></para>
+
+<para>Or if you would prefer the &#8216;&apos;Content-Length&#8217;` header to be set for you:</para>
+
+<para><literallayout><computeroutput>&#32;javascript
+form.submit(&apos;example.org/upload&apos;,&#32;function(err,&#32;res)&#32;{
+&#32;&#32;console.log(res.statusCode);
+});
+</computeroutput></literallayout></para>
+
+<para>To use custom headers and pre-known length in parts:</para>
+
+<para><literallayout><computeroutput>&#32;javascript
+var&#32;CRLF&#32;=&#32;&apos;\r\n&apos;;
+var&#32;form&#32;=&#32;new&#32;FormData();
+
+var&#32;options&#32;=&#32;{
+&#32;&#32;header:&#32;CRLF&#32;+&#32;&apos;--&apos;&#32;+&#32;form.getBoundary()&#32;+&#32;CRLF&#32;+&#32;&apos;X-Custom-Header:&#32;123&apos;&#32;+&#32;CRLF&#32;+&#32;CRLF,
+&#32;&#32;knownLength:&#32;1
+};
+
+form.append(&apos;my_buffer&apos;,&#32;buffer,&#32;options);
+
+form.submit(&apos;http://example.com/&apos;,&#32;function(err,&#32;res)&#32;{
+&#32;&#32;if&#32;(err)&#32;throw&#32;err;
+&#32;&#32;console.log(&apos;Done&apos;);
+});
+</computeroutput></literallayout></para>
+
+<para>Form-Data can recognize and fetch all the required information from common types of streams (<computeroutput>fs.readStream</computeroutput>, <computeroutput>http.response</computeroutput> and <computeroutput>mikeal&apos;s request</computeroutput>), for some other types of streams you&apos;d need to provide &quot;file&quot;-related information manually:</para>
+
+<para><literallayout><computeroutput>&#32;javascript
+someModule.stream(function(err,&#32;stdout,&#32;stderr)&#32;{
+&#32;&#32;if&#32;(err)&#32;throw&#32;err;
+
+&#32;&#32;var&#32;form&#32;=&#32;new&#32;FormData();
+
+&#32;&#32;form.append(&apos;file&apos;,&#32;stdout,&#32;{
+&#32;&#32;&#32;&#32;filename:&#32;&apos;unicycle.jpg&apos;,&#32;//&#32;...&#32;or:
+&#32;&#32;&#32;&#32;filepath:&#32;&apos;photos/toys/unicycle.jpg&apos;,
+&#32;&#32;&#32;&#32;contentType:&#32;&apos;image/jpeg&apos;,
+&#32;&#32;&#32;&#32;knownLength:&#32;19806
+&#32;&#32;});
+
+&#32;&#32;form.submit(&apos;http://example.com/&apos;,&#32;function(err,&#32;res)&#32;{
+&#32;&#32;&#32;&#32;if&#32;(err)&#32;throw&#32;err;
+&#32;&#32;&#32;&#32;console.log(&apos;Done&apos;);
+&#32;&#32;});
+});
+</computeroutput></literallayout></para>
+
+<para>The <computeroutput>filepath</computeroutput> property overrides <computeroutput>filename</computeroutput> and may contain a relative path. This is typically used when uploading <link xlink:href="https://wicg.github.io/entries-api/#dom-htmlinputelement-webkitdirectory">multiple files from a directory</link>.</para>
+
+<para>For edge cases, like POST request to URL with query string or to pass HTTP auth credentials, object can be passed to <computeroutput>form.submit()</computeroutput> as first parameter:</para>
+
+<para><literallayout><computeroutput>&#32;javascript
+form.submit({
+&#32;&#32;host:&#32;&apos;example.com&apos;,
+&#32;&#32;path:&#32;&apos;/probably.php?extra=params&apos;,
+&#32;&#32;auth:&#32;&apos;username:password&apos;
+},&#32;function(err,&#32;res)&#32;{
+&#32;&#32;console.log(res.statusCode);
+});
+</computeroutput></literallayout></para>
+
+<para>In case you need to also send custom HTTP headers with the POST request, you can use the <computeroutput>headers</computeroutput> key in first parameter of <computeroutput>form.submit()</computeroutput>:</para>
+
+<para><literallayout><computeroutput>&#32;javascript
+form.submit({
+&#32;&#32;host:&#32;&apos;example.com&apos;,
+&#32;&#32;path:&#32;&apos;/surelynot.php&apos;,
+&#32;&#32;headers:&#32;{&apos;x-test-header&apos;:&#32;&apos;test-header-value&apos;}
+},&#32;function(err,&#32;res)&#32;{
+&#32;&#32;console.log(res.statusCode);
+});
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2form-data_2_readme_1autotoc_md339">
+<title><title>Methods</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://github.com/form-data/form-data#void-append-string-field-mixed-value--mixed-options-"><emphasis>Void</emphasis> append( <emphasis role="bold">String</emphasis> <emphasis>field</emphasis>, <emphasis role="bold">Mixed</emphasis> <emphasis>value</emphasis> [, <emphasis role="bold">Mixed</emphasis> <emphasis>options</emphasis>] )</link>.</para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/form-data/form-data#array-getheaders-array-userheaders-"><emphasis>Headers</emphasis> getHeaders( [<emphasis role="bold">Headers</emphasis> <emphasis>userHeaders</emphasis>] )</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/form-data/form-data#string-getboundary"><emphasis>String</emphasis> getBoundary()</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/form-data/form-data#void-setboundary"><emphasis>Void</emphasis> setBoundary()</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/form-data/form-data#buffer-getbuffer"><emphasis>Buffer</emphasis> getBuffer()</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/form-data/form-data#integer-getlengthsync"><emphasis>Integer</emphasis> getLengthSync()</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/form-data/form-data#integer-getlength-function-callback-"><emphasis>Integer</emphasis> getLength( <emphasis role="bold">function</emphasis> <emphasis>callback</emphasis> )</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/form-data/form-data#boolean-hasknownlength"><emphasis>Boolean</emphasis> hasKnownLength()</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/form-data/form-data#request-submit-params-function-callback-"><emphasis>Request</emphasis> submit( <emphasis>params</emphasis>, <emphasis role="bold">function</emphasis> <emphasis>callback</emphasis> )</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/form-data/form-data#string-tostring"><emphasis>String</emphasis> toString()</link></para>
+</listitem></itemizedlist>
+</para>
+<section xml:id="_md_node__modules_2form-data_2_readme_1autotoc_md340">
+<title><title><emphasis>Void</emphasis> append( <emphasis role="bold">String</emphasis> <emphasis>field</emphasis>, <emphasis role="bold">Mixed</emphasis> <emphasis>value</emphasis> [, <emphasis role="bold">Mixed</emphasis> <emphasis>options</emphasis>] )</title></title>
+
+<para>Append data to the form. You can submit about any format (string, integer, boolean, buffer, etc.). However, Arrays are not supported and need to be turned into strings by the user. <literallayout><computeroutput>var&#32;form&#32;=&#32;new&#32;FormData();
+form.append(&#32;&apos;my_string&apos;,&#32;&apos;my&#32;value&apos;&#32;);
+form.append(&#32;&apos;my_integer&apos;,&#32;1&#32;);
+form.append(&#32;&apos;my_boolean&apos;,&#32;true&#32;);
+form.append(&#32;&apos;my_buffer&apos;,&#32;new&#32;Buffer(10)&#32;);
+form.append(&#32;&apos;my_array_as_json&apos;,&#32;JSON.stringify(&#32;[&apos;bird&apos;,&apos;cute&apos;]&#32;)&#32;)
+</computeroutput></literallayout></para>
+
+<para>You may provide a string for options, or an object. <literallayout><computeroutput>//&#32;Set&#32;filename&#32;by&#32;providing&#32;a&#32;string&#32;for&#32;options
+form.append(&#32;&apos;my_file&apos;,&#32;fs.createReadStream(&apos;/foo/bar.jpg&apos;),&#32;&apos;bar.jpg&apos;&#32;);
+
+//&#32;provide&#32;an&#32;object.
+form.append(&#32;&apos;my_file&apos;,&#32;fs.createReadStream(&apos;/foo/bar.jpg&apos;),&#32;{filename:&#32;&apos;bar.jpg&apos;,&#32;contentType:&#32;&apos;image/jpeg&apos;,&#32;knownLength:&#32;19806}&#32;);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2form-data_2_readme_1autotoc_md341">
+<title><title><emphasis>Headers</emphasis> getHeaders( [<emphasis role="bold">Headers</emphasis> <emphasis>userHeaders</emphasis>] )</title></title>
+
+<para>This method adds the correct <computeroutput>content-type</computeroutput> header to the provided array of <computeroutput>userHeaders</computeroutput>.</para>
+</section>
+<section xml:id="_md_node__modules_2form-data_2_readme_1autotoc_md342">
+<title><title><emphasis>String</emphasis> getBoundary()</title></title>
+
+<para>Return the boundary of the formData. By default, the boundary consists of 26 <computeroutput>-</computeroutput> followed by 24 numbers for example: <literallayout><computeroutput>--------------------------515890814546601021194782
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2form-data_2_readme_1autotoc_md343">
+<title><title><emphasis>Void</emphasis> setBoundary(String <emphasis>boundary</emphasis>)</title></title>
+
+<para>Set the boundary string, overriding the default behavior described above.</para>
+
+<para><emphasis>Note: The boundary must be unique and may not appear in the data.</emphasis></para>
+</section>
+<section xml:id="_md_node__modules_2form-data_2_readme_1autotoc_md344">
+<title><title><emphasis>Buffer</emphasis> getBuffer()</title></title>
+
+<para>Return the full formdata request package, as a Buffer. You can insert this Buffer in e.g. Axios to send multipart data. <literallayout><computeroutput>var&#32;form&#32;=&#32;new&#32;FormData();
+form.append(&#32;&apos;my_buffer&apos;,&#32;Buffer.from([0x4a,0x42,0x20,0x52,0x6f,0x63,0x6b,0x73])&#32;);
+form.append(&#32;&apos;my_file&apos;,&#32;fs.readFileSync(&apos;/foo/bar.jpg&apos;)&#32;);
+
+axios.post(&#32;&apos;https://example.com/path/to/api&apos;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;form.getBuffer(),
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;form.getHeaders()
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;)
+</computeroutput></literallayout> <emphasis role="bold">Note:</emphasis> Because the output is of type Buffer, you can only append types that are accepted by Buffer: <emphasis>string, Buffer, ArrayBuffer, Array, or Array-like Object</emphasis>. A ReadStream for example will result in an error.</para>
+</section>
+<section xml:id="_md_node__modules_2form-data_2_readme_1autotoc_md345">
+<title><title><emphasis>Integer</emphasis> getLengthSync()</title></title>
+
+<para>Same as <computeroutput>getLength</computeroutput> but synchronous.</para>
+
+<para><emphasis>Note: getLengthSync <emphasis role="bold">doesn&apos;t</emphasis> calculate streams length.</emphasis></para>
+</section>
+<section xml:id="_md_node__modules_2form-data_2_readme_1autotoc_md346">
+<title><title><emphasis>Integer</emphasis> getLength( <emphasis role="bold">function</emphasis> <emphasis>callback</emphasis> )</title></title>
+
+<para>Returns the <computeroutput>Content-Length</computeroutput> async. The callback is used to handle errors and continue once the length has been calculated <literallayout><computeroutput>this.getLength(function(err,&#32;length)&#32;{
+&#32;&#32;if&#32;(err)&#32;{
+&#32;&#32;&#32;&#32;this._error(err);
+&#32;&#32;&#32;&#32;return;
+&#32;&#32;}
+
+&#32;&#32;//&#32;add&#32;content&#32;length
+&#32;&#32;request.setHeader(&apos;Content-Length&apos;,&#32;length);
+
+&#32;&#32;...
+}.bind(this));
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2form-data_2_readme_1autotoc_md347">
+<title><title><emphasis>Boolean</emphasis> hasKnownLength()</title></title>
+
+<para>Checks if the length of added values is known.</para>
+</section>
+<section xml:id="_md_node__modules_2form-data_2_readme_1autotoc_md348">
+<title><title><emphasis>Request</emphasis> submit( <emphasis>params</emphasis>, <emphasis role="bold">function</emphasis> <emphasis>callback</emphasis> )</title></title>
+
+<para>Submit the form to a web application. <literallayout><computeroutput>var&#32;form&#32;=&#32;new&#32;FormData();
+form.append(&#32;&apos;my_string&apos;,&#32;&apos;Hello&#32;World&apos;&#32;);
+
+form.submit(&#32;&apos;http://example.com/&apos;,&#32;function(err,&#32;res)&#32;{
+&#32;&#32;//&#32;res&#32;–&#32;response&#32;object&#32;(http.IncomingMessage)&#32;&#32;//
+&#32;&#32;res.resume();
+}&#32;);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2form-data_2_readme_1autotoc_md349">
+<title><title><emphasis>String</emphasis> toString()</title></title>
+
+<para>Returns the form data as a string. Don&apos;t use this if you are sending files or buffers, use <computeroutput>getBuffer()</computeroutput> instead.</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2form-data_2_readme_1autotoc_md350">
+<title><title>Integration with other libraries</title></title>
+<section xml:id="_md_node__modules_2form-data_2_readme_1autotoc_md351">
+<title><title>Request</title></title>
+
+<para>Form submission using <link xlink:href="https://github.com/request/request">request</link>:</para>
+
+<para><literallayout><computeroutput>var&#32;formData&#32;=&#32;{
+&#32;&#32;my_field:&#32;&apos;my_value&apos;,
+&#32;&#32;my_file:&#32;fs.createReadStream(__dirname&#32;+&#32;&apos;/unicycle.jpg&apos;),
+};
+
+request.post({url:&apos;http://service.com/upload&apos;,&#32;formData:&#32;formData},&#32;function(err,&#32;httpResponse,&#32;body)&#32;{
+&#32;&#32;if&#32;(err)&#32;{
+&#32;&#32;&#32;&#32;return&#32;console.error(&apos;upload&#32;failed:&apos;,&#32;err);
+&#32;&#32;}
+&#32;&#32;console.log(&apos;Upload&#32;successful!&#32;&#32;Server&#32;responded&#32;with:&apos;,&#32;body);
+});
+</computeroutput></literallayout></para>
+
+<para>For more details see <link xlink:href="https://github.com/request/request#multipartform-data-multipart-form-uploads">request readme</link>.</para>
+</section>
+<section xml:id="_md_node__modules_2form-data_2_readme_1autotoc_md352">
+<title><title>node-fetch</title></title>
+
+<para>You can also submit a form using <link xlink:href="https://github.com/bitinn/node-fetch">node-fetch</link>:</para>
+
+<para><literallayout><computeroutput>var&#32;form&#32;=&#32;new&#32;FormData();
+
+form.append(&apos;a&apos;,&#32;1);
+
+fetch(&apos;http://example.com&apos;,&#32;{&#32;method:&#32;&apos;POST&apos;,&#32;body:&#32;form&#32;})
+&#32;&#32;&#32;&#32;.then(function(res)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;res.json();
+&#32;&#32;&#32;&#32;}).then(function(json)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;console.log(json);
+&#32;&#32;&#32;&#32;});
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2form-data_2_readme_1autotoc_md353">
+<title><title>axios</title></title>
+
+<para>In Node.js you can post a file using <link xlink:href="https://github.com/axios/axios">axios</link>: <literallayout><computeroutput>const&#32;form&#32;=&#32;new&#32;FormData();
+const&#32;stream&#32;=&#32;fs.createReadStream(PATH_TO_FILE);
+
+form.append(&apos;image&apos;,&#32;stream);
+
+//&#32;In&#32;Node.js&#32;environment&#32;you&#32;need&#32;to&#32;set&#32;boundary&#32;in&#32;the&#32;header&#32;field&#32;&apos;Content-Type&apos;&#32;by&#32;calling&#32;method&#32;`getHeaders`
+const&#32;formHeaders&#32;=&#32;form.getHeaders();
+
+axios.post(&apos;http://example.com&apos;,&#32;form,&#32;{
+&#32;&#32;headers:&#32;{
+&#32;&#32;&#32;&#32;...formHeaders,
+&#32;&#32;},
+})
+.then(response&#32;=&gt;&#32;response)
+.catch(error&#32;=&gt;&#32;error)
+</computeroutput></literallayout></para>
+</section>
+</section>
+</section>
+<section xml:id="_md_node__modules_2form-data_2_readme_1autotoc_md354">
+<title><title>Notes</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>getLengthSync()</computeroutput> method DOESN&apos;T calculate length for streams, use <computeroutput>knownLength</computeroutput> options as workaround.</para>
+</listitem><listitem>
+<para><computeroutput>getLength(cb)</computeroutput> will send an error as first parameter of callback if stream length cannot be calculated (e.g. send in custom streams w/o using <computeroutput>knownLength</computeroutput>).</para>
+</listitem><listitem>
+<para><computeroutput>submit</computeroutput> will not add <computeroutput>content-length</computeroutput> if form length is unknown or not calculable.</para>
+</listitem><listitem>
+<para>Starting version <computeroutput>2.x</computeroutput> FormData has dropped support for <computeroutput>node@0.10.x</computeroutput>.</para>
+</listitem><listitem>
+<para>Starting version <computeroutput>3.x</computeroutput> FormData has dropped support for <computeroutput>node@4.x</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2form-data_2_readme_1autotoc_md355">
+<title><title>License</title></title>
+
+<para>Form-Data is released under the [MIT](License) license. </para>
+</section>
+</section>

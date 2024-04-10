@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_ea14baba27f3f685fd18289971a476d4" xml:lang="fr">
+<title>Répertoire de référence de node_modules/immutable</title>
+<indexterm><primary>Répertoire de référence de node_modules/immutable</primary></indexterm>
+Graphe des dépendances de répertoires pour immutable:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_ea14baba27f3f685fd18289971a476d4_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>

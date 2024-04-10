@@ -1,0 +1,11 @@
+<map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,80,68,106"/>
+<area shape="rect" id="Node000001" href="$class_database_1_1_seeders_1_1_category_seeder.html" title=" " alt="" coords="134,5,249,31"/>
+<area shape="poly" id="edge44_Node000000_Node000001" title=" " alt="" coords="66,69,114,40,141,29,143,34,117,45,69,73"/>
+<area shape="rect" id="Node000002" href="$class_database_1_1_seeders_1_1_database_seeder.html" title=" " alt="" coords="132,55,251,80"/>
+<area shape="poly" id="edge45_Node000000_Node000002" title=" " alt="" coords="83,83,131,75,132,80,84,88"/>
+<area shape="rect" id="Node000003" href="$class_database_1_1_seeders_1_1_produits_table_seeder.html" title=" " alt="" coords="121,104,262,130"/>
+<area shape="poly" id="edge46_Node000000_Node000003" title=" " alt="" coords="84,97,121,103,120,109,83,103"/>
+<area shape="rect" id="Node000004" href="$class_personnel_table_seeder.html" title=" " alt="" coords="116,153,267,179"/>
+<area shape="poly" id="edge47_Node000000_Node000004" title=" " alt="" coords="69,112,117,140,143,150,141,155,115,145,67,117"/>
+</map>

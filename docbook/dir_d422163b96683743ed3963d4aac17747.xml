@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_d422163b96683743ed3963d4aac17747" xml:lang="fr">
+<title>Répertoire de référence de app</title>
+<indexterm><primary>Répertoire de référence de app</primary></indexterm>
+<simplesect>
+    <title>Répertoires    </title>
+        <itemizedlist>
+            <listitem><para>répertoire <link linkend="_dir_b67ad1f52c1717b3844b7e84564e94bb">Console</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_17ad28703916f734b4c8becb6f0b42a0">Exceptions</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_0c4ee04d587063ecca91a7f35642b9f3">Http</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_fc6199fba97859a095e1d9a5aa5fae23">Models</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_40a1d9eb7a98c3857c61418cc8990e05">Policies</link></para>
+</listitem>
+            <listitem><para>répertoire <link linkend="_dir_07d79607a5b3b5e8afcff74e4c422a5d">Providers</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

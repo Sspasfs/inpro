@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2mime-types_2_r_e_a_d_m_e" xml:lang="fr">
+<title>mime-types</title>
+<indexterm><primary>mime-types</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2mime-types_2_r_e_a_d_m_e_1autotoc_md594"/> <link xlink:href="https://npmjs.org/package/mime-types"></link> <link xlink:href="https://npmjs.org/package/mime-types"></link> <link xlink:href="https://nodejs.org/en/download"></link> <link xlink:href="https://github.com/jshttp/mime-types/actions/workflows/ci.yml"></link> <link xlink:href="https://coveralls.io/r/jshttp/mime-types?branch=master"></link></para>
+
+<para>The ultimate javascript content-type utility.</para>
+
+<para>Similar to <link xlink:href="https://www.npmjs.com/package/mime">the <computeroutput>mime@1.x</computeroutput> module</link>, except:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">No fallbacks.</emphasis> Instead of naively returning the first available type, <computeroutput>mime-types</computeroutput> simply returns <computeroutput>false</computeroutput>, so do &#8216;var type = mime.lookup(&apos;unrecognized&#8217;) || &apos;application/octet-stream&apos;<computeroutput>.</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>No</computeroutput>new Mime()<computeroutput>business, so you could do</computeroutput>var lookup = require(&apos;mime-types&apos;).lookup<computeroutput>.</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>No</computeroutput>.define()<computeroutput>functionality</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Bug fixes for</computeroutput>.lookup(path)`</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Otherwise, the API is compatible with <computeroutput>mime</computeroutput> 1.x.</para>
+<section xml:id="_md_node__modules_2mime-types_2_r_e_a_d_m_e_1autotoc_md595">
+<title><title>Install</title></title>
+
+<para>This is a <link xlink:href="https://nodejs.org/en/">Node.js</link> module available through the <link xlink:href="https://www.npmjs.com/">npm registry</link>. Installation is done using the <link xlink:href="https://docs.npmjs.com/getting-started/installing-npm-packages-locally"><computeroutput>npm install</computeroutput> command</link>:</para>
+
+<para><literallayout><computeroutput>$&#32;npm&#32;install&#32;mime-types
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2mime-types_2_r_e_a_d_m_e_1autotoc_md596">
+<title><title>Adding Types</title></title>
+
+<para>All mime types are based on <link xlink:href="https://www.npmjs.com/package/mime-db">mime-db</link>, so open a PR there if you&apos;d like to add mime types.</para>
+</section>
+<section xml:id="_md_node__modules_2mime-types_2_r_e_a_d_m_e_1autotoc_md597">
+<title><title>API</title></title>
+
+<para><literallayout><computeroutput>var&#32;mime&#32;=&#32;require(&apos;mime-types&apos;)
+</computeroutput></literallayout></para>
+
+<para>All functions return <computeroutput>false</computeroutput> if input is invalid or not found.</para>
+<section xml:id="_md_node__modules_2mime-types_2_r_e_a_d_m_e_1autotoc_md598">
+<title><title>mime.lookup(path)</title></title>
+
+<para>Lookup the content-type associated with a file.</para>
+
+<para><literallayout><computeroutput>mime.lookup(&apos;json&apos;)&#32;//&#32;&apos;application/json&apos;
+mime.lookup(&apos;.md&apos;)&#32;//&#32;&apos;text/markdown&apos;
+mime.lookup(&apos;file.html&apos;)&#32;//&#32;&apos;text/html&apos;
+mime.lookup(&apos;folder/file.js&apos;)&#32;//&#32;&apos;application/javascript&apos;
+mime.lookup(&apos;folder/.htaccess&apos;)&#32;//&#32;false
+
+mime.lookup(&apos;cats&apos;)&#32;//&#32;false
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2mime-types_2_r_e_a_d_m_e_1autotoc_md599">
+<title><title>mime.contentType(type)</title></title>
+
+<para>Create a full content-type header given a content-type or extension. When given an extension, <computeroutput>mime.lookup</computeroutput> is used to get the matching content-type, otherwise the given content-type is used. Then if the content-type does not already have a <computeroutput>charset</computeroutput> parameter, <computeroutput>mime.charset</computeroutput> is used to get the default charset and add to the returned content-type.</para>
+
+<para><literallayout><computeroutput>mime.contentType(&apos;markdown&apos;)&#32;//&#32;&apos;text/x-markdown;&#32;charset=utf-8&apos;
+mime.contentType(&apos;file.json&apos;)&#32;//&#32;&apos;application/json;&#32;charset=utf-8&apos;
+mime.contentType(&apos;text/html&apos;)&#32;//&#32;&apos;text/html;&#32;charset=utf-8&apos;
+mime.contentType(&apos;text/html;&#32;charset=iso-8859-1&apos;)&#32;//&#32;&apos;text/html;&#32;charset=iso-8859-1&apos;
+
+//&#32;from&#32;a&#32;full&#32;path
+mime.contentType(path.extname(&apos;/path/to/file.json&apos;))&#32;//&#32;&apos;application/json;&#32;charset=utf-8&apos;
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2mime-types_2_r_e_a_d_m_e_1autotoc_md600">
+<title><title>mime.extension(type)</title></title>
+
+<para>Get the default extension for a content-type.</para>
+
+<para><literallayout><computeroutput>mime.extension(&apos;application/octet-stream&apos;)&#32;//&#32;&apos;bin&apos;
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2mime-types_2_r_e_a_d_m_e_1autotoc_md601">
+<title><title>mime.charset(type)</title></title>
+
+<para>Lookup the implied default charset of a content-type.</para>
+
+<para><literallayout><computeroutput>mime.charset(&apos;text/markdown&apos;)&#32;//&#32;&apos;UTF-8&apos;
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2mime-types_2_r_e_a_d_m_e_1autotoc_md602">
+<title><title>var type = mime.types[extension]</title></title>
+
+<para>A map of content-types by extension.</para>
+</section>
+<section xml:id="_md_node__modules_2mime-types_2_r_e_a_d_m_e_1autotoc_md603">
+<title><title>[extensions...] = mime.extensions[type]</title></title>
+
+<para>A map of extensions by content-type.</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2mime-types_2_r_e_a_d_m_e_1autotoc_md604">
+<title><title>License</title></title>
+
+<para>[MIT](LICENSE) </para>
+</section>
+</section>

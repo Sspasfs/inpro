@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_app_1_1_providers_1_1_auth_service_provider" xml:lang="fr">
+<title>Référence de la classe AuthServiceProvider</title>
+<indexterm><primary>AuthServiceProvider</primary></indexterm>
+Graphe d&apos;héritage de AuthServiceProvider:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_providers_1_1_auth_service_provider__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de AuthServiceProvider:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_providers_1_1_auth_service_provider__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_providers_1_1_auth_service_provider_1a8814ea4b5beba763c570b4818980814e">boot</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_providers_1_1_auth_service_provider_1a3f85b7feacec002a67ba0b150ae3d222">$policies</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_app_1_1_providers_1_1_auth_service_provider_1a8814ea4b5beba763c570b4818980814e"/><section>
+    <title>boot()</title>
+<indexterm><primary>boot</primary><secondary>AuthServiceProvider</secondary></indexterm>
+<indexterm><primary>AuthServiceProvider</primary><secondary>boot</secondary></indexterm>
+<para><computeroutput>boot ( )</computeroutput></para>
+<para>Register any authentication / authorization services. </para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_app_1_1_providers_1_1_auth_service_provider_1a3f85b7feacec002a67ba0b150ae3d222"/><section>
+    <title>$policies</title>
+<indexterm><primary>$policies</primary><secondary>AuthServiceProvider</secondary></indexterm>
+<indexterm><primary>AuthServiceProvider</primary><secondary>$policies</secondary></indexterm>
+<para><computeroutput>$policies<computeroutput>[protected]</computeroutput></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;]
+</programlisting></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+app/Providers/<link linkend="__auth_service_provider_8php">AuthServiceProvider.php</link></section>
+</section>

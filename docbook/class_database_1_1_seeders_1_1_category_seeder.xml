@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_database_1_1_seeders_1_1_category_seeder" xml:lang="fr">
+<title>Référence de la classe CategorySeeder</title>
+<indexterm><primary>CategorySeeder</primary></indexterm>
+Graphe d&apos;héritage de CategorySeeder:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_database_1_1_seeders_1_1_category_seeder__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de CategorySeeder:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_database_1_1_seeders_1_1_category_seeder__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_database_1_1_seeders_1_1_category_seeder_1afb0fafe7e02a3ae1993c01c19fad2bae">run</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_database_1_1_seeders_1_1_category_seeder_1afb0fafe7e02a3ae1993c01c19fad2bae"/><section>
+    <title>run()</title>
+<indexterm><primary>run</primary><secondary>CategorySeeder</secondary></indexterm>
+<indexterm><primary>CategorySeeder</primary><secondary>run</secondary></indexterm>
+<para><computeroutput>run ( )</computeroutput></para>
+<para>Run the database seeds. </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+database/seeders/<link linkend="__category_seeder_8php">CategorySeeder.php</link></section>
+</section>

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_8d7848641b04af23957804b8afbeab71" xml:lang="fr">
+<title>Répertoire de référence de database/factories</title>
+<indexterm><primary>Répertoire de référence de database/factories</primary></indexterm>
+Graphe des dépendances de répertoires pour factories:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_8d7848641b04af23957804b8afbeab71_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fichiers    </title>
+        <itemizedlist>
+            <listitem><para>fichier <link linkend="__category_factory_8php">CategoryFactory.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__personnel_factory_8php">PersonnelFactory.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__produits_factory_8php">ProduitsFactory.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__user_factory_8php">UserFactory.php</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

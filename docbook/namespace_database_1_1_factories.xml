@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_database_1_1_factories" xml:lang="fr">
+<title>Référence de l&apos;espace de nommage Database\Factories</title>
+<indexterm><primary>Database\Factories</primary></indexterm>
+<simplesect>
+    <title>Structures de données    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_database_1_1_factories_1_1_category_factory">CategoryFactory</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_database_1_1_factories_1_1_personnel_factory">PersonnelFactory</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_database_1_1_factories_1_1_produits_factory">ProduitsFactory</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_database_1_1_factories_1_1_user_factory">UserFactory</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

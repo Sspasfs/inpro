@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2picocolors_2_r_e_a_d_m_e" xml:lang="fr">
+<title>picocolors</title>
+<indexterm><primary>picocolors</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2picocolors_2_r_e_a_d_m_e_1autotoc_md618"/> The tiniest and the fastest library for terminal output formatting with ANSI colors.</para>
+
+<para><literallayout><computeroutput>import&#32;pc&#32;from&#32;&quot;picocolors&quot;
+
+console.log(
+&#32;&#32;pc.green(`How&#32;are&#32;${pc.italic(`you`)}&#32;doing?`)
+)
+</computeroutput></literallayout></para>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">No dependencies.</emphasis></para>
+</listitem><listitem>
+<para><emphasis role="bold">14 times</emphasis> smaller and <emphasis role="bold">2 times</emphasis> faster than chalk.</para>
+</listitem><listitem>
+<para>Used by popular tools like PostCSS, SVGO, Stylelint, and Browserslist.</para>
+</listitem><listitem>
+<para>Node.js v6+ &amp; browsers support. Support for both CJS and ESM projects.</para>
+</listitem><listitem>
+<para>TypeScript type declarations included.</para>
+</listitem><listitem>
+<para><link xlink:href="https://no-color.org/"><computeroutput>NO_COLOR</computeroutput></link> friendly.</para>
+</listitem></itemizedlist>
+</para>
+<section xml:id="_md_node__modules_2picocolors_2_r_e_a_d_m_e_1autotoc_md619">
+<title><title>Docs</title></title>
+
+<para>Read <emphasis role="bold"><link xlink:href="https://github.com/alexeyraspopov/picocolors#readme">full docs</link></emphasis> on GitHub. </para>
+</section>
+</section>

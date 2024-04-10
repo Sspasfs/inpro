@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_f832923ad3cb060bc87ad85e68b8a1c3" xml:lang="fr">
+<title>Répertoire de référence de public</title>
+<indexterm><primary>Répertoire de référence de public</primary></indexterm>
+<simplesect>
+    <title>Fichiers    </title>
+        <itemizedlist>
+            <listitem><para>fichier <link linkend="_index_8php">index.php</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

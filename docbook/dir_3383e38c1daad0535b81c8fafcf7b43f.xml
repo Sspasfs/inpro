@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_3383e38c1daad0535b81c8fafcf7b43f" xml:lang="fr">
+<title>Répertoire de référence de resources/views/layouts</title>
+<indexterm><primary>Répertoire de référence de resources/views/layouts</primary></indexterm>
+Graphe des dépendances de répertoires pour layouts:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_3383e38c1daad0535b81c8fafcf7b43f_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fichiers    </title>
+        <itemizedlist>
+            <listitem><para>fichier <link linkend="_app_8blade_8php">app.blade.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="_master_8blade_8php">master.blade.php</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

@@ -1,0 +1,575 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2to-regex-range_2_r_e_a_d_m_e" xml:lang="fr">
+<title>to-regex-range &lt;a href=&quot;https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=W8YFZ425KND68&quot; &gt;&lt;img src=&quot;https://img.shields.io/badge/Donate-PayPal-green.svg&quot; alt=&quot;Donate&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://www.npmjs.com/package/to-regex-range&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/v/to-regex-range.svg?style=flat&quot; alt=&quot;NPM version&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://npmjs.org/package/to-regex-range&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dm/to-regex-range.svg?style=flat&quot; alt=&quot;NPM monthly downloads&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://npmjs.org/package/to-regex-range&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dt/to-regex-range.svg?style=flat&quot; alt=&quot;NPM total downloads&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://travis-ci.org/micromatch/to-regex-range&quot; &gt;&lt;img src=&quot;https://img.shields.io/travis/micromatch/to-regex-range.svg?style=flat&amp;label=Travis&quot; alt=&quot;Linux Build Status&quot;/&gt;&lt;/a&gt;</title>
+<indexterm><primary>to-regex-range &lt;a href=&quot;https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=W8YFZ425KND68&quot; &gt;&lt;img src=&quot;https://img.shields.io/badge/Donate-PayPal-green.svg&quot; alt=&quot;Donate&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://www.npmjs.com/package/to-regex-range&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/v/to-regex-range.svg?style=flat&quot; alt=&quot;NPM version&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://npmjs.org/package/to-regex-range&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dm/to-regex-range.svg?style=flat&quot; alt=&quot;NPM monthly downloads&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://npmjs.org/package/to-regex-range&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dt/to-regex-range.svg?style=flat&quot; alt=&quot;NPM total downloads&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://travis-ci.org/micromatch/to-regex-range&quot; &gt;&lt;img src=&quot;https://img.shields.io/travis/micromatch/to-regex-range.svg?style=flat&amp;label=Travis&quot; alt=&quot;Linux Build Status&quot;/&gt;&lt;/a&gt;</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2to-regex-range_2_r_e_a_d_m_e_1autotoc_md868"/> <blockquote>
+<para>&#8205;Pass two numbers, get a regex-compatible source string for matching ranges. Validated against more than 2.78 million test assertions. </para>
+</blockquote>Please consider following this project&apos;s author, <link xlink:href="https://github.com/jonschlinkert">Jon Schlinkert</link>, and consider starring the project to show your :heart: and support.</para>
+<section xml:id="_md_node__modules_2to-regex-range_2_r_e_a_d_m_e_1autotoc_md869">
+<title><title>Install</title></title>
+
+<para>Install with <link xlink:href="https://www.npmjs.com/">npm</link>:</para>
+
+<para><literallayout><computeroutput>$&#32;npm&#32;install&#32;--save&#32;to-regex-range
+</computeroutput></literallayout></para>
+
+<para>
+<para><emphasis role="bold"><emphasis role="bold">What does this do?</emphasis></emphasis></para><para>
+<para></para>
+
+<para><?linebreak?></para>
+
+<para>This libary generates the <computeroutput>source</computeroutput> string to be passed to <computeroutput>new RegExp()</computeroutput> for matching a range of numbers.</para>
+
+<para><emphasis role="bold">Example</emphasis></para>
+
+<para><literallayout><computeroutput>const&#32;toRegexRange&#32;=&#32;require(&apos;to-regex-range&apos;);
+const&#32;regex&#32;=&#32;new&#32;RegExp(toRegexRange(&apos;15&apos;,&#32;&apos;95&apos;));
+</computeroutput></literallayout></para>
+
+<para>A string is returned so that you can do whatever you need with it before passing it to <computeroutput>new RegExp()</computeroutput> (like adding <computeroutput>^</computeroutput> or <computeroutput>$</computeroutput> boundaries, defining flags, or combining it another string).</para>
+
+<para><?linebreak?></para>
+
+<para></para>
+</para>
+</para>
+
+<para>
+<para><emphasis role="bold"><emphasis role="bold">Why use this library?</emphasis></emphasis></para><para>
+<para></para>
+
+<para><?linebreak?></para>
+
+<para></para>
+</para>
+</para>
+<section xml:id="_md_node__modules_2to-regex-range_2_r_e_a_d_m_e_1autotoc_md870">
+<title><title>Convenience</title></title>
+
+<para>Creating regular expressions for matching numbers gets deceptively complicated pretty fast.</para>
+
+<para>For example, let&apos;s say you need a validation regex for matching part of a user-id, postal code, social security number, tax id, etc:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>regex for matching <computeroutput>1</computeroutput> =&gt; <computeroutput>/1/</computeroutput> (easy enough)</para>
+</listitem><listitem>
+<para>regex for matching <computeroutput>1</computeroutput> through <computeroutput>5</computeroutput> =&gt; <computeroutput>/[1-5]/</computeroutput> (not bad...)</para>
+</listitem><listitem>
+<para>regex for matching <computeroutput>1</computeroutput> or <computeroutput>5</computeroutput> =&gt; <computeroutput>/(1|5)/</computeroutput> (still easy...)</para>
+</listitem><listitem>
+<para>regex for matching <computeroutput>1</computeroutput> through <computeroutput>50</computeroutput> =&gt; <computeroutput>/([1-9]|[1-4][0-9]|50)/</computeroutput> (uh-oh...)</para>
+</listitem><listitem>
+<para>regex for matching <computeroutput>1</computeroutput> through <computeroutput>55</computeroutput> =&gt; <computeroutput>/([1-9]|[1-4][0-9]|5[0-5])/</computeroutput> (no prob, I can do this...)</para>
+</listitem><listitem>
+<para>regex for matching <computeroutput>1</computeroutput> through <computeroutput>555</computeroutput> =&gt; <computeroutput>/([1-9]|[1-9][0-9]|[1-4][0-9]{2}|5[0-4][0-9]|55[0-5])/</computeroutput> (maybe not...)</para>
+</listitem><listitem>
+<para>regex for matching <computeroutput>0001</computeroutput> through <computeroutput>5555</computeroutput> =&gt; <computeroutput>/(0{3}[1-9]|0{2}[1-9][0-9]|0[1-9][0-9]{2}|[1-4][0-9]{3}|5[0-4][0-9]{2}|55[0-4][0-9]|555[0-5])/</computeroutput> (okay, I get the point!)</para>
+</listitem></itemizedlist>
+</para>
+
+<para>The numbers are contrived, but they&apos;re also really basic. In the real world you might need to generate a regex on-the-fly for validation.</para>
+
+<para><emphasis role="bold">Learn more</emphasis></para>
+
+<para>If you&apos;re interested in learning more about <link xlink:href="http://www.regular-expressions.info/charclass.html">character classes</link> and other regex features, I personally have always found <link xlink:href="http://www.regular-expressions.info/charclass.html">regular-expressions.info</link> to be pretty useful.</para>
+</section>
+<section xml:id="_md_node__modules_2to-regex-range_2_r_e_a_d_m_e_1autotoc_md871">
+<title><title>Heavily tested</title></title>
+
+<para>As of April 07, 2019, this library runs <link xlink:href="./test/test.js">&gt;1m test assertions</link> against generated regex-ranges to provide brute-force verification that results are correct.</para>
+
+<para><link linkend="_namespace_tests">Tests</link> run in ~280ms on my MacBook Pro, 2.5 GHz Intel Core i7.</para>
+</section>
+<section xml:id="_md_node__modules_2to-regex-range_2_r_e_a_d_m_e_1autotoc_md872">
+<title><title>Optimized</title></title>
+
+<para>Generated regular expressions are optimized:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>duplicate sequences and character classes are reduced using quantifiers</para>
+</listitem><listitem>
+<para>smart enough to use <computeroutput>?</computeroutput> conditionals when number(s) or range(s) can be positive or negative</para>
+</listitem><listitem>
+<para>uses fragment caching to avoid processing the same exact string more than once</para>
+</listitem></itemizedlist>
+</para>
+
+<para><?linebreak?></para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2to-regex-range_2_r_e_a_d_m_e_1autotoc_md873">
+<title><title>Usage</title></title>
+
+<para>Add this library to your javascript application with the following line of code</para>
+
+<para><literallayout><computeroutput>const&#32;toRegexRange&#32;=&#32;require(&apos;to-regex-range&apos;);
+</computeroutput></literallayout></para>
+
+<para>The main export is a function that takes two integers: the <computeroutput>min</computeroutput> value and <computeroutput>max</computeroutput> value (formatted as strings or numbers).</para>
+
+<para><literallayout><computeroutput>const&#32;source&#32;=&#32;toRegexRange(&apos;15&apos;,&#32;&apos;95&apos;);
+//=&gt;&#32;1[5-9]|[2-8][0-9]|9[0-5]
+
+const&#32;regex&#32;=&#32;new&#32;RegExp(`^${source}$`);
+console.log(regex.test(&apos;14&apos;));&#32;//=&gt;&#32;false
+console.log(regex.test(&apos;50&apos;));&#32;//=&gt;&#32;true
+console.log(regex.test(&apos;94&apos;));&#32;//=&gt;&#32;true
+console.log(regex.test(&apos;96&apos;));&#32;//=&gt;&#32;false
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2to-regex-range_2_r_e_a_d_m_e_1autotoc_md874">
+<title><title>Options</title></title>
+<section xml:id="_md_node__modules_2to-regex-range_2_r_e_a_d_m_e_1autotoc_md875">
+<title><title>options.capture</title></title>
+
+<para><emphasis role="bold">Type</emphasis>: <computeroutput>boolean</computeroutput></para>
+
+<para><emphasis role="bold">Deafault</emphasis>: <computeroutput>undefined</computeroutput></para>
+
+<para>Wrap the returned value in parentheses when there is more than one regex condition. Useful when you&apos;re dynamically generating ranges.</para>
+
+<para><literallayout><computeroutput>console.log(toRegexRange(&apos;-10&apos;,&#32;&apos;10&apos;));
+//=&gt;&#32;-[1-9]|-?10|[0-9]
+
+console.log(toRegexRange(&apos;-10&apos;,&#32;&apos;10&apos;,&#32;{&#32;capture:&#32;true&#32;}));
+//=&gt;&#32;(-[1-9]|-?10|[0-9])
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2to-regex-range_2_r_e_a_d_m_e_1autotoc_md876">
+<title><title>options.shorthand</title></title>
+
+<para><emphasis role="bold">Type</emphasis>: <computeroutput>boolean</computeroutput></para>
+
+<para><emphasis role="bold">Deafault</emphasis>: <computeroutput>undefined</computeroutput></para>
+
+<para>Use the regex shorthand for <computeroutput>[0-9]</computeroutput>:</para>
+
+<para><literallayout><computeroutput>console.log(toRegexRange(&apos;0&apos;,&#32;&apos;999999&apos;));
+//=&gt;&#32;[0-9]|[1-9][0-9]{1,5}
+
+console.log(toRegexRange(&apos;0&apos;,&#32;&apos;999999&apos;,&#32;{&#32;shorthand:&#32;true&#32;}));
+//=&gt;&#32;\d|[1-9]\d{1,5}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2to-regex-range_2_r_e_a_d_m_e_1autotoc_md877">
+<title><title>options.relaxZeros</title></title>
+
+<para><emphasis role="bold">Type</emphasis>: <computeroutput>boolean</computeroutput></para>
+
+<para><emphasis role="bold">Default</emphasis>: <computeroutput>true</computeroutput></para>
+
+<para>This option relaxes matching for leading zeros when when ranges are zero-padded.</para>
+
+<para><literallayout><computeroutput>const&#32;source&#32;=&#32;toRegexRange(&apos;-0010&apos;,&#32;&apos;0010&apos;);
+const&#32;regex&#32;=&#32;new&#32;RegExp(`^${source}$`);
+console.log(regex.test(&apos;-10&apos;));&#32;//=&gt;&#32;true
+console.log(regex.test(&apos;-010&apos;));&#32;//=&gt;&#32;true
+console.log(regex.test(&apos;-0010&apos;));&#32;//=&gt;&#32;true
+console.log(regex.test(&apos;10&apos;));&#32;//=&gt;&#32;true
+console.log(regex.test(&apos;010&apos;));&#32;//=&gt;&#32;true
+console.log(regex.test(&apos;0010&apos;));&#32;//=&gt;&#32;true
+</computeroutput></literallayout></para>
+
+<para>When <computeroutput>relaxZeros</computeroutput> is false, matching is strict:</para>
+
+<para><literallayout><computeroutput>const&#32;source&#32;=&#32;toRegexRange(&apos;-0010&apos;,&#32;&apos;0010&apos;,&#32;{&#32;relaxZeros:&#32;false&#32;});
+const&#32;regex&#32;=&#32;new&#32;RegExp(`^${source}$`);
+console.log(regex.test(&apos;-10&apos;));&#32;//=&gt;&#32;false
+console.log(regex.test(&apos;-010&apos;));&#32;//=&gt;&#32;false
+console.log(regex.test(&apos;-0010&apos;));&#32;//=&gt;&#32;true
+console.log(regex.test(&apos;10&apos;));&#32;//=&gt;&#32;false
+console.log(regex.test(&apos;010&apos;));&#32;//=&gt;&#32;false
+console.log(regex.test(&apos;0010&apos;));&#32;//=&gt;&#32;true
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2to-regex-range_2_r_e_a_d_m_e_1autotoc_md878">
+<title><title>Examples</title></title>
+
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para><emphasis role="bold">Range</emphasis>   </para>
+</entry><entry>
+<para><emphasis role="bold">Result</emphasis>   </para>
+</entry><entry>
+<para><emphasis role="bold">Compile time</emphasis>    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>toRegexRange(-10, 10)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>-[1-9]\|-?10\|[0-9]</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>132μs</emphasis>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>toRegexRange(-100, -10)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>-1[0-9]\|-[2-9][0-9]\|-100</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>50μs</emphasis>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>toRegexRange(-100, 100)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>-[1-9]\|-?[1-9][0-9]\|-?100\|[0-9]</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>42μs</emphasis>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>toRegexRange(001, 100)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>0{0,2}[1-9]\|0?[1-9][0-9]\|100</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>109μs</emphasis>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>toRegexRange(001, 555)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>0{0,2}[1-9]\|0?[1-9][0-9]\|[1-4][0-9]{2}\|5[0-4][0-9]\|55[0-5]</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>51μs</emphasis>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>toRegexRange(0010, 1000)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>0{0,2}1[0-9]\|0{0,2}[2-9][0-9]\|0?[1-9][0-9]{2}\|1000</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>31μs</emphasis>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>toRegexRange(1, 50)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>[1-9]\|[1-4][0-9]\|50</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>24μs</emphasis>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>toRegexRange(1, 55)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>[1-9]\|[1-4][0-9]\|5[0-5]</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>23μs</emphasis>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>toRegexRange(1, 555)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>[1-9]\|[1-9][0-9]\|[1-4][0-9]{2}\|5[0-4][0-9]\|55[0-5]</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>30μs</emphasis>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>toRegexRange(1, 5555)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>[1-9]\|[1-9][0-9]{1,2}\|[1-4][0-9]{3}\|5[0-4][0-9]{2}\|55[0-4][0-9]\|555[0-5]</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>43μs</emphasis>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>toRegexRange(111, 555)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>11[1-9]\|1[2-9][0-9]\|[2-4][0-9]{2}\|5[0-4][0-9]\|55[0-5]</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>38μs</emphasis>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>toRegexRange(29, 51)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>29\|[34][0-9]\|5[01]</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>24μs</emphasis>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>toRegexRange(31, 877)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>3[1-9]\|[4-9][0-9]\|[1-7][0-9]{2}\|8[0-6][0-9]\|87[0-7]</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>32μs</emphasis>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>toRegexRange(5, 5)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>5</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>8μs</emphasis>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>toRegexRange(5, 6)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>5\|6</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>11μs</emphasis>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>toRegexRange(1, 2)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>1\|2</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>6μs</emphasis>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>toRegexRange(1, 5)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>[1-5]</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>15μs</emphasis>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>toRegexRange(1, 10)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>[1-9]\|10</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>22μs</emphasis>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>toRegexRange(1, 100)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>[1-9]\|[1-9][0-9]\|100</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>25μs</emphasis>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>toRegexRange(1, 1000)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>[1-9]\|[1-9][0-9]{1,2}\|1000</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>31μs</emphasis>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>toRegexRange(1, 10000)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>[1-9]\|[1-9][0-9]{1,3}\|10000</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>34μs</emphasis>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>toRegexRange(1, 100000)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>[1-9]\|[1-9][0-9]{1,4}\|100000</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>36μs</emphasis>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>toRegexRange(1, 1000000)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>[1-9]\|[1-9][0-9]{1,5}\|1000000</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>42μs</emphasis>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>toRegexRange(1, 10000000)</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>[1-9]\|[1-9][0-9]{1,6}\|10000000</computeroutput>   </para>
+</entry><entry>
+<para><emphasis>42μs</emphasis>   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_node__modules_2to-regex-range_2_r_e_a_d_m_e_1autotoc_md879">
+<title><title>Heads up!</title></title>
+
+<para><emphasis role="bold">Order of arguments</emphasis></para>
+
+<para>When the <computeroutput>min</computeroutput> is larger than the <computeroutput>max</computeroutput>, values will be flipped to create a valid range:</para>
+
+<para><literallayout><computeroutput>toRegexRange(&apos;51&apos;,&#32;&apos;29&apos;);
+</computeroutput></literallayout></para>
+
+<para>Is effectively flipped to:</para>
+
+<para><literallayout><computeroutput>toRegexRange(&apos;29&apos;,&#32;&apos;51&apos;);
+//=&gt;&#32;29|[3-4][0-9]|5[0-1]
+</computeroutput></literallayout></para>
+
+<para><emphasis role="bold">Steps / increments</emphasis></para>
+
+<para>This library does not support steps (increments). A pr to add support would be welcome.</para>
+</section>
+<section xml:id="_md_node__modules_2to-regex-range_2_r_e_a_d_m_e_1autotoc_md880">
+<title><title>History</title></title>
+<section xml:id="_md_node__modules_2to-regex-range_2_r_e_a_d_m_e_1autotoc_md881">
+<title><title>v2.0.0 - 2017-04-21</title></title>
+
+<para><emphasis role="bold">New features</emphasis></para>
+
+<para>Adds support for zero-padding!</para>
+</section>
+<section xml:id="_md_node__modules_2to-regex-range_2_r_e_a_d_m_e_1autotoc_md882">
+<title><title>v1.0.0</title></title>
+
+<para><emphasis role="bold">Optimizations</emphasis></para>
+
+<para>Repeating ranges are now grouped using quantifiers. rocessing time is roughly the same, but the generated regex is much smaller, which should result in faster matching.</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2to-regex-range_2_r_e_a_d_m_e_1autotoc_md883">
+<title><title>Attribution</title></title>
+
+<para>Inspired by the python library <link xlink:href="https://github.com/dimka665/range-regex">range-regex</link>.</para>
+</section>
+<section xml:id="_md_node__modules_2to-regex-range_2_r_e_a_d_m_e_1autotoc_md884">
+<title><title>About</title></title>
+
+<para>
+<para><emphasis role="bold"><emphasis role="bold">Contributing</emphasis></emphasis></para><para>
+<para></para>
+
+<para>Pull requests and stars are always welcome. For bugs and feature requests, <link xlink:href="../../issues/new">please create an issue</link>.</para>
+
+<para></para>
+</para>
+</para>
+
+<para>
+<para><emphasis role="bold"><emphasis role="bold">Running Tests</emphasis></emphasis></para><para>
+<para></para>
+
+<para>Running and reviewing unit tests is a great way to get familiarized with a library and its API. You can install dependencies and run tests with the following command:</para>
+
+<para><literallayout><computeroutput>$&#32;npm&#32;install&#32;&amp;&amp;&#32;npm&#32;test
+</computeroutput></literallayout></para>
+
+<para></para>
+</para>
+</para>
+
+<para>
+<para><emphasis role="bold"><emphasis role="bold">Building docs</emphasis></emphasis></para><para>
+<para></para>
+
+<para>_(This project&apos;s readme.md is generated by <link xlink:href="https://github.com/verbose/verb-generate-readme">verb</link>, please don&apos;t edit the readme directly. Any changes to the readme must be made in the .verb.md readme template.)_</para>
+
+<para>To generate the readme, run the following command:</para>
+
+<para><literallayout><computeroutput>$&#32;npm&#32;install&#32;-g&#32;verbose/verb#dev&#32;verb-generate-readme&#32;&amp;&amp;&#32;verb
+</computeroutput></literallayout></para>
+
+<para></para>
+</para>
+</para>
+<section xml:id="_md_node__modules_2to-regex-range_2_r_e_a_d_m_e_1autotoc_md885">
+<title><title>Related projects</title></title>
+
+<para>You might also be interested in these projects:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://www.npmjs.com/package/expand-range">expand-range</link>: Fast, bash-like range expansion. Expand a range of numbers or letters, uppercase or lowercase. Used… <link xlink:href="https://github.com/jonschlinkert/expand-range">more</link> | <link xlink:href="https://github.com/jonschlinkert/expand-range">homepage</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://www.npmjs.com/package/fill-range">fill-range</link>: Fill in a range of numbers or letters, optionally passing an increment or <computeroutput>step</computeroutput> to… <link xlink:href="https://github.com/jonschlinkert/fill-range">more</link> | <link xlink:href="https://github.com/jonschlinkert/fill-range">homepage</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://www.npmjs.com/package/micromatch">micromatch</link>: Glob matching for javascript/node.js. A drop-in replacement and faster alternative to minimatch and multimatch. | <link xlink:href="https://github.com/micromatch/micromatch">homepage</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://www.npmjs.com/package/repeat-element">repeat-element</link>: Create an array by repeating the given value n times. | <link xlink:href="https://github.com/jonschlinkert/repeat-element">homepage</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://www.npmjs.com/package/repeat-string">repeat-string</link>: Repeat the given string n times. Fastest implementation for repeating a string. | <link xlink:href="https://github.com/jonschlinkert/repeat-string">homepage</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2to-regex-range_2_r_e_a_d_m_e_1autotoc_md886">
+<title><title>Contributors</title></title>
+
+<para><informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para><emphasis role="bold">Commits</emphasis>   </para>
+</entry><entry>
+<para><emphasis role="bold">Contributor</emphasis>    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>63   </para>
+</entry><entry>
+<para><link xlink:href="https://github.com/jonschlinkert">jonschlinkert</link>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>3   </para>
+</entry><entry>
+<para><link xlink:href="https://github.com/doowb">doowb</link>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>2   </para>
+</entry><entry>
+<para><link xlink:href="https://github.com/realityking">realityking</link>   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_node__modules_2to-regex-range_2_r_e_a_d_m_e_1autotoc_md887">
+<title><title>Author</title></title>
+
+<para><emphasis role="bold">Jon Schlinkert</emphasis></para>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://github.com/jonschlinkert">GitHub Profile</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://twitter.com/jonschlinkert">Twitter Profile</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://linkedin.com/in/jonschlinkert">LinkedIn Profile</link></para>
+</listitem></itemizedlist>
+</para>
+
+<para>Please consider supporting me on Patreon, or <link xlink:href="https://patreon.com/invite/bxpbvm">start your own Patreon page</link>!</para>
+
+<para><link xlink:href="https://www.patreon.com/jonschlinkert"> </link></para>
+</section>
+<section xml:id="_md_node__modules_2to-regex-range_2_r_e_a_d_m_e_1autotoc_md888">
+<title><title>License</title></title>
+
+<para>Copyright © 2019, <link xlink:href="https://github.com/jonschlinkert">Jon Schlinkert</link>. Released under the [MIT License](LICENSE).</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+
+<para><emphasis>This file was generated by <link xlink:href="https://github.com/verbose/verb-generate-readme">verb-generate-readme</link>, v0.8.0, on April 07, 2019.</emphasis> </para>
+</section>
+</section>
+</section>

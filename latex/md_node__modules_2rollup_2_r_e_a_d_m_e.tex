@@ -1,0 +1,89 @@
+\chapter{README}
+\hypertarget{md_node__modules_2rollup_2_r_e_a_d_m_e}{}\label{md_node__modules_2rollup_2_r_e_a_d_m_e}\index{README@{README}}
+
+
+\href{https://rollupjs.org/}{\texttt{ }} 
+
+
+
+\href{https://www.npmjs.com/package/rollup}{\texttt{  }} \href{https://packagephobia.now.sh/result?p=rollup}{\texttt{  }} \href{https://codecov.io/gh/rollup/rollup}{\texttt{  }} \href{\#backers}{\texttt{  }} \href{\#sponsors}{\texttt{  }} \href{https://github.com/rollup/rollup/blob/master/LICENSE.md}{\texttt{  }}
+
+\href{https://is.gd/rollup_chat?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge}{\texttt{  }} 
+
+\doxysection*{Rollup}\hypertarget{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md760}{}\doxysubsection{\texorpdfstring{Overview}{Overview}}\label{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md760}
+Rollup is a module bundler for Java\+Script which compiles small pieces of code into something larger and more complex, such as a library or application. It uses the standardized ES module format for code, instead of previous idiosyncratic solutions such as Common\+JS and AMD. ES modules let you freely and seamlessly combine the most useful individual functions from your favorite libraries. Rollup can optimize ES modules for faster native loading in modern browsers, or output a legacy module format allowing ES module workflows today.\hypertarget{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md761}{}\doxysubsection{\texorpdfstring{Quick Start Guide}{Quick Start Guide}}\label{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md761}
+Install with {\ttfamily npm install -\/-\/global rollup}. Rollup can be used either through a \href{https://rollupjs.org/command-line-interface/}{\texttt{ command line interface}} with an optional configuration file or else through its \href{https://rollupjs.org/javascript-api/}{\texttt{ Java\+Script API}}. Run {\ttfamily rollup -\/-\/help} to see the available options and parameters. The starter project templates, \href{https://github.com/rollup/rollup-starter-lib}{\texttt{ rollup-\/starter-\/lib}} and \href{https://github.com/rollup/rollup-starter-app}{\texttt{ rollup-\/starter-\/app}}, demonstrate common configuration options, and more detailed instructions are available throughout the \href{https://rollupjs.org/introduction/}{\texttt{ user guide}}.\hypertarget{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md762}{}\doxysubsubsection{\texorpdfstring{Commands}{Commands}}\label{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md762}
+These commands assume the entry point to your application is named main.\+js, and that you\textquotesingle{}d like all imports compiled into a single file named bundle.\+js.
+
+For browsers\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ compile\ to\ a\ <script>\ containing\ a\ self-\/executing\ function}
+\DoxyCodeLine{rollup\ main.js\ -\/-\/format\ iife\ -\/-\/name\ "{}myBundle"{}\ -\/-\/file\ bundle.js}
+
+\end{DoxyCode}
+
+
+For Node.\+js\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ compile\ to\ a\ CommonJS\ module}
+\DoxyCodeLine{rollup\ main.js\ -\/-\/format\ cjs\ -\/-\/file\ bundle.js}
+
+\end{DoxyCode}
+
+
+For both browsers and Node.\+js\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ UMD\ format\ requires\ a\ bundle\ name}
+\DoxyCodeLine{rollup\ main.js\ -\/-\/format\ umd\ -\/-\/name\ "{}myBundle"{}\ -\/-\/file\ bundle.js}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md763}{}\doxysubsection{\texorpdfstring{Why}{Why}}\label{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md763}
+Developing software is usually easier if you break your project into smaller separate pieces, since that often removes unexpected interactions and dramatically reduces the complexity of the problems you\textquotesingle{}ll need to solve, and simply writing smaller projects in the first place \href{https://medium.com/@Rich_Harris/small-modules-it-s-not-quite-that-simple-3ca532d65de4}{\texttt{ isn\textquotesingle{}t necessarily the answer}}. Unfortunately, Java\+Script has not historically included this capability as a core feature in the language.
+
+This finally changed with ES modules support in Java\+Script, which provides a syntax for importing and exporting functions and data so they can be shared between separate scripts. Most browsers and Node.\+js support ES modules. However, Node.\+js releases before 12.\+17 support ES modules only behind the {\ttfamily -\/-\/experimental-\/modules} flag, and older browsers like Internet Explorer do not support ES modules at all. Rollup allows you to write your code using ES modules, and run your application even in environments that do not support ES modules natively. For environments that support them, Rollup can output optimized ES modules; for environments that don\textquotesingle{}t, Rollup can compile your code to other formats such as Common\+JS modules, AMD modules, and IIFE-\/style scripts. This means that you get to {\itshape write future-\/proof code}, and you also get the tremendous benefits of...\hypertarget{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md764}{}\doxysubsection{\texorpdfstring{Tree Shaking}{Tree Shaking}}\label{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md764}
+In addition to enabling the use of ES modules, Rollup also statically analyzes and optimizes the code you are importing, and will exclude anything that isn\textquotesingle{}t actually used. This allows you to build on top of existing tools and modules without adding extra dependencies or bloating the size of your project.
+
+For example, with Common\+JS, the {\itshape entire tool or library must be imported}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ import\ the\ entire\ utils\ object\ with\ CommonJS}
+\DoxyCodeLine{var\ utils\ =\ require('node:utils');}
+\DoxyCodeLine{var\ query\ =\ 'Rollup';}
+\DoxyCodeLine{//\ use\ the\ ajax\ method\ of\ the\ utils\ object}
+\DoxyCodeLine{utils.ajax('https://api.example.com?search='\ +\ query).then(handleResponse);}
+
+\end{DoxyCode}
+
+
+But with ES modules, instead of importing the whole {\ttfamily utils} object, we can just import the one {\ttfamily ajax} function we need\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ import\ the\ ajax\ function\ with\ an\ ES\ import\ statement}
+\DoxyCodeLine{import\ \{\ ajax\ \}\ from\ 'node:utils';}
+\DoxyCodeLine{var\ query\ =\ 'Rollup';}
+\DoxyCodeLine{//\ call\ the\ ajax\ function}
+\DoxyCodeLine{ajax('https://api.example.com?search='\ +\ query).then(handleResponse);}
+
+\end{DoxyCode}
+
+
+Because Rollup includes the bare minimum, it results in lighter, faster, and less complicated libraries and applications. Since this approach is based on explicit {\ttfamily import} and {\ttfamily export} statements, it is vastly more effective than simply running an automated minifier to detect unused variables in the compiled output code.\hypertarget{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md765}{}\doxysubsection{\texorpdfstring{Compatibility}{Compatibility}}\label{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md765}
+\hypertarget{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md766}{}\doxysubsubsection{\texorpdfstring{Importing Common\+JS}{Importing Common\+JS}}\label{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md766}
+Rollup can import existing Common\+JS modules \href{https://github.com/rollup/plugins/tree/master/packages/commonjs}{\texttt{ through a plugin}}.\hypertarget{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md767}{}\doxysubsubsection{\texorpdfstring{Publishing ES Modules}{Publishing ES Modules}}\label{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md767}
+To make sure your ES modules are immediately usable by tools that work with Common\+JS such as Node.\+js and webpack, you can use Rollup to compile to UMD or Common\+JS format, and then point to that compiled version with the {\ttfamily main} property in your {\ttfamily package.\+json} file. If your {\ttfamily package.\+json} file also has a {\ttfamily module} field, ES-\/module-\/aware tools like Rollup and \href{https://webpack.js.org/}{\texttt{ webpack}} will \href{https://github.com/rollup/rollup/wiki/pkg.module}{\texttt{ import the ES module version}} directly.\hypertarget{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md768}{}\doxysubsection{\texorpdfstring{Contributors}{Contributors}}\label{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md768}
+This project exists thanks to all the people who contribute. \mbox{[}Contribute\mbox{]}. \href{https://github.com/rollup/rollup/graphs/contributors}{\texttt{ }}\hypertarget{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md769}{}\doxysubsection{\texorpdfstring{Backers}{Backers}}\label{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md769}
+Thank you to all our backers! 🙏 \mbox{[}\href{https://opencollective.com/rollup\#backer}{\texttt{ Become a backer}}\mbox{]}
+
+\href{https://opencollective.com/rollup\#backers}{\texttt{ }}\hypertarget{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md770}{}\doxysubsection{\texorpdfstring{Sponsors}{Sponsors}}\label{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md770}
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website. \mbox{[}\href{https://opencollective.com/rollup\#sponsor}{\texttt{ Become a sponsor}}\mbox{]}
+
+\href{https://opencollective.com/rollup/sponsor/0/website}{\texttt{ }} \href{https://opencollective.com/rollup/sponsor/1/website}{\texttt{ }} \href{https://opencollective.com/rollup/sponsor/2/website}{\texttt{ }} \href{https://opencollective.com/rollup/sponsor/3/website}{\texttt{ }} \href{https://opencollective.com/rollup/sponsor/4/website}{\texttt{ }} \href{https://opencollective.com/rollup/sponsor/5/website}{\texttt{ }} \href{https://opencollective.com/rollup/sponsor/6/website}{\texttt{ }} \href{https://opencollective.com/rollup/sponsor/7/website}{\texttt{ }} \href{https://opencollective.com/rollup/sponsor/8/website}{\texttt{ }} \href{https://opencollective.com/rollup/sponsor/9/website}{\texttt{ }} \href{https://opencollective.com/rollup/sponsor/10/website}{\texttt{ }} \href{https://opencollective.com/rollup/sponsor/11/website}{\texttt{ }} \href{https://opencollective.com/rollup/sponsor/12/website}{\texttt{ }} \href{https://opencollective.com/rollup/sponsor/13/website}{\texttt{ }} \href{https://opencollective.com/rollup/sponsor/14/website}{\texttt{ }}\hypertarget{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md771}{}\doxysubsection{\texorpdfstring{License}{License}}\label{md_node__modules_2rollup_2_r_e_a_d_m_e_autotoc_md771}
+\href{https://github.com/rollup/rollup/blob/master/LICENSE.md}{\texttt{ MIT}} 

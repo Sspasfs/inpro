@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__personnel_table_seeder_8php" xml:lang="fr">
+<title>Référence du fichier database/seeders/PersonnelTableSeeder.php</title>
+<indexterm><primary>database/seeders/PersonnelTableSeeder.php</primary></indexterm>
+<simplesect>
+    <title>Structures de données    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_personnel_table_seeder">PersonnelTableSeeder</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

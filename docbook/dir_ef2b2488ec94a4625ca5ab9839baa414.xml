@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_ef2b2488ec94a4625ca5ab9839baa414" xml:lang="fr">
+<title>Répertoire de référence de app/Http/Middleware</title>
+<indexterm><primary>Répertoire de référence de app/Http/Middleware</primary></indexterm>
+Graphe des dépendances de répertoires pour Middleware:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_ef2b2488ec94a4625ca5ab9839baa414_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fichiers    </title>
+        <itemizedlist>
+            <listitem><para>fichier <link linkend="__authenticate_8php">Authenticate.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__check_auth_8php">CheckAuth.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__encrypt_cookies_8php">EncryptCookies.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__prevent_requests_during_maintenance_8php">PreventRequestsDuringMaintenance.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__redirect_if_authenticated_8php">RedirectIfAuthenticated.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__trim_strings_8php">TrimStrings.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__trust_hosts_8php">TrustHosts.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__trust_proxies_8php">TrustProxies.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__validate_signature_8php">ValidateSignature.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__verify_csrf_token_8php">VerifyCsrfToken.php</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

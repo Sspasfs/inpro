@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_app_1_1_http_1_1_middleware_1_1_trust_proxies" xml:lang="fr">
+<title>Référence de la classe TrustProxies</title>
+<indexterm><primary>TrustProxies</primary></indexterm>
+Graphe d&apos;héritage de TrustProxies:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_http_1_1_middleware_1_1_trust_proxies__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de TrustProxies:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_http_1_1_middleware_1_1_trust_proxies__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_middleware_1_1_trust_proxies_1a9fed7e7c82160e6b32d7ed4c8193c195">$proxies</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_middleware_1_1_trust_proxies_1a52500036ee807241b8b4b7e2367c49ef">$headers</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_app_1_1_http_1_1_middleware_1_1_trust_proxies_1a52500036ee807241b8b4b7e2367c49ef"/><section>
+    <title>$headers</title>
+<indexterm><primary>$headers</primary><secondary>TrustProxies</secondary></indexterm>
+<indexterm><primary>TrustProxies</primary><secondary>$headers</secondary></indexterm>
+<para><computeroutput>$headers<computeroutput>[protected]</computeroutput></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Request::HEADER_X_FORWARDED_FOR&#32;|
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Request::HEADER_X_FORWARDED_HOST&#32;|
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Request::HEADER_X_FORWARDED_PORT&#32;|
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Request::HEADER_X_FORWARDED_PROTO&#32;|
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Request::HEADER_X_FORWARDED_AWS_ELB
+</programlisting></section>
+<anchor xml:id="_class_app_1_1_http_1_1_middleware_1_1_trust_proxies_1a9fed7e7c82160e6b32d7ed4c8193c195"/><section>
+    <title>$proxies</title>
+<indexterm><primary>$proxies</primary><secondary>TrustProxies</secondary></indexterm>
+<indexterm><primary>TrustProxies</primary><secondary>$proxies</secondary></indexterm>
+<para><computeroutput>$proxies<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+app/Http/Middleware/<link linkend="__trust_proxies_8php">TrustProxies.php</link></section>
+</section>

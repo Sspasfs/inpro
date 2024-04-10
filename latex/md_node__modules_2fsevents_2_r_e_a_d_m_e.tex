@@ -1,0 +1,90 @@
+\chapter{fsevents}
+\hypertarget{md_node__modules_2fsevents_2_r_e_a_d_m_e}{}\label{md_node__modules_2fsevents_2_r_e_a_d_m_e}\index{fsevents@{fsevents}}
+\label{md_node__modules_2fsevents_2_r_e_a_d_m_e_autotoc_md356}%
+\Hypertarget{md_node__modules_2fsevents_2_r_e_a_d_m_e_autotoc_md356}%
+ Native access to Mac\+OS FSEvents in \href{https://nodejs.org/}{\texttt{ Node.\+js}}
+
+The FSEvents API in Mac\+OS allows applications to register for notifications of changes to a given directory tree. It is a very fast and lightweight alternative to kqueue.
+
+This is a low-\/level library. For a cross-\/platform file watching module that uses fsevents, check out \href{https://github.com/paulmillr/chokidar}{\texttt{ Chokidar}}.\hypertarget{md_node__modules_2fsevents_2_r_e_a_d_m_e_autotoc_md357}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md_node__modules_2fsevents_2_r_e_a_d_m_e_autotoc_md357}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ fsevents}
+
+\end{DoxyCode}
+
+
+Supports only {\bfseries{Node.\+js v8.\+16 and higher}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ fsevents\ =\ require('fsevents');}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ To\ start\ observation}
+\DoxyCodeLine{const\ stop\ =\ fsevents.watch(\_\_dirname,\ (path,\ flags,\ id)\ =>\ \{}
+\DoxyCodeLine{\ \ const\ info\ =\ fsevents.getInfo(path,\ flags);}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ To\ end\ observation}
+\DoxyCodeLine{stop();}
+
+\end{DoxyCode}
+
+
+\begin{quote}
+{\bfseries{Important note\+:}} The API behaviour is slightly different from typical JS APIs. The {\ttfamily stop} function {\bfseries{must}} be retrieved and stored somewhere, even if you don\textquotesingle{}t plan to stop the watcher. If you forget it, the garbage collector will eventually kick in, the watcher will be unregistered, and your callbacks won\textquotesingle{}t be called anymore. \end{quote}
+The callback passed as the second parameter to {\ttfamily .watch} get\textquotesingle{}s called whenever the operating system detects a a change in the file system. It takes three arguments\+:
+
+\doxysubparagraph*{{\ttfamily fsevents.\+watch(dirname\+: string, (path\+: string, flags\+: number, id\+: string) =\texorpdfstring{$>$}{>} void)\+: () =\texorpdfstring{$>$}{>} Promise\texorpdfstring{$<$}{<}undefined\texorpdfstring{$>$}{>}}}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily path\+: string} -\/ the item in the filesystem that have been changed
+\item {\ttfamily flags\+: number} -\/ a numeric value describing what the change was
+\item {\ttfamily id\+: string} -\/ an unique-\/id identifying this specific event
+\end{DoxyItemize}
+
+Returns closer callback which when called returns a Promise resolving when the watcher process has been shut down.
+
+\doxysubparagraph*{{\ttfamily fsevents.\+get\+Info(path\+: string, flags\+: number, id\+: string)\+: Fs\+Event\+Info}}
+
+The {\ttfamily get\+Info} function takes the {\ttfamily path}, {\ttfamily flags} and {\ttfamily id} arguments and converts those parameters into a structure that is easier to digest to determine what the change was.
+
+The {\ttfamily Fs\+Events\+Info} has the following shape\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/**}
+\DoxyCodeLine{\ *\ @typedef\ \{'created'|'modified'|'deleted'|'moved'|'root-\/changed'|'cloned'|'unknown'\}\ FsEventsEvent}
+\DoxyCodeLine{\ *\ @typedef\ \{'file'|'directory'|'symlink'\}\ FsEventsType}
+\DoxyCodeLine{\ */}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ "{}event"{}:\ "{}created"{},\ //\ \{FsEventsEvent\}}
+\DoxyCodeLine{\ \ "{}path"{}:\ "{}file.txt"{},}
+\DoxyCodeLine{\ \ "{}type"{}:\ "{}file"{},\ \ \ \ //\ \{FsEventsType\}}
+\DoxyCodeLine{\ \ "{}changes"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ "{}inode"{}:\ true,\ \ \ //\ Had\ iNode\ Meta-\/Information\ changed}
+\DoxyCodeLine{\ \ \ \ "{}finder"{}:\ false,\ //\ Had\ Finder\ Meta-\/Data\ changed}
+\DoxyCodeLine{\ \ \ \ "{}access"{}:\ false,\ //\ Had\ access\ permissions\ changed}
+\DoxyCodeLine{\ \ \ \ "{}xattrs"{}:\ false\ \ //\ Had\ xAttributes\ changed}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ "{}flags"{}:\ 0x100000000}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2fsevents_2_r_e_a_d_m_e_autotoc_md358}{}\doxysection{\texorpdfstring{Changelog}{Changelog}}\label{md_node__modules_2fsevents_2_r_e_a_d_m_e_autotoc_md358}
+
+\begin{DoxyItemize}
+\item v2.\+3 supports Apple Silicon ARM CPUs
+\item v2 supports node 8.\+16+ and reduces package size massively
+\item v1.\+2.\+8 supports node 6+
+\item v1.\+2.\+7 supports node 4+
+\end{DoxyItemize}\hypertarget{md_node__modules_2fsevents_2_r_e_a_d_m_e_autotoc_md359}{}\doxysection{\texorpdfstring{Troubleshooting}{Troubleshooting}}\label{md_node__modules_2fsevents_2_r_e_a_d_m_e_autotoc_md359}
+
+\begin{DoxyItemize}
+\item I\textquotesingle{}m getting {\ttfamily EBADPLATFORM} {\ttfamily Unsupported platform for fsevents} error.
+\item It\textquotesingle{}s fine, nothing is broken. fsevents is macos-\/only. Other platforms are skipped. If you want to hide this warning, report a bug to NPM bugtracker asking them to hide ebadplatform warnings by default.
+\end{DoxyItemize}\hypertarget{md_node__modules_2fsevents_2_r_e_a_d_m_e_autotoc_md360}{}\doxysection{\texorpdfstring{License}{License}}\label{md_node__modules_2fsevents_2_r_e_a_d_m_e_autotoc_md360}
+The MIT License Copyright (C) 2010-\/2020 by Philipp Dunkel, Ben Noordhuis, Elan Shankar, Paul Miller — see LICENSE file.
+
+Visit our \href{https://github.com/fsevents/fsevents}{\texttt{ Git\+Hub page}} and \href{https://npmjs.org/package/fsevents}{\texttt{ NPM Page}} 

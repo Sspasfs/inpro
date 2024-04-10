@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_app_1_1_http_1_1_kernel" xml:lang="fr">
+<title>Référence de la classe Kernel</title>
+<indexterm><primary>Kernel</primary></indexterm>
+Graphe d&apos;héritage de Kernel:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_http_1_1_kernel__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de Kernel:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_http_1_1_kernel__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_kernel_1a36a993ea76b635c84749f6e5e6562344">$middleware</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_kernel_1a000642ef1cfc62ea5e829d8a3b17431a">$middlewareGroups</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_kernel_1a79ebbaaefcbb1096a9c4c6c67ff9ca38">$middlewareAliases</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_app_1_1_http_1_1_kernel_1a36a993ea76b635c84749f6e5e6562344"/><section>
+    <title>$middleware</title>
+<indexterm><primary>$middleware</primary><secondary>Kernel</secondary></indexterm>
+<indexterm><primary>Kernel</primary><secondary>$middleware</secondary></indexterm>
+<para><computeroutput>$middleware<computeroutput>[protected]</computeroutput></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\App\Http\Middleware\TrustProxies::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\Illuminate\Http\Middleware\HandleCors::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\App\Http\Middleware\PreventRequestsDuringMaintenance::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\App\Http\Middleware\TrimStrings::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+&#32;&#32;&#32;&#32;]
+</programlisting></section>
+<anchor xml:id="_class_app_1_1_http_1_1_kernel_1a79ebbaaefcbb1096a9c4c6c67ff9ca38"/><section>
+    <title>$middlewareAliases</title>
+<indexterm><primary>$middlewareAliases</primary><secondary>Kernel</secondary></indexterm>
+<indexterm><primary>Kernel</primary><secondary>$middlewareAliases</secondary></indexterm>
+<para><computeroutput>$middlewareAliases<computeroutput>[protected]</computeroutput></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;auth&apos;</emphasis>&#32;=&gt;&#32;\App\Http\Middleware\Authenticate::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;auth.basic&apos;</emphasis>&#32;=&gt;&#32;\Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;auth.session&apos;</emphasis>&#32;=&gt;&#32;\Illuminate\Session\Middleware\AuthenticateSession::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;cache.headers&apos;</emphasis>&#32;=&gt;&#32;\Illuminate\Http\Middleware\SetCacheHeaders::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;can&apos;</emphasis>&#32;=&gt;&#32;\Illuminate\Auth\Middleware\Authorize::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;guest&apos;</emphasis>&#32;=&gt;&#32;\App\Http\Middleware\RedirectIfAuthenticated::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;password.confirm&apos;</emphasis>&#32;=&gt;&#32;\Illuminate\Auth\Middleware\RequirePassword::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;precognitive&apos;</emphasis>&#32;=&gt;&#32;\Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;signed&apos;</emphasis>&#32;=&gt;&#32;\App\Http\Middleware\ValidateSignature::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;throttle&apos;</emphasis>&#32;=&gt;&#32;\Illuminate\Routing\Middleware\ThrottleRequests::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;verified&apos;</emphasis>&#32;=&gt;&#32;\Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+&#32;&#32;&#32;&#32;]
+</programlisting></section>
+<anchor xml:id="_class_app_1_1_http_1_1_kernel_1a000642ef1cfc62ea5e829d8a3b17431a"/><section>
+    <title>$middlewareGroups</title>
+<indexterm><primary>$middlewareGroups</primary><secondary>Kernel</secondary></indexterm>
+<indexterm><primary>Kernel</primary><secondary>$middlewareGroups</secondary></indexterm>
+<para><computeroutput>$middlewareGroups<computeroutput>[protected]</computeroutput></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;web&apos;</emphasis>&#32;=&gt;&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\App\Http\Middleware\EncryptCookies::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\Illuminate\Session\Middleware\StartSession::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\Illuminate\View\Middleware\ShareErrorsFromSession::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\App\Http\Middleware\VerifyCsrfToken::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\Illuminate\Routing\Middleware\SubstituteBindings::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;],
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;api&apos;</emphasis>&#32;=&gt;&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\Illuminate\Routing\Middleware\ThrottleRequests::class.<emphasis role="stringliteral">&apos;:api&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\Illuminate\Routing\Middleware\SubstituteBindings::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;],
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;check.auth&apos;</emphasis>&#32;=&gt;&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\App\Http\Middleware\CheckAuth::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;],
+&#32;&#32;&#32;&#32;]
+</programlisting></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+app/Http/<link linkend="__http_2_kernel_8php">Kernel.php</link></section>
+</section>

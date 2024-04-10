@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_d6cea5dd1ad574a301d4bb97e00bd495" xml:lang="fr">
+<title>Répertoire de référence de node_modules/fsevents</title>
+<indexterm><primary>Répertoire de référence de node_modules/fsevents</primary></indexterm>
+Graphe des dépendances de répertoires pour fsevents:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_d6cea5dd1ad574a301d4bb97e00bd495_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>

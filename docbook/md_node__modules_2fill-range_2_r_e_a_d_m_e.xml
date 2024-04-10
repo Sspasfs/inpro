@@ -1,0 +1,306 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2fill-range_2_r_e_a_d_m_e" xml:lang="fr">
+<title>fill-range &lt;a href=&quot;https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=W8YFZ425KND68&quot; &gt;&lt;img src=&quot;https://img.shields.io/badge/Donate-PayPal-green.svg&quot; alt=&quot;Donate&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://www.npmjs.com/package/fill-range&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/v/fill-range.svg?style=flat&quot; alt=&quot;NPM version&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://npmjs.org/package/fill-range&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dm/fill-range.svg?style=flat&quot; alt=&quot;NPM monthly downloads&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://npmjs.org/package/fill-range&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dt/fill-range.svg?style=flat&quot; alt=&quot;NPM total downloads&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://travis-ci.org/jonschlinkert/fill-range&quot; &gt;&lt;img src=&quot;https://img.shields.io/travis/jonschlinkert/fill-range.svg?style=flat&amp;label=Travis&quot; alt=&quot;Linux Build Status&quot;/&gt;&lt;/a&gt;</title>
+<indexterm><primary>fill-range &lt;a href=&quot;https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=W8YFZ425KND68&quot; &gt;&lt;img src=&quot;https://img.shields.io/badge/Donate-PayPal-green.svg&quot; alt=&quot;Donate&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://www.npmjs.com/package/fill-range&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/v/fill-range.svg?style=flat&quot; alt=&quot;NPM version&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://npmjs.org/package/fill-range&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dm/fill-range.svg?style=flat&quot; alt=&quot;NPM monthly downloads&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://npmjs.org/package/fill-range&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dt/fill-range.svg?style=flat&quot; alt=&quot;NPM total downloads&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://travis-ci.org/jonschlinkert/fill-range&quot; &gt;&lt;img src=&quot;https://img.shields.io/travis/jonschlinkert/fill-range.svg?style=flat&amp;label=Travis&quot; alt=&quot;Linux Build Status&quot;/&gt;&lt;/a&gt;</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2fill-range_2_r_e_a_d_m_e_1autotoc_md310"/> <blockquote>
+<para>&#8205;Fill in a range of numbers or letters, optionally passing an increment or <computeroutput>step</computeroutput> to use, or create a regex-compatible range with <computeroutput>options.toRegex</computeroutput> </para>
+</blockquote>Please consider following this project&apos;s author, <link xlink:href="https://github.com/jonschlinkert">Jon Schlinkert</link>, and consider starring the project to show your :heart: and support.</para>
+<section xml:id="_md_node__modules_2fill-range_2_r_e_a_d_m_e_1autotoc_md311">
+<title><title>Install</title></title>
+
+<para>Install with <link xlink:href="https://www.npmjs.com/">npm</link>:</para>
+
+<para><literallayout><computeroutput>$&#32;npm&#32;install&#32;--save&#32;fill-range
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2fill-range_2_r_e_a_d_m_e_1autotoc_md312">
+<title><title>Usage</title></title>
+
+<para>Expands numbers and letters, optionally using a <computeroutput>step</computeroutput> as the last argument. _(Numbers may be defined as JavaScript numbers or strings)_.</para>
+
+<para><literallayout><computeroutput>const&#32;fill&#32;=&#32;require(&apos;fill-range&apos;);
+//&#32;fill(from,&#32;to[,&#32;step,&#32;options]);
+
+console.log(fill(&apos;1&apos;,&#32;&apos;10&apos;));&#32;//=&gt;&#32;[&apos;1&apos;,&#32;&apos;2&apos;,&#32;&apos;3&apos;,&#32;&apos;4&apos;,&#32;&apos;5&apos;,&#32;&apos;6&apos;,&#32;&apos;7&apos;,&#32;&apos;8&apos;,&#32;&apos;9&apos;,&#32;&apos;10&apos;]
+console.log(fill(&apos;1&apos;,&#32;&apos;10&apos;,&#32;{&#32;toRegex:&#32;true&#32;}));&#32;//=&gt;&#32;[1-9]|10
+</computeroutput></literallayout></para>
+
+<para><emphasis role="bold">Params</emphasis></para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>from</computeroutput>: **{String|Number}** the number or letter to start with</para>
+</listitem><listitem>
+<para><computeroutput>to</computeroutput>: **{String|Number}** the number or letter to end with</para>
+</listitem><listitem>
+<para><computeroutput>step</computeroutput>: **{String|Number|Object|Function}** Optionally pass a step to use.</para>
+</listitem><listitem>
+<para><computeroutput>options</computeroutput>: **{Object|Function}**: See all available options</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2fill-range_2_r_e_a_d_m_e_1autotoc_md313">
+<title><title>Examples</title></title>
+
+<para>By default, an array of values is returned.</para>
+
+<para><emphasis role="bold">Alphabetical ranges</emphasis></para>
+
+<para><literallayout><computeroutput>console.log(fill(&apos;a&apos;,&#32;&apos;e&apos;));&#32;//=&gt;&#32;[&apos;a&apos;,&#32;&apos;b&apos;,&#32;&apos;c&apos;,&#32;&apos;d&apos;,&#32;&apos;e&apos;]
+console.log(fill(&apos;A&apos;,&#32;&apos;E&apos;));&#32;//=&gt;&#32;[&#32;&apos;A&apos;,&#32;&apos;B&apos;,&#32;&apos;C&apos;,&#32;&apos;D&apos;,&#32;&apos;E&apos;&#32;]
+</computeroutput></literallayout></para>
+
+<para><emphasis role="bold">Numerical ranges</emphasis></para>
+
+<para>Numbers can be defined as actual numbers or strings.</para>
+
+<para><literallayout><computeroutput>console.log(fill(1,&#32;5));&#32;&#32;&#32;&#32;&#32;//=&gt;&#32;[&#32;1,&#32;2,&#32;3,&#32;4,&#32;5&#32;]
+console.log(fill(&apos;1&apos;,&#32;&apos;5&apos;));&#32;//=&gt;&#32;[&#32;1,&#32;2,&#32;3,&#32;4,&#32;5&#32;]
+</computeroutput></literallayout></para>
+
+<para><emphasis role="bold">Negative ranges</emphasis></para>
+
+<para>Numbers can be defined as actual numbers or strings.</para>
+
+<para><literallayout><computeroutput>console.log(fill(&apos;-5&apos;,&#32;&apos;-1&apos;));&#32;//=&gt;&#32;[&#32;&apos;-5&apos;,&#32;&apos;-4&apos;,&#32;&apos;-3&apos;,&#32;&apos;-2&apos;,&#32;&apos;-1&apos;&#32;]
+console.log(fill(&apos;-5&apos;,&#32;&apos;5&apos;));&#32;//=&gt;&#32;[&#32;&apos;-5&apos;,&#32;&apos;-4&apos;,&#32;&apos;-3&apos;,&#32;&apos;-2&apos;,&#32;&apos;-1&apos;,&#32;&apos;0&apos;,&#32;&apos;1&apos;,&#32;&apos;2&apos;,&#32;&apos;3&apos;,&#32;&apos;4&apos;,&#32;&apos;5&apos;&#32;]
+</computeroutput></literallayout></para>
+
+<para><emphasis role="bold">Steps (increments)</emphasis></para>
+
+<para><literallayout><computeroutput>//&#32;numerical&#32;ranges&#32;with&#32;increments
+console.log(fill(&apos;0&apos;,&#32;&apos;25&apos;,&#32;4));&#32;//=&gt;&#32;[&#32;&apos;0&apos;,&#32;&apos;4&apos;,&#32;&apos;8&apos;,&#32;&apos;12&apos;,&#32;&apos;16&apos;,&#32;&apos;20&apos;,&#32;&apos;24&apos;&#32;]
+console.log(fill(&apos;0&apos;,&#32;&apos;25&apos;,&#32;5));&#32;//=&gt;&#32;[&#32;&apos;0&apos;,&#32;&apos;5&apos;,&#32;&apos;10&apos;,&#32;&apos;15&apos;,&#32;&apos;20&apos;,&#32;&apos;25&apos;&#32;]
+console.log(fill(&apos;0&apos;,&#32;&apos;25&apos;,&#32;6));&#32;//=&gt;&#32;[&#32;&apos;0&apos;,&#32;&apos;6&apos;,&#32;&apos;12&apos;,&#32;&apos;18&apos;,&#32;&apos;24&apos;&#32;]
+
+//&#32;alphabetical&#32;ranges&#32;with&#32;increments
+console.log(fill(&apos;a&apos;,&#32;&apos;z&apos;,&#32;4));&#32;//=&gt;&#32;[&#32;&apos;a&apos;,&#32;&apos;e&apos;,&#32;&apos;i&apos;,&#32;&apos;m&apos;,&#32;&apos;q&apos;,&#32;&apos;u&apos;,&#32;&apos;y&apos;&#32;]
+console.log(fill(&apos;a&apos;,&#32;&apos;z&apos;,&#32;5));&#32;//=&gt;&#32;[&#32;&apos;a&apos;,&#32;&apos;f&apos;,&#32;&apos;k&apos;,&#32;&apos;p&apos;,&#32;&apos;u&apos;,&#32;&apos;z&apos;&#32;]
+console.log(fill(&apos;a&apos;,&#32;&apos;z&apos;,&#32;6));&#32;//=&gt;&#32;[&#32;&apos;a&apos;,&#32;&apos;g&apos;,&#32;&apos;m&apos;,&#32;&apos;s&apos;,&#32;&apos;y&apos;&#32;]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2fill-range_2_r_e_a_d_m_e_1autotoc_md314">
+<title><title>Options</title></title>
+<section xml:id="_md_node__modules_2fill-range_2_r_e_a_d_m_e_1autotoc_md315">
+<title><title>options.step</title></title>
+
+<para><emphasis role="bold">Type</emphasis>: <computeroutput>number</computeroutput> (formatted as a string or number)</para>
+
+<para><emphasis role="bold">Default</emphasis>: <computeroutput>undefined</computeroutput></para>
+
+<para><emphasis role="bold">Description</emphasis>: The increment to use for the range. Can be used with letters or numbers.</para>
+
+<para><emphasis role="bold">Example(s)</emphasis></para>
+
+<para><literallayout><computeroutput>//&#32;numbers
+console.log(fill(&apos;1&apos;,&#32;&apos;10&apos;,&#32;2));&#32;//=&gt;&#32;[&#32;&apos;1&apos;,&#32;&apos;3&apos;,&#32;&apos;5&apos;,&#32;&apos;7&apos;,&#32;&apos;9&apos;&#32;]
+console.log(fill(&apos;1&apos;,&#32;&apos;10&apos;,&#32;3));&#32;//=&gt;&#32;[&#32;&apos;1&apos;,&#32;&apos;4&apos;,&#32;&apos;7&apos;,&#32;&apos;10&apos;&#32;]
+console.log(fill(&apos;1&apos;,&#32;&apos;10&apos;,&#32;4));&#32;//=&gt;&#32;[&#32;&apos;1&apos;,&#32;&apos;5&apos;,&#32;&apos;9&apos;&#32;]
+
+//&#32;letters
+console.log(fill(&apos;a&apos;,&#32;&apos;z&apos;,&#32;5));&#32;//=&gt;&#32;[&#32;&apos;a&apos;,&#32;&apos;f&apos;,&#32;&apos;k&apos;,&#32;&apos;p&apos;,&#32;&apos;u&apos;,&#32;&apos;z&apos;&#32;]
+console.log(fill(&apos;a&apos;,&#32;&apos;z&apos;,&#32;7));&#32;//=&gt;&#32;[&#32;&apos;a&apos;,&#32;&apos;h&apos;,&#32;&apos;o&apos;,&#32;&apos;v&apos;&#32;]
+console.log(fill(&apos;a&apos;,&#32;&apos;z&apos;,&#32;9));&#32;//=&gt;&#32;[&#32;&apos;a&apos;,&#32;&apos;j&apos;,&#32;&apos;s&apos;&#32;]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2fill-range_2_r_e_a_d_m_e_1autotoc_md316">
+<title><title>options.strictRanges</title></title>
+
+<para><emphasis role="bold">Type</emphasis>: <computeroutput>boolean</computeroutput></para>
+
+<para><emphasis role="bold">Default</emphasis>: <computeroutput>false</computeroutput></para>
+
+<para><emphasis role="bold">Description</emphasis>: By default, <computeroutput>null</computeroutput> is returned when an invalid range is passed. Enable this option to throw a <computeroutput>RangeError</computeroutput> on invalid ranges.</para>
+
+<para><emphasis role="bold">Example(s)</emphasis></para>
+
+<para>The following are all invalid:</para>
+
+<para><literallayout><computeroutput>fill(&apos;1.1&apos;,&#32;&apos;2&apos;);&#32;&#32;&#32;//&#32;decimals&#32;not&#32;supported&#32;in&#32;ranges
+fill(&apos;a&apos;,&#32;&apos;2&apos;);&#32;&#32;&#32;&#32;&#32;//&#32;incompatible&#32;range&#32;values
+fill(1,&#32;10,&#32;&apos;foo&apos;);&#32;//&#32;invalid&#32;&quot;step&quot;&#32;argument
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2fill-range_2_r_e_a_d_m_e_1autotoc_md317">
+<title><title>options.stringify</title></title>
+
+<para><emphasis role="bold">Type</emphasis>: <computeroutput>boolean</computeroutput></para>
+
+<para><emphasis role="bold">Default</emphasis>: <computeroutput>undefined</computeroutput></para>
+
+<para><emphasis role="bold">Description</emphasis>: Cast all returned values to strings. By default, integers are returned as numbers.</para>
+
+<para><emphasis role="bold">Example(s)</emphasis></para>
+
+<para><literallayout><computeroutput>console.log(fill(1,&#32;5));&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//=&gt;&#32;[&#32;1,&#32;2,&#32;3,&#32;4,&#32;5&#32;]
+console.log(fill(1,&#32;5,&#32;{&#32;stringify:&#32;true&#32;}));&#32;//=&gt;&#32;[&#32;&apos;1&apos;,&#32;&apos;2&apos;,&#32;&apos;3&apos;,&#32;&apos;4&apos;,&#32;&apos;5&apos;&#32;]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2fill-range_2_r_e_a_d_m_e_1autotoc_md318">
+<title><title>options.toRegex</title></title>
+
+<para><emphasis role="bold">Type</emphasis>: <computeroutput>boolean</computeroutput></para>
+
+<para><emphasis role="bold">Default</emphasis>: <computeroutput>undefined</computeroutput></para>
+
+<para><emphasis role="bold">Description</emphasis>: Create a regex-compatible source string, instead of expanding values to an array.</para>
+
+<para><emphasis role="bold">Example(s)</emphasis></para>
+
+<para><literallayout><computeroutput>//&#32;alphabetical&#32;range
+console.log(fill(&apos;a&apos;,&#32;&apos;e&apos;,&#32;{&#32;toRegex:&#32;true&#32;}));&#32;//=&gt;&#32;&apos;[a-e]&apos;
+//&#32;alphabetical&#32;with&#32;step
+console.log(fill(&apos;a&apos;,&#32;&apos;z&apos;,&#32;3,&#32;{&#32;toRegex:&#32;true&#32;}));&#32;//=&gt;&#32;&apos;a|d|g|j|m|p|s|v|y&apos;
+//&#32;numerical&#32;range
+console.log(fill(&apos;1&apos;,&#32;&apos;100&apos;,&#32;{&#32;toRegex:&#32;true&#32;}));&#32;//=&gt;&#32;&apos;[1-9]|[1-9][0-9]|100&apos;
+//&#32;numerical&#32;range&#32;with&#32;zero&#32;padding
+console.log(fill(&apos;000001&apos;,&#32;&apos;100000&apos;,&#32;{&#32;toRegex:&#32;true&#32;}));
+//=&gt;&#32;&apos;0{5}[1-9]|0{4}[1-9][0-9]|0{3}[1-9][0-9]{2}|0{2}[1-9][0-9]{3}|0[1-9][0-9]{4}|100000&apos;
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2fill-range_2_r_e_a_d_m_e_1autotoc_md319">
+<title><title>options.transform</title></title>
+
+<para><emphasis role="bold">Type</emphasis>: <computeroutput>function</computeroutput></para>
+
+<para><emphasis role="bold">Default</emphasis>: <computeroutput>undefined</computeroutput></para>
+
+<para><emphasis role="bold">Description</emphasis>: Customize each value in the returned array (or string). _(you can also pass this function as the last argument to <computeroutput>fill()</computeroutput>)_.</para>
+
+<para><emphasis role="bold">Example(s)</emphasis></para>
+
+<para><literallayout><computeroutput>//&#32;add&#32;zero&#32;padding
+console.log(fill(1,&#32;5,&#32;value&#32;=&gt;&#32;String(value).padStart(4,&#32;&apos;0&apos;)));
+//=&gt;&#32;[&apos;0001&apos;,&#32;&apos;0002&apos;,&#32;&apos;0003&apos;,&#32;&apos;0004&apos;,&#32;&apos;0005&apos;]
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2fill-range_2_r_e_a_d_m_e_1autotoc_md320">
+<title><title>About</title></title>
+
+<para>
+<para><emphasis role="bold"><emphasis role="bold">Contributing</emphasis></emphasis></para><para>
+<para></para>
+
+<para>Pull requests and stars are always welcome. For bugs and feature requests, <link xlink:href="../../issues/new">please create an issue</link>.</para>
+
+<para></para>
+</para>
+</para>
+
+<para>
+<para><emphasis role="bold"><emphasis role="bold">Running Tests</emphasis></emphasis></para><para>
+<para></para>
+
+<para>Running and reviewing unit tests is a great way to get familiarized with a library and its API. You can install dependencies and run tests with the following command:</para>
+
+<para><literallayout><computeroutput>$&#32;npm&#32;install&#32;&amp;&amp;&#32;npm&#32;test
+</computeroutput></literallayout></para>
+
+<para></para>
+</para>
+</para>
+
+<para>
+<para><emphasis role="bold"><emphasis role="bold">Building docs</emphasis></emphasis></para><para>
+<para></para>
+
+<para>_(This project&apos;s readme.md is generated by <link xlink:href="https://github.com/verbose/verb-generate-readme">verb</link>, please don&apos;t edit the readme directly. Any changes to the readme must be made in the .verb.md readme template.)_</para>
+
+<para>To generate the readme, run the following command:</para>
+
+<para><literallayout><computeroutput>$&#32;npm&#32;install&#32;-g&#32;verbose/verb#dev&#32;verb-generate-readme&#32;&amp;&amp;&#32;verb
+</computeroutput></literallayout></para>
+
+<para></para>
+</para>
+</para>
+<section xml:id="_md_node__modules_2fill-range_2_r_e_a_d_m_e_1autotoc_md321">
+<title><title>Contributors</title></title>
+
+<para><informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para><emphasis role="bold">Commits</emphasis>   </para>
+</entry><entry>
+<para><emphasis role="bold">Contributor</emphasis>    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>116   </para>
+</entry><entry>
+<para><link xlink:href="https://github.com/jonschlinkert">jonschlinkert</link>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>4   </para>
+</entry><entry>
+<para><link xlink:href="https://github.com/paulmillr">paulmillr</link>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>2   </para>
+</entry><entry>
+<para><link xlink:href="https://github.com/realityking">realityking</link>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>2   </para>
+</entry><entry>
+<para><link xlink:href="https://github.com/bluelovers">bluelovers</link>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>1   </para>
+</entry><entry>
+<para><link xlink:href="https://github.com/edorivai">edorivai</link>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>1   </para>
+</entry><entry>
+<para><link xlink:href="https://github.com/wtgtybhertgeghgtwtg">wtgtybhertgeghgtwtg</link>   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_node__modules_2fill-range_2_r_e_a_d_m_e_1autotoc_md322">
+<title><title>Author</title></title>
+
+<para><emphasis role="bold">Jon Schlinkert</emphasis></para>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://github.com/jonschlinkert">GitHub Profile</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://twitter.com/jonschlinkert">Twitter Profile</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://linkedin.com/in/jonschlinkert">LinkedIn Profile</link></para>
+</listitem></itemizedlist>
+</para>
+
+<para>Please consider supporting me on Patreon, or <link xlink:href="https://patreon.com/invite/bxpbvm">start your own Patreon page</link>!</para>
+
+<para><link xlink:href="https://www.patreon.com/jonschlinkert"> </link></para>
+</section>
+<section xml:id="_md_node__modules_2fill-range_2_r_e_a_d_m_e_1autotoc_md323">
+<title><title>License</title></title>
+
+<para>Copyright © 2019, <link xlink:href="https://github.com/jonschlinkert">Jon Schlinkert</link>. Released under the [MIT License](LICENSE).</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+
+<para><emphasis>This file was generated by <link xlink:href="https://github.com/verbose/verb-generate-readme">verb-generate-readme</link>, v0.8.0, on April 08, 2019.</emphasis> </para>
+</section>
+</section>
+</section>

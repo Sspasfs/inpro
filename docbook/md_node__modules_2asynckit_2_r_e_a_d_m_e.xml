@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2asynckit_2_r_e_a_d_m_e" xml:lang="fr">
+<title>asynckit &lt;a href=&quot;https://www.npmjs.com/package/asynckit&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/v/asynckit.svg?style=flat&quot; alt=&quot;NPM Module&quot;/&gt;&lt;/a&gt;</title>
+<indexterm><primary>asynckit &lt;a href=&quot;https://www.npmjs.com/package/asynckit&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/v/asynckit.svg?style=flat&quot; alt=&quot;NPM Module&quot;/&gt;&lt;/a&gt;</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2asynckit_2_r_e_a_d_m_e_1autotoc_md23"/> Minimal async jobs utility library, with streams support.</para>
+
+<para><link xlink:href="https://travis-ci.org/alexindigo/asynckit"></link> <link xlink:href="https://travis-ci.org/alexindigo/asynckit"></link> <link xlink:href="https://ci.appveyor.com/project/alexindigo/asynckit"></link></para>
+
+<para><link xlink:href="https://coveralls.io/github/alexindigo/asynckit?branch=master"></link> <link xlink:href="https://david-dm.org/alexindigo/asynckit"></link> <link xlink:href="https://www.bithound.io/github/alexindigo/asynckit"></link></para>
+
+<para>AsyncKit provides harness for <computeroutput>parallel</computeroutput> and <computeroutput>serial</computeroutput> iterators over list of items represented by arrays or objects. Optionally it accepts abort function (should be synchronously return by iterator for each item), and terminates left over jobs upon an error event. For specific iteration order built-in (<computeroutput>ascending</computeroutput> and <computeroutput>descending</computeroutput>) and custom sort helpers also supported, via <computeroutput>asynckit.serialOrdered</computeroutput> method.</para>
+
+<para>It ensures async operations to keep behavior more stable and prevent <computeroutput>Maximum call stack size exceeded</computeroutput> errors, from sync iterators.</para>
+
+<para><informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry align='left'>
+<para>compression   </para>
+</entry><entry align='right'>
+<para>size    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry align='left'>
+<para>asynckit.js   </para>
+</entry><entry align='right'>
+<para>12.34 kB    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry align='left'>
+<para>asynckit.min.js   </para>
+</entry><entry align='right'>
+<para>4.11 kB    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry align='left'>
+<para>asynckit.min.js.gz   </para>
+</entry><entry align='right'>
+<para>1.47 kB   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+<section xml:id="_md_node__modules_2asynckit_2_r_e_a_d_m_e_1autotoc_md24">
+<title><title>Install</title></title>
+
+<para><literallayout><computeroutput>$&#32;npm&#32;install&#32;--save&#32;asynckit
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2asynckit_2_r_e_a_d_m_e_1autotoc_md25">
+<title><title>Examples</title></title>
+<section xml:id="_md_node__modules_2asynckit_2_r_e_a_d_m_e_1autotoc_md26">
+<title><title>Parallel Jobs</title></title>
+
+<para>Runs iterator over provided array in parallel. Stores output in the <computeroutput>result</computeroutput> array, on the matching positions. In unlikely event of an error from one of the jobs, will terminate rest of the active jobs (if abort function is provided) and return error along with salvaged data to the main callback function.</para>
+<section xml:id="_md_node__modules_2asynckit_2_r_e_a_d_m_e_1autotoc_md27">
+<title><title>Input Array</title></title>
+
+<para><literallayout><computeroutput>var&#32;parallel&#32;=&#32;require(&apos;asynckit&apos;).parallel
+&#32;&#32;,&#32;assert&#32;&#32;&#32;=&#32;require(&apos;assert&apos;)
+&#32;&#32;;
+
+var&#32;source&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;[&#32;1,&#32;1,&#32;4,&#32;16,&#32;64,&#32;32,&#32;8,&#32;2&#32;]
+&#32;&#32;,&#32;expectedResult&#32;=&#32;[&#32;2,&#32;2,&#32;8,&#32;32,&#32;128,&#32;64,&#32;16,&#32;4&#32;]
+&#32;&#32;,&#32;expectedTarget&#32;=&#32;[&#32;1,&#32;1,&#32;2,&#32;4,&#32;8,&#32;16,&#32;32,&#32;64&#32;]
+&#32;&#32;,&#32;target&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;[]
+&#32;&#32;;
+
+parallel(source,&#32;asyncJob,&#32;function(err,&#32;result)
+{
+&#32;&#32;assert.deepEqual(result,&#32;expectedResult);
+&#32;&#32;assert.deepEqual(target,&#32;expectedTarget);
+});
+
+//&#32;async&#32;job&#32;accepts&#32;one&#32;element&#32;from&#32;the&#32;array
+//&#32;and&#32;a&#32;callback&#32;function
+function&#32;asyncJob(item,&#32;cb)
+{
+&#32;&#32;//&#32;different&#32;delays&#32;(in&#32;ms)&#32;per&#32;item
+&#32;&#32;var&#32;delay&#32;=&#32;item&#32;*&#32;25;
+
+&#32;&#32;//&#32;pretend&#32;different&#32;jobs&#32;take&#32;different&#32;time&#32;to&#32;finish
+&#32;&#32;//&#32;and&#32;not&#32;in&#32;consequential&#32;order
+&#32;&#32;var&#32;timeoutId&#32;=&#32;setTimeout(function()&#32;{
+&#32;&#32;&#32;&#32;target.push(item);
+&#32;&#32;&#32;&#32;cb(null,&#32;item&#32;*&#32;2);
+&#32;&#32;},&#32;delay);
+
+&#32;&#32;//&#32;allow&#32;to&#32;cancel&#32;&quot;leftover&quot;&#32;jobs&#32;upon&#32;error
+&#32;&#32;//&#32;return&#32;function,&#32;invoking&#32;of&#32;which&#32;will&#32;abort&#32;this&#32;job
+&#32;&#32;return&#32;clearTimeout.bind(null,&#32;timeoutId);
+}
+</computeroutput></literallayout></para>
+
+<para>More examples could be found in <link xlink:href="test/test-parallel-array.js">test/test-parallel-array.js</link>.</para>
+</section>
+<section xml:id="_md_node__modules_2asynckit_2_r_e_a_d_m_e_1autotoc_md28">
+<title><title>Input Object</title></title>
+
+<para>Also it supports named jobs, listed via object.</para>
+
+<para><literallayout><computeroutput>var&#32;parallel&#32;=&#32;require(&apos;asynckit/parallel&apos;)
+&#32;&#32;,&#32;assert&#32;&#32;&#32;=&#32;require(&apos;assert&apos;)
+&#32;&#32;;
+
+var&#32;source&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;{&#32;first:&#32;1,&#32;one:&#32;1,&#32;four:&#32;4,&#32;sixteen:&#32;16,&#32;sixtyFour:&#32;64,&#32;thirtyTwo:&#32;32,&#32;eight:&#32;8,&#32;two:&#32;2&#32;}
+&#32;&#32;,&#32;expectedResult&#32;=&#32;{&#32;first:&#32;2,&#32;one:&#32;2,&#32;four:&#32;8,&#32;sixteen:&#32;32,&#32;sixtyFour:&#32;128,&#32;thirtyTwo:&#32;64,&#32;eight:&#32;16,&#32;two:&#32;4&#32;}
+&#32;&#32;,&#32;expectedTarget&#32;=&#32;[&#32;1,&#32;1,&#32;2,&#32;4,&#32;8,&#32;16,&#32;32,&#32;64&#32;]
+&#32;&#32;,&#32;expectedKeys&#32;&#32;&#32;=&#32;[&#32;&apos;first&apos;,&#32;&apos;one&apos;,&#32;&apos;two&apos;,&#32;&apos;four&apos;,&#32;&apos;eight&apos;,&#32;&apos;sixteen&apos;,&#32;&apos;thirtyTwo&apos;,&#32;&apos;sixtyFour&apos;&#32;]
+&#32;&#32;,&#32;target&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;[]
+&#32;&#32;,&#32;keys&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;[]
+&#32;&#32;;
+
+parallel(source,&#32;asyncJob,&#32;function(err,&#32;result)
+{
+&#32;&#32;assert.deepEqual(result,&#32;expectedResult);
+&#32;&#32;assert.deepEqual(target,&#32;expectedTarget);
+&#32;&#32;assert.deepEqual(keys,&#32;expectedKeys);
+});
+
+//&#32;supports&#32;full&#32;value,&#32;key,&#32;callback&#32;(shortcut)&#32;interface
+function&#32;asyncJob(item,&#32;key,&#32;cb)
+{
+&#32;&#32;//&#32;different&#32;delays&#32;(in&#32;ms)&#32;per&#32;item
+&#32;&#32;var&#32;delay&#32;=&#32;item&#32;*&#32;25;
+
+&#32;&#32;//&#32;pretend&#32;different&#32;jobs&#32;take&#32;different&#32;time&#32;to&#32;finish
+&#32;&#32;//&#32;and&#32;not&#32;in&#32;consequential&#32;order
+&#32;&#32;var&#32;timeoutId&#32;=&#32;setTimeout(function()&#32;{
+&#32;&#32;&#32;&#32;keys.push(key);
+&#32;&#32;&#32;&#32;target.push(item);
+&#32;&#32;&#32;&#32;cb(null,&#32;item&#32;*&#32;2);
+&#32;&#32;},&#32;delay);
+
+&#32;&#32;//&#32;allow&#32;to&#32;cancel&#32;&quot;leftover&quot;&#32;jobs&#32;upon&#32;error
+&#32;&#32;//&#32;return&#32;function,&#32;invoking&#32;of&#32;which&#32;will&#32;abort&#32;this&#32;job
+&#32;&#32;return&#32;clearTimeout.bind(null,&#32;timeoutId);
+}
+</computeroutput></literallayout></para>
+
+<para>More examples could be found in <link xlink:href="test/test-parallel-object.js">test/test-parallel-object.js</link>.</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2asynckit_2_r_e_a_d_m_e_1autotoc_md29">
+<title><title>Serial Jobs</title></title>
+
+<para>Runs iterator over provided array sequentially. Stores output in the <computeroutput>result</computeroutput> array, on the matching positions. In unlikely event of an error from one of the jobs, will not proceed to the rest of the items in the list and return error along with salvaged data to the main callback function.</para>
+<section xml:id="_md_node__modules_2asynckit_2_r_e_a_d_m_e_1autotoc_md30">
+<title><title>Input Array</title></title>
+
+<para><literallayout><computeroutput>var&#32;serial&#32;=&#32;require(&apos;asynckit/serial&apos;)
+&#32;&#32;,&#32;assert&#32;=&#32;require(&apos;assert&apos;)
+&#32;&#32;;
+
+var&#32;source&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;[&#32;1,&#32;1,&#32;4,&#32;16,&#32;64,&#32;32,&#32;8,&#32;2&#32;]
+&#32;&#32;,&#32;expectedResult&#32;=&#32;[&#32;2,&#32;2,&#32;8,&#32;32,&#32;128,&#32;64,&#32;16,&#32;4&#32;]
+&#32;&#32;,&#32;expectedTarget&#32;=&#32;[&#32;0,&#32;1,&#32;2,&#32;3,&#32;4,&#32;5,&#32;6,&#32;7&#32;]
+&#32;&#32;,&#32;target&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;[]
+&#32;&#32;;
+
+serial(source,&#32;asyncJob,&#32;function(err,&#32;result)
+{
+&#32;&#32;assert.deepEqual(result,&#32;expectedResult);
+&#32;&#32;assert.deepEqual(target,&#32;expectedTarget);
+});
+
+//&#32;extended&#32;interface&#32;(item,&#32;key,&#32;callback)
+//&#32;also&#32;supported&#32;for&#32;arrays
+function&#32;asyncJob(item,&#32;key,&#32;cb)
+{
+&#32;&#32;target.push(key);
+
+&#32;&#32;//&#32;it&#32;will&#32;be&#32;automatically&#32;made&#32;async
+&#32;&#32;//&#32;even&#32;it&#32;iterator&#32;&quot;returns&quot;&#32;in&#32;the&#32;same&#32;event&#32;loop
+&#32;&#32;cb(null,&#32;item&#32;*&#32;2);
+}
+</computeroutput></literallayout></para>
+
+<para>More examples could be found in <link xlink:href="test/test-serial-array.js">test/test-serial-array.js</link>.</para>
+</section>
+<section xml:id="_md_node__modules_2asynckit_2_r_e_a_d_m_e_1autotoc_md31">
+<title><title>Input Object</title></title>
+
+<para>Also it supports named jobs, listed via object.</para>
+
+<para><literallayout><computeroutput>var&#32;serial&#32;=&#32;require(&apos;asynckit&apos;).serial
+&#32;&#32;,&#32;assert&#32;=&#32;require(&apos;assert&apos;)
+&#32;&#32;;
+
+var&#32;source&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;[&#32;1,&#32;1,&#32;4,&#32;16,&#32;64,&#32;32,&#32;8,&#32;2&#32;]
+&#32;&#32;,&#32;expectedResult&#32;=&#32;[&#32;2,&#32;2,&#32;8,&#32;32,&#32;128,&#32;64,&#32;16,&#32;4&#32;]
+&#32;&#32;,&#32;expectedTarget&#32;=&#32;[&#32;0,&#32;1,&#32;2,&#32;3,&#32;4,&#32;5,&#32;6,&#32;7&#32;]
+&#32;&#32;,&#32;target&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;[]
+&#32;&#32;;
+
+var&#32;source&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;{&#32;first:&#32;1,&#32;one:&#32;1,&#32;four:&#32;4,&#32;sixteen:&#32;16,&#32;sixtyFour:&#32;64,&#32;thirtyTwo:&#32;32,&#32;eight:&#32;8,&#32;two:&#32;2&#32;}
+&#32;&#32;,&#32;expectedResult&#32;=&#32;{&#32;first:&#32;2,&#32;one:&#32;2,&#32;four:&#32;8,&#32;sixteen:&#32;32,&#32;sixtyFour:&#32;128,&#32;thirtyTwo:&#32;64,&#32;eight:&#32;16,&#32;two:&#32;4&#32;}
+&#32;&#32;,&#32;expectedTarget&#32;=&#32;[&#32;1,&#32;1,&#32;4,&#32;16,&#32;64,&#32;32,&#32;8,&#32;2&#32;]
+&#32;&#32;,&#32;target&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;[]
+&#32;&#32;;
+
+
+serial(source,&#32;asyncJob,&#32;function(err,&#32;result)
+{
+&#32;&#32;assert.deepEqual(result,&#32;expectedResult);
+&#32;&#32;assert.deepEqual(target,&#32;expectedTarget);
+});
+
+//&#32;shortcut&#32;interface&#32;(item,&#32;callback)
+//&#32;works&#32;for&#32;object&#32;as&#32;well&#32;as&#32;for&#32;the&#32;arrays
+function&#32;asyncJob(item,&#32;cb)
+{
+&#32;&#32;target.push(item);
+
+&#32;&#32;//&#32;it&#32;will&#32;be&#32;automatically&#32;made&#32;async
+&#32;&#32;//&#32;even&#32;it&#32;iterator&#32;&quot;returns&quot;&#32;in&#32;the&#32;same&#32;event&#32;loop
+&#32;&#32;cb(null,&#32;item&#32;*&#32;2);
+}
+</computeroutput></literallayout></para>
+
+<para>More examples could be found in <link xlink:href="test/test-serial-object.js">test/test-serial-object.js</link>.</para>
+
+<para><emphasis>Note: Since _object</emphasis> is an <emphasis>unordered</emphasis> collection of properties, it may produce unexpected results with sequential iterations. Whenever order of the jobs&apos; execution is important please use <computeroutput>serialOrdered</computeroutput> method._</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2asynckit_2_r_e_a_d_m_e_1autotoc_md32">
+<title><title>Ordered Serial Iterations</title></title>
+
+<para>TBD</para>
+
+<para>For example [compare-property](compare-property) package.</para>
+</section>
+<section xml:id="_md_node__modules_2asynckit_2_r_e_a_d_m_e_1autotoc_md33">
+<title><title>Streaming interface</title></title>
+
+<para>TBD</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2asynckit_2_r_e_a_d_m_e_1autotoc_md34">
+<title><title>Want to Know More?</title></title>
+
+<para>More examples can be found in <link xlink:href="test/">test folder</link>.</para>
+
+<para>Or open an <link xlink:href="https://github.com/alexindigo/asynckit/issues">issue</link> with questions and/or suggestions.</para>
+</section>
+<section xml:id="_md_node__modules_2asynckit_2_r_e_a_d_m_e_1autotoc_md35">
+<title><title>License</title></title>
+
+<para>AsyncKit is licensed under the MIT license. </para>
+</section>
+</section>

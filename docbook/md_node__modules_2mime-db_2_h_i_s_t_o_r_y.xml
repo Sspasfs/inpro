@@ -1,0 +1,969 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y" xml:lang="fr">
+<title>1.52.0 / 2022-02-21</title>
+<indexterm><primary>1.52.0 / 2022-02-21</primary></indexterm>
+
+<para><itemizedlist>
+<listitem>
+<para>Add extensions from IANA for more <computeroutput>image/*</computeroutput> types</para>
+</listitem><listitem>
+<para>Add extension <computeroutput>.asc</computeroutput> to <computeroutput>application/pgp-keys</computeroutput></para>
+</listitem><listitem>
+<para>Add extensions to various XML types</para>
+</listitem><listitem>
+<para>Add new upstream MIME types</para>
+</listitem></itemizedlist>
+</para>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md473">
+<title><title>1.51.0 / 2021-11-08</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add new upstream MIME types</para>
+</listitem><listitem>
+<para>Mark <computeroutput>image/vnd.microsoft.icon</computeroutput> as compressible</para>
+</listitem><listitem>
+<para>Mark <computeroutput>image/vnd.ms-dds</computeroutput> as compressible</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md474">
+<title><title>1.50.0 / 2021-09-15</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add deprecated iWorks mime types and extensions</para>
+</listitem><listitem>
+<para>Add new upstream MIME types</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md475">
+<title><title>1.49.0 / 2021-07-26</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add extension <computeroutput>.trig</computeroutput> to <computeroutput>application/trig</computeroutput></para>
+</listitem><listitem>
+<para>Add new upstream MIME types</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md476">
+<title><title>1.48.0 / 2021-05-30</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add extension <computeroutput>.mvt</computeroutput> to <computeroutput>application/vnd.mapbox-vector-tile</computeroutput></para>
+</listitem><listitem>
+<para>Add new upstream MIME types</para>
+</listitem><listitem>
+<para>Mark <computeroutput>text/yaml</computeroutput> as compressible</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md477">
+<title><title>1.47.0 / 2021-04-01</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add new upstream MIME types</para>
+</listitem><listitem>
+<para>Remove ambigious extensions from IANA for <computeroutput>application/*+xml</computeroutput> types</para>
+</listitem><listitem>
+<para>Update primary extension to <computeroutput>.es</computeroutput> for <computeroutput>application/ecmascript</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md478">
+<title><title>1.46.0 / 2021-02-13</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add extension <computeroutput>.amr</computeroutput> to <computeroutput>audio/amr</computeroutput></para>
+</listitem><listitem>
+<para>Add extension <computeroutput>.m4s</computeroutput> to <computeroutput>video/iso.segment</computeroutput></para>
+</listitem><listitem>
+<para>Add extension <computeroutput>.opus</computeroutput> to <computeroutput>audio/ogg</computeroutput></para>
+</listitem><listitem>
+<para>Add new upstream MIME types</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md479">
+<title><title>1.45.0 / 2020-09-22</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>application/ubjson</computeroutput> with extension <computeroutput>.ubj</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>image/avif</computeroutput> with extension <computeroutput>.avif</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>image/ktx2</computeroutput> with extension <computeroutput>.ktx2</computeroutput></para>
+</listitem><listitem>
+<para>Add extension <computeroutput>.dbf</computeroutput> to <computeroutput>application/vnd.dbf</computeroutput></para>
+</listitem><listitem>
+<para>Add extension <computeroutput>.rar</computeroutput> to <computeroutput>application/vnd.rar</computeroutput></para>
+</listitem><listitem>
+<para>Add extension <computeroutput>.td</computeroutput> to <computeroutput>application/urc-targetdesc+xml</computeroutput></para>
+</listitem><listitem>
+<para>Add new upstream MIME types</para>
+</listitem><listitem>
+<para>Fix extension of <computeroutput>application/vnd.apple.keynote</computeroutput> to be <computeroutput>.key</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md480">
+<title><title>1.44.0 / 2020-04-22</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add charsets from IANA</para>
+</listitem><listitem>
+<para>Add extension <computeroutput>.cjs</computeroutput> to <computeroutput>application/node</computeroutput></para>
+</listitem><listitem>
+<para>Add new upstream MIME types</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md481">
+<title><title>1.43.0 / 2020-01-05</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>application/x-keepass2</computeroutput> with extension <computeroutput>.kdbx</computeroutput></para>
+</listitem><listitem>
+<para>Add extension <computeroutput>.mxmf</computeroutput> to <computeroutput>audio/mobile-xmf</computeroutput></para>
+</listitem><listitem>
+<para>Add extensions from IANA for <computeroutput>application/*+xml</computeroutput> types</para>
+</listitem><listitem>
+<para>Add new upstream MIME types</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md482">
+<title><title>1.42.0 / 2019-09-25</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>image/vnd.ms-dds</computeroutput> with extension <computeroutput>.dds</computeroutput></para>
+</listitem><listitem>
+<para>Add new upstream MIME types</para>
+</listitem><listitem>
+<para>Remove compressible from <computeroutput>multipart/mixed</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md483">
+<title><title>1.41.0 / 2019-08-30</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add new upstream MIME types</para>
+</listitem><listitem>
+<para>Add <computeroutput>application/toml</computeroutput> with extension <computeroutput>.toml</computeroutput></para>
+</listitem><listitem>
+<para>Mark <computeroutput>font/ttf</computeroutput> as compressible</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md484">
+<title><title>1.40.0 / 2019-04-20</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add extensions from IANA for <computeroutput>model/*</computeroutput> types</para>
+</listitem><listitem>
+<para>Add <computeroutput>text/mdx</computeroutput> with extension <computeroutput>.mdx</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md485">
+<title><title>1.39.0 / 2019-04-04</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add extensions <computeroutput>.siv</computeroutput> and <computeroutput>.sieve</computeroutput> to <computeroutput>application/sieve</computeroutput></para>
+</listitem><listitem>
+<para>Add new upstream MIME types</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md486">
+<title><title>1.38.0 / 2019-02-04</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add extension <computeroutput>.nq</computeroutput> to <computeroutput>application/n-quads</computeroutput></para>
+</listitem><listitem>
+<para>Add extension <computeroutput>.nt</computeroutput> to <computeroutput>application/n-triples</computeroutput></para>
+</listitem><listitem>
+<para>Add new upstream MIME types</para>
+</listitem><listitem>
+<para>Mark <computeroutput>text/less</computeroutput> as compressible</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md487">
+<title><title>1.37.0 / 2018-10-19</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add extensions to HEIC image types</para>
+</listitem><listitem>
+<para>Add new upstream MIME types</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md488">
+<title><title>1.36.0 / 2018-08-20</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add Apple file extensions from IANA</para>
+</listitem><listitem>
+<para>Add extensions from IANA for <computeroutput>image/*</computeroutput> types</para>
+</listitem><listitem>
+<para>Add new upstream MIME types</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md489">
+<title><title>1.35.0 / 2018-07-15</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add extension <computeroutput>.owl</computeroutput> to <computeroutput>application/rdf+xml</computeroutput></para>
+</listitem><listitem>
+<para>Add new upstream MIME types<itemizedlist>
+<listitem>
+<para>Removes extension <computeroutput>.woff</computeroutput> from <computeroutput>application/font-woff</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md490">
+<title><title>1.34.0 / 2018-06-03</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add extension <computeroutput>.csl</computeroutput> to <computeroutput>application/vnd.citationstyles.style+xml</computeroutput></para>
+</listitem><listitem>
+<para>Add extension <computeroutput>.es</computeroutput> to <computeroutput>application/ecmascript</computeroutput></para>
+</listitem><listitem>
+<para>Add new upstream MIME types</para>
+</listitem><listitem>
+<para>Add <computeroutput>UTF-8</computeroutput> as default charset for <computeroutput>text/turtle</computeroutput></para>
+</listitem><listitem>
+<para>Mark all XML-derived types as compressible</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md491">
+<title><title>1.33.0 / 2018-02-15</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add extensions from IANA for <computeroutput>message/*</computeroutput> types</para>
+</listitem><listitem>
+<para>Add new upstream MIME types</para>
+</listitem><listitem>
+<para>Fix some incorrect OOXML types</para>
+</listitem><listitem>
+<para>Remove <computeroutput>application/font-woff2</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md492">
+<title><title>1.32.0 / 2017-11-29</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add new upstream MIME types</para>
+</listitem><listitem>
+<para>Update <computeroutput>text/hjson</computeroutput> to registered <computeroutput>application/hjson</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>text/shex</computeroutput> with extension <computeroutput>.shex</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md493">
+<title><title>1.31.0 / 2017-10-25</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>application/raml+yaml</computeroutput> with extension <computeroutput>.raml</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/wasm</computeroutput> with extension <computeroutput>.wasm</computeroutput></para>
+</listitem><listitem>
+<para>Add new <computeroutput>font</computeroutput> type from IANA</para>
+</listitem><listitem>
+<para>Add new upstream font extensions</para>
+</listitem><listitem>
+<para>Add new upstream MIME types</para>
+</listitem><listitem>
+<para>Add extensions for JPEG-2000 images</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md494">
+<title><title>1.30.0 / 2017-08-27</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>application/vnd.ms-outlook</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/x-arj</computeroutput></para>
+</listitem><listitem>
+<para>Add extension <computeroutput>.mjs</computeroutput> to <computeroutput>application/javascript</computeroutput></para>
+</listitem><listitem>
+<para>Add glTF types and extensions</para>
+</listitem><listitem>
+<para>Add new upstream MIME types</para>
+</listitem><listitem>
+<para>Add <computeroutput>text/x-org</computeroutput></para>
+</listitem><listitem>
+<para>Add VirtualBox MIME types</para>
+</listitem><listitem>
+<para>Fix <computeroutput>source</computeroutput> records for <computeroutput>video/*</computeroutput> types that are IANA</para>
+</listitem><listitem>
+<para>Update <computeroutput>font/opentype</computeroutput> to registered <computeroutput>font/otf</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md495">
+<title><title>1.29.0 / 2017-07-10</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>application/fido.trusted-apps+json</computeroutput></para>
+</listitem><listitem>
+<para>Add extension <computeroutput>.wadl</computeroutput> to <computeroutput>application/vnd.sun.wadl+xml</computeroutput></para>
+</listitem><listitem>
+<para>Add new upstream MIME types</para>
+</listitem><listitem>
+<para>Add <computeroutput>UTF-8</computeroutput> as default charset for <computeroutput>text/css</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md496">
+<title><title>1.28.0 / 2017-05-14</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add new upstream MIME types</para>
+</listitem><listitem>
+<para>Add extension <computeroutput>.gz</computeroutput> to <computeroutput>application/gzip</computeroutput></para>
+</listitem><listitem>
+<para>Update extensions <computeroutput>.md</computeroutput> and <computeroutput>.markdown</computeroutput> to be <computeroutput>text/markdown</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md497">
+<title><title>1.27.0 / 2017-03-16</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add new upstream MIME types</para>
+</listitem><listitem>
+<para>Add <computeroutput>image/apng</computeroutput> with extension <computeroutput>.apng</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md498">
+<title><title>1.26.0 / 2017-01-14</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add new upstream MIME types</para>
+</listitem><listitem>
+<para>Add extension <computeroutput>.geojson</computeroutput> to <computeroutput>application/geo+json</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md499">
+<title><title>1.25.0 / 2016-11-11</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add new upstream MIME types</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md500">
+<title><title>1.24.0 / 2016-09-18</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>audio/mp3</computeroutput></para>
+</listitem><listitem>
+<para>Add new upstream MIME types</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md501">
+<title><title>1.23.0 / 2016-05-01</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add new upstream MIME types</para>
+</listitem><listitem>
+<para>Add extension <computeroutput>.3gpp</computeroutput> to <computeroutput>audio/3gpp</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md502">
+<title><title>1.22.0 / 2016-02-15</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>text/slim</computeroutput></para>
+</listitem><listitem>
+<para>Add extension <computeroutput>.rng</computeroutput> to <computeroutput>application/xml</computeroutput></para>
+</listitem><listitem>
+<para>Add new upstream MIME types</para>
+</listitem><listitem>
+<para>Fix extension of <computeroutput>application/dash+xml</computeroutput> to be <computeroutput>.mpd</computeroutput></para>
+</listitem><listitem>
+<para>Update primary extension to <computeroutput>.m4a</computeroutput> for <computeroutput>audio/mp4</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md503">
+<title><title>1.21.0 / 2016-01-06</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add Google document types</para>
+</listitem><listitem>
+<para>Add new upstream MIME types</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md504">
+<title><title>1.20.0 / 2015-11-10</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>text/x-suse-ymp</computeroutput></para>
+</listitem><listitem>
+<para>Add new upstream MIME types</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md505">
+<title><title>1.19.0 / 2015-09-17</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>application/vnd.apple.pkpass</computeroutput></para>
+</listitem><listitem>
+<para>Add new upstream MIME types</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md506">
+<title><title>1.18.0 / 2015-09-03</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add new upstream MIME types</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md507">
+<title><title>1.17.0 / 2015-08-13</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>application/x-msdos-program</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>audio/g711-0</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>image/vnd.mozilla.apng</computeroutput></para>
+</listitem><listitem>
+<para>Add extension <computeroutput>.exe</computeroutput> to <computeroutput>application/x-msdos-program</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md508">
+<title><title>1.16.0 / 2015-07-29</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>application/vnd.uri-map</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md509">
+<title><title>1.15.0 / 2015-07-13</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>application/x-httpd-php</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md510">
+<title><title>1.14.0 / 2015-06-25</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>application/scim+json</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/vnd.3gpp.ussd+xml</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/vnd.biopax.rdf+xml</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>text/x-processing</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md511">
+<title><title>1.13.0 / 2015-06-07</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add nginx as a source</para>
+</listitem><listitem>
+<para>Add <computeroutput>application/x-cocoa</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/x-java-archive-diff</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/x-makeself</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/x-perl</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/x-pilot</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/x-redhat-package-manager</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/x-sea</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>audio/x-m4a</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>audio/x-realaudio</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>image/x-jng</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>text/mathml</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md512">
+<title><title>1.12.0 / 2015-06-05</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>application/bdoc</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/vnd.hyperdrive+json</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/x-bdoc</computeroutput></para>
+</listitem><listitem>
+<para>Add extension <computeroutput>.rtf</computeroutput> to <computeroutput>text/rtf</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md513">
+<title><title>1.11.0 / 2015-05-31</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>audio/wav</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>audio/wave</computeroutput></para>
+</listitem><listitem>
+<para>Add extension <computeroutput>.litcoffee</computeroutput> to <computeroutput>text/coffeescript</computeroutput></para>
+</listitem><listitem>
+<para>Add extension <computeroutput>.sfd-hdstx</computeroutput> to <computeroutput>application/vnd.hydrostatix.sof-data</computeroutput></para>
+</listitem><listitem>
+<para>Add extension <computeroutput>.n-gage</computeroutput> to <computeroutput>application/vnd.nokia.n-gage.symbian.install</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md514">
+<title><title>1.10.0 / 2015-05-19</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>application/vnd.balsamiq.bmpr</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/vnd.microsoft.portable-executable</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/x-ns-proxy-autoconfig</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md515">
+<title><title>1.9.1 / 2015-04-19</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Remove <computeroutput>.json</computeroutput> extension from <computeroutput>application/manifest+json</computeroutput><itemizedlist>
+<listitem>
+<para>This is causing bugs downstream</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md516">
+<title><title>1.9.0 / 2015-04-19</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>application/manifest+json</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/vnd.micro+json</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>image/vnd.zbrush.pcx</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>image/x-ms-bmp</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md517">
+<title><title>1.8.0 / 2015-03-13</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>application/vnd.citationstyles.style+xml</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/vnd.fastcopy-disk-image</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/vnd.gov.sk.xmldatacontainer+xml</computeroutput></para>
+</listitem><listitem>
+<para>Add extension <computeroutput>.jsonld</computeroutput> to <computeroutput>application/ld+json</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md518">
+<title><title>1.7.0 / 2015-02-08</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>application/vnd.gerber</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/vnd.msa-disk-image</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md519">
+<title><title>1.6.1 / 2015-02-05</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Community extensions ownership transferred from <computeroutput>node-mime</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md520">
+<title><title>1.6.0 / 2015-01-29</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>application/jose</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/jose+json</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/json-seq</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/jwk+json</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/jwk-set+json</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/jwt</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/rdap+json</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/vnd.gov.sk.e-form+xml</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/vnd.ims.imsccv1p3</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md521">
+<title><title>1.5.0 / 2014-12-30</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>application/vnd.oracle.resource+json</computeroutput></para>
+</listitem><listitem>
+<para>Fix various invalid MIME type entries<itemizedlist>
+<listitem>
+<para><computeroutput>application/mbox+xml</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>application/oscp-response</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>application/vwg-multiplexed</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>audio/g721</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md522">
+<title><title>1.4.0 / 2014-12-21</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>application/vnd.ims.imsccv1p2</computeroutput></para>
+</listitem><listitem>
+<para>Fix various invalid MIME type entries<itemizedlist>
+<listitem>
+<para><computeroutput>application/vnd-acucobol</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>application/vnd-curl</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>application/vnd-dart</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>application/vnd-dxr</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>application/vnd-fdf</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>application/vnd-mif</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>application/vnd-sema</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>application/vnd-wap-wmlc</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>application/vnd.adobe.flash-movie</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>application/vnd.dece-zip</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>application/vnd.dvb_service</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>application/vnd.micrografx-igx</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>application/vnd.sealed-doc</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>application/vnd.sealed-eml</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>application/vnd.sealed-mht</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>application/vnd.sealed-ppt</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>application/vnd.sealed-tiff</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>application/vnd.sealed-xls</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>application/vnd.sealedmedia.softseal-html</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>application/vnd.sealedmedia.softseal-pdf</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>application/vnd.wap-slc</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>application/vnd.wap-wbxml</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>audio/vnd.sealedmedia.softseal-mpeg</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>image/vnd-djvu</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>image/vnd-svf</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>image/vnd-wap-wbmp</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>image/vnd.sealed-png</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>image/vnd.sealedmedia.softseal-gif</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>image/vnd.sealedmedia.softseal-jpg</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>model/vnd-dwf</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>model/vnd.parasolid.transmit-binary</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>model/vnd.parasolid.transmit-text</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>text/vnd-a</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>text/vnd-curl</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>text/vnd.wap-wml</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>Remove example template MIME types<itemizedlist>
+<listitem>
+<para><computeroutput>application/example</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>audio/example</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>image/example</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>message/example</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>model/example</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>multipart/example</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>text/example</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>video/example</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md523">
+<title><title>1.3.1 / 2014-12-16</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fix missing extensions<itemizedlist>
+<listitem>
+<para><computeroutput>application/json5</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>text/hjson</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md524">
+<title><title>1.3.0 / 2014-12-07</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>application/a2l</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/aml</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/atfx</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/atxml</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/cdfx+xml</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/dii</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/json5</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/lxf</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/mf4</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/vnd.apache.thrift.compact</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/vnd.apache.thrift.json</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/vnd.coffeescript</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/vnd.enphase.envoy</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/vnd.ims.imsccv1p1</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>text/csv-schema</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>text/hjson</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>text/markdown</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>text/yaml</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md525">
+<title><title>1.2.0 / 2014-11-09</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>application/cea</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/dit</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/vnd.gov.sk.e-form+zip</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/vnd.tmd.mediaflex.api+xml</computeroutput></para>
+</listitem><listitem>
+<para>Type <computeroutput>application/epub+zip</computeroutput> is now IANA-registered</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md526">
+<title><title>1.1.2 / 2014-10-23</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Rebuild database for <computeroutput>application/x-www-form-urlencoded</computeroutput> change</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md527">
+<title><title>1.1.1 / 2014-10-20</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Mark <computeroutput>application/x-www-form-urlencoded</computeroutput> as compressible.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md528">
+<title><title>1.1.0 / 2014-09-28</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>application/font-woff2</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md529">
+<title><title>1.0.3 / 2014-09-25</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fix engine requirement in package</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md530">
+<title><title>1.0.2 / 2014-09-25</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>application/coap-group+json</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/dcd</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/vnd.apache.thrift.binary</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>image/vnd.tencent.tap</computeroutput></para>
+</listitem><listitem>
+<para>Mark all JSON-derived types as compressible</para>
+</listitem><listitem>
+<para>Update <computeroutput>text/vtt</computeroutput> data</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md531">
+<title><title>1.0.1 / 2014-08-30</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fix extension ordering</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2mime-db_2_h_i_s_t_o_r_y_1autotoc_md532">
+<title><title>1.0.0 / 2014-08-30</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>application/atf</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>application/merge-patch+json</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>multipart/x-mixed-replace</computeroutput></para>
+</listitem><listitem>
+<para>Add &#8216;source: &apos;apache&#8217;<computeroutput>metadata</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Add</computeroutput>source: &apos;iana&apos;` metadata</para>
+</listitem><listitem>
+<para>Remove badly-assumed charset data </para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>

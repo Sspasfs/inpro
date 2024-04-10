@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_index_8php" xml:lang="fr">
+<title>Référence du fichier public/index.php</title>
+<indexterm><primary>public/index.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_index_8php_1a3904d6331aed7d48e576702946b2f47c">LARAVEL_START</link> microtime(true)</para>
+</listitem>
+            <listitem><para><link linkend="_index_8php_1a07244f5d0990e757f62c0322fb34cb50">if</link> (file_exists( $maintenance=__DIR__.&apos;/../storage/framework/maintenance.php&apos;))</para>
+</listitem>
+            <listitem><para><link linkend="_index_8php_1adfb117f244076aa9bc269269f7e57403">$app</link> = require_once __DIR__.&apos;/../bootstrap/app.php&apos;</para>
+</listitem>
+            <listitem><para><link linkend="_index_8php_1abf40ed7ce84347395deb8abf12cdd9da">$kernel</link> = $app-&gt;make(Kernel::class)</para>
+</listitem>
+            <listitem><para><link linkend="_index_8php_1af4b6fb1bbc77ccc05f10da3b16935b99">$response</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_index_8php_1adfb117f244076aa9bc269269f7e57403"/><section>
+    <title>$app</title>
+<indexterm><primary>$app</primary><secondary>index.php</secondary></indexterm>
+<indexterm><primary>index.php</primary><secondary>$app</secondary></indexterm>
+<para><computeroutput>$app = require_once __DIR__.&apos;/../bootstrap/app.php&apos;</computeroutput></para></section>
+<anchor xml:id="_index_8php_1abf40ed7ce84347395deb8abf12cdd9da"/><section>
+    <title>$kernel</title>
+<indexterm><primary>$kernel</primary><secondary>index.php</secondary></indexterm>
+<indexterm><primary>index.php</primary><secondary>$kernel</secondary></indexterm>
+<para><computeroutput>$kernel = $app-&gt;make(Kernel::class)</computeroutput></para></section>
+<anchor xml:id="_index_8php_1af4b6fb1bbc77ccc05f10da3b16935b99"/><section>
+    <title>$response</title>
+<indexterm><primary>$response</primary><secondary>index.php</secondary></indexterm>
+<indexterm><primary>index.php</primary><secondary>$response</secondary></indexterm>
+<para><computeroutput>$response</computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;<link linkend="_index_8php_1abf40ed7ce84347395deb8abf12cdd9da">$kernel</link>-&gt;handle(
+&#32;&#32;&#32;&#32;$request&#32;=&#32;Request::capture()
+)-&gt;send()
+</programlisting></section>
+<anchor xml:id="_index_8php_1a07244f5d0990e757f62c0322fb34cb50"/><section>
+    <title>if</title>
+<indexterm><primary>if</primary><secondary>index.php</secondary></indexterm>
+<indexterm><primary>index.php</primary><secondary>if</secondary></indexterm>
+<para><computeroutput>if(file_exists($maintenance=__DIR__.&apos;/../storage/framework/maintenance.php&apos;)) (file_exists( $maintenance=__DIR__.&apos;/../storage/framework/maintenance.php&apos;) )</computeroutput></para></section>
+<anchor xml:id="_index_8php_1a3904d6331aed7d48e576702946b2f47c"/><section>
+    <title>LARAVEL_START</title>
+<indexterm><primary>LARAVEL_START</primary><secondary>index.php</secondary></indexterm>
+<indexterm><primary>index.php</primary><secondary>LARAVEL_START</secondary></indexterm>
+<para><computeroutput>const LARAVEL_START microtime(true)</computeroutput></para></section>
+</section>
+</section>

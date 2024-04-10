@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_43c363303e89dc4e4aa7a6d4c91fe4a0" xml:lang="fr">
+<title>Répertoire de référence de resources/views/personnels</title>
+<indexterm><primary>Répertoire de référence de resources/views/personnels</primary></indexterm>
+Graphe des dépendances de répertoires pour personnels:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_43c363303e89dc4e4aa7a6d4c91fe4a0_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fichiers    </title>
+        <itemizedlist>
+            <listitem><para>fichier <link linkend="_personnels_2create_8blade_8php">create.blade.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="_personnels_2delete_8blade_8php">delete.blade.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="_personnels_2edit_8blade_8php">edit.blade.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="_personnels_2index_8blade_8php">index.blade.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="_personnels_2show_8blade_8php">show.blade.php</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

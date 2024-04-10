@@ -1,0 +1,102 @@
+\chapter{proxy-\/from-\/env}
+\hypertarget{md_node__modules_2proxy-from-env_2_r_e_a_d_m_e}{}\label{md_node__modules_2proxy-from-env_2_r_e_a_d_m_e}\index{proxy-\/from-\/env@{proxy-\/from-\/env}}
+\label{md_node__modules_2proxy-from-env_2_r_e_a_d_m_e_autotoc_md682}%
+\Hypertarget{md_node__modules_2proxy-from-env_2_r_e_a_d_m_e_autotoc_md682}%
+ \href{https://travis-ci.org/Rob--W/proxy-from-env}{\texttt{ }} \href{https://coveralls.io/github/Rob--W/proxy-from-env?branch=master}{\texttt{ }}
+
+{\ttfamily proxy-\/from-\/env} is a Node.\+js package that exports a function ({\ttfamily get\+Proxy\+For\+Url}) that takes an input URL (a string or \href{https://nodejs.org/docs/latest/api/url.html\#url_url_parsing}{\texttt{ {\ttfamily url.\+parse}}}\textquotesingle{}s return value) and returns the desired proxy URL (also a string) based on standard proxy environment variables. If no proxy is set, an empty string is returned.
+
+It is your responsibility to actually proxy the request using the given URL.
+
+Installation\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ proxy-\/from-\/env}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2proxy-from-env_2_r_e_a_d_m_e_autotoc_md683}{}\doxysection{\texorpdfstring{Example}{Example}}\label{md_node__modules_2proxy-from-env_2_r_e_a_d_m_e_autotoc_md683}
+This example shows how the data for a URL can be fetched via the \href{https://nodejs.org/api/http.html}{\texttt{ {\ttfamily http} module}}, in a proxy-\/aware way.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ http\ =\ require('http');}
+\DoxyCodeLine{var\ parseUrl\ =\ require('url').parse;}
+\DoxyCodeLine{var\ getProxyForUrl\ =\ require('proxy-\/from-\/env').getProxyForUrl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ some\_url\ =\ 'http://example.com/something';}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ //\ Example,\ if\ there\ is\ a\ proxy\ server\ at\ 10.0.0.1:1234,\ then\ setting\ the}
+\DoxyCodeLine{//\ //\ http\_proxy\ environment\ variable\ causes\ the\ request\ to\ go\ through\ a\ proxy.}
+\DoxyCodeLine{//\ process.env.http\_proxy\ =\ 'http://10.0.0.1:1234';}
+\DoxyCodeLine{//\ }
+\DoxyCodeLine{//\ //\ But\ if\ the\ host\ to\ be\ proxied\ is\ listed\ in\ NO\_PROXY,\ then\ the\ request\ is}
+\DoxyCodeLine{//\ //\ not\ proxied\ (but\ a\ direct\ request\ is\ made).}
+\DoxyCodeLine{//\ process.env.no\_proxy\ =\ 'example.com';}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ proxy\_url\ =\ getProxyForUrl(some\_url);\ \ //\ <-\/-\/\ Our\ magic.}
+\DoxyCodeLine{if\ (proxy\_url)\ \{}
+\DoxyCodeLine{\ \ //\ Should\ be\ proxied\ through\ proxy\_url.}
+\DoxyCodeLine{\ \ var\ parsed\_some\_url\ =\ parseUrl(some\_url);}
+\DoxyCodeLine{\ \ var\ parsed\_proxy\_url\ =\ parseUrl(proxy\_url);}
+\DoxyCodeLine{\ \ //\ A\ HTTP\ proxy\ is\ quite\ simple.\ It\ is\ similar\ to\ a\ normal\ request,\ except\ the}
+\DoxyCodeLine{\ \ //\ path\ is\ an\ absolute\ URL,\ and\ the\ proxied\ URL's\ host\ is\ put\ in\ the\ header}
+\DoxyCodeLine{\ \ //\ instead\ of\ the\ server's\ actual\ host.}
+\DoxyCodeLine{\ \ httpOptions\ =\ \{}
+\DoxyCodeLine{\ \ \ \ protocol:\ parsed\_proxy\_url.protocol,}
+\DoxyCodeLine{\ \ \ \ hostname:\ parsed\_proxy\_url.hostname,}
+\DoxyCodeLine{\ \ \ \ port:\ parsed\_proxy\_url.port,}
+\DoxyCodeLine{\ \ \ \ path:\ parsed\_some\_url.href,}
+\DoxyCodeLine{\ \ \ \ headers:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ Host:\ parsed\_some\_url.host,\ \ //\ =\ host\ name\ +\ optional\ port.}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \};}
+\DoxyCodeLine{\}\ else\ \{}
+\DoxyCodeLine{\ \ //\ Direct\ request.}
+\DoxyCodeLine{\ \ httpOptions\ =\ some\_url;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{http.get(httpOptions,\ function(res)\ \{}
+\DoxyCodeLine{\ \ var\ responses\ =\ [];}
+\DoxyCodeLine{\ \ res.on('data',\ function(chunk)\ \{\ responses.push(chunk);\ \});}
+\DoxyCodeLine{\ \ res.on('end',\ function()\ \{\ console.log(responses.join(''));\ \ \});}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2proxy-from-env_2_r_e_a_d_m_e_autotoc_md684}{}\doxysection{\texorpdfstring{Environment variables}{Environment variables}}\label{md_node__modules_2proxy-from-env_2_r_e_a_d_m_e_autotoc_md684}
+The environment variables can be specified in lowercase or uppercase, with the lowercase name having precedence over the uppercase variant. A variable that is not set has the same meaning as a variable that is set but has no value.\hypertarget{md_node__modules_2proxy-from-env_2_r_e_a_d_m_e_autotoc_md685}{}\doxysubsection{\texorpdfstring{NO\+\_\+\+PROXY}{NO\+\_\+\+PROXY}}\label{md_node__modules_2proxy-from-env_2_r_e_a_d_m_e_autotoc_md685}
+{\ttfamily NO\+\_\+\+PROXY} is a list of host names (optionally with a port). If the input URL matches any of the entries in {\ttfamily NO\+\_\+\+PROXY}, then the input URL should be fetched by a direct request (i.\+e. without a proxy).
+
+Matching follows the following rules\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily NO\+\_\+\+PROXY=\texorpdfstring{$\ast$}{*}} disables all proxies.
+\item Space and commas may be used to separate the entries in the {\ttfamily NO\+\_\+\+PROXY} list.
+\item If {\ttfamily NO\+\_\+\+PROXY} does not contain any entries, then proxies are never disabled.
+\item If a port is added after the host name, then the ports must match. If the URL does not have an explicit port name, the protocol\textquotesingle{}s default port is used.
+\item Generally, the proxy is only disabled if the host name is an exact match for an entry in the {\ttfamily NO\+\_\+\+PROXY} list. The only exceptions are entries that start with a dot or with a wildcard; then the proxy is disabled if the host name ends with the entry.
+\end{DoxyItemize}
+
+See {\ttfamily test.\+js} for examples of what should match and what does not.\hypertarget{md_node__modules_2proxy-from-env_2_r_e_a_d_m_e_autotoc_md686}{}\doxysubsection{\texorpdfstring{\texorpdfstring{$\ast$}{*}\+\_\+\+PROXY}{\texorpdfstring{$\ast$}{*}\+\_\+\+PROXY}}\label{md_node__modules_2proxy-from-env_2_r_e_a_d_m_e_autotoc_md686}
+The environment variable used for the proxy depends on the protocol of the URL. For example, {\ttfamily \href{https://example.com}{\texttt{ https\+://example.\+com}}} uses the "{}https"{} protocol, and therefore the proxy to be used is {\ttfamily HTTPS\+\_\+\+PROXY} ({\itshape NOT} {\ttfamily HTTP\+\_\+\+PROXY}, which is {\itshape only} used for \href{http:-URLs}{\texttt{ http\+:-\/\+URLs}}).
+
+The library is not limited to http(s), other schemes such as {\ttfamily FTP\+\_\+\+PROXY} (ftp\+:), {\ttfamily WSS\+\_\+\+PROXY} (wss\+:), {\ttfamily WS\+\_\+\+PROXY} (ws\+:) are also supported.
+
+If present, {\ttfamily ALL\+\_\+\+PROXY} is used as fallback if there is no other match.\hypertarget{md_node__modules_2proxy-from-env_2_r_e_a_d_m_e_autotoc_md687}{}\doxysection{\texorpdfstring{External resources}{External resources}}\label{md_node__modules_2proxy-from-env_2_r_e_a_d_m_e_autotoc_md687}
+The exact way of parsing the environment variables is not codified in any standard. This library is designed to be compatible with formats as expected by existing software. The following resources were used to determine the desired behavior\+:
+
+
+\begin{DoxyItemize}
+\item c\+URL\+: \href{https://curl.haxx.se/docs/manpage.html\#ENVIRONMENT}{\texttt{ https\+://curl.\+haxx.\+se/docs/manpage.\+html\#\+ENVIRONMENT}} ~\newline
+ \href{https://github.com/curl/curl/blob/4af40b3646d3b09f68e419f7ca866ff395d1f897/lib/url.c\#L4446-L4514}{\texttt{ https\+://github.\+com/curl/curl/blob/4af40b3646d3b09f68e419f7ca866ff395d1f897/lib/url.\+c\#\+L4446-\/\+L4514}} ~\newline
+ \href{https://github.com/curl/curl/blob/4af40b3646d3b09f68e419f7ca866ff395d1f897/lib/url.c\#L4608-L4638}{\texttt{ https\+://github.\+com/curl/curl/blob/4af40b3646d3b09f68e419f7ca866ff395d1f897/lib/url.\+c\#\+L4608-\/\+L4638}} ~\newline
+
+\item wget\+: \href{https://www.gnu.org/software/wget/manual/wget.html\#Proxies}{\texttt{ https\+://www.\+gnu.\+org/software/wget/manual/wget.\+html\#\+Proxies}} ~\newline
+ \href{http://git.savannah.gnu.org/cgit/wget.git/tree/src/init.c?id=636a5f9a1c508aa39e35a3a8e9e54520a284d93d\#n383}{\texttt{ http\+://git.\+savannah.\+gnu.\+org/cgit/wget.\+git/tree/src/init.\+c?id=636a5f9a1c508aa39e35a3a8e9e54520a284d93d\#n383}} ~\newline
+ \href{http://git.savannah.gnu.org/cgit/wget.git/tree/src/retr.c?id=93c1517c4071c4288ba5a4b038e7634e4c6b5482\#n1278}{\texttt{ http\+://git.\+savannah.\+gnu.\+org/cgit/wget.\+git/tree/src/retr.\+c?id=93c1517c4071c4288ba5a4b038e7634e4c6b5482\#n1278}} ~\newline
+
+\item W3\+: \href{https://www.w3.org/Daemon/User/Proxies/ProxyClients.html}{\texttt{ https\+://www.\+w3.\+org/\+Daemon/\+User/\+Proxies/\+Proxy\+Clients.\+html}} ~\newline
+
+\item Python\textquotesingle{}s urllib\+: \href{https://github.com/python/cpython/blob/936135bb97fe04223aa30ca6e98eac8f3ed6b349/Lib/urllib/request.py\#L755-L782}{\texttt{ https\+://github.\+com/python/cpython/blob/936135bb97fe04223aa30ca6e98eac8f3ed6b349/\+Lib/urllib/request.\+py\#\+L755-\/\+L782}} ~\newline
+ \href{https://github.com/python/cpython/blob/936135bb97fe04223aa30ca6e98eac8f3ed6b349/Lib/urllib/request.py\#L2444-L2479}{\texttt{ https\+://github.\+com/python/cpython/blob/936135bb97fe04223aa30ca6e98eac8f3ed6b349/\+Lib/urllib/request.\+py\#\+L2444-\/\+L2479}} 
+\end{DoxyItemize}

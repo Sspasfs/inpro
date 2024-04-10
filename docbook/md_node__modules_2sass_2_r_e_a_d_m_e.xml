@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2sass_2_r_e_a_d_m_e" xml:lang="fr">
+<title>README</title>
+<indexterm><primary>README</primary></indexterm>
+
+<para>A pure JavaScript implementation of <link xlink:href="https://sass-lang.com/">Sass</link>. <emphasis role="bold">Sass makes CSS fun again</emphasis>.</para>
+
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<tbody>
+      <row >
+<entry>
+<para>  </para>
+</entry><entry>
+<para><link xlink:href="https://www.npmjs.com/package/sass"></link>  </para>
+</entry><entry>
+<para><link xlink:href="https://github.com/sass/dart-sass/actions"></link> <?linebreak?> <link xlink:href="https://ci.appveyor.com/project/nex3/dart-sass"></link>   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para>This package is a distribution of <link xlink:href="https://github.com/sass/dart-sass">Dart Sass</link>, compiled to pure JavaScript with no native code or external dependencies. It provides a command-line <computeroutput>sass</computeroutput> executable and a Node.js API.</para>
+
+<para><itemizedlist>
+<listitem>
+<para>Usage</para>
+</listitem><listitem>
+<para>See Also</para>
+</listitem><listitem>
+<para>Behavioral Differences from Ruby Sass</para>
+</listitem></itemizedlist>
+</para>
+<section xml:id="_md_node__modules_2sass_2_r_e_a_d_m_e_1autotoc_md772">
+<title><title>Usage</title></title>
+
+<para>You can install Sass globally using <computeroutput>npm install -g sass</computeroutput> which will provide access to the <computeroutput>sass</computeroutput> executable. You can also add it to your project using <computeroutput>npm install --save-dev sass</computeroutput>. This provides the executable as well as a library:</para>
+
+<para><literallayout><computeroutput>const&#32;sass&#32;=&#32;require(&apos;sass&apos;);
+
+const&#32;result&#32;=&#32;sass.compile(scssFilename);
+
+//&#32;OR
+
+//&#32;Note&#32;that&#32;`compileAsync()`&#32;is&#32;substantially&#32;slower&#32;than&#32;`compile()`.
+const&#32;result&#32;=&#32;await&#32;sass.compileAsync(scssFilename);
+</computeroutput></literallayout></para>
+
+<para>See <link xlink:href="https://sass-lang.com/documentation/js-api">the Sass website</link> for full API documentation.</para>
+<section xml:id="_md_node__modules_2sass_2_r_e_a_d_m_e_1autotoc_md773">
+<title><title>Legacy API</title></title>
+
+<para>Dart Sass also supports an older JavaScript API that&apos;s fully compatible with [Node Sass] (with a few exceptions listed below), with support for both the <link xlink:href="https://sass-lang.com/documentation/js-api/functions/render"><computeroutput>render()</computeroutput></link> and <link xlink:href="https://sass-lang.com/documentation/js-api/functions/renderSync"><computeroutput>renderSync()</computeroutput></link> functions. This API is considered deprecated and will be removed in Dart Sass 2.0.0, so it should be avoided in new projects.</para>
+
+<para>Sass&apos;s support for the legacy JavaScript API has the following limitations:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>Only the <computeroutput>&quot;expanded&quot;</computeroutput> and <computeroutput>&quot;compressed&quot;</computeroutput> values of <link xlink:href="https://sass-lang.com/documentation/js-api/interfaces/LegacySharedOptions#outputStyle"><computeroutput>outputStyle</computeroutput></link> are supported.</para>
+</listitem><listitem>
+<para>Dart Sass doesn&apos;t support the <link xlink:href="https://github.com/sass/node-sass#precision"><computeroutput>precision</computeroutput></link> option. Dart Sass defaults to a sufficiently high precision for all existing browsers, and making this customizable would make the code substantially less efficient.</para>
+</listitem><listitem>
+<para>Dart Sass doesn&apos;t support the <link xlink:href="https://github.com/sass/node-sass#sourcecomments"><computeroutput>sourceComments</computeroutput></link> option. Source maps are the recommended way of locating the origin of generated selectors.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2sass_2_r_e_a_d_m_e_1autotoc_md774">
+<title><title>See Also</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://github.com/sass/dart-sass">Dart Sass</link>, from which this package is compiled, can be used either as a stand-alone executable or as a Dart library. Running Dart Sass on the Dart VM is substantially faster than running the pure JavaScript version, so this may be appropriate for performance-sensitive applications. The Dart API is also (currently) more user-friendly than the JavaScript API. See <link xlink:href="https://github.com/sass/dart-sass#using-dart-sass">the Dart Sass README</link> for details on how to use it.</para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/sass/node-sass">Node Sass</link>, which is a wrapper around <link xlink:href="https://sass-lang.com/libsass">LibSass</link>, the C++ implementation of Sass. Node Sass supports the same API as this package and is also faster (although it&apos;s usually a little slower than Dart Sass). However, it requires a native library which may be difficult to install, and it&apos;s generally slower to add features and fix bugs.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2sass_2_r_e_a_d_m_e_1autotoc_md775">
+<title><title>Behavioral Differences from Ruby Sass</title></title>
+
+<para>There are a few intentional behavioral differences between Dart Sass and Ruby Sass. These are generally places where Ruby Sass has an undesired behavior, and it&apos;s substantially easier to implement the correct behavior than it would be to implement compatible behavior. These should all have tracking bugs against Ruby Sass to update the reference behavior.</para>
+
+<para><orderedlist>
+<listitem>
+<para><computeroutput>@extend</computeroutput> only accepts simple selectors, as does the second argument of <computeroutput>selector-extend()</computeroutput>. See <link xlink:href="https://github.com/sass/sass/issues/1599">issue 1599</link>.</para>
+</listitem><listitem>
+<para>Subject selectors are not supported. See <link xlink:href="https://github.com/sass/sass/issues/1126">issue 1126</link>.</para>
+</listitem><listitem>
+<para>Pseudo selector arguments are parsed as <computeroutput>&lt;declaration-value&gt;</computeroutput>s rather than having a more limited custom parsing. See <link xlink:href="https://github.com/sass/sass/issues/2120">issue 2120</link>.</para>
+</listitem><listitem>
+<para>The numeric precision is set to 10. See <link xlink:href="https://github.com/sass/sass/issues/1122">issue 1122</link>.</para>
+</listitem><listitem>
+<para>The indented syntax parser is more flexible: it doesn&apos;t require consistent indentation across the whole document. See <link xlink:href="https://github.com/sass/sass/issues/2176">issue 2176</link>.</para>
+</listitem><listitem>
+<para>Colors do not support channel-by-channel arithmetic. See <link xlink:href="https://github.com/sass/sass/issues/2144">issue 2144</link>.</para>
+</listitem><listitem>
+<para>Unitless numbers aren&apos;t <computeroutput>==</computeroutput> to unit numbers with the same value. In addition, map keys follow the same logic as <computeroutput>==</computeroutput>-equality. See <link xlink:href="https://github.com/sass/sass/issues/1496">issue 1496</link>.</para>
+</listitem><listitem>
+<para><computeroutput>rgba()</computeroutput> and <computeroutput>hsla()</computeroutput> alpha values with percentage units are interpreted as percentages. Other units are forbidden. See <link xlink:href="https://github.com/sass/sass/issues/1525">issue 1525</link>.</para>
+</listitem><listitem>
+<para>Too many variable arguments passed to a function is an error. See <link xlink:href="https://github.com/sass/sass/issues/1408">issue 1408</link>.</para>
+</listitem><listitem>
+<para>Allow <computeroutput>@extend</computeroutput> to reach outside a media query if there&apos;s an identical <computeroutput>@extend</computeroutput> defined outside that query. This isn&apos;t tracked explicitly, because it&apos;ll be irrelevant when <link xlink:href="https://github.com/sass/sass/issues/1050">issue 1050</link> is fixed.</para>
+</listitem><listitem>
+<para>Some selector pseudos containing placeholder selectors will be compiled where they wouldn&apos;t be in Ruby Sass. This better matches the semantics of the selectors in question, and is more efficient. See <link xlink:href="https://github.com/sass/sass/issues/2228">issue 2228</link>.</para>
+</listitem><listitem>
+<para>The old-style <computeroutput>:property value</computeroutput> syntax is not supported in the indented syntax. See <link xlink:href="https://github.com/sass/sass/issues/2245">issue 2245</link>.</para>
+</listitem><listitem>
+<para>The reference combinator is not supported. See <link xlink:href="https://github.com/sass/sass/issues/303">issue 303</link>.</para>
+</listitem><listitem>
+<para>Universal selector unification is symmetrical. See <link xlink:href="https://github.com/sass/sass/issues/2247">issue 2247</link>.</para>
+</listitem><listitem>
+<para><computeroutput>@extend</computeroutput> doesn&apos;t produce an error if it matches but fails to unify. See <link xlink:href="https://github.com/sass/sass/issues/2250">issue 2250</link>.</para>
+</listitem><listitem>
+<para>Dart Sass currently only supports UTF-8 documents. We&apos;d like to support more, but Dart currently doesn&apos;t support them. See <link xlink:href="https://github.com/dart-lang/sdk/issues/11744">dart-lang/sdk#11744</link>, for example.</para>
+</listitem></orderedlist>
+</para>
+
+<para>Disclaimer: this is not an official Google product. </para>
+</section>
+</section>

@@ -1,0 +1,201 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g" xml:lang="fr">
+<title>&lt;a href=&quot;https://github.com/gulpjs/glob-parent/compare/v5.1.1...v5.1.2&quot; &gt;5.1.2&lt;/a&gt; (2021-03-06)</title>
+<indexterm><primary>&lt;a href=&quot;https://github.com/gulpjs/glob-parent/compare/v5.1.1...v5.1.2&quot; &gt;5.1.2&lt;/a&gt; (2021-03-06)</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md361"/></para>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md362">
+<title><title>Bug Fixes</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>eliminate ReDoS (<link xlink:href="https://github.com/gulpjs/glob-parent/issues/36">#36</link>) (<link xlink:href="https://github.com/gulpjs/glob-parent/commit/f9231168b0041fea3f8f954b3cceb56269fc6366">f923116</link>)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md363">
+<title><title><link xlink:href="https://github.com/gulpjs/glob-parent/compare/v5.1.0...v5.1.1">5.1.1</link> (2021-01-27)</title></title>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md364">
+<title><title>Bug Fixes</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>unescape exclamation mark (<link xlink:href="https://github.com/gulpjs/glob-parent/issues/26">#26</link>) (<link xlink:href="https://github.com/gulpjs/glob-parent/commit/a98874f1a59e407f4fb1beb0db4efa8392da60bb">a98874f</link>)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md365">
+<title><title><link xlink:href="https://github.com/gulpjs/glob-parent/compare/v5.0.0...v5.1.0">5.1.0</link> (2021-01-27)</title></title>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md366">
+<title><title>Features</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>add <computeroutput>flipBackslashes</computeroutput> option to disable auto conversion of slashes (closes <link xlink:href="https://github.com/gulpjs/glob-parent/issues/24">#24</link>) (<link xlink:href="https://github.com/gulpjs/glob-parent/issues/25">#25</link>) (<link xlink:href="https://github.com/gulpjs/glob-parent/commit/eecf91d5e3834ed78aee39c4eaaae654d76b87b3">eecf91d</link>)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md367">
+<title><title><link xlink:href="https://github.com/gulpjs/glob-parent/compare/v4.0.0...v5.0.0">5.0.0</link> (2021-01-27)</title></title>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md368">
+<title><title>⚠ BREAKING CHANGES</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Drop support for node &lt;6 &amp; bump dependencies</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md369">
+<title><title>Miscellaneous Chores</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Drop support for node &lt;6 &amp; bump dependencies (<link xlink:href="https://github.com/gulpjs/glob-parent/commit/896c0c00b4e7362f60b96e7fc295ae929245255a">896c0c0</link>)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md370">
+<title><title><link xlink:href="https://github.com/gulpjs/glob-parent/compare/v3.1.0...v4.0.0">4.0.0</link> (2021-01-27)</title></title>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md371">
+<title><title>⚠ BREAKING CHANGES</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>question marks are valid path characters on Windows so avoid flagging as a glob when alone</para>
+</listitem><listitem>
+<para>Update is-glob dependency</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md372">
+<title><title>Features</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>hoist regexps and strings for performance gains (<link xlink:href="https://github.com/gulpjs/glob-parent/commit/4a80667c69355c76a572a5892b0f133c8e1f457e">4a80667</link>)</para>
+</listitem><listitem>
+<para>question marks are valid path characters on Windows so avoid flagging as a glob when alone (<link xlink:href="https://github.com/gulpjs/glob-parent/commit/2a551dd0dc3235e78bf3c94843d4107072d17841">2a551dd</link>)</para>
+</listitem><listitem>
+<para>Update is-glob dependency (<link xlink:href="https://github.com/gulpjs/glob-parent/commit/e41fcd895d1f7bc617dba45c9d935a7949b9c281">e41fcd8</link>)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md373">
+<title><title><link xlink:href="https://github.com/gulpjs/glob-parent/compare/v3.0.1...v3.1.0">3.1.0</link> (2021-01-27)</title></title>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md374">
+<title><title>Features</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>allow basic win32 backslash use (<link xlink:href="https://github.com/gulpjs/glob-parent/commit/272afa5fd070fc0f796386a5993d4ee4a846988b">272afa5</link>)</para>
+</listitem><listitem>
+<para>handle extglobs (parentheses) containing separators (<link xlink:href="https://github.com/gulpjs/glob-parent/commit/7db1bdb0756e55fd14619e8ce31aa31b17b117fd">7db1bdb</link>)</para>
+</listitem><listitem>
+<para>new approach to braces/brackets handling (<link xlink:href="https://github.com/gulpjs/glob-parent/commit/8269bd89290d99fac9395a354fb56fdcdb80f0be">8269bd8</link>)</para>
+</listitem><listitem>
+<para>pre-process braces/brackets sections (<link xlink:href="https://github.com/gulpjs/glob-parent/commit/9ef8a87f66b1a43d0591e7a8e4fc5a18415ee388">9ef8a87</link>)</para>
+</listitem><listitem>
+<para>preserve escaped brace/bracket at end of string (<link xlink:href="https://github.com/gulpjs/glob-parent/commit/8cfb0ba84202d51571340dcbaf61b79d16a26c76">8cfb0ba</link>)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md375">
+<title><title>Bug Fixes</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>trailing escaped square brackets (<link xlink:href="https://github.com/gulpjs/glob-parent/commit/99ec9fecc60ee488ded20a94dd4f18b4f55c4ccf">99ec9fe</link>)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md376">
+<title><title><link xlink:href="https://github.com/gulpjs/glob-parent/compare/v3.0.0...v3.0.1">3.0.1</link> (2021-01-27)</title></title>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md377">
+<title><title>Features</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>use path-dirname ponyfill (<link xlink:href="https://github.com/gulpjs/glob-parent/commit/cdbea5f32a58a54e001a75ddd7c0fccd4776aacc">cdbea5f</link>)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md378">
+<title><title>Bug Fixes</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>unescape glob-escaped dirnames on output (<link xlink:href="https://github.com/gulpjs/glob-parent/commit/598c533bdf49c1428bc063aa9b8db40c5a86b030">598c533</link>)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md379">
+<title><title><link xlink:href="https://github.com/gulpjs/glob-parent/compare/v2.0.0...v3.0.0">3.0.0</link> (2021-01-27)</title></title>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md380">
+<title><title>⚠ BREAKING CHANGES</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>update is-glob dependency</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md381">
+<title><title>Features</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>update is-glob dependency (<link xlink:href="https://github.com/gulpjs/glob-parent/commit/5c5f8efcee362a8e7638cf8220666acd8784f6bd">5c5f8ef</link>)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md382">
+<title><title><link xlink:href="https://github.com/gulpjs/glob-parent/compare/v1.3.0...v2.0.0">2.0.0</link> (2021-01-27)</title></title>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md383">
+<title><title>Features</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>move up to dirname regardless of glob characters (<link xlink:href="https://github.com/gulpjs/glob-parent/commit/f97fb83be2e0a9fc8d3b760e789d2ecadd6aa0c2">f97fb83</link>)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md384">
+<title><title><link xlink:href="https://github.com/gulpjs/glob-parent/compare/v1.2.0...v1.3.0">1.3.0</link> (2021-01-27)</title></title>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md385">
+<title><title><link xlink:href="https://github.com/gulpjs/glob-parent/compare/v1.1.0...v1.2.0">1.2.0</link> (2021-01-27)</title></title>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md386">
+<title><title>Reverts</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>feat: make regex test strings smaller (<link xlink:href="https://github.com/gulpjs/glob-parent/commit/dc80fa9658dca20549cfeba44bbd37d5246fcce0">dc80fa9</link>)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md387">
+<title><title><link xlink:href="https://github.com/gulpjs/glob-parent/compare/v1.0.0...v1.1.0">1.1.0</link> (2021-01-27)</title></title>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md388">
+<title><title>Features</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>make regex test strings smaller (<link xlink:href="https://github.com/gulpjs/glob-parent/commit/cd832208638f45169f986d80fcf66e401f35d233">cd83220</link>)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_node__modules_2glob-parent_2_c_h_a_n_g_e_l_o_g_1autotoc_md389">
+<title><title>1.0.0 (2021-01-27)</title></title>
+</section>
+</section>

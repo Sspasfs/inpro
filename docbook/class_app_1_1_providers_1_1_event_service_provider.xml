@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_app_1_1_providers_1_1_event_service_provider" xml:lang="fr">
+<title>Référence de la classe EventServiceProvider</title>
+<indexterm><primary>EventServiceProvider</primary></indexterm>
+Graphe d&apos;héritage de EventServiceProvider:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_providers_1_1_event_service_provider__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de EventServiceProvider:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_providers_1_1_event_service_provider__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_providers_1_1_event_service_provider_1a8814ea4b5beba763c570b4818980814e">boot</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_providers_1_1_event_service_provider_1a364bb57fa3279a24dbf7090e064a5ade">shouldDiscoverEvents</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_providers_1_1_event_service_provider_1abdfd4689e0597f0b6c63b970c101e810">$listen</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_app_1_1_providers_1_1_event_service_provider_1a8814ea4b5beba763c570b4818980814e"/><section>
+    <title>boot()</title>
+<indexterm><primary>boot</primary><secondary>EventServiceProvider</secondary></indexterm>
+<indexterm><primary>EventServiceProvider</primary><secondary>boot</secondary></indexterm>
+<para><computeroutput>boot ( )</computeroutput></para>
+<para>Register any events for your application. </para>
+</section>
+<anchor xml:id="_class_app_1_1_providers_1_1_event_service_provider_1a364bb57fa3279a24dbf7090e064a5ade"/><section>
+    <title>shouldDiscoverEvents()</title>
+<indexterm><primary>shouldDiscoverEvents</primary><secondary>EventServiceProvider</secondary></indexterm>
+<indexterm><primary>EventServiceProvider</primary><secondary>shouldDiscoverEvents</secondary></indexterm>
+<para><computeroutput>shouldDiscoverEvents ( )</computeroutput></para>
+<para>Determine if events and listeners should be automatically discovered. </para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_app_1_1_providers_1_1_event_service_provider_1abdfd4689e0597f0b6c63b970c101e810"/><section>
+    <title>$listen</title>
+<indexterm><primary>$listen</primary><secondary>EventServiceProvider</secondary></indexterm>
+<indexterm><primary>EventServiceProvider</primary><secondary>$listen</secondary></indexterm>
+<para><computeroutput>$listen<computeroutput>[protected]</computeroutput></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Registered::class&#32;=&gt;&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;SendEmailVerificationNotification::class,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;],
+&#32;&#32;&#32;&#32;]
+</programlisting></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+app/Providers/<link linkend="__event_service_provider_8php">EventServiceProvider.php</link></section>
+</section>

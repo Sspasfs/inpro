@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2is-extglob_2_r_e_a_d_m_e" xml:lang="fr">
+<title>is-extglob &lt;a href=&quot;https://www.npmjs.com/package/is-extglob&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/v/is-extglob.svg?style=flat&quot; alt=&quot;NPM version&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://npmjs.org/package/is-extglob&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dm/is-extglob.svg?style=flat&quot; alt=&quot;NPM downloads&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://travis-ci.org/jonschlinkert/is-extglob&quot; &gt;&lt;img src=&quot;https://img.shields.io/travis/jonschlinkert/is-extglob.svg?style=flat&quot; alt=&quot;Build Status&quot;/&gt;&lt;/a&gt;</title>
+<indexterm><primary>is-extglob &lt;a href=&quot;https://www.npmjs.com/package/is-extglob&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/v/is-extglob.svg?style=flat&quot; alt=&quot;NPM version&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://npmjs.org/package/is-extglob&quot; &gt;&lt;img src=&quot;https://img.shields.io/npm/dm/is-extglob.svg?style=flat&quot; alt=&quot;NPM downloads&quot;/&gt;&lt;/a&gt; &lt;a href=&quot;https://travis-ci.org/jonschlinkert/is-extglob&quot; &gt;&lt;img src=&quot;https://img.shields.io/travis/jonschlinkert/is-extglob.svg?style=flat&quot; alt=&quot;Build Status&quot;/&gt;&lt;/a&gt;</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2is-extglob_2_r_e_a_d_m_e_1autotoc_md429"/> <blockquote>
+<para>&#8205;Returns true if a string has an extglob. </para>
+</blockquote></para>
+<section xml:id="_md_node__modules_2is-extglob_2_r_e_a_d_m_e_1autotoc_md430">
+<title><title>Install</title></title>
+
+<para>Install with <link xlink:href="https://www.npmjs.com/">npm</link>:</para>
+
+<para><literallayout><computeroutput>$&#32;npm&#32;install&#32;--save&#32;is-extglob
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2is-extglob_2_r_e_a_d_m_e_1autotoc_md431">
+<title><title>Usage</title></title>
+
+<para><literallayout><computeroutput>var&#32;isExtglob&#32;=&#32;require(&apos;is-extglob&apos;);
+</computeroutput></literallayout></para>
+
+<para><emphasis role="bold">True</emphasis></para>
+
+<para><literallayout><computeroutput>isExtglob(&apos;?(abc)&apos;);
+isExtglob(&apos;@(abc)&apos;);
+isExtglob(&apos;!(abc)&apos;);
+isExtglob(&apos;*(abc)&apos;);
+isExtglob(&apos;+(abc)&apos;);
+</computeroutput></literallayout></para>
+
+<para><emphasis role="bold">False</emphasis></para>
+
+<para>Escaped extglobs:</para>
+
+<para><literallayout><computeroutput>isExtglob(&apos;\\?(abc)&apos;);
+isExtglob(&apos;\\@(abc)&apos;);
+isExtglob(&apos;\\!(abc)&apos;);
+isExtglob(&apos;\\*(abc)&apos;);
+isExtglob(&apos;\\+(abc)&apos;);
+</computeroutput></literallayout></para>
+
+<para>Everything else...</para>
+
+<para><literallayout><computeroutput>isExtglob(&apos;foo.js&apos;);
+isExtglob(&apos;!foo.js&apos;);
+isExtglob(&apos;*.js&apos;);
+isExtglob(&apos;**/abc.js&apos;);
+isExtglob(&apos;abc/*.js&apos;);
+isExtglob(&apos;abc/(aaa|bbb).js&apos;);
+isExtglob(&apos;abc/[a-z].js&apos;);
+isExtglob(&apos;abc/{a,b}.js&apos;);
+isExtglob(&apos;abc/?.js&apos;);
+isExtglob(&apos;abc.js&apos;);
+isExtglob(&apos;abc/def/ghi.js&apos;);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2is-extglob_2_r_e_a_d_m_e_1autotoc_md432">
+<title><title>History</title></title>
+
+<para><emphasis role="bold">v2.0</emphasis></para>
+
+<para>Adds support for escaping. Escaped exglobs no longer return true.</para>
+</section>
+<section xml:id="_md_node__modules_2is-extglob_2_r_e_a_d_m_e_1autotoc_md433">
+<title><title>About</title></title>
+<section xml:id="_md_node__modules_2is-extglob_2_r_e_a_d_m_e_1autotoc_md434">
+<title><title>Related projects</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://www.npmjs.com/package/has-glob">has-glob</link>: Returns <computeroutput>true</computeroutput> if an array has a glob pattern. | <link xlink:href="https://github.com/jonschlinkert/has-glob">homepage</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://www.npmjs.com/package/is-glob">is-glob</link>: Returns <computeroutput>true</computeroutput> if the given string looks like a glob pattern or an extglob pattern… <link xlink:href="https://github.com/jonschlinkert/is-glob">more</link> | <link xlink:href="https://github.com/jonschlinkert/is-glob">homepage</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://www.npmjs.com/package/micromatch">micromatch</link>: Glob matching for javascript/node.js. A drop-in replacement and faster alternative to minimatch and multimatch. | <link xlink:href="https://github.com/jonschlinkert/micromatch">homepage</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2is-extglob_2_r_e_a_d_m_e_1autotoc_md435">
+<title><title>Contributing</title></title>
+
+<para>Pull requests and stars are always welcome. For bugs and feature requests, <link xlink:href="../../issues/new">please create an issue</link>.</para>
+</section>
+<section xml:id="_md_node__modules_2is-extglob_2_r_e_a_d_m_e_1autotoc_md436">
+<title><title>Building docs</title></title>
+
+<para>_(This document was generated by <link xlink:href="https://github.com/verbose/verb-generate-readme">verb-generate-readme</link> (a <link xlink:href="https://github.com/verbose/verb">verb</link> generator), please don&apos;t edit the readme directly. Any changes to the readme must be made in .verb.md.)_</para>
+
+<para>To generate the readme and API documentation with <link xlink:href="https://github.com/verbose/verb">verb</link>:</para>
+
+<para><literallayout><computeroutput>$&#32;npm&#32;install&#32;-g&#32;verb&#32;verb-generate-readme&#32;&amp;&amp;&#32;verb
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2is-extglob_2_r_e_a_d_m_e_1autotoc_md437">
+<title><title>Running tests</title></title>
+
+<para>Install dev dependencies:</para>
+
+<para><literallayout><computeroutput>$&#32;npm&#32;install&#32;-d&#32;&amp;&amp;&#32;npm&#32;test
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_node__modules_2is-extglob_2_r_e_a_d_m_e_1autotoc_md438">
+<title><title>Author</title></title>
+
+<para><emphasis role="bold">Jon Schlinkert</emphasis></para>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://github.com/jonschlinkert">github/jonschlinkert</link></para>
+</listitem><listitem>
+<para><link xlink:href="http://twitter.com/jonschlinkert">twitter/jonschlinkert</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2is-extglob_2_r_e_a_d_m_e_1autotoc_md439">
+<title><title>License</title></title>
+
+<para>Copyright © 2016, <link xlink:href="https://github.com/jonschlinkert">Jon Schlinkert</link>. Released under the <link xlink:href="https://github.com/jonschlinkert/is-extglob/blob/master/LICENSE">MIT license</link>.</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+
+<para><emphasis>This file was generated by <link xlink:href="https://github.com/verbose/verb-generate-readme">verb-generate-readme</link>, v0.1.31, on October 12, 2016.</emphasis> </para>
+</section>
+</section>
+</section>

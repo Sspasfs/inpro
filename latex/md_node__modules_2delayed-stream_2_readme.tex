@@ -1,0 +1,82 @@
+\chapter{delayed-\/stream}
+\hypertarget{md_node__modules_2delayed-stream_2_readme}{}\label{md_node__modules_2delayed-stream_2_readme}\index{delayed-\/stream@{delayed-\/stream}}
+\label{md_node__modules_2delayed-stream_2_readme_autotoc_md290}%
+\Hypertarget{md_node__modules_2delayed-stream_2_readme_autotoc_md290}%
+ Buffers events from a stream until you are ready to handle them.\hypertarget{md_node__modules_2delayed-stream_2_readme_autotoc_md291}{}\doxysection{\texorpdfstring{Installation}{Installation}}\label{md_node__modules_2delayed-stream_2_readme_autotoc_md291}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ bash}
+\DoxyCodeLine{npm\ install\ delayed-\/stream}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2delayed-stream_2_readme_autotoc_md292}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md_node__modules_2delayed-stream_2_readme_autotoc_md292}
+The following example shows how to write a http echo server that delays its response by 1000 ms.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ javascript}
+\DoxyCodeLine{var\ DelayedStream\ =\ require('delayed-\/stream');}
+\DoxyCodeLine{var\ http\ =\ require('http');}
+\DoxyCodeLine{}
+\DoxyCodeLine{http.createServer(function(req,\ res)\ \{}
+\DoxyCodeLine{\ \ var\ delayed\ =\ DelayedStream.create(req);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ setTimeout(function()\ \{}
+\DoxyCodeLine{\ \ \ \ res.writeHead(200);}
+\DoxyCodeLine{\ \ \ \ delayed.pipe(res);}
+\DoxyCodeLine{\ \ \},\ 1000);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+If you are not using {\ttfamily Stream\#pipe}, you can also manually release the buffered events by calling {\ttfamily delayed\+Stream.\+resume()}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ javascript}
+\DoxyCodeLine{var\ delayed\ =\ DelayedStream.create(req);}
+\DoxyCodeLine{}
+\DoxyCodeLine{setTimeout(function()\ \{}
+\DoxyCodeLine{\ \ //\ Emit\ all\ buffered\ events\ and\ resume\ underlaying\ source}
+\DoxyCodeLine{\ \ delayed.resume();}
+\DoxyCodeLine{\},\ 1000);}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2delayed-stream_2_readme_autotoc_md293}{}\doxysection{\texorpdfstring{Implementation}{Implementation}}\label{md_node__modules_2delayed-stream_2_readme_autotoc_md293}
+In order to use this meta stream properly, here are a few things you should know about the implementation.\hypertarget{md_node__modules_2delayed-stream_2_readme_autotoc_md294}{}\doxysubsection{\texorpdfstring{Event Buffering / Proxying}{Event Buffering / Proxying}}\label{md_node__modules_2delayed-stream_2_readme_autotoc_md294}
+All events of the {\ttfamily source} stream are hijacked by overwriting the {\ttfamily source.\+emit} method. Until node implements a catch-\/all event listener, this is the only way.
+
+However, delayed-\/stream still continues to emit all events it captures on the {\ttfamily source}, regardless of whether you have released the delayed stream yet or not.
+
+Upon creation, delayed-\/stream captures all {\ttfamily source} events and stores them in an internal event buffer. Once {\ttfamily delayed\+Stream.\+release()} is called, all buffered events are emitted on the {\ttfamily delayed\+Stream}, and the event buffer is cleared. After that, delayed-\/stream merely acts as a proxy for the underlaying source.\hypertarget{md_node__modules_2delayed-stream_2_readme_autotoc_md295}{}\doxysubsection{\texorpdfstring{Error handling}{Error handling}}\label{md_node__modules_2delayed-stream_2_readme_autotoc_md295}
+Error events on {\ttfamily source} are buffered / proxied just like any other events. However, {\ttfamily delayed\+Stream.\+create} attaches a no-\/op `\textquotesingle{}error'{\ttfamily listener to the }source{\ttfamily . This way you only have to handle errors on the}delayed\+Stream\`{} object, rather than in two places.\hypertarget{md_node__modules_2delayed-stream_2_readme_autotoc_md296}{}\doxysubsection{\texorpdfstring{Buffer limits}{Buffer limits}}\label{md_node__modules_2delayed-stream_2_readme_autotoc_md296}
+delayed-\/stream provides a {\ttfamily max\+Data\+Size} property that can be used to limit the amount of data being buffered. In order to protect you from bad {\ttfamily source} streams that don\textquotesingle{}t react to {\ttfamily source.\+pause()}, this feature is enabled by default.\hypertarget{md_node__modules_2delayed-stream_2_readme_autotoc_md297}{}\doxysection{\texorpdfstring{API}{API}}\label{md_node__modules_2delayed-stream_2_readme_autotoc_md297}
+\hypertarget{md_node__modules_2delayed-stream_2_readme_autotoc_md298}{}\doxysubsection{\texorpdfstring{Delayed\+Stream.\+create(source, \mbox{[}options\mbox{]})}{Delayed\+Stream.\+create(source, \mbox{[}options\mbox{]})}}\label{md_node__modules_2delayed-stream_2_readme_autotoc_md298}
+Returns a new {\ttfamily delayed\+Stream}. Available options are\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily pause\+Stream}
+\item {\ttfamily max\+Data\+Size}
+\end{DoxyItemize}
+
+The description for those properties can be found below.\hypertarget{md_node__modules_2delayed-stream_2_readme_autotoc_md299}{}\doxysubsection{\texorpdfstring{delayed\+Stream.\+source}{delayed\+Stream.\+source}}\label{md_node__modules_2delayed-stream_2_readme_autotoc_md299}
+The {\ttfamily source} stream managed by this object. This is useful if you are passing your {\ttfamily delayed\+Stream} around, and you still want to access properties on the {\ttfamily source} object.\hypertarget{md_node__modules_2delayed-stream_2_readme_autotoc_md300}{}\doxysubsection{\texorpdfstring{delayed\+Stream.\+pause\+Stream = true}{delayed\+Stream.\+pause\+Stream = true}}\label{md_node__modules_2delayed-stream_2_readme_autotoc_md300}
+Whether to pause the underlaying {\ttfamily source} when calling {\ttfamily Delayed\+Stream.\+create()}. Modifying this property afterwards has no effect.\hypertarget{md_node__modules_2delayed-stream_2_readme_autotoc_md301}{}\doxysubsection{\texorpdfstring{delayed\+Stream.\+max\+Data\+Size = 1024 \texorpdfstring{$\ast$}{*} 1024}{delayed\+Stream.\+max\+Data\+Size = 1024 \texorpdfstring{$\ast$}{*} 1024}}\label{md_node__modules_2delayed-stream_2_readme_autotoc_md301}
+The amount of data to buffer before emitting an {\ttfamily error}.
+
+If the underlaying source is emitting {\ttfamily Buffer} objects, the {\ttfamily max\+Data\+Size} refers to bytes.
+
+If the underlaying source is emitting Java\+Script strings, the size refers to characters.
+
+If you know what you are doing, you can set this property to {\ttfamily Infinity} to disable this feature. You can also modify this property during runtime.\hypertarget{md_node__modules_2delayed-stream_2_readme_autotoc_md302}{}\doxysubsection{\texorpdfstring{delayed\+Stream.\+data\+Size = 0}{delayed\+Stream.\+data\+Size = 0}}\label{md_node__modules_2delayed-stream_2_readme_autotoc_md302}
+The amount of data buffered so far.\hypertarget{md_node__modules_2delayed-stream_2_readme_autotoc_md303}{}\doxysubsection{\texorpdfstring{delayed\+Stream.\+readable}{delayed\+Stream.\+readable}}\label{md_node__modules_2delayed-stream_2_readme_autotoc_md303}
+An ECMA5 getter that returns the value of {\ttfamily source.\+readable}.\hypertarget{md_node__modules_2delayed-stream_2_readme_autotoc_md304}{}\doxysubsection{\texorpdfstring{delayed\+Stream.\+resume()}{delayed\+Stream.\+resume()}}\label{md_node__modules_2delayed-stream_2_readme_autotoc_md304}
+If the {\ttfamily delayed\+Stream} has not been released so far, {\ttfamily delayed\+Stream.\+release()} is called.
+
+In either case, {\ttfamily source.\+resume()} is called.\hypertarget{md_node__modules_2delayed-stream_2_readme_autotoc_md305}{}\doxysubsection{\texorpdfstring{delayed\+Stream.\+pause()}{delayed\+Stream.\+pause()}}\label{md_node__modules_2delayed-stream_2_readme_autotoc_md305}
+Calls {\ttfamily source.\+pause()}.\hypertarget{md_node__modules_2delayed-stream_2_readme_autotoc_md306}{}\doxysubsection{\texorpdfstring{delayed\+Stream.\+pipe(dest)}{delayed\+Stream.\+pipe(dest)}}\label{md_node__modules_2delayed-stream_2_readme_autotoc_md306}
+Calls {\ttfamily delayed\+Stream.\+resume()} and then proxies the arguments to {\ttfamily source.\+pipe}.\hypertarget{md_node__modules_2delayed-stream_2_readme_autotoc_md307}{}\doxysubsection{\texorpdfstring{delayed\+Stream.\+release()}{delayed\+Stream.\+release()}}\label{md_node__modules_2delayed-stream_2_readme_autotoc_md307}
+Emits and clears all events that have been buffered up so far. This does not resume the underlaying source, use {\ttfamily delayed\+Stream.\+resume()} instead.\hypertarget{md_node__modules_2delayed-stream_2_readme_autotoc_md308}{}\doxysection{\texorpdfstring{License}{License}}\label{md_node__modules_2delayed-stream_2_readme_autotoc_md308}
+delayed-\/stream is licensed under the MIT license. 

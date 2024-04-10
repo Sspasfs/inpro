@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_fc6199fba97859a095e1d9a5aa5fae23" xml:lang="fr">
+<title>Répertoire de référence de app/Models</title>
+<indexterm><primary>Répertoire de référence de app/Models</primary></indexterm>
+Graphe des dépendances de répertoires pour Models:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_fc6199fba97859a095e1d9a5aa5fae23_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fichiers    </title>
+        <itemizedlist>
+            <listitem><para>fichier <link linkend="__category_8php">Category.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__lieux_8php">Lieux.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__personnel_8php">Personnel.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__produits_8php">Produits.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__salle_8php">Salle.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__user_8php">User.php</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

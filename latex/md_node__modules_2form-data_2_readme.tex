@@ -1,0 +1,373 @@
+\chapter{Form-\/\+Data \texorpdfstring{$<$}{<}a href="{}https\+://www.\+npmjs.\+com/package/form-\/data"{} \texorpdfstring{$>$}{>}\texorpdfstring{$<$}{<}img src="{}https\+://img.\+shields.\+io/npm/v/form-\/data.\+svg"{} alt="{}\+NPM Module"{}/\texorpdfstring{$>$}{>}\texorpdfstring{$<$}{<}/a\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}a href="{}https\+://gitter.\+im/form-\/data/form-\/data"{} \texorpdfstring{$>$}{>}\texorpdfstring{$<$}{<}img src="{}http\+://form-\/data.\+github.\+io/images/gitterbadge.\+svg"{} alt="{}\+Join the chat at https\+://gitter.\+im/form-\/data/form-\/data"{}/\texorpdfstring{$>$}{>}\texorpdfstring{$<$}{<}/a\texorpdfstring{$>$}{>}}
+\hypertarget{md_node__modules_2form-data_2_readme}{}\label{md_node__modules_2form-data_2_readme}\index{Form-\/Data $<$a href="{}https://www.npmjs.com/package/form-\/data"{} $>$$<$img src="{}https://img.shields.io/npm/v/form-\/data.svg"{} alt="{}NPM Module"{}/$>$$<$/a$>$ $<$a href="{}https://gitter.im/form-\/data/form-\/data"{} $>$$<$img src="{}http://form-\/data.github.io/images/gitterbadge.svg"{} alt="{}Join the chat at https://gitter.im/form-\/data/form-\/data"{}/$>$$<$/a$>$@{Form-\/Data $<$a href=""https://www.npmjs.com/package/form-\/data"" $>$$<$img src=""https://img.shields.io/npm/v/form-\/data.svg"" alt=""NPM Module""/$>$$<$/a$>$ $<$a href=""https://gitter.im/form-\/data/form-\/data"" $>$$<$img src=""http://form-\/data.github.io/images/gitterbadge.svg"" alt=""Join the chat at https://gitter.im/form-\/data/form-\/data""/$>$$<$/a$>$}}
+\label{md_node__modules_2form-data_2_readme_autotoc_md334}%
+\Hypertarget{md_node__modules_2form-data_2_readme_autotoc_md334}%
+ A library to create readable {\ttfamily "{}multipart/form-\/data"{}} streams. Can be used to submit forms and file uploads to other web applications.
+
+The API of this library is inspired by the \href{http://dev.w3.org/2006/webapi/XMLHttpRequest-2/Overview.html\#the-formdata-interface}{\texttt{ XMLHttp\+Request-\/2 Form\+Data Interface}}.
+
+\href{https://travis-ci.org/form-data/form-data}{\texttt{ }} \href{https://travis-ci.org/form-data/form-data}{\texttt{ }} \href{https://travis-ci.org/form-data/form-data}{\texttt{ }}
+
+\href{https://coveralls.io/github/form-data/form-data?branch=master}{\texttt{ }} \href{https://david-dm.org/form-data/form-data}{\texttt{ }}\hypertarget{md_node__modules_2form-data_2_readme_autotoc_md335}{}\doxysection{\texorpdfstring{Install}{Install}}\label{md_node__modules_2form-data_2_readme_autotoc_md335}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm\ install\ -\/-\/save\ form-\/data}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2form-data_2_readme_autotoc_md336}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md_node__modules_2form-data_2_readme_autotoc_md336}
+In this example we are constructing a form with 3 fields that contain a string, a buffer and a file stream.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ javascript}
+\DoxyCodeLine{var\ FormData\ =\ require('form-\/data');}
+\DoxyCodeLine{var\ fs\ =\ require('fs');}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ form\ =\ new\ FormData();}
+\DoxyCodeLine{form.append('my\_field',\ 'my\ value');}
+\DoxyCodeLine{form.append('my\_buffer',\ new\ Buffer(10));}
+\DoxyCodeLine{form.append('my\_file',\ fs.createReadStream('/foo/bar.jpg'));}
+
+\end{DoxyCode}
+
+
+Also you can use http-\/response stream\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ javascript}
+\DoxyCodeLine{var\ FormData\ =\ require('form-\/data');}
+\DoxyCodeLine{var\ http\ =\ require('http');}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ form\ =\ new\ FormData();}
+\DoxyCodeLine{}
+\DoxyCodeLine{http.request('http://nodejs.org/images/logo.png',\ function(response)\ \{}
+\DoxyCodeLine{\ \ form.append('my\_field',\ 'my\ value');}
+\DoxyCodeLine{\ \ form.append('my\_buffer',\ new\ Buffer(10));}
+\DoxyCodeLine{\ \ form.append('my\_logo',\ response);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+Or @mikeal\textquotesingle{}s \href{https://github.com/request/request}{\texttt{ request}} stream\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ javascript}
+\DoxyCodeLine{var\ FormData\ =\ require('form-\/data');}
+\DoxyCodeLine{var\ request\ =\ require('request');}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ form\ =\ new\ FormData();}
+\DoxyCodeLine{}
+\DoxyCodeLine{form.append('my\_field',\ 'my\ value');}
+\DoxyCodeLine{form.append('my\_buffer',\ new\ Buffer(10));}
+\DoxyCodeLine{form.append('my\_logo',\ request('http://nodejs.org/images/logo.png'));}
+
+\end{DoxyCode}
+
+
+In order to submit this form to a web application, call {\ttfamily submit(url, \mbox{[}callback\mbox{]})} method\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ javascript}
+\DoxyCodeLine{form.submit('http://example.org/',\ function(err,\ res)\ \{}
+\DoxyCodeLine{\ \ //\ res\ –\ response\ object\ (http.IncomingMessage)\ \ //}
+\DoxyCodeLine{\ \ res.resume();}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+For more advanced request manipulations {\ttfamily submit()} method returns {\ttfamily http.\+Client\+Request} object, or you can choose from one of the alternative submission methods.\hypertarget{md_node__modules_2form-data_2_readme_autotoc_md337}{}\doxysubsection{\texorpdfstring{Custom options}{Custom options}}\label{md_node__modules_2form-data_2_readme_autotoc_md337}
+You can provide custom options, such as {\ttfamily max\+Data\+Size}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ javascript}
+\DoxyCodeLine{var\ FormData\ =\ require('form-\/data');}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ form\ =\ new\ FormData(\{\ maxDataSize:\ 20971520\ \});}
+\DoxyCodeLine{form.append('my\_field',\ 'my\ value');}
+\DoxyCodeLine{form.append('my\_buffer',\ /*\ something\ big\ */);}
+
+\end{DoxyCode}
+
+
+List of available options could be found in \href{https://github.com/felixge/node-combined-stream/blob/master/lib/combined_stream.js\#L7-L15}{\texttt{ combined-\/stream}}\hypertarget{md_node__modules_2form-data_2_readme_autotoc_md338}{}\doxysubsection{\texorpdfstring{Alternative submission methods}{Alternative submission methods}}\label{md_node__modules_2form-data_2_readme_autotoc_md338}
+You can use node\textquotesingle{}s http client interface\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ javascript}
+\DoxyCodeLine{var\ http\ =\ require('http');}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ request\ =\ http.request(\{}
+\DoxyCodeLine{\ \ method:\ 'post',}
+\DoxyCodeLine{\ \ host:\ 'example.org',}
+\DoxyCodeLine{\ \ path:\ '/upload',}
+\DoxyCodeLine{\ \ headers:\ form.getHeaders()}
+\DoxyCodeLine{\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{form.pipe(request);}
+\DoxyCodeLine{}
+\DoxyCodeLine{request.on('response',\ function(res)\ \{}
+\DoxyCodeLine{\ \ console.log(res.statusCode);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+Or if you would prefer the `\textquotesingle{}Content-\/\+Length'\`{} header to be set for you\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ javascript}
+\DoxyCodeLine{form.submit('example.org/upload',\ function(err,\ res)\ \{}
+\DoxyCodeLine{\ \ console.log(res.statusCode);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+To use custom headers and pre-\/known length in parts\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ javascript}
+\DoxyCodeLine{var\ CRLF\ =\ '\(\backslash\)r\(\backslash\)n';}
+\DoxyCodeLine{var\ form\ =\ new\ FormData();}
+\DoxyCodeLine{}
+\DoxyCodeLine{var\ options\ =\ \{}
+\DoxyCodeLine{\ \ header:\ CRLF\ +\ '-\/-\/'\ +\ form.getBoundary()\ +\ CRLF\ +\ 'X-\/Custom-\/Header:\ 123'\ +\ CRLF\ +\ CRLF,}
+\DoxyCodeLine{\ \ knownLength:\ 1}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{form.append('my\_buffer',\ buffer,\ options);}
+\DoxyCodeLine{}
+\DoxyCodeLine{form.submit('http://example.com/',\ function(err,\ res)\ \{}
+\DoxyCodeLine{\ \ if\ (err)\ throw\ err;}
+\DoxyCodeLine{\ \ console.log('Done');}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+Form-\/\+Data can recognize and fetch all the required information from common types of streams ({\ttfamily fs.\+read\+Stream}, {\ttfamily http.\+response} and {\ttfamily mikeal\textquotesingle{}s request}), for some other types of streams you\textquotesingle{}d need to provide "{}file"{}-\/related information manually\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ javascript}
+\DoxyCodeLine{someModule.stream(function(err,\ stdout,\ stderr)\ \{}
+\DoxyCodeLine{\ \ if\ (err)\ throw\ err;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ var\ form\ =\ new\ FormData();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ form.append('file',\ stdout,\ \{}
+\DoxyCodeLine{\ \ \ \ filename:\ 'unicycle.jpg',\ //\ ...\ or:}
+\DoxyCodeLine{\ \ \ \ filepath:\ 'photos/toys/unicycle.jpg',}
+\DoxyCodeLine{\ \ \ \ contentType:\ 'image/jpeg',}
+\DoxyCodeLine{\ \ \ \ knownLength:\ 19806}
+\DoxyCodeLine{\ \ \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ form.submit('http://example.com/',\ function(err,\ res)\ \{}
+\DoxyCodeLine{\ \ \ \ if\ (err)\ throw\ err;}
+\DoxyCodeLine{\ \ \ \ console.log('Done');}
+\DoxyCodeLine{\ \ \});}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+The {\ttfamily filepath} property overrides {\ttfamily filename} and may contain a relative path. This is typically used when uploading \href{https://wicg.github.io/entries-api/\#dom-htmlinputelement-webkitdirectory}{\texttt{ multiple files from a directory}}.
+
+For edge cases, like POST request to URL with query string or to pass HTTP auth credentials, object can be passed to {\ttfamily form.\+submit()} as first parameter\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ javascript}
+\DoxyCodeLine{form.submit(\{}
+\DoxyCodeLine{\ \ host:\ 'example.com',}
+\DoxyCodeLine{\ \ path:\ '/probably.php?extra=params',}
+\DoxyCodeLine{\ \ auth:\ 'username:password'}
+\DoxyCodeLine{\},\ function(err,\ res)\ \{}
+\DoxyCodeLine{\ \ console.log(res.statusCode);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+In case you need to also send custom HTTP headers with the POST request, you can use the {\ttfamily headers} key in first parameter of {\ttfamily form.\+submit()}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ javascript}
+\DoxyCodeLine{form.submit(\{}
+\DoxyCodeLine{\ \ host:\ 'example.com',}
+\DoxyCodeLine{\ \ path:\ '/surelynot.php',}
+\DoxyCodeLine{\ \ headers:\ \{'x-\/test-\/header':\ 'test-\/header-\/value'\}}
+\DoxyCodeLine{\},\ function(err,\ res)\ \{}
+\DoxyCodeLine{\ \ console.log(res.statusCode);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2form-data_2_readme_autotoc_md339}{}\doxysubsection{\texorpdfstring{Methods}{Methods}}\label{md_node__modules_2form-data_2_readme_autotoc_md339}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/form-data/form-data\#void-append-string-field-mixed-value--mixed-options-}{\texttt{ {\itshape Void} append( {\bfseries{String}} {\itshape field}, {\bfseries{Mixed}} {\itshape value} \mbox{[}, {\bfseries{Mixed}} {\itshape options}\mbox{]} )}}.
+\item \href{https://github.com/form-data/form-data\#array-getheaders-array-userheaders-}{\texttt{ {\itshape Headers} get\+Headers( \mbox{[}{\bfseries{Headers}} {\itshape user\+Headers}\mbox{]} )}}
+\item \href{https://github.com/form-data/form-data\#string-getboundary}{\texttt{ {\itshape String} get\+Boundary()}}
+\item \href{https://github.com/form-data/form-data\#void-setboundary}{\texttt{ {\itshape Void} set\+Boundary()}}
+\item \href{https://github.com/form-data/form-data\#buffer-getbuffer}{\texttt{ {\itshape Buffer} get\+Buffer()}}
+\item \href{https://github.com/form-data/form-data\#integer-getlengthsync}{\texttt{ {\itshape Integer} get\+Length\+Sync()}}
+\item \href{https://github.com/form-data/form-data\#integer-getlength-function-callback-}{\texttt{ {\itshape Integer} get\+Length( {\bfseries{function}} {\itshape callback} )}}
+\item \href{https://github.com/form-data/form-data\#boolean-hasknownlength}{\texttt{ {\itshape Boolean} has\+Known\+Length()}}
+\item \href{https://github.com/form-data/form-data\#request-submit-params-function-callback-}{\texttt{ {\itshape Request} submit( {\itshape params}, {\bfseries{function}} {\itshape callback} )}}
+\item \href{https://github.com/form-data/form-data\#string-tostring}{\texttt{ {\itshape String} to\+String()}}
+\end{DoxyItemize}\hypertarget{md_node__modules_2form-data_2_readme_autotoc_md340}{}\doxysubsubsection{\texorpdfstring{{\itshape Void} append( {\bfseries{String}} {\itshape field}, {\bfseries{Mixed}} {\itshape value} \mbox{[}, {\bfseries{Mixed}} {\itshape options}\mbox{]} )}{{\itshape Void} append( {\bfseries{String}} {\itshape field}, {\bfseries{Mixed}} {\itshape value} \mbox{[}, {\bfseries{Mixed}} {\itshape options}\mbox{]} )}}\label{md_node__modules_2form-data_2_readme_autotoc_md340}
+Append data to the form. You can submit about any format (string, integer, boolean, buffer, etc.). However, Arrays are not supported and need to be turned into strings by the user. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ form\ =\ new\ FormData();}
+\DoxyCodeLine{form.append(\ 'my\_string',\ 'my\ value'\ );}
+\DoxyCodeLine{form.append(\ 'my\_integer',\ 1\ );}
+\DoxyCodeLine{form.append(\ 'my\_boolean',\ true\ );}
+\DoxyCodeLine{form.append(\ 'my\_buffer',\ new\ Buffer(10)\ );}
+\DoxyCodeLine{form.append(\ 'my\_array\_as\_json',\ JSON.stringify(\ ['bird','cute']\ )\ )}
+
+\end{DoxyCode}
+
+
+You may provide a string for options, or an object. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//\ Set\ filename\ by\ providing\ a\ string\ for\ options}
+\DoxyCodeLine{form.append(\ 'my\_file',\ fs.createReadStream('/foo/bar.jpg'),\ 'bar.jpg'\ );}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ provide\ an\ object.}
+\DoxyCodeLine{form.append(\ 'my\_file',\ fs.createReadStream('/foo/bar.jpg'),\ \{filename:\ 'bar.jpg',\ contentType:\ 'image/jpeg',\ knownLength:\ 19806\}\ );}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2form-data_2_readme_autotoc_md341}{}\doxysubsubsection{\texorpdfstring{{\itshape Headers} get\+Headers( \mbox{[}{\bfseries{Headers}} {\itshape user\+Headers}\mbox{]} )}{{\itshape Headers} get\+Headers( \mbox{[}{\bfseries{Headers}} {\itshape user\+Headers}\mbox{]} )}}\label{md_node__modules_2form-data_2_readme_autotoc_md341}
+This method adds the correct {\ttfamily content-\/type} header to the provided array of {\ttfamily user\+Headers}.\hypertarget{md_node__modules_2form-data_2_readme_autotoc_md342}{}\doxysubsubsection{\texorpdfstring{{\itshape String} get\+Boundary()}{{\itshape String} get\+Boundary()}}\label{md_node__modules_2form-data_2_readme_autotoc_md342}
+Return the boundary of the form\+Data. By default, the boundary consists of 26 {\ttfamily -\/} followed by 24 numbers for example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/515890814546601021194782}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2form-data_2_readme_autotoc_md343}{}\doxysubsubsection{\texorpdfstring{{\itshape Void} set\+Boundary(String {\itshape boundary})}{{\itshape Void} set\+Boundary(String {\itshape boundary})}}\label{md_node__modules_2form-data_2_readme_autotoc_md343}
+Set the boundary string, overriding the default behavior described above.
+
+{\itshape Note\+: The boundary must be unique and may not appear in the data.}\hypertarget{md_node__modules_2form-data_2_readme_autotoc_md344}{}\doxysubsubsection{\texorpdfstring{{\itshape Buffer} get\+Buffer()}{{\itshape Buffer} get\+Buffer()}}\label{md_node__modules_2form-data_2_readme_autotoc_md344}
+Return the full formdata request package, as a Buffer. You can insert this Buffer in e.\+g. Axios to send multipart data. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ form\ =\ new\ FormData();}
+\DoxyCodeLine{form.append(\ 'my\_buffer',\ Buffer.from([0x4a,0x42,0x20,0x52,0x6f,0x63,0x6b,0x73])\ );}
+\DoxyCodeLine{form.append(\ 'my\_file',\ fs.readFileSync('/foo/bar.jpg')\ );}
+\DoxyCodeLine{}
+\DoxyCodeLine{axios.post(\ 'https://example.com/path/to/api',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ form.getBuffer(),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ form.getHeaders()}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ )}
+
+\end{DoxyCode}
+ {\bfseries{Note\+:}} Because the output is of type Buffer, you can only append types that are accepted by Buffer\+: {\itshape string, Buffer, Array\+Buffer, Array, or Array-\/like Object}. A Read\+Stream for example will result in an error.\hypertarget{md_node__modules_2form-data_2_readme_autotoc_md345}{}\doxysubsubsection{\texorpdfstring{{\itshape Integer} get\+Length\+Sync()}{{\itshape Integer} get\+Length\+Sync()}}\label{md_node__modules_2form-data_2_readme_autotoc_md345}
+Same as {\ttfamily get\+Length} but synchronous.
+
+{\itshape Note\+: get\+Length\+Sync {\bfseries{doesn\textquotesingle{}t}} calculate streams length.}\hypertarget{md_node__modules_2form-data_2_readme_autotoc_md346}{}\doxysubsubsection{\texorpdfstring{{\itshape Integer} get\+Length( {\bfseries{function}} {\itshape callback} )}{{\itshape Integer} get\+Length( {\bfseries{function}} {\itshape callback} )}}\label{md_node__modules_2form-data_2_readme_autotoc_md346}
+Returns the {\ttfamily Content-\/\+Length} async. The callback is used to handle errors and continue once the length has been calculated 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{this.getLength(function(err,\ length)\ \{}
+\DoxyCodeLine{\ \ if\ (err)\ \{}
+\DoxyCodeLine{\ \ \ \ this.\_error(err);}
+\DoxyCodeLine{\ \ \ \ return;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ //\ add\ content\ length}
+\DoxyCodeLine{\ \ request.setHeader('Content-\/Length',\ length);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ ...}
+\DoxyCodeLine{\}.bind(this));}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2form-data_2_readme_autotoc_md347}{}\doxysubsubsection{\texorpdfstring{{\itshape Boolean} has\+Known\+Length()}{{\itshape Boolean} has\+Known\+Length()}}\label{md_node__modules_2form-data_2_readme_autotoc_md347}
+Checks if the length of added values is known.\hypertarget{md_node__modules_2form-data_2_readme_autotoc_md348}{}\doxysubsubsection{\texorpdfstring{{\itshape Request} submit( {\itshape params}, {\bfseries{function}} {\itshape callback} )}{{\itshape Request} submit( {\itshape params}, {\bfseries{function}} {\itshape callback} )}}\label{md_node__modules_2form-data_2_readme_autotoc_md348}
+Submit the form to a web application. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ form\ =\ new\ FormData();}
+\DoxyCodeLine{form.append(\ 'my\_string',\ 'Hello\ World'\ );}
+\DoxyCodeLine{}
+\DoxyCodeLine{form.submit(\ 'http://example.com/',\ function(err,\ res)\ \{}
+\DoxyCodeLine{\ \ //\ res\ –\ response\ object\ (http.IncomingMessage)\ \ //}
+\DoxyCodeLine{\ \ res.resume();}
+\DoxyCodeLine{\}\ );}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2form-data_2_readme_autotoc_md349}{}\doxysubsubsection{\texorpdfstring{{\itshape String} to\+String()}{{\itshape String} to\+String()}}\label{md_node__modules_2form-data_2_readme_autotoc_md349}
+Returns the form data as a string. Don\textquotesingle{}t use this if you are sending files or buffers, use {\ttfamily get\+Buffer()} instead.\hypertarget{md_node__modules_2form-data_2_readme_autotoc_md350}{}\doxysubsection{\texorpdfstring{Integration with other libraries}{Integration with other libraries}}\label{md_node__modules_2form-data_2_readme_autotoc_md350}
+\hypertarget{md_node__modules_2form-data_2_readme_autotoc_md351}{}\doxysubsubsection{\texorpdfstring{Request}{Request}}\label{md_node__modules_2form-data_2_readme_autotoc_md351}
+Form submission using \href{https://github.com/request/request}{\texttt{ request}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ formData\ =\ \{}
+\DoxyCodeLine{\ \ my\_field:\ 'my\_value',}
+\DoxyCodeLine{\ \ my\_file:\ fs.createReadStream(\_\_dirname\ +\ '/unicycle.jpg'),}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{request.post(\{url:'http://service.com/upload',\ formData:\ formData\},\ function(err,\ httpResponse,\ body)\ \{}
+\DoxyCodeLine{\ \ if\ (err)\ \{}
+\DoxyCodeLine{\ \ \ \ return\ console.error('upload\ failed:',\ err);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ console.log('Upload\ successful!\ \ Server\ responded\ with:',\ body);}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+For more details see \href{https://github.com/request/request\#multipartform-data-multipart-form-uploads}{\texttt{ request readme}}.\hypertarget{md_node__modules_2form-data_2_readme_autotoc_md352}{}\doxysubsubsection{\texorpdfstring{node-\/fetch}{node-\/fetch}}\label{md_node__modules_2form-data_2_readme_autotoc_md352}
+You can also submit a form using \href{https://github.com/bitinn/node-fetch}{\texttt{ node-\/fetch}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var\ form\ =\ new\ FormData();}
+\DoxyCodeLine{}
+\DoxyCodeLine{form.append('a',\ 1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{fetch('http://example.com',\ \{\ method:\ 'POST',\ body:\ form\ \})}
+\DoxyCodeLine{\ \ \ \ .then(function(res)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ return\ res.json();}
+\DoxyCodeLine{\ \ \ \ \}).then(function(json)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ console.log(json);}
+\DoxyCodeLine{\ \ \ \ \});}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2form-data_2_readme_autotoc_md353}{}\doxysubsubsection{\texorpdfstring{axios}{axios}}\label{md_node__modules_2form-data_2_readme_autotoc_md353}
+In Node.\+js you can post a file using \href{https://github.com/axios/axios}{\texttt{ axios}}\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ form\ =\ new\ FormData();}
+\DoxyCodeLine{const\ stream\ =\ fs.createReadStream(PATH\_TO\_FILE);}
+\DoxyCodeLine{}
+\DoxyCodeLine{form.append('image',\ stream);}
+\DoxyCodeLine{}
+\DoxyCodeLine{//\ In\ Node.js\ environment\ you\ need\ to\ set\ boundary\ in\ the\ header\ field\ 'Content-\/Type'\ by\ calling\ method\ \`{}getHeaders`}
+\DoxyCodeLine{const\ formHeaders\ =\ form.getHeaders();}
+\DoxyCodeLine{}
+\DoxyCodeLine{axios.post('http://example.com',\ form,\ \{}
+\DoxyCodeLine{\ \ headers:\ \{}
+\DoxyCodeLine{\ \ \ \ ...formHeaders,}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{.then(response\ =>\ response)}
+\DoxyCodeLine{.catch(error\ =>\ error)}
+
+\end{DoxyCode}
+\hypertarget{md_node__modules_2form-data_2_readme_autotoc_md354}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_node__modules_2form-data_2_readme_autotoc_md354}
+
+\begin{DoxyItemize}
+\item {\ttfamily get\+Length\+Sync()} method DOESN\textquotesingle{}T calculate length for streams, use {\ttfamily known\+Length} options as workaround.
+\item {\ttfamily get\+Length(cb)} will send an error as first parameter of callback if stream length cannot be calculated (e.\+g. send in custom streams w/o using {\ttfamily known\+Length}).
+\item {\ttfamily submit} will not add {\ttfamily content-\/length} if form length is unknown or not calculable.
+\item Starting version {\ttfamily 2.\+x} Form\+Data has dropped support for {\ttfamily node@0.\+10.\+x}.
+\item Starting version {\ttfamily 3.\+x} Form\+Data has dropped support for {\ttfamily node@4.\+x}.
+\end{DoxyItemize}\hypertarget{md_node__modules_2form-data_2_readme_autotoc_md355}{}\doxysection{\texorpdfstring{License}{License}}\label{md_node__modules_2form-data_2_readme_autotoc_md355}
+Form-\/\+Data is released under the \mbox{[}MIT\mbox{]}(License) license. 

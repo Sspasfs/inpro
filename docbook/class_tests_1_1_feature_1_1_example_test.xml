@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_tests_1_1_feature_1_1_example_test" xml:lang="fr">
+<title>Référence de la classe ExampleTest</title>
+<indexterm><primary>ExampleTest</primary></indexterm>
+Graphe d&apos;héritage de ExampleTest:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_tests_1_1_feature_1_1_example_test__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de ExampleTest:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_tests_1_1_feature_1_1_example_test__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_tests_1_1_feature_1_1_example_test_1a80881c86e557ca6508b2eb0cbe6a2744">test_the_application_returns_a_successful_response</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_tests_1_1_feature_1_1_example_test_1a80881c86e557ca6508b2eb0cbe6a2744"/><section>
+    <title>test_the_application_returns_a_successful_response()</title>
+<indexterm><primary>test_the_application_returns_a_successful_response</primary><secondary>ExampleTest</secondary></indexterm>
+<indexterm><primary>ExampleTest</primary><secondary>test_the_application_returns_a_successful_response</secondary></indexterm>
+<para><computeroutput>test_the_application_returns_a_successful_response ( )</computeroutput></para>
+<para>A basic test example. </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+tests/Feature/<link linkend="__feature_2_example_test_8php">ExampleTest.php</link></section>
+</section>

@@ -1,0 +1,328 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g" xml:lang="fr">
+<title>Release history</title>
+<indexterm><primary>Release history</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md201"/> All notable changes to this project will be documented in this file.</para>
+
+<para>The format is based on <link xlink:href="http://keepachangelog.com/en/1.0.0/">Keep a Changelog</link> and this project adheres to <link xlink:href="http://semver.org/spec/v2.0.0.html">Semantic Versioning</link>.</para>
+
+<para>
+<para><emphasis role="bold"><emphasis role="bold">Guiding Principles</emphasis></emphasis></para><para>
+<para></para>
+
+<para><itemizedlist>
+<listitem>
+<para>Changelogs are for humans, not machines.</para>
+</listitem><listitem>
+<para>There should be an entry for every single version.</para>
+</listitem><listitem>
+<para>The same types of changes should be grouped.</para>
+</listitem><listitem>
+<para>Versions and sections should be linkable.</para>
+</listitem><listitem>
+<para>The latest version comes first.</para>
+</listitem><listitem>
+<para>The release date of each versions is displayed.</para>
+</listitem><listitem>
+<para>Mention whether you follow Semantic Versioning.</para>
+</listitem></itemizedlist>
+</para>
+
+<para></para>
+</para>
+</para>
+
+<para>
+<para><emphasis role="bold"><emphasis role="bold">Types of changes</emphasis></emphasis></para><para>
+<para></para>
+
+<para>Changelog entries are classified using the following labels _(from <link xlink:href="http://keepachangelog.com/">keep-a-changelog</link>_):</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>Added</computeroutput> for new features.</para>
+</listitem><listitem>
+<para><computeroutput>Changed</computeroutput> for changes in existing functionality.</para>
+</listitem><listitem>
+<para><computeroutput>Deprecated</computeroutput> for soon-to-be removed features.</para>
+</listitem><listitem>
+<para><computeroutput>Removed</computeroutput> for now removed features.</para>
+</listitem><listitem>
+<para><computeroutput>Fixed</computeroutput> for any bug fixes.</para>
+</listitem><listitem>
+<para><computeroutput>Security</computeroutput> in case of vulnerabilities.</para>
+</listitem></itemizedlist>
+</para>
+
+<para></para>
+</para>
+</para>
+<section xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md202">
+<title><title>[3.0.0] - 2018-04-08</title></title>
+
+<para>v3.0 is a complete refactor, resulting in a faster, smaller codebase, with fewer deps, and a more accurate parser and compiler.</para>
+
+<para><emphasis role="bold">Breaking Changes</emphasis></para>
+
+<para><itemizedlist>
+<listitem>
+<para>The undocumented <computeroutput>.makeRe</computeroutput> method was removed</para>
+</listitem></itemizedlist>
+</para>
+
+<para><emphasis role="bold">Non-breaking changes</emphasis></para>
+
+<para><itemizedlist>
+<listitem>
+<para>Caching was removed</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md203">
+<title><title><link xlink:href="https://github.com/micromatch/braces/compare/2.3.1...2.3.2">2.3.2</link> - 2018-04-08</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>start refactoring</para>
+</listitem><listitem>
+<para>cover sets</para>
+</listitem><listitem>
+<para>better range handling</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md204">
+<title><title><link xlink:href="https://github.com/micromatch/braces/compare/2.3.0...2.3.1">2.3.1</link> - 2018-02-17</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Remove unnecessary escape in Regex. (#14)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md205">
+<title><title><link xlink:href="https://github.com/micromatch/braces/compare/2.2.1...2.3.0">2.3.0</link> - 2017-10-19</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>minor code reorganization</para>
+</listitem><listitem>
+<para>optimize regex</para>
+</listitem><listitem>
+<para>expose <computeroutput>maxLength</computeroutput> option</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md206">
+<title><title><link xlink:href="https://github.com/micromatch/braces/compare/2.2.0...2.2.1">2.2.1</link> - 2017-05-30</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>don&apos;t condense when braces contain extglobs</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md207">
+<title><title><link xlink:href="https://github.com/micromatch/braces/compare/2.1.1...2.2.0">2.2.0</link> - 2017-05-28</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>ensure word boundaries are preserved</para>
+</listitem><listitem>
+<para>fixes edge case where extglob characters precede a brace pattern</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md208">
+<title><title><link xlink:href="https://github.com/micromatch/braces/compare/2.1.0...2.1.1">2.1.1</link> - 2017-04-27</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>use snapdragon-node</para>
+</listitem><listitem>
+<para>handle edge case</para>
+</listitem><listitem>
+<para>optimizations, lint</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md209">
+<title><title><link xlink:href="https://github.com/micromatch/braces/compare/2.0.3...2.0.4">2.0.4</link> - 2017-04-11</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>pass opts to compiler</para>
+</listitem><listitem>
+<para>minor optimization in create method</para>
+</listitem><listitem>
+<para>re-write parser handlers to remove negation regex</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md210">
+<title><title><link xlink:href="https://github.com/micromatch/braces/compare/2.0.2...2.0.3">2.0.3</link> - 2016-12-10</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>use split-string</para>
+</listitem><listitem>
+<para>clear queue at the end</para>
+</listitem><listitem>
+<para>adds sequences example</para>
+</listitem><listitem>
+<para>add unit tests</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md211">
+<title><title><link xlink:href="https://github.com/micromatch/braces/compare/2.0.1...2.0.2">2.0.2</link> - 2016-10-21</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>fix comma handling in nested extglobs</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md212">
+<title><title><link xlink:href="https://github.com/micromatch/braces/compare/2.0.0...2.0.1">2.0.1</link> - 2016-10-20</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>add comments</para>
+</listitem><listitem>
+<para>more tests, ensure quotes are stripped</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md213">
+<title><title><link xlink:href="https://github.com/micromatch/braces/compare/1.8.5...2.0.0">2.0.0</link> - 2016-10-19</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>don&apos;t expand braces inside character classes</para>
+</listitem><listitem>
+<para>add quantifier pattern</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md214">
+<title><title><link xlink:href="https://github.com/micromatch/braces/compare/1.8.4...1.8.5">1.8.5</link> - 2016-05-21</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Refactor (#10)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md215">
+<title><title><link xlink:href="https://github.com/micromatch/braces/compare/1.8.0...1.8.4">1.8.4</link> - 2016-04-20</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>fixes <link xlink:href="https://github.com/jonschlinkert/micromatch/issues/66">https://github.com/jonschlinkert/micromatch/issues/66</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md216">
+<title><title><link xlink:href="https://github.com/micromatch/braces/compare/1.6.0...1.8.0">1.8.0</link> - 2015-03-18</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>adds exponent examples, tests</para>
+</listitem><listitem>
+<para>fixes the first example in <link xlink:href="https://github.com/jonschlinkert/micromatch/issues/38">https://github.com/jonschlinkert/micromatch/issues/38</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md217">
+<title><title><link xlink:href="https://github.com/micromatch/braces/compare/1.5.0...1.6.0">1.6.0</link> - 2015-01-30</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>optimizations, <computeroutput>bash</computeroutput> mode:</para>
+</listitem><listitem>
+<para>improve path escaping</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md218">
+<title><title><link xlink:href="https://github.com/micromatch/braces/compare/1.4.0...1.5.0">1.5.0</link> - 2015-01-28</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Merge pull request #5 from eush77/lib-files</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md219">
+<title><title><link xlink:href="https://github.com/micromatch/braces/compare/1.3.0...1.4.0">1.4.0</link> - 2015-01-24</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>add extglob tests</para>
+</listitem><listitem>
+<para>externalize exponent function</para>
+</listitem><listitem>
+<para>better whitespace handling</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md220">
+<title><title><link xlink:href="https://github.com/micromatch/braces/compare/1.2.0...1.3.0">1.3.0</link> - 2015-01-24</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>make regex patterns explicity</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md221">
+<title><title><link xlink:href="https://github.com/micromatch/braces/compare/1.0.0...1.1.0">1.1.0</link> - 2015-01-11</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>don&apos;t create a match group with <computeroutput>makeRe</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md222">
+<title><title><link xlink:href="https://github.com/micromatch/braces/compare/0.1.4...1.0.0">1.0.0</link> - 2014-12-23</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Merge commit &apos;97b05f5544f8348736a8efaecf5c32bbe3e2ad6e&apos;</para>
+</listitem><listitem>
+<para>support empty brace syntax</para>
+</listitem><listitem>
+<para>better bash coverage</para>
+</listitem><listitem>
+<para>better support for regex strings</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md223">
+<title><title><link xlink:href="https://github.com/micromatch/braces/compare/0.1.0...0.1.4">0.1.4</link> - 2014-11-14</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>improve recognition of bad args, recognize mismatched argument types</para>
+</listitem><listitem>
+<para>support escaping</para>
+</listitem><listitem>
+<para>remove pathname-expansion</para>
+</listitem><listitem>
+<para>support whitespace in patterns</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2braces_2_c_h_a_n_g_e_l_o_g_1autotoc_md224">
+<title><title>[0.1.0]</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>first commit </para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>

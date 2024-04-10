@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_866c95f79684819d4fd363c9f553ca78" xml:lang="fr">
+<title>Répertoire de référence de node_modules/@esbuild/darwin-arm64</title>
+<indexterm><primary>Répertoire de référence de node_modules/@esbuild/darwin-arm64</primary></indexterm>
+Graphe des dépendances de répertoires pour darwin-arm64:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_866c95f79684819d4fd363c9f553ca78_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>

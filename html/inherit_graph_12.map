@@ -1,0 +1,7 @@
+<map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,31,80,56"/>
+<area shape="rect" id="Node000001" href="$class_create_lieux_table.html" title=" " alt="" coords="130,5,253,31"/>
+<area shape="poly" id="edge37_Node000000_Node000001" title=" " alt="" coords="94,32,129,26,130,31,95,37"/>
+<area shape="rect" id="Node000002" href="$class_create_salles_table.html" title=" " alt="" coords="128,55,255,80"/>
+<area shape="poly" id="edge38_Node000000_Node000002" title=" " alt="" coords="95,49,128,55,127,60,94,55"/>
+</map>

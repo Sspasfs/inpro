@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_27ba1f74dc73f44d4e9ca42f2dd266ec" xml:lang="fr">
+<title>Répertoire de référence de app/Http/Controllers</title>
+<indexterm><primary>Répertoire de référence de app/Http/Controllers</primary></indexterm>
+Graphe des dépendances de répertoires pour Controllers:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_27ba1f74dc73f44d4e9ca42f2dd266ec_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fichiers    </title>
+        <itemizedlist>
+            <listitem><para>fichier <link linkend="__category_controller_8php">CategoryController.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__controller_8php">Controller.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__home_controller_8php">HomeController.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__inventaire_controller_8php">InventaireController.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__lieux_controller_8php">LieuxController.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__personnel_controller_8php">PersonnelController.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__produits_controller_8php">ProduitsController.php</link></para>
+</listitem>
+            <listitem><para>fichier <link linkend="__user_controller_8php">UserController.php</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

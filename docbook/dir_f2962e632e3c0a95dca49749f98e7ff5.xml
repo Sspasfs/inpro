@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_f2962e632e3c0a95dca49749f98e7ff5" xml:lang="fr">
+<title>Répertoire de référence de node_modules/glob-parent</title>
+<indexterm><primary>Répertoire de référence de node_modules/glob-parent</primary></indexterm>
+Graphe des dépendances de répertoires pour glob-parent:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_f2962e632e3c0a95dca49749f98e7ff5_dep.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>

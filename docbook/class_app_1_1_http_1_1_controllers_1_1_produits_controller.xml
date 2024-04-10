@@ -1,0 +1,253 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_app_1_1_http_1_1_controllers_1_1_produits_controller" xml:lang="fr">
+<title>Référence de la classe ProduitsController</title>
+<indexterm><primary>ProduitsController</primary></indexterm>
+Graphe d&apos;héritage de ProduitsController:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_http_1_1_controllers_1_1_produits_controller__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de ProduitsController:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_app_1_1_http_1_1_controllers_1_1_produits_controller__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_controllers_1_1_produits_controller_1a149eb92716c1084a935e04a8d95f7347">index</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_controllers_1_1_produits_controller_1a435e7d7525d4bcd0ed5e34a469f3adf6">create</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_controllers_1_1_produits_controller_1a9ef485163104597c12185b53cdacf638">store</link> (Request $request)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_controllers_1_1_produits_controller_1aa1084dca2023d0205f4d383a4fa3276d">show</link> (string $id)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_controllers_1_1_produits_controller_1a770dc774eb0c503adc8523130d7872a9">edit</link> (string $id)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_controllers_1_1_produits_controller_1affb03cc19897a1800a0f411264d6c7cc">update</link> (Request $request, $id)</para>
+</listitem>
+            <listitem><para><link linkend="_class_app_1_1_http_1_1_controllers_1_1_produits_controller_1a726fa8a4b4b187b9ca32ba427aac8137">destroy</link> ($id)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Contrôleur gérant les opérations liées aux produits. </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_app_1_1_http_1_1_controllers_1_1_produits_controller_1a435e7d7525d4bcd0ed5e34a469f3adf6"/><section>
+    <title>create()</title>
+<indexterm><primary>create</primary><secondary>ProduitsController</secondary></indexterm>
+<indexterm><primary>ProduitsController</primary><secondary>create</secondary></indexterm>
+<para><computeroutput>create ( )</computeroutput></para>
+<para>Afficher le formulaire de création d&apos;un nouveau produit.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>\Illuminate\Contracts\View\View Vue contenant le formulaire de création. </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_app_1_1_http_1_1_controllers_1_1_produits_controller_1a726fa8a4b4b187b9ca32ba427aac8137"/><section>
+    <title>destroy()</title>
+<indexterm><primary>destroy</primary><secondary>ProduitsController</secondary></indexterm>
+<indexterm><primary>ProduitsController</primary><secondary>destroy</secondary></indexterm>
+<para><computeroutput>destroy ( $id)</computeroutput></para>
+<para>Supprimer un produit de la base de données.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$id</entry><entry>
+<para>Identifiant du produit. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>\Illuminate\Http\RedirectResponse </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_app_1_1_http_1_1_controllers_1_1_produits_controller_1a770dc774eb0c503adc8523130d7872a9"/><section>
+    <title>edit()</title>
+<indexterm><primary>edit</primary><secondary>ProduitsController</secondary></indexterm>
+<indexterm><primary>ProduitsController</primary><secondary>edit</secondary></indexterm>
+<para><computeroutput>edit (string $id)</computeroutput></para>
+<para>Afficher le formulaire d&apos;édition d&apos;un produit.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$id</entry><entry>
+<para>Identifiant du produit. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>\Illuminate\Contracts\View\View Vue contenant le formulaire d&apos;édition. </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_app_1_1_http_1_1_controllers_1_1_produits_controller_1a149eb92716c1084a935e04a8d95f7347"/><section>
+    <title>index()</title>
+<indexterm><primary>index</primary><secondary>ProduitsController</secondary></indexterm>
+<indexterm><primary>ProduitsController</primary><secondary>index</secondary></indexterm>
+<para><computeroutput>index ( )</computeroutput></para>
+<para>Afficher la liste des produits.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>\Illuminate\Contracts\View\View Vue contenant la liste des produits. </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_app_1_1_http_1_1_controllers_1_1_produits_controller_1aa1084dca2023d0205f4d383a4fa3276d"/><section>
+    <title>show()</title>
+<indexterm><primary>show</primary><secondary>ProduitsController</secondary></indexterm>
+<indexterm><primary>ProduitsController</primary><secondary>show</secondary></indexterm>
+<para><computeroutput>show (string $id)</computeroutput></para>
+<para>Afficher les détails d&apos;un produit.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$id</entry><entry>
+<para>Identifiant du produit. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>\Illuminate\Contracts\View\View Vue contenant les détails du produit. </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_app_1_1_http_1_1_controllers_1_1_produits_controller_1a9ef485163104597c12185b53cdacf638"/><section>
+    <title>store()</title>
+<indexterm><primary>store</primary><secondary>ProduitsController</secondary></indexterm>
+<indexterm><primary>ProduitsController</primary><secondary>store</secondary></indexterm>
+<para><computeroutput>store (Request $request)</computeroutput></para>
+<para>Enregistrer un nouveau produit dans la base de données.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>\Illuminate\Http\Request</entry><entry>$request</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>\Illuminate\Http\RedirectResponse </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_app_1_1_http_1_1_controllers_1_1_produits_controller_1affb03cc19897a1800a0f411264d6c7cc"/><section>
+    <title>update()</title>
+<indexterm><primary>update</primary><secondary>ProduitsController</secondary></indexterm>
+<indexterm><primary>ProduitsController</primary><secondary>update</secondary></indexterm>
+<para><computeroutput>update (Request $request,  $id)</computeroutput></para>
+<para>Mettre à jour un produit dans la base de données.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>\Illuminate\Http\Request</entry><entry>$request</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$id</entry><entry>
+<para>Identifiant du produit. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>\Illuminate\Http\RedirectResponse </para>
+</formalpara>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+app/Http/Controllers/<link linkend="__produits_controller_8php">ProduitsController.php</link></section>
+</section>

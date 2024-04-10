@@ -1,0 +1,533 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g" xml:lang="fr">
+<title>Change Log</title>
+<indexterm><primary>Change Log</primary></indexterm>
+
+<para><anchor xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md776"/> </para>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md777">
+<title><title>1.0.2</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add types for path imports (<link xlink:href="https://github.com/7rulnik/source-map-js/pull/13">#13</link>) <link xlink:href="https://github.com/TrySound">@TrySound</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md778">
+<title><title>1.0.1</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Remove cleanComments optimization (<link xlink:href="https://github.com/7rulnik/source-map-js/pull/10">#10</link>) <link xlink:href="https://github.com/ai">@ai</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md779">
+<title><title>1.0.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fix package.json::typings field (<link xlink:href="https://github.com/7rulnik/source-map-js/pull/6">#6</link>) <link xlink:href="https://github.com/chalkygames123">@chalkygames123</link></para>
+</listitem><listitem>
+<para>Reduce memory usage of eachMapping w/ loop (<link xlink:href="https://github.com/7rulnik/source-map-js/pull/5">#5</link>) <link xlink:href="https://github.com/noppa">@noppa</link></para>
+</listitem><listitem>
+<para>Reduce npm package size (<link xlink:href="https://github.com/7rulnik/source-map-js/pull/7">#7</link>) <link xlink:href="https://github.com/ai">@ai</link></para>
+</listitem></itemizedlist>
+</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+ </para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md781">
+<title><title>It doesn&apos;t related to this fork:</title></title>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md782">
+<title><title>0.5.6</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fix for regression when people were using numbers as names in source maps. See #236.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md783">
+<title><title>0.5.5</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fix &quot;regression&quot; of unsupported, implementation behavior that half the world happens to have come to depend on. See #235.</para>
+</listitem><listitem>
+<para>Fix regression involving function hoisting in SpiderMonkey. See #233.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md784">
+<title><title>0.5.4</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Large performance improvements to source-map serialization. See #228 and #229.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md785">
+<title><title>0.5.3</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Do not include unnecessary distribution files. See commit ef7006f8d1647e0a83fdc60f04f5a7ca54886f86.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md786">
+<title><title>0.5.2</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Include browser distributions of the library in package.json&apos;s <computeroutput>files</computeroutput>. See issue #212.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md787">
+<title><title>0.5.1</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fix latent bugs in IndexedSourceMapConsumer.prototype._parseMappings. See ff05274becc9e6e1295ed60f3ea090d31d843379.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md788">
+<title><title>0.5.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Node 0.8 is no longer supported.</para>
+</listitem><listitem>
+<para>Use webpack instead of dryice for bundling.</para>
+</listitem><listitem>
+<para>Big speedups serializing source maps. See pull request #203.</para>
+</listitem><listitem>
+<para>Fix a bug with <computeroutput>SourceMapConsumer.prototype.sourceContentFor</computeroutput> and sources that explicitly start with the source root. See issue #199.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md789">
+<title><title>0.4.4</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fix an issue where using a <computeroutput>SourceMapGenerator</computeroutput> after having created a <computeroutput>SourceMapConsumer</computeroutput> from it via <computeroutput>SourceMapConsumer.fromSourceMap</computeroutput> failed. See issue #191.</para>
+</listitem><listitem>
+<para>Fix an issue with where <computeroutput>SourceMapGenerator</computeroutput> would mistakenly consider different mappings as duplicates of each other and avoid generating them. See issue #192.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md790">
+<title><title>0.4.3</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>A very large number of performance improvements, particularly when parsing source maps. Collectively about 75% of time shaved off of the source map parsing benchmark!</para>
+</listitem><listitem>
+<para>Fix a bug in <computeroutput>SourceMapConsumer.prototype.allGeneratedPositionsFor</computeroutput> and fuzzy searching in the presence of a column option. See issue #177.</para>
+</listitem><listitem>
+<para>Fix a bug with joining a source and its source root when the source is above the root. See issue #182.</para>
+</listitem><listitem>
+<para>Add the <computeroutput>SourceMapConsumer.prototype.hasContentsOfAllSources</computeroutput> method to determine when all sources&apos; contents are inlined into the source map. See issue #190.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md791">
+<title><title>0.4.2</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add an <computeroutput>.npmignore</computeroutput> file so that the benchmarks aren&apos;t pulled down by dependent projects. Issue #169.</para>
+</listitem><listitem>
+<para>Add an optional <computeroutput>column</computeroutput> argument to <computeroutput>SourceMapConsumer.prototype.allGeneratedPositionsFor</computeroutput> and better handle lines with no mappings. Issues #172 and #173.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md792">
+<title><title>0.4.1</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fix accidentally defining a global variable. #170.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md793">
+<title><title>0.4.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>The default direction for fuzzy searching was changed back to its original direction. See #164.</para>
+</listitem><listitem>
+<para>There is now a <computeroutput>bias</computeroutput> option you can supply to <computeroutput>SourceMapConsumer</computeroutput> to control the fuzzy searching direction. See #167.</para>
+</listitem><listitem>
+<para>About an 8% speed up in parsing source maps. See #159.</para>
+</listitem><listitem>
+<para>Added a benchmark for parsing and generating source maps.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md794">
+<title><title>0.3.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Change the default direction that searching for positions fuzzes when there is not an exact match. See #154.</para>
+</listitem><listitem>
+<para>Support for environments using json2.js for JSON serialization. See #156.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md795">
+<title><title>0.2.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Support for consuming &quot;indexed&quot; source maps which do not have any remote sections. See pull request #127. This introduces a minor backwards incompatibility if you are monkey patching <computeroutput>SourceMapConsumer.prototype</computeroutput> methods.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md796">
+<title><title>0.1.43</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Performance improvements for <computeroutput>SourceMapGenerator</computeroutput> and <computeroutput>SourceNode</computeroutput>. See issue #148 for some discussion and issues #150, #151, and #152 for implementations.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md797">
+<title><title>0.1.42</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fix an issue where <computeroutput>SourceNode</computeroutput>s from different versions of the source-map library couldn&apos;t be used in conjunction with each other. See issue #142.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md798">
+<title><title>0.1.41</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fix a bug with getting the source content of relative sources with a &quot;./&quot; prefix. See issue #145 and <link xlink:href="bugzil.la/1090768">Bug 1090768</link>.</para>
+</listitem><listitem>
+<para>Add the <computeroutput>SourceMapConsumer.prototype.computeColumnSpans</computeroutput> method to compute the column span of each mapping.</para>
+</listitem><listitem>
+<para>Add the <computeroutput>SourceMapConsumer.prototype.allGeneratedPositionsFor</computeroutput> method to find all generated positions associated with a given original source and line.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md799">
+<title><title>0.1.40</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Performance improvements for parsing source maps in SourceMapConsumer.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md800">
+<title><title>0.1.39</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fix a bug where setting a source&apos;s contents to null before any source content had been set before threw a TypeError. See issue #131.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md801">
+<title><title>0.1.38</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fix a bug where finding relative paths from an empty path were creating absolute paths. See issue #129.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md802">
+<title><title>0.1.37</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fix a bug where if the source root was an empty string, relative source paths would turn into absolute source paths. Issue #124.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md803">
+<title><title>0.1.36</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Allow the <computeroutput>names</computeroutput> mapping property to be an empty string. Issue #121.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md804">
+<title><title>0.1.35</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>A third optional parameter was added to <computeroutput>SourceNode.fromStringWithSourceMap</computeroutput> to specify a path that relative sources in the second parameter should be relative to. Issue #105.</para>
+</listitem><listitem>
+<para>If no file property is given to a <computeroutput>SourceMapGenerator</computeroutput>, then the resulting source map will no longer have a <computeroutput>null</computeroutput> file property. The property will simply not exist. Issue #104.</para>
+</listitem><listitem>
+<para>Fixed a bug where consecutive newlines were ignored in <computeroutput>SourceNode</computeroutput>s. Issue #116.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md805">
+<title><title>0.1.34</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Make <computeroutput>SourceNode</computeroutput> work with windows style (&quot;\r\n&quot;) newlines. Issue #103.</para>
+</listitem><listitem>
+<para>Fix bug involving source contents and the <computeroutput>SourceMapGenerator.prototype.applySourceMap</computeroutput>. Issue #100.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md806">
+<title><title>0.1.33</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fix some edge cases surrounding path joining and URL resolution.</para>
+</listitem><listitem>
+<para>Add a third parameter for relative path to <computeroutput>SourceMapGenerator.prototype.applySourceMap</computeroutput>.</para>
+</listitem><listitem>
+<para>Fix issues with mappings and EOLs.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md807">
+<title><title>0.1.32</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed a bug where SourceMapConsumer couldn&apos;t handle negative relative columns (issue 92).</para>
+</listitem><listitem>
+<para>Fixed test runner to actually report number of failed tests as its process exit code.</para>
+</listitem><listitem>
+<para>Fixed a typo when reporting bad mappings (issue 87).</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md808">
+<title><title>0.1.31</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Delay parsing the mappings in SourceMapConsumer until queried for a source location.</para>
+</listitem><listitem>
+<para>Support Sass source maps (which at the time of writing deviate from the spec in small ways) in SourceMapConsumer.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md809">
+<title><title>0.1.30</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Do not join source root with a source, when the source is a data URI.</para>
+</listitem><listitem>
+<para>Extend the test runner to allow running single specific test files at a time.</para>
+</listitem><listitem>
+<para>Performance improvements in <computeroutput>SourceNode.prototype.walk</computeroutput> and <computeroutput>SourceMapConsumer.prototype.eachMapping</computeroutput>.</para>
+</listitem><listitem>
+<para>Source map browser builds will now work inside Workers.</para>
+</listitem><listitem>
+<para>Better error messages when attempting to add an invalid mapping to a <computeroutput>SourceMapGenerator</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md810">
+<title><title>0.1.29</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Allow duplicate entries in the <computeroutput>names</computeroutput> and <computeroutput>sources</computeroutput> arrays of source maps (usually from TypeScript) we are parsing. Fixes github issue 72.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md811">
+<title><title>0.1.28</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Skip duplicate mappings when creating source maps from SourceNode; github issue 75.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md812">
+<title><title>0.1.27</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Don&apos;t throw an error when the <computeroutput>file</computeroutput> property is missing in SourceMapConsumer, we don&apos;t use it anyway.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md813">
+<title><title>0.1.26</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fix SourceNode.fromStringWithSourceMap for empty maps. Fixes github issue 70.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md814">
+<title><title>0.1.25</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Make compatible with browserify</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md815">
+<title><title>0.1.24</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fix issue with absolute paths and <computeroutput><link xlink:href="file://">file://</link></computeroutput> URIs. See <link xlink:href="https://bugzilla.mozilla.org/show_bug.cgi?id=885597">https://bugzilla.mozilla.org/show_bug.cgi?id=885597</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md816">
+<title><title>0.1.23</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fix issue with absolute paths and sourcesContent, github issue 64.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md817">
+<title><title>0.1.22</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Ignore duplicate mappings in SourceMapGenerator. Fixes github issue 21.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md818">
+<title><title>0.1.21</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed handling of sources that start with a slash so that they are relative to the source root&apos;s host.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md819">
+<title><title>0.1.20</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed github issue #43: absolute URLs aren&apos;t joined with the source root anymore.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md820">
+<title><title>0.1.19</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Using Travis CI to run tests.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md821">
+<title><title>0.1.18</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed a bug in the handling of sourceRoot.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md822">
+<title><title>0.1.17</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added SourceNode.fromStringWithSourceMap.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md823">
+<title><title>0.1.16</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added missing documentation.</para>
+</listitem><listitem>
+<para>Fixed the generating of empty mappings in SourceNode.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md824">
+<title><title>0.1.15</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added SourceMapGenerator.applySourceMap.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md825">
+<title><title>0.1.14</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>The sourceRoot is now handled consistently.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md826">
+<title><title>0.1.13</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added SourceMapGenerator.fromSourceMap.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md827">
+<title><title>0.1.12</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>SourceNode now generates empty mappings too.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md828">
+<title><title>0.1.11</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added name support to SourceNode.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_node__modules_2source-map-js_2_c_h_a_n_g_e_l_o_g_1autotoc_md829">
+<title><title>0.1.10</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added sourcesContent support to the customer and generator. </para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+</section>

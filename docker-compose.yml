@@ -1,0 +1,73 @@
+version: "3"
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: app-nginx
+    working_dir: /var/www
+    restart: always
+    ports:
+      - "8082:80"
+    depends_on:
+      - app
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./:/var/www/
+      - ./nginx/logs:/var/log/nginx/
+    networks:
+      - app
+
+  app:
+    build:
+     context: .
+     dockerfile: Dockerfile
+    container_name: app
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www/
+    networks:
+      - app
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:latest
+    container_name: app-mysql
+    restart: always
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: "InPro"
+    volumes:
+      - dbData:/var/lib/mysql
+    ports:
+      - "33061:3306"
+    networks:
+      - app
+
+  phpmyadmin:
+    depends_on:
+      - mysql
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8081:80
+    environment:
+      PMA_HOST: mysql
+    networks:
+      - app
+
+  node:
+    container_name: node
+    image: node:lts
+    working_dir: /var/www
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./:/var/www
+    entrypoint: ['npm', 'run', 'dev', 'vite']
+
+networks:
+  app:
+    driver: bridge
+
+volumes:
+  dbData:

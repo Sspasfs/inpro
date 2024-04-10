@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__personnel_8php" xml:lang="fr">
+<title>Référence du fichier app/Models/Personnel.php</title>
+<indexterm><primary>app/Models/Personnel.php</primary></indexterm>
+<simplesect>
+    <title>Structures de données    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_app_1_1_models_1_1_personnel">Personnel</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Espaces de nommage    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_app_1_1_models">App\Models</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_app">App</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

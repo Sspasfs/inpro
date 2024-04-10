@@ -1,0 +1,7 @@
+<map id="Produits" name="Produits">
+<area shape="rect" id="Node000001" title=" " alt="" coords="30,134,98,199"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,53,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="44,84,58,133,53,135,39,85"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="77,5,123,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="94,71,80,118,75,117,89,70"/>
+</map>
