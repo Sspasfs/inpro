@@ -25,13 +25,11 @@ InPro est une application de gestion d'inventaire développée avec le framework
 ## Installation
 
 1. Clonez le dépôt : `git clone <URL_DU_DEPOT>`
-2. Installez les dépendances PHP : `composer install`
-3. Installez les dépendances JavaScript : `npm install`
-4. Copiez le fichier `.env.example` en `.env` : `cp .env.example .env`
-5. Générez la clé d'application : `php artisan key:generate`
-6. Configurez votre base de données dans le fichier `.env`
-7. Effectuez les migrations de la base de données : `php artisan migrate`
-8. Démarrez le serveur de développement : `php artisan serve`
+2. Installer PHP, MySQL et GIT
+3. Rendez-vous dans les fichiers du projet
+4. Lancer le script "start.sh" avec GIT
+5. Vous devriez voir le processus se lancer
+6. Rendez-vous ensuite sur le site 'http://127.0.0.1:8000'
 
 ## Note importante
 
