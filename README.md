@@ -36,6 +36,7 @@ InPro est une application de gestion d'inventaire développée avec le framework
 ## Note importante
 
 - Un fichier ".env" est déjà présent sur le projet afin de faciliter l'installation, vous pouvez le modifier en fonction de votre configuration avec MySQL et PHP
+- Vous avez également un accès GLPI avec les identifiants (test_exam, mot de passe: test)
 
 ## Utilisation
 
