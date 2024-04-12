@@ -3,10 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Database\Seeders\ProduitsSeeder;
-use Database\Seeders\PersonnelTableSeeder;
-
-
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,6 +18,10 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call(CategorySeeder::class);
+        $this->call(PersonnelTableSeeder::class);
+        $this->call(LieuxSeeder::class);
+        $this->call(SallesSeeder::class);
+        $this->call(ProduitsTableSeeder::class);
         
     }
 }

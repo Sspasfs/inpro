@@ -1,7 +1,0 @@
-<map id="LieuxController" name="LieuxController">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,232,179,432"/>
-<area shape="rect" id="Node000002" href="$class_app_1_1_http_1_1_controllers_1_1_controller.html" title=" " alt="" coords="57,119,127,184"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,199,95,232,89,232,89,199"/>
-<area shape="rect" id="Node000003" href="$class_base_controller.html" title=" " alt="" coords="43,5,141,71"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,85,95,119,89,119,89,85"/>
-</map>
